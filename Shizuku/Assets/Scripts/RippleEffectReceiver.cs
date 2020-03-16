@@ -3,46 +3,60 @@
 public class RippleEffectReceiver : MonoBehaviour
 {
     Material material;
+    const int rippleCount = 2;
 
-    Color rippleColor;
-    float rippleSpreadSpeed;
-    float rippleRadius = 0;
-    float maxRippleRadius;
-    bool isSpreading = false;
+    Color[] rippleColor;
+    float[] rippleSpreadSpeed;
+    float[] rippleRadius;
+    float[] maxRippleRadius;
+    bool[] isSpreading;
 
 
     void Start()
     {
         material = GetComponent<Renderer>().material;
+
+        rippleColor = new Color[rippleCount];
+        rippleSpreadSpeed = new float[rippleCount];
+        rippleRadius = new float[rippleCount];
+        maxRippleRadius = new float[rippleCount];
+        isSpreading = new bool[rippleCount];
     }
 
     void Update()
     {
-        if (isSpreading)
+        for (int i = 0; i < rippleCount; ++i)
         {
-            rippleRadius += rippleSpreadSpeed * Time.deltaTime;
-            material.SetFloat("_RippleRadius", rippleRadius);
-
-            if(rippleRadius >= maxRippleRadius)
+            if (isSpreading[i])
             {
-                isSpreading = false;
-                material.SetColor("_BGColor", rippleColor);
+                rippleRadius[i] += rippleSpreadSpeed[i] * Time.deltaTime;
+                material.SetFloat("_RippleRadius" + (i + 1), rippleRadius[i]);
+
+                if (rippleRadius[i] >= maxRippleRadius[i])
+                {
+                    isSpreading[i] = false;
+                    material.SetColor("_BGColor", rippleColor[i]);
+                }
             }
         }
     }
 
     public void ApplyEffect(Vector3 contactPoint, Color rippleColor, float spreadSpeed)
     {
-        if (!isSpreading && !(rippleColor == this.rippleColor))
+        for(int i = 0; i < rippleCount; ++i)
         {
-            material.SetVector("_RippleLocation", contactPoint);
-            material.SetColor("_RippleColor", rippleColor);
+            if(!isSpreading[i])
+            {
+                material.SetVector("_RippleLocation" + (i + 1), contactPoint);
+                material.SetColor("_RippleColor" + (i + 1), rippleColor);
 
-            rippleRadius = 0;
-            maxRippleRadius = GetFarthestVertex(contactPoint);
-            this.rippleColor = rippleColor;
-            rippleSpreadSpeed = spreadSpeed;
-            isSpreading = true;
+                rippleRadius[i] = 0;
+                maxRippleRadius[i] = GetFarthestVertex(contactPoint);
+                this.rippleColor[i] = rippleColor;
+                rippleSpreadSpeed[i] = spreadSpeed;
+                isSpreading[i] = true;
+                break;
+            }
         }
     }
 

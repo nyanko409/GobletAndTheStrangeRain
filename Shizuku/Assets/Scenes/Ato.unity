@@ -346,6 +346,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &1641524337
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.132
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.433
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 523503073927290130, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: rippleSpreadSpeed
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780238659214071540, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: m_Name
+      value: DropletSpawner (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a805f722551f9412e9ba37c476d70553, type: 3}
 --- !u!1001 &1368539998218683368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -485,8 +559,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
-      propertyPath: rippleSpreadSpeed
-      value: 0.5
+      propertyPath: dropletColor.r
+      value: 0.039849162
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: dropletColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: dropletColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: dropletSpeed
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 7780238659214071540, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}

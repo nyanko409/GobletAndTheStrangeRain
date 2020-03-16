@@ -18,6 +18,8 @@ public class Droplet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject, 2F);
+        Destroy(gameObject, 10F);
+        if (other.CompareTag("RippleReceiver"))
+            Destroy(gameObject, 1F);
     }
 }

@@ -19,7 +19,7 @@ public class DropletSpawner : MonoBehaviour
         if(timeTillNextSpawn >= spawnInterval)
         {
             timeTillNextSpawn -= spawnInterval;
-            var go = Instantiate(prefab, transform);
+            var go = Instantiate(prefab, transform.position, transform.rotation);
 
             go.GetComponent<Droplet>().SetSpeed(dropletSpeed);
             go.GetComponent<Droplet>().SetDirection(direction);
