@@ -4,7 +4,10 @@ public class DropletSpawner : MonoBehaviour
 {
     public GameObject prefab;
     public float dropletSpeed = 1F;
+
+    [ColorUsage(false, true)]
     public Color dropletColor = Color.blue;
+
     [Space]
     public Vector3 direction = Vector3.down;
     public float spawnInterval = 2F;
