@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RippleReceiver_Mat
-  m_Shader: {fileID: -6465566751694194690, guid: c85364c706c754964bd8cf18c449902c,
+  m_Shader: {fileID: -6465566751694194690, guid: 48a01f0b54d0944a6bdab61895f70d72,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -75,9 +75,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_2685660F: 1.04
+    - Vector1_3A98C4C2: 0.89
     - Vector1_457CEA86: 0
     - Vector1_52162B0B: 0.73
-    - Vector1_A541A66: 1.23
+    - Vector1_A541A66: 0.58
     - Vector1_B66FFB93: 0.95
     - Vector1_B6C7D5B5: 0.62
     - Vector1_CC17D9D9: 0.48
@@ -98,9 +99,9 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _RippleRadius: 0.62
-    - _RippleRadius1: 0.46
-    - _RippleRadius2: 2.13
-    - _RippleRadius3: 0.71
+    - _RippleRadius1: 0.62
+    - _RippleRadius2: 0
+    - _RippleRadius3: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -112,6 +113,7 @@ Material:
     - Color_271921D9: {r: 1, g: 0, b: 0, a: 0}
     - Color_286C8C9C: {r: 0.007843138, g: 2, b: 0, a: 0}
     - Color_77628817: {r: 1, g: 0, b: 0, a: 1}
+    - Color_892C5E55: {r: 0.08334541, g: 1, b: 0, a: 0}
     - Color_CCAB96FC: {r: 0.7490196, g: 0, b: 0, a: 1}
     - Color_ED5974E3: {r: 0, g: 0.50196075, b: 1, a: 0}
     - Color_FBC577D9: {r: 1, g: 0, b: 0, a: 0}
@@ -119,7 +121,8 @@ Material:
     - Vector3_5126DCF7: {r: -0.33, g: 0, b: 0, a: 0}
     - Vector3_6697CFC4: {r: -1.48, g: 0.17, b: 0, a: 0}
     - Vector3_A7B8FFE5: {r: 0.12, g: 0, b: 0, a: 0}
-    - Vector3_C30F994D: {r: -0.94, g: 0, b: 0, a: 0}
+    - Vector3_C30F994D: {r: -0.04, g: 0, b: 0, a: 0}
+    - Vector3_D96F216F: {r: -0.02, g: 0, b: 0, a: 0}
     - Vector3_EB6F5711: {r: -1.72, g: 0.68, b: 0, a: 0}
     - _BaseColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
@@ -127,11 +130,12 @@ Material:
     - _DropletPosition1: {r: -0.94, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RippleColor: {r: 1.4980392, g: 0, b: 0, a: 0}
-    - _RippleColor1: {r: 1, g: 0, b: 0, a: 0}
+    - _RippleColor1: {r: 0, g: 0.063045494, b: 0.83640355, a: 1}
     - _RippleColor2: {r: 0.8489915, g: 1, b: 0, a: 0}
     - _RippleColor3: {r: 1, g: 0, b: 0, a: 0}
     - _RippleLocation: {r: 0, g: 0, b: 0, a: 0}
-    - _RippleLocation1: {r: 0.02, g: 0, b: 0, a: 0}
+    - _RippleLocation1: {r: -0.04, g: 0, b: 0, a: 0}
     - _RippleLocation2: {r: 0, g: 0, b: 0, a: 0}
     - _RippleLocation3: {r: -0.94, g: 0, b: 0, a: 0}
+    - _RipplePosition3: {r: -0.94, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

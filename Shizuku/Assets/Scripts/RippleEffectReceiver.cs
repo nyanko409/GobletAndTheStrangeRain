@@ -3,25 +3,29 @@
 public class RippleEffectReceiver : MonoBehaviour
 {
     Material material;          // reference to the material
-    const int rippleCount = 2;  // maximum active ripple count
+    const int rippleCount = 3;  // maximum active ripple count
 
     // values for the shader to pass in
+    Vector3[] ripplePosition;
     Color[] rippleColor;      
     float[] rippleSpreadSpeed;
     float[] rippleRadius;
     float[] maxRippleRadius;
     bool[] isSpreading;
+    int[] rippleLayer;
 
 
     void Start()
     {
         material = GetComponent<Renderer>().material;
 
+        ripplePosition = new Vector3[rippleCount];
         rippleColor = new Color[rippleCount];
         rippleSpreadSpeed = new float[rippleCount];
         rippleRadius = new float[rippleCount];
         maxRippleRadius = new float[rippleCount];
         isSpreading = new bool[rippleCount];
+        rippleLayer = new int[rippleCount];
     }
 
     void Update()
@@ -32,16 +36,20 @@ public class RippleEffectReceiver : MonoBehaviour
             if (isSpreading[i])
             {
                 rippleRadius[i] += rippleSpreadSpeed[i] * Time.deltaTime;
-                material.SetFloat("_RippleRadius" + (i + 1), rippleRadius[i]);
+
+                material.SetFloat("_RippleRadius" + rippleLayer[i], rippleRadius[i]);
+                material.SetVector("_RippleLocation" + rippleLayer[i], ripplePosition[i]);
+                material.SetColor("_RippleColor" + rippleLayer[i], rippleColor[i]);
 
                 // ripple finished expanding through the whole mesh
                 if (rippleRadius[i] >= maxRippleRadius[i])
                 {
-                    isSpreading[i] = false;
-                    material.SetColor("_BGColor", rippleColor[i]);
-
                     // set ripple radius forcefully to 0 to prevent overlapping
-                    material.SetFloat("_RippleRadius" + (i + 1), 0);
+                    material.SetFloat("_RippleRadius" + rippleLayer[i], 0);
+                    material.SetColor("_BackgroundColor", rippleColor[i]);
+
+                    rippleLayer[i] = -1;
+                    isSpreading[i] = false;
                 }
             }
         }
@@ -54,14 +62,13 @@ public class RippleEffectReceiver : MonoBehaviour
         {
             if(!isSpreading[i])
             {
-                material.SetVector("_RippleLocation" + (i + 1), contactPoint);
-                material.SetColor("_RippleColor" + (i + 1), rippleColor);
-
                 rippleRadius[i] = 0;
+                ripplePosition[i] = contactPoint;
                 maxRippleRadius[i] = GetFarthestVertex(contactPoint);
                 this.rippleColor[i] = rippleColor;
                 rippleSpreadSpeed[i] = spreadSpeed;
                 isSpreading[i] = true;
+                rippleLayer[i] = GetNextLayer();
                 break;
             }
         }
@@ -87,5 +94,15 @@ public class RippleEffectReceiver : MonoBehaviour
         // sort the array and return the farthest vertex position
         System.Array.Sort(dist);
         return dist[dist.Length - 1];
+    }
+
+    int GetNextLayer()
+    {
+        for(int i = 0; i < rippleCount; ++i)
+        {
+            rippleLayer[i]--;
+        }
+
+        return rippleCount;
     }
 }

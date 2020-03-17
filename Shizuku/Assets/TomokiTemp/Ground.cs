@@ -22,12 +22,14 @@ public class Ground : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             if (groundColor == 0) {
                 groundColor = 1;
-                GetComponent<Renderer>().material.color = Color.blue;
+                //GetComponent<Renderer>().material.color = Color.blue;
+                GetComponent<Renderer>().material.SetColor("_BaseColor", Color.blue);
             }
 
-            if (groundColor == 1) {
+            else if (groundColor == 1) {
                 groundColor = 0;
-                GetComponent<Renderer>().material.color = Color.red;
+                //GetComponent<Renderer>().material.color = Color.red;
+                GetComponent<Renderer>().material.SetColor("_BaseColor", Color.red);
             }
         }
     }
