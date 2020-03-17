@@ -2,10 +2,11 @@
 
 public class RippleEffectReceiver : MonoBehaviour
 {
-    Material material;
-    const int rippleCount = 2;
+    Material material;          // reference to the material
+    const int rippleCount = 2;  // maximum active ripple count
 
-    Color[] rippleColor;
+    // values for the shader to pass in
+    Color[] rippleColor;      
     float[] rippleSpreadSpeed;
     float[] rippleRadius;
     float[] maxRippleRadius;
@@ -25,6 +26,7 @@ public class RippleEffectReceiver : MonoBehaviour
 
     void Update()
     {
+        // update every active ripple
         for (int i = 0; i < rippleCount; ++i)
         {
             if (isSpreading[i])
@@ -32,10 +34,14 @@ public class RippleEffectReceiver : MonoBehaviour
                 rippleRadius[i] += rippleSpreadSpeed[i] * Time.deltaTime;
                 material.SetFloat("_RippleRadius" + (i + 1), rippleRadius[i]);
 
+                // ripple finished expanding through the whole mesh
                 if (rippleRadius[i] >= maxRippleRadius[i])
                 {
                     isSpreading[i] = false;
                     material.SetColor("_BGColor", rippleColor[i]);
+
+                    // set ripple radius forcefully to 0 to prevent overlapping
+                    material.SetFloat("_RippleRadius" + (i + 1), 0);
                 }
             }
         }
@@ -43,6 +49,7 @@ public class RippleEffectReceiver : MonoBehaviour
 
     public void ApplyEffect(Vector3 contactPoint, Color rippleColor, float spreadSpeed)
     {
+        // activate the ripple effect if there is a free space
         for(int i = 0; i < rippleCount; ++i)
         {
             if(!isSpreading[i])
@@ -59,10 +66,10 @@ public class RippleEffectReceiver : MonoBehaviour
             }
         }
     }
-
+    
     float GetFarthestVertex(Vector3 origin)
     {
-        // get every vertex from mesh
+        // get every vertex from mesh (enable read/write in mesh settings!)
         Vector3[] vertices = GetComponent<MeshFilter>().sharedMesh.vertices;
 
         // get the local to world transformation matrix

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1281248933473432408}
   - component: {fileID: 3249375828145652580}
   - component: {fileID: 6773746534031754427}
-  - component: {fileID: 807577064239020862}
   - component: {fileID: 4196714012661054371}
   m_Layer: 0
   m_Name: Droplet
@@ -112,20 +111,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &807577064239020862
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6289224749090763718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29bf8b3e1946e48e1a53a89785e3a00f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  direction: {x: 0, y: -1, z: 0}
 --- !u!114 &4196714012661054371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,4 +123,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975904171da0e4b06a6bee1551196afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rippleColor: {r: 1, g: 0.88115156, b: 0, a: 1}

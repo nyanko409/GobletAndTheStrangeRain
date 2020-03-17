@@ -2,24 +2,22 @@
 
 public class Droplet : MonoBehaviour
 {
-    float speed = 0.5F;
-    Vector3 direction = Vector3.down;
+    float speed;                        // the speed of the droplet
+    Vector3 direction = Vector3.down;   // direction the droplet is falling
 
 
     public void SetSpeed(float speed) => this.speed = speed;
 
     public void SetDirection(Vector3 direction) => this.direction = direction;
 
+    void Start()
+    {
+        Destroy(gameObject, 10F);
+    }
+
     void Update()
     {
         // apply gravity in direction by speed
         transform.position += direction * Time.deltaTime * speed;
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        Destroy(gameObject, 10F);
-        if (other.CompareTag("RippleReceiver"))
-            Destroy(gameObject, 1F);
     }
 }
