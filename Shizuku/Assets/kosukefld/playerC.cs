@@ -59,10 +59,12 @@ public class playerC : MonoBehaviour
     public Text button18Value;
     public Text button19Value;
 
+    // Droplet prefab
+    public GameObject Droplet;
 
-   
+    // DropletAppearance
+    public Transform mainchara;
 
-    
 
     // Start is called before the first frame update
     //void Start()
@@ -110,6 +112,13 @@ public class playerC : MonoBehaviour
         {
             Debug.Log("Ripple");
 
+            // Droplet
+            GameObject Droplets = Instantiate(Droplet) as GameObject;
+
+            Vector3 force;
+
+            // Droplet Adjustment
+            Droplets.transform.position = mainchara.position;
 
         }
     }
