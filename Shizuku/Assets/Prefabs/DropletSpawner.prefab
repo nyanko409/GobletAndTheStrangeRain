@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 523503073927290130}
   - component: {fileID: 6242916664931941807}
-  m_Layer: 0
+  - component: {fileID: 4456780721443930946}
+  m_Layer: 2
   m_Name: DropletSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -46,6 +47,18 @@ MonoBehaviour:
   prefab: {fileID: 6289224749090763718, guid: deff2f12c659b42b6becede2feb46704, type: 3}
   dropletSpeed: 1
   dropletColor: {r: 0, g: 0, b: 1, a: 1}
-  direction: {x: 0, y: -1, z: 0}
   spawnInterval: 2
   rippleSpreadSpeed: 1.8
+--- !u!114 &4456780721443930946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7780238659214071540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8e4ecaf87be4fe88f583eff80665dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3165874257614767286, guid: c524fa6a981ce446abe7ef12ef12e8c6, type: 3}

@@ -9,7 +9,6 @@ public class DropletSpawner : MonoBehaviour
     public Color dropletColor = Color.blue;     // color of the droplet including hdr
 
     [Space]
-    public Vector3 direction = Vector3.down;    // the direction the droplet is falling
     public float spawnInterval = 2F;            // spawn interval in seconds
     public float rippleSpreadSpeed = 0.2F;      // spread speed of the droplet
 
@@ -30,10 +29,10 @@ public class DropletSpawner : MonoBehaviour
             // pass the values to the prefab
             var droplet = go.AddComponent<Droplet>();
             droplet.SetSpeed(dropletSpeed);
-            droplet.SetDirection(direction);
+            droplet.SetDirection(-transform.up);
 
             var provider = go.GetComponent<RippleEffectProvider>();
-            provider.SetDirection(direction);
+            provider.SetDirection(-transform.up);
             provider.SetColor(dropletColor);
             provider.SetRippleSpreadSpeed(rippleSpreadSpeed);
         }

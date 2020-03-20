@@ -16,12 +16,23 @@ public class RippleEffectProvider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        // get the parent
         Transform parent = other.transform.parent;
 
-        // call receiver method if tag did match
+        // if parent is null check the collided object
+        if(!parent && other.transform.CompareTag("RippleReceiver"))
+        {
+            var receiver = other.GetComponent<RippleEffectReceiver>();
+            if (receiver == null)
+                return;
+
+            // apply the effect on receiver
+            receiver.ApplyEffect(transform.position + direction * distFactor, rippleColor, rippleSpreadSpeed);
+        }
+        
+        // else check for parent
         if(parent.CompareTag("RippleReceiver"))
         {
-            // return if receiver component is not found
             var receiver = parent.GetComponent<RippleEffectReceiver>();
             if (receiver == null)
                 return;
