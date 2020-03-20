@@ -32,7 +32,6 @@ public class DropletSpawner : MonoBehaviour
             droplet.SetDirection(-transform.up);
 
             var provider = go.GetComponent<RippleEffectProvider>();
-            provider.SetDirection(-transform.up);
             provider.SetColor(dropletColor);
             provider.SetRippleSpreadSpeed(rippleSpreadSpeed);
         }
