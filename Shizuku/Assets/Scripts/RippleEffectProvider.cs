@@ -19,22 +19,20 @@ public class RippleEffectProvider : MonoBehaviour
         if(!parent && other.transform.CompareTag("RippleReceiver"))
         {
             var receiver = other.GetComponent<RippleEffectReceiver>();
-            if (receiver == null)
-                return;
-        
+
             // apply the effect on receiver
-            receiver.ApplyEffect(transform.position, rippleColor, rippleSpreadSpeed);
+            if (receiver)
+                receiver.ApplyEffect(transform.position, rippleColor, rippleSpreadSpeed);
         }
         
         // else check for parent
         else if(parent.CompareTag("RippleReceiver"))
         {
             var receiver = parent.GetComponent<RippleEffectReceiver>();
-            if (receiver == null)
-                return;
 
             // apply the effect on receiver
-            receiver.ApplyEffect(transform.position, rippleColor, rippleSpreadSpeed);
+            if (receiver)
+                receiver.ApplyEffect(transform.position, rippleColor, rippleSpreadSpeed);
         }
 
         Destroy(gameObject);

@@ -2,17 +2,53 @@
 
 public class RippleEffectReceiver : MonoBehaviour
 {
-    Material material;          // reference to the material
-    const int rippleCount = 3;  // maximum active ripple count
+    [ColorUsage(false, true)] public Color startColor;      // the starting color
 
-    RippleData[] ripples;       // ripple data to pass to the shader
-    
+    Material material;                                      // reference to the material
+    const int rippleCount = 3;                              // maximum active ripple count
+
+    RippleData[] ripples;                                   // ripple data to pass to the shader
+    Color backgroundColor;                                  // current background color of the mesh
+
+
+
+    public void ApplyEffect(Vector3 contactPoint, Color rippleColor, float spreadSpeed)
+    {
+        // activate the ripple effect if there is a free space
+        for (int i = 0; i < rippleCount; ++i)
+        {
+            if (!ripples[i].isSpreading)
+            {
+                ripples[i].rippleRadius = 0;
+                ripples[i].ripplePosition = contactPoint;
+                ripples[i].maxRippleRadius = GetFarthestVertex(contactPoint);
+                ripples[i].rippleColor = rippleColor;
+                ripples[i].rippleSpreadSpeed = spreadSpeed;
+                ripples[i].isSpreading = true;
+                ripples[i].rippleLayer = GetNextLayer();
+                break;
+            }
+        }
+    }
+
+    public RippleData[] GetRippleDatas()
+    {
+        return ripples;
+    }
+
+    public Color GetBackgroundColor()
+    {
+        return backgroundColor;
+    }
+
 
     void Start()
     {
         material = GetComponent<Renderer>().material;
 
         ripples = new RippleData[rippleCount];
+        material.SetColor("_BaseColor", startColor);
+        backgroundColor = startColor;
     }
 
     void Update()
@@ -33,30 +69,12 @@ public class RippleEffectReceiver : MonoBehaviour
                 {
                     // set ripple radius forcefully to 0 to prevent overlapping
                     material.SetFloat("_RippleRadius" + ripples[i].rippleLayer, 0);
-                    material.SetColor("_BackgroundColor", ripples[i].rippleColor);
+                    material.SetColor("_BaseColor", ripples[i].rippleColor);
 
                     ripples[i].rippleLayer = -1;
                     ripples[i].isSpreading = false;
+                    backgroundColor = ripples[i].rippleColor;
                 }
-            }
-        }
-    }
-
-    public void ApplyEffect(Vector3 contactPoint, Color rippleColor, float spreadSpeed)
-    {
-        // activate the ripple effect if there is a free space
-        for(int i = 0; i < rippleCount; ++i)
-        {
-            if(!ripples[i].isSpreading)
-            {
-                ripples[i].rippleRadius = 0;
-                ripples[i].ripplePosition = contactPoint;
-                ripples[i].maxRippleRadius = GetFarthestVertex(contactPoint);
-                ripples[i].rippleColor = rippleColor;
-                ripples[i].rippleSpreadSpeed = spreadSpeed;
-                ripples[i].isSpreading = true;
-                ripples[i].rippleLayer = GetNextLayer();
-                break;
             }
         }
     }

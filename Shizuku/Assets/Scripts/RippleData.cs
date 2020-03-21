@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-struct RippleData
+public struct RippleData
 {
     public Vector3 ripplePosition;
     public Color rippleColor;
