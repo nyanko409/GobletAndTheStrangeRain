@@ -5,27 +5,14 @@ public class RippleEffectReceiver : MonoBehaviour
     Material material;          // reference to the material
     const int rippleCount = 3;  // maximum active ripple count
 
-    // values for the shader to pass in
-    Vector3[] ripplePosition;
-    Color[] rippleColor;      
-    float[] rippleSpreadSpeed;
-    float[] rippleRadius;
-    float[] maxRippleRadius;
-    bool[] isSpreading;
-    int[] rippleLayer;
-
+    RippleData[] ripples;       // ripple data to pass to the shader
+    
 
     void Start()
     {
         material = GetComponent<Renderer>().material;
 
-        ripplePosition = new Vector3[rippleCount];
-        rippleColor = new Color[rippleCount];
-        rippleSpreadSpeed = new float[rippleCount];
-        rippleRadius = new float[rippleCount];
-        maxRippleRadius = new float[rippleCount];
-        isSpreading = new bool[rippleCount];
-        rippleLayer = new int[rippleCount];
+        ripples = new RippleData[rippleCount];
     }
 
     void Update()
@@ -33,23 +20,23 @@ public class RippleEffectReceiver : MonoBehaviour
         // update every active ripple
         for (int i = 0; i < rippleCount; ++i)
         {
-            if (isSpreading[i])
+            if (ripples[i].isSpreading)
             {
-                rippleRadius[i] += rippleSpreadSpeed[i] * Time.deltaTime;
+                ripples[i].rippleRadius += ripples[i].rippleSpreadSpeed * Time.deltaTime;
 
-                material.SetFloat("_RippleRadius" + rippleLayer[i], rippleRadius[i]);
-                material.SetVector("_RippleLocation" + rippleLayer[i], ripplePosition[i]);
-                material.SetColor("_RippleColor" + rippleLayer[i], rippleColor[i]);
+                material.SetFloat("_RippleRadius" + ripples[i].rippleLayer, ripples[i].rippleRadius);
+                material.SetVector("_RippleLocation" + ripples[i].rippleLayer, ripples[i].ripplePosition);
+                material.SetColor("_RippleColor" + ripples[i].rippleLayer, ripples[i].rippleColor);
 
                 // ripple finished expanding through the whole mesh
-                if (rippleRadius[i] >= maxRippleRadius[i])
+                if (ripples[i].rippleRadius >= ripples[i].maxRippleRadius)
                 {
                     // set ripple radius forcefully to 0 to prevent overlapping
-                    material.SetFloat("_RippleRadius" + rippleLayer[i], 0);
-                    material.SetColor("_BackgroundColor", rippleColor[i]);
+                    material.SetFloat("_RippleRadius" + ripples[i].rippleLayer, 0);
+                    material.SetColor("_BackgroundColor", ripples[i].rippleColor);
 
-                    rippleLayer[i] = -1;
-                    isSpreading[i] = false;
+                    ripples[i].rippleLayer = -1;
+                    ripples[i].isSpreading = false;
                 }
             }
         }
@@ -60,15 +47,15 @@ public class RippleEffectReceiver : MonoBehaviour
         // activate the ripple effect if there is a free space
         for(int i = 0; i < rippleCount; ++i)
         {
-            if(!isSpreading[i])
+            if(!ripples[i].isSpreading)
             {
-                rippleRadius[i] = 0;
-                ripplePosition[i] = contactPoint;
-                maxRippleRadius[i] = GetFarthestVertex(contactPoint);
-                this.rippleColor[i] = rippleColor;
-                rippleSpreadSpeed[i] = spreadSpeed;
-                isSpreading[i] = true;
-                rippleLayer[i] = GetNextLayer();
+                ripples[i].rippleRadius = 0;
+                ripples[i].ripplePosition = contactPoint;
+                ripples[i].maxRippleRadius = GetFarthestVertex(contactPoint);
+                ripples[i].rippleColor = rippleColor;
+                ripples[i].rippleSpreadSpeed = spreadSpeed;
+                ripples[i].isSpreading = true;
+                ripples[i].rippleLayer = GetNextLayer();
                 break;
             }
         }
@@ -100,7 +87,7 @@ public class RippleEffectReceiver : MonoBehaviour
     {
         for(int i = 0; i < rippleCount; ++i)
         {
-            rippleLayer[i]--;
+            ripples[i].rippleLayer--;
         }
 
         return rippleCount;

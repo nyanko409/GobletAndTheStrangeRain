@@ -4,7 +4,7 @@ public class DropletPredictor : MonoBehaviour
 {
     public GameObject prefab;   // sprite to project
 
-    GameObject projector;
+    GameObject projector;       // reference to the instantiated prefab
     Quaternion oldRotation;     // old rotation value to check if rotation has changed
  
 
