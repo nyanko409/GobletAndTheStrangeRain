@@ -45,10 +45,10 @@ public class ObjectActivator : MonoBehaviour
         {
             // check the color of the nearest receiver point
             if (ripples[i].isSpreading &&
-                Mathf.Abs(Vector3.Distance(ripples[i].ripplePosition, transform.position))
-                <= ripples[i].rippleRadius - rangeOffset)
+                Mathf.Abs(Vector3.Distance(ripples[i].position, transform.position))
+                <= ripples[i].radius - rangeOffset)
             {
-                return ripples[i].rippleColor;
+                return ripples[i].color;
             }
         }
 

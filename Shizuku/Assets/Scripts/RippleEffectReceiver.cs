@@ -12,25 +12,6 @@ public class RippleEffectReceiver : MonoBehaviour
 
 
 
-    public void ApplyEffect(Vector3 contactPoint, Color rippleColor, float spreadSpeed)
-    {
-        // activate the ripple effect if there is a free space
-        for (int i = 0; i < rippleCount; ++i)
-        {
-            if (!ripples[i].isSpreading)
-            {
-                ripples[i].rippleRadius = 0;
-                ripples[i].ripplePosition = contactPoint;
-                ripples[i].maxRippleRadius = GetFarthestVertex(contactPoint);
-                ripples[i].rippleColor = rippleColor;
-                ripples[i].rippleSpreadSpeed = spreadSpeed;
-                ripples[i].isSpreading = true;
-                ripples[i].rippleLayer = GetNextLayer();
-                break;
-            }
-        }
-    }
-
     public RippleData[] GetRippleDatas()
     {
         return ripples;
@@ -41,12 +22,37 @@ public class RippleEffectReceiver : MonoBehaviour
         return backgroundColor;
     }
 
+    public void ApplyEffect(Vector3 contactPoint, Color rippleColor, float spreadSpeed)
+    {
+        // activate the ripple effect if there is a free space
+        for (int i = 0; i < rippleCount; ++i)
+        {
+            if (!ripples[i].isSpreading)
+            {
+                ripples[i].radius = 0;
+                ripples[i].position = contactPoint;
+                ripples[i].maxRadius = GetFarthestVertex(contactPoint);
+                ripples[i].color = rippleColor;
+                ripples[i].spreadSpeed = spreadSpeed;
+                ripples[i].isSpreading = true;
+                ripples[i].layer = GetNextLayer();
+                //GetNextLayerByMaxRadius();
+                break;
+            }
+        }
+    }
+
 
     void Start()
     {
         material = GetComponent<Renderer>().material;
 
         ripples = new RippleData[rippleCount];
+        for(int i = 0; i < rippleCount; ++i)
+        {
+            ripples[i].layer = i + 1;
+        }
+
         material.SetColor("_BaseColor", startColor);
         backgroundColor = startColor;
     }
@@ -58,22 +64,24 @@ public class RippleEffectReceiver : MonoBehaviour
         {
             if (ripples[i].isSpreading)
             {
-                ripples[i].rippleRadius += ripples[i].rippleSpreadSpeed * Time.deltaTime;
+                ripples[i].radius += ripples[i].spreadSpeed * Time.deltaTime;
 
-                material.SetFloat("_RippleRadius" + ripples[i].rippleLayer, ripples[i].rippleRadius);
-                material.SetVector("_RippleLocation" + ripples[i].rippleLayer, ripples[i].ripplePosition);
-                material.SetColor("_RippleColor" + ripples[i].rippleLayer, ripples[i].rippleColor);
+                material.SetFloat("_RippleRadius" + ripples[i].layer, ripples[i].radius);
+                material.SetVector("_RippleLocation" + ripples[i].layer, ripples[i].position);
+                material.SetColor("_RippleColor" + ripples[i].layer, ripples[i].color);
 
                 // ripple finished expanding through the whole mesh
-                if (ripples[i].rippleRadius >= ripples[i].maxRippleRadius)
+                if (ripples[i].radius >= ripples[i].maxRadius)
                 {
                     // set ripple radius forcefully to 0 to prevent overlapping
-                    material.SetFloat("_RippleRadius" + ripples[i].rippleLayer, 0);
-                    material.SetColor("_BaseColor", ripples[i].rippleColor);
+                    material.SetFloat("_RippleRadius" + ripples[i].layer, 0);
+                    material.SetColor("_BaseColor", ripples[i].color);
 
-                    ripples[i].rippleLayer = -1;
+                    ripples[i].layer = -1;
+                    ripples[i].radius = -1;
+                    ripples[i].maxRadius = -1;
                     ripples[i].isSpreading = false;
-                    backgroundColor = ripples[i].rippleColor;
+                    backgroundColor = ripples[i].color;
                 }
             }
         }
@@ -105,9 +113,35 @@ public class RippleEffectReceiver : MonoBehaviour
     {
         for(int i = 0; i < rippleCount; ++i)
         {
-            ripples[i].rippleLayer--;
+            // ignore if active layer is 1 and prevent duplicate layers
+            if (ripples[i].layer == 1 || (i >= 1 && ripples[i - 1].layer == (ripples[i].layer - 1)))
+                continue;
+
+            ripples[i].layer--;
         }
 
         return rippleCount;
+    }
+
+    void GetNextLayerByMaxRadius()
+    {
+        // sort by max ripple radius (bigger radius gets the top layer)
+        bool switched = true;
+        while (switched)
+        {
+            switched = false;
+            for (int i = 0; i < rippleCount - 1; ++i)
+            {
+                if(ripples[i].maxRadius - ripples[i].radius >
+                    ripples[i+1].maxRadius - ripples[i+1].radius &&
+                    ripples[i].layer < ripples[i+1].layer)
+                {
+                    switched = true;
+                    int temp = ripples[i].layer;
+                    ripples[i].layer = ripples[i + 1].layer;
+                    ripples[i + 1].layer = temp;
+                }
+            }
+        }
     }
 }
