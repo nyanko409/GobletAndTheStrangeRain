@@ -2,18 +2,15 @@
 
 public class DropletSpawner : MonoBehaviour
 {
-    public GameObject prefab;                   // the prefab to spawn
-    public float dropletSpeed = 1F;             // speed of the droplet
-
+    public GameObject prefab;                 // the prefab to spawn
+    public float dropletSpeed = 1F;           // speed of the droplet
     [ColorUsage(false, true)]
-    public Color dropletColor = Color.blue;     // color of the droplet including hdr
-
+    public Color dropletColor = Color.blue;   // color of the droplet including hdr
     [Space]
-    public float spawnInterval = 2F;            // spawn interval in seconds
-    public float rippleSpreadSpeed = 0.2F;      // spread speed of the droplet
+    public float spawnInterval = 2F;          // spawn interval in seconds
+    public float rippleSpreadSpeed = 0.2F;    // spread speed of the droplet
 
-
-    float timeTillNextSpawn = 0;                // counter for next spawn
+    float timeTillNextSpawn = 0;              // counter for next spawn
 
 
     void Update()
@@ -28,8 +25,8 @@ public class DropletSpawner : MonoBehaviour
 
             // pass the values to the prefab
             var droplet = go.AddComponent<Droplet>();
-            droplet.SetSpeed(dropletSpeed);
-            droplet.SetDirection(-transform.up);
+            droplet.Speed = dropletSpeed;
+            droplet.Direction = -transform.up;
 
             var provider = go.GetComponent<RippleEffectProvider>();
             provider.SetColor(dropletColor);

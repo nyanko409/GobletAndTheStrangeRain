@@ -2,13 +2,9 @@
 
 public class Droplet : MonoBehaviour
 {
-    float speed;                        // the speed of the droplet
-    Vector3 direction = Vector3.down;   // direction the droplet is falling
+    public Vector3 Direction { private get; set; }      // the direction the droplet is falling
+    public float Speed { private get; set; }            // the speed of the droplet
 
-
-    public void SetSpeed(float speed) => this.speed = speed;
-
-    public void SetDirection(Vector3 direction) => this.direction = direction;
 
     void Start()
     {
@@ -18,6 +14,6 @@ public class Droplet : MonoBehaviour
     void Update()
     {
         // apply gravity in direction by speed
-        transform.position += direction * Time.deltaTime * speed;
+        transform.position += Direction * Time.deltaTime * Speed;
     }
 }

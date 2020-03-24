@@ -36,7 +36,6 @@ public class RippleEffectReceiver : MonoBehaviour
                 ripples[i].spreadSpeed = spreadSpeed;
                 ripples[i].isSpreading = true;
                 ripples[i].layer = GetNextLayer();
-                //GetNextLayerByMaxRadius();
                 break;
             }
         }

@@ -35,6 +35,6 @@ public class RippleEffectProvider : MonoBehaviour
                 receiver.ApplyEffect(transform.position, rippleColor, rippleSpreadSpeed);
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject, 1F);
     }
 }
