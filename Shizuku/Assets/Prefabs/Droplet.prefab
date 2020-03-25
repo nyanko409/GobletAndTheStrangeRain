@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3249375828145652580}
   - component: {fileID: 6773746534031754427}
   - component: {fileID: -7350633972635832284}
+  - component: {fileID: -5620930503686768580}
   m_Layer: 2
   m_Name: Droplet
   m_TagString: RippleProvider
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6289224749090763718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -123,3 +124,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 975904171da0e4b06a6bee1551196afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5620930503686768580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289224749090763718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8e4ecaf87be4fe88f583eff80665dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3165874257614767286, guid: c524fa6a981ce446abe7ef12ef12e8c6, type: 3}

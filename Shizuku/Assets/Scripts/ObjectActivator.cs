@@ -38,7 +38,9 @@ public class ObjectActivator : MonoBehaviour
 
     Color GetNearestReceiverColor()
     {
+        // get ripple data and sort it by layer
         var ripples = receiver.GetRippleDatas();
+        System.Array.Sort(ripples, CompareRippleLayer);
 
         // loop from back
         for (int i = ripples.Length - 1; i >= 0; --i)
@@ -53,5 +55,10 @@ public class ObjectActivator : MonoBehaviour
         }
 
         return receiver.GetBackgroundColor();
+    }
+
+    private int CompareRippleLayer(RippleData a, RippleData b)
+    {
+        return a.layer.CompareTo(b.layer);
     }
 }
