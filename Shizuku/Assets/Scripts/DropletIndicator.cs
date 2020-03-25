@@ -5,23 +5,18 @@ public class DropletIndicator : MonoBehaviour
     public GameObject prefab;   // sprite to project
 
     GameObject indicator;       // reference to the instantiated prefab
-    Vector3 oldPosition;        // old position value to check if position has changed
-    Quaternion oldRotation;     // old rotation value to check if rotation has changed
  
 
     void Start()
     {
-        oldPosition = transform.position;
-        oldRotation = transform.rotation;
         ProjectIndicator();
     }
 
     void Update()
     {
-        if(oldPosition != transform.position || oldRotation != transform.rotation)
+        if(transform.hasChanged)
         {
-            oldPosition = transform.position;
-            oldRotation = transform.rotation;
+            transform.hasChanged = false;
 
             // project the prefab again on the new location
             Destroy(indicator);
