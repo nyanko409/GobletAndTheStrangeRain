@@ -4,18 +4,19 @@ public class ObjectActivator : MonoBehaviour
 {
     [Range(-.5F, .5F)] public float rangeOffset;        // offset to the range when this object should appear/disappear
     [SerializeField] RippleEffectReceiver receiver;     // receiver object to check the color from
+    public float alphaSpeed = 0.5F;
 
     Material mat;                                       // reference to the attached material
-    MeshRenderer rend;                                  // reference to the attached renderer
     Collider col;                                       // reference to the attached collider
     Color receiverColor;                                // current color the object is standing on
+    float curAlpha;
 
 
     void Start()
     {
         mat = GetComponent<Renderer>().material;
-        rend = GetComponent<MeshRenderer>();
         col = GetComponent<Collider>();
+        curAlpha = 1;
     }
 
     void Update()
@@ -26,13 +27,17 @@ public class ObjectActivator : MonoBehaviour
         // disable or enable the object depending on the nearest receiver color
         if(mat.GetColor("_BaseColor").IsEqualTo(receiverColor))
         {
-            rend.enabled = false;
             col.enabled = false;
+            curAlpha -= alphaSpeed * Time.deltaTime;
+            curAlpha = Mathf.Clamp(curAlpha, 0.01F, 1);
+            mat.SetFloat("_Alpha", curAlpha);
         }
         else
         {
-            rend.enabled = true;
             col.enabled = true;
+            curAlpha += alphaSpeed * Time.deltaTime;
+            curAlpha = Mathf.Clamp01(curAlpha);
+            mat.SetFloat("_Alpha", curAlpha);
         }
     }
 

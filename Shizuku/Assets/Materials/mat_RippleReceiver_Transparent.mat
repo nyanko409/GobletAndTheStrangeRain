@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat_RippleReceiver
-  m_Shader: {fileID: -6465566751694194690, guid: 48a01f0b54d0944a6bdab61895f70d72,
+  m_Name: mat_RippleReceiver_Transparent
+  m_Shader: {fileID: -6465566751694194690, guid: cace6a04ad8664e8d876f5055396f7f5,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -95,6 +95,7 @@ Material:
     - Vector1_E165A469: 0
     - Vector1_E9CD0F18: 0.05
     - Vector1_F659FD1B: -5.5
+    - _Alpha: 0.81
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -114,6 +115,7 @@ Material:
     - _RippleRadius1: 0
     - _RippleRadius2: 0
     - _RippleRadius3: 0
+    - _RippleRadius4: 0.5
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -138,7 +140,7 @@ Material:
     - Vector3_D96F216F: {r: -0.02, g: 0, b: 0, a: 0}
     - Vector3_EB6F5711: {r: -1.72, g: 0.68, b: 0, a: 0}
     - _BackgroundColor: {r: 0, g: 0.47058824, b: 8, a: 0}
-    - _BaseColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 1}
+    - _BaseColor: {r: 0.33125544, g: 1, b: 0, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _DropletColor1: {r: 1, g: 0, b: 0, a: 0}
     - _DropletPosition1: {r: -0.94, g: 0, b: 0, a: 0}
@@ -147,9 +149,11 @@ Material:
     - _RippleColor1: {r: 0, g: 0.47058824, b: 5.992157, a: 1}
     - _RippleColor2: {r: 0.8489915, g: 1, b: 0, a: 0}
     - _RippleColor3: {r: 1, g: 0, b: 0, a: 0}
+    - _RippleColor4: {r: 1, g: 0, b: 0, a: 0}
     - _RippleLocation: {r: 0, g: 0, b: 0, a: 0}
     - _RippleLocation1: {r: 0, g: 0, b: 0, a: 0}
     - _RippleLocation2: {r: -0.42, g: 0.01, b: 0, a: 0}
     - _RippleLocation3: {r: -0.36, g: 0.03, b: 0, a: 0}
+    - _RippleLocation4: {r: -0.94, g: 0, b: 0, a: 0}
     - _RipplePosition3: {r: -0.94, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
