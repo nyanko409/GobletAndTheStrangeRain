@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System;
 
 public class TTrans : MonoBehaviour
 {
+
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -21,7 +23,8 @@ public class TTrans : MonoBehaviour
             {
                 if (Input.GetKeyDown(code))
                 {
-                    SceneManager.LoadScene("StageSelect");
+                    FadeManager.FadeOut(1);
+                   
                 }
             }
         }

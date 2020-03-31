@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         // move player
         rigidbody.AddForce(new Vector3(movementInput.x, 0, movementInput.y) * moveSpeed * Time.fixedDeltaTime, ForceMode.VelocityChange);
         rigidbody.velocity = Vector3.ClampMagnitude(rigidbody.velocity, maxSpeed);
-
+        
         // face player forward
         if(movementInput.x != 0 && movementInput.y != 0)
             transform.forward = new Vector3(movementInput.x, 0, movementInput.y).normalized;
