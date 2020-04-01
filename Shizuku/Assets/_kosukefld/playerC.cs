@@ -31,7 +31,7 @@ public class playerC : MonoBehaviour
     public Text axis21Value;
     public Text axis22Value;
     public Text axis23Value;
-    public Text axis24Value;
+    public Text axis24Value; 
     public Text axis25Value;
     public Text axis26Value;
     public Text axis27Value;
@@ -78,26 +78,26 @@ public class playerC : MonoBehaviour
         //light
         if (Input.GetAxis("Axis 1") > 0f|| Input.GetKey(KeyCode.D))
         {
-            this.gameObject.transform.Translate(0.01f, 0, 0);
+            this.gameObject.transform.Translate(0.1f, 0, 0);
 
 
         }
         ///left
         else if (Input.GetAxis("Axis 1") < 0f || Input.GetKey(KeyCode.A))
         {
-            this.gameObject.transform.Translate(-0.01f, 0, 0);
+            this.gameObject.transform.Translate(-0.1f, 0, 0);
         }
         //down
         if (Input.GetAxis("Axis 2") > 0f || Input.GetKey(KeyCode.S))
         {
-            this.gameObject.transform.Translate(0, 0, -0.01f);
+            this.gameObject.transform.Translate(0, 0, -0.1f);
 
 
         }
         //up
         if (Input.GetAxis("Axis 2") < 0f || Input.GetKey(KeyCode.W))
         {
-            this.gameObject.transform.Translate(0, 0, 0.01f);
+            this.gameObject.transform.Translate(0, 0, 0.1f);
 
 
         }
