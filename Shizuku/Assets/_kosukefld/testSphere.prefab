@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 79a07cfba72062346b4cc3f8b00e7c28, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6289224749090763718, guid: deff2f12c659b42b6becede2feb46704, type: 3}
   dropletSpeed: 1
-  dropletColor: {r: 0, g: 0, b: 1, a: 1}
+  dropletColor: {r: 0, g: 1, b: 0.024491787, a: 1}
   spawnInterval: 0.1
-  rippleSpreadSpeed: 0.5
+  rippleSpreadSpeed: 2
   time: 0.15
