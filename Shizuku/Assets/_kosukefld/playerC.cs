@@ -78,26 +78,26 @@ public class playerC : MonoBehaviour
         //light
         if (Input.GetAxis("Axis 1") > 0f|| Input.GetKey(KeyCode.D))
         {
-            this.gameObject.transform.Translate(0.1f, 0, 0);
+            this.gameObject.transform.Translate(0.08f, 0, 0);
 
 
         }
         ///left
         else if (Input.GetAxis("Axis 1") < 0f || Input.GetKey(KeyCode.A))
         {
-            this.gameObject.transform.Translate(-0.1f, 0, 0);
+            this.gameObject.transform.Translate(-0.08f, 0, 0);
         }
         //down
         if (Input.GetAxis("Axis 2") > 0f || Input.GetKey(KeyCode.S))
         {
-            this.gameObject.transform.Translate(0, 0, -0.1f);
+            this.gameObject.transform.Translate(0, 0, -0.08f);
 
 
         }
         //up
         if (Input.GetAxis("Axis 2") < 0f || Input.GetKey(KeyCode.W))
         {
-            this.gameObject.transform.Translate(0, 0, 0.1f);
+            this.gameObject.transform.Translate(0, 0, 0.08f);
 
 
         }
@@ -108,19 +108,21 @@ public class playerC : MonoBehaviour
             this.gameObject.transform.Translate(0, 1.0f, 0);
         }
 
-        if (Input.GetAxis("Axis 10") > 0f || Input.GetKeyDown(KeyCode.V))
-        {
-            Debug.Log("Ripple");
 
-            // Droplet
-            GameObject Droplets = Instantiate(Droplet) as GameObject;
+        ////mizukobosi
+        //if (Input.GetAxis("Axis 10") > 0f || Input.GetKeyDown(KeyCode.V))
+        //{
+        //    Debug.Log("Ripple");
 
-            Vector3 force;
+        //    // Droplet
+        //    GameObject Droplets = Instantiate(Droplet) as GameObject;
 
-            // Droplet Adjustment
-            Droplets.transform.position = mainchara.position;
+        //    Vector3 force;
 
-        }
+        //    // Droplet Adjustment
+        //    Droplets.transform.position = mainchara.position;
+
+        //}
     }
 
 }
