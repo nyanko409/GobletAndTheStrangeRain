@@ -8,6 +8,7 @@ public class ObjectActivator : MonoBehaviour
 
     Material mat;                                       // reference to the attached material
     Collider col;                                       // reference to the attached collider
+    Rigidbody rb;                                       // reference to the attached rigidbody
     Color receiverColor;                                // current color the object is standing on
     float curAlpha;
 
@@ -16,6 +17,7 @@ public class ObjectActivator : MonoBehaviour
     {
         mat = GetComponent<Renderer>().material;
         col = GetComponent<Collider>();
+        rb = GetComponent<Rigidbody>();
         curAlpha = 1;
     }
 
@@ -31,6 +33,7 @@ public class ObjectActivator : MonoBehaviour
             curAlpha -= alphaSpeed * Time.deltaTime;
             curAlpha = Mathf.Clamp(curAlpha, 0.01F, 1);
             mat.SetFloat("_Alpha", curAlpha);
+            rb.isKinematic = true;
         }
         else
         {
@@ -38,6 +41,7 @@ public class ObjectActivator : MonoBehaviour
             curAlpha += alphaSpeed * Time.deltaTime;
             curAlpha = Mathf.Clamp01(curAlpha);
             mat.SetFloat("_Alpha", curAlpha);
+            rb.isKinematic = false;
         }
     }
 

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     Vector3 moveDirection;
     new Rigidbody rigidbody;
     Vector3 gravity;
+    Vector3 floorNormal;
 
 
     private void Awake()
@@ -127,12 +128,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 FloorRaycast(float offsetX, float offsetZ, float raycastDistance)
     {
-        RaycastHit hit;
         Vector3 rayOrigin = transform.TransformPoint(offsetX, 0.5F, offsetZ);
         Debug.DrawRay(rayOrigin, Vector3.down * (floorOffsetY + 1), Color.blue);
-        if(Physics.Raycast(rayOrigin, Vector3.down, out hit, raycastDistance))
+
+        if(Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastDistance))
         {
-            if (Vector3.Angle(hit.normal, Vector3.up) < slopeLimit)
+            floorNormal = hit.normal;
+
+            if (Vector3.Angle(hit.normal, Vector3.up) <= slopeLimit)
             {
                 return hit.point + new Vector3(0, floorOffsetY, 0);
             }

@@ -16,6 +16,7 @@ public class DropletSpawner : MonoBehaviour
     void Update()
     {
         timeTillNextSpawn += Time.deltaTime;
+
         if(timeTillNextSpawn >= spawnInterval)
         {
             timeTillNextSpawn -= spawnInterval;
