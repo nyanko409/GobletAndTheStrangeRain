@@ -4,7 +4,7 @@ public class ObjectActivator : MonoBehaviour
 {
     [Range(-.5F, .5F)] public float rangeOffset;        // offset to the range when this object should appear/disappear
     [SerializeField] RippleEffectReceiver receiver;     // receiver object to check the color from
-    public float alphaSpeed = 0.5F;
+    public float alphaSpeed = 0.5F;                     // the alpha fading speed
 
     Material mat;                                       // reference to the attached material
     Collider col;                                       // reference to the attached collider
@@ -69,5 +69,12 @@ public class ObjectActivator : MonoBehaviour
     private int CompareRippleLayer(RippleData a, RippleData b)
     {
         return a.layer.CompareTo(b.layer);
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        // avoid launching into the air when player is standing inside this object
+        if(collision.gameObject.CompareTag("Player"))
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
     }
 }
