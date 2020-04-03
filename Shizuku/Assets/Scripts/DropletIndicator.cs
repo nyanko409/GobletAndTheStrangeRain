@@ -2,10 +2,11 @@
 
 public class DropletIndicator : MonoBehaviour
 {
-    public GameObject prefab;   // sprite to project
+    public GameObject prefab;       // sprite to project
+    public float finalScale = 0;    // the final scale when droplet collides with the floor
 
-    GameObject indicator;       // reference to the instantiated prefab
-    float startSqrMag;          // the square length of the distance vector
+    GameObject indicator;           // reference to the instantiated prefab
+    float startSqrMag;              // the square length of the distance vector
     Vector3 startScale;
 
 
@@ -22,8 +23,9 @@ public class DropletIndicator : MonoBehaviour
             float sqrMag = (indicator.transform.position - transform.position).sqrMagnitude;
             float magRatio = sqrMag / startSqrMag;
 
-            // multiply it with the scale
+            // multiply it with the scale and add offset
             indicator.transform.localScale = startScale * magRatio;
+            indicator.transform.localScale += new Vector3(finalScale, finalScale, 0);
         }
     }
 
@@ -40,8 +42,12 @@ public class DropletIndicator : MonoBehaviour
             // rotate the projection to look at hit normal
             indicator.transform.rotation = Quaternion.LookRotation(hit.normal);
 
+            // get the start square magnitude (faster than getting the magnitude)
             startSqrMag = (indicator.transform.position - transform.position).sqrMagnitude;
             startScale = indicator.transform.localScale;
+
+            // add offset to scale
+            indicator.transform.localScale += new Vector3(finalScale, finalScale, 0);
         }
     }
 
