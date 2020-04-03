@@ -13,25 +13,31 @@ public class DropletSpawner : MonoBehaviour
     float timeTillNextSpawn = 0;              // counter for next spawn
 
 
-    void Update()
+    private void Update()
     {
         timeTillNextSpawn += Time.deltaTime;
 
         if(timeTillNextSpawn >= spawnInterval)
         {
             timeTillNextSpawn -= spawnInterval;
-
-            // create prefab
-            var go = Instantiate(prefab, transform.position, transform.rotation);
-
-            // pass the values to the prefab
-            var droplet = go.AddComponent<Droplet>();
-            droplet.Speed = dropletSpeed;
-            droplet.Direction = -transform.up;
-
-            var provider = go.GetComponent<RippleEffectProvider>();
-            provider.SetColor(dropletColor);
-            provider.SetRippleSpreadSpeed(rippleSpreadSpeed);
+            SpawnDroplet();
         }
+    }
+
+    private void SpawnDroplet()
+    {
+        // create prefab
+        var go = Instantiate(prefab, transform.position, transform.rotation);
+
+        // pass the values to the prefab
+        var droplet = go.AddComponent<Droplet>();
+        droplet.Speed = dropletSpeed;
+        droplet.Direction = -transform.up;
+
+        var provider = go.GetComponent<RippleEffectProvider>();
+        provider.SetColor(dropletColor);
+        provider.SetRippleSpreadSpeed(rippleSpreadSpeed);
+
+        go.GetComponent<Renderer>().material.SetColor("_BaseColor", dropletColor);
     }
 }
