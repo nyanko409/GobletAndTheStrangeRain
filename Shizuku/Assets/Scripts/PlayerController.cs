@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     Vector3 gravity;
     Vector3 floorNormal;
 
-
-    private void Awake()
+   
+        private void Awake()
     {
         // init listeners
         action = new GameInput();
