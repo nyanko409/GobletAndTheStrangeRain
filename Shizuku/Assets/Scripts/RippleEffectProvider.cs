@@ -16,17 +16,19 @@ public class RippleEffectProvider : MonoBehaviour
         Transform parent = other.transform.parent;
 
         // if parent is null check the collided object
-        if(!parent && other.transform.CompareTag("RippleReceiver"))
+        if (!parent)
         {
-            var receiver = other.GetComponent<RippleEffectReceiver>();
+            if (other.transform.CompareTag("RippleReceiver"))
+            {
+                var receiver = other.GetComponent<RippleEffectReceiver>();
 
-            // apply the effect on receiver
-            if (receiver)
-                receiver.ApplyEffect(transform.position, rippleColor, rippleSpreadSpeed);
+                // apply the effect on receiver
+                if (receiver)
+                    receiver.ApplyEffect(transform.position, rippleColor, rippleSpreadSpeed);
+            }
         }
-        
         // else check for parent
-        else if(parent.CompareTag("RippleReceiver"))
+        else if (parent.CompareTag("RippleReceiver"))
         {
             var receiver = parent.GetComponent<RippleEffectReceiver>();
 

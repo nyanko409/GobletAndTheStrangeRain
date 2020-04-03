@@ -31,11 +31,12 @@ public class ObjectActivator : MonoBehaviour
         {
             col.enabled = false;
             curAlpha -= alphaSpeed * Time.deltaTime;
-            curAlpha = Mathf.Clamp(curAlpha, 0.01F, 1);
+            curAlpha = Mathf.Clamp(curAlpha, 0.05F, 1);
             mat.SetFloat("_Alpha", curAlpha);
             rb.isKinematic = true;
         }
-        else
+        // enable if it is not overlapping
+        else if(!CheckOverlap())
         {
             col.enabled = true;
             curAlpha += alphaSpeed * Time.deltaTime;
@@ -71,10 +72,20 @@ public class ObjectActivator : MonoBehaviour
         return a.layer.CompareTo(b.layer);
     }
 
-    private void OnCollisionStay(Collision collision)
+    // returns true if overlapping with some object
+    private bool CheckOverlap()
     {
-        // avoid launching into the air when player is standing inside this object
-        if(collision.gameObject.CompareTag("Player"))
-            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        // get all colliders inside
+        Collider[] colliders = Physics.OverlapBox(transform.position,
+            (transform.localScale / 2) - new Vector3(0.1F, 0.1F, 0.1F), transform.rotation);
+        foreach(Collider col in colliders)
+        {
+            // ignore self collision
+            if(col.name != name)
+                return true;
+        }
+
+        // not overlapping with anything
+        return false;
     }
 }
