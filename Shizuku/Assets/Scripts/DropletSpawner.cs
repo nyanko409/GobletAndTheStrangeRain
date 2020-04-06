@@ -30,13 +30,13 @@ public class DropletSpawner : MonoBehaviour
         var go = Instantiate(prefab, transform.position, transform.rotation);
 
         // pass the values to the prefab
-        var droplet = go.AddComponent<Droplet>();
+        var droplet = go.GetComponent<Droplet>();
         droplet.Speed = dropletSpeed;
         droplet.Direction = -transform.up;
 
         var provider = go.GetComponent<RippleEffectProvider>();
-        provider.SetColor(dropletColor);
-        provider.SetRippleSpreadSpeed(rippleSpreadSpeed);
+        provider.RippleColor = dropletColor;
+        provider.RippleSpreadSpeed = rippleSpreadSpeed;
 
         go.GetComponent<Renderer>().material.SetColor("_BaseColor", dropletColor);
     }

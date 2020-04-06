@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4188381909242686210}
   - component: {fileID: 7574093928654100475}
   - component: {fileID: 144587249485207502}
-  - component: {fileID: 144587249485207345}
   - component: {fileID: 1854670059}
+  - component: {fileID: 144587249485207345}
+  - component: {fileID: -8349308555332901060}
   m_Layer: 0
   m_Name: Goblet
   m_TagString: Player
@@ -98,6 +99,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!135 &1854670059
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151585970056913703}
+  m_Material: {fileID: 13400000, guid: 4f48c4600b32a408787d52548311a37d, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0.4, z: 0}
 --- !u!114 &144587249485207345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,16 +130,15 @@ MonoBehaviour:
   jumpFalloff: 3
   slopeLimit: 20
   floorOffsetY: 1.1
---- !u!135 &1854670059
-SphereCollider:
+--- !u!114 &-8349308555332901060
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8151585970056913703}
-  m_Material: {fileID: 13400000, guid: 4f48c4600b32a408787d52548311a37d, type: 2}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8573c90d78f2e4697be35011d567b7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
