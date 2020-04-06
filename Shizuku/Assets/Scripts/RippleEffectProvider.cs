@@ -2,13 +2,19 @@
 
 public class RippleEffectProvider : MonoBehaviour
 {
-    Color rippleColor;           // color of the ripple
-    float rippleSpreadSpeed;     // the spread speed of the ripple
+    public Color RippleColor { get; set; }         // color of the ripple
+    public float RippleSpreadSpeed { get; set; }   // the spread speed of the ripple
 
 
-    public void SetColor(Color color) => rippleColor = color;
+    // constructor
+    public RippleEffectProvider() {}
 
-    public void SetRippleSpreadSpeed(float speed) => rippleSpreadSpeed = speed;
+    // copy constructor
+    public RippleEffectProvider(RippleEffectProvider provider)
+    {
+        RippleColor = provider.RippleColor;
+        RippleSpreadSpeed = provider.RippleSpreadSpeed;
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -24,9 +30,10 @@ public class RippleEffectProvider : MonoBehaviour
 
                 // apply the effect on receiver
                 if (receiver)
-                    receiver.ApplyEffect(transform.position, rippleColor, rippleSpreadSpeed);
+                    receiver.ApplyEffect(transform.position, RippleColor, RippleSpreadSpeed);
             }
         }
+
         // else check for parent
         else if (parent.CompareTag("RippleReceiver"))
         {
@@ -34,7 +41,7 @@ public class RippleEffectProvider : MonoBehaviour
 
             // apply the effect on receiver
             if (receiver)
-                receiver.ApplyEffect(transform.position, rippleColor, rippleSpreadSpeed);
+                receiver.ApplyEffect(transform.position, RippleColor, RippleSpreadSpeed);
         }
 
         Destroy(gameObject);

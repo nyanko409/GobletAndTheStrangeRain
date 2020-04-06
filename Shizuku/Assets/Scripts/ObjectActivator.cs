@@ -2,8 +2,8 @@
 
 public class ObjectActivator : MonoBehaviour
 {
-    [Range(-.5F, .5F)] public float rangeOffset;        // offset to the range when this object should appear/disappear
-    [SerializeField] RippleEffectReceiver receiver;     // receiver object to check the color from
+    public float rangeOffset;                           // offset to the range when this object should appear/disappear
+    public RippleEffectReceiver receiver;               // receiver object to check the color from
     public float alphaSpeed = 0.5F;                     // the alpha fading speed
 
     Material mat;                                       // reference to the attached material

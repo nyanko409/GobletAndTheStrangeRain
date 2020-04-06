@@ -121,26 +121,4 @@ public class RippleEffectReceiver : MonoBehaviour
 
         return rippleCount;
     }
-
-    void GetNextLayerByMaxRadius()
-    {
-        // sort by max ripple radius (bigger radius gets the top layer)
-        bool switched = true;
-        while (switched)
-        {
-            switched = false;
-            for (int i = 0; i < rippleCount - 1; ++i)
-            {
-                if(ripples[i].maxRadius - ripples[i].radius >
-                    ripples[i+1].maxRadius - ripples[i+1].radius &&
-                    ripples[i].layer < ripples[i+1].layer)
-                {
-                    switched = true;
-                    int temp = ripples[i].layer;
-                    ripples[i].layer = ripples[i + 1].layer;
-                    ripples[i + 1].layer = temp;
-                }
-            }
-        }
-    }
 }
