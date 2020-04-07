@@ -3,10 +3,10 @@
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
+    public float smoothSpeed = 15F;
 
-
-    private void LateUpdate()
+    private void FixedUpdate()
     {
-        transform.position = target.position;
+        transform.position = Vector3.Lerp(transform.position, target.position, smoothSpeed * Time.fixedDeltaTime);
     }
 }

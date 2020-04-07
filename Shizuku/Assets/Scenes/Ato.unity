@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 803121397}
+  smoothSpeed: 15
 --- !u!4 &586749206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4712987376632115726, guid: a3a0ce262f98d4e7983fe465a71a8bdf,
@@ -732,7 +733,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pivot: {fileID: 193001664}
-  speed: 400
+  horizontalSpeed: 400
+  verticalSpeed: 100
+  clampMaxRot: 30
+  clampMinRot: -20
   offset: {x: 0, y: 4.69, z: -15}
 --- !u!1 &1708916895 stripped
 GameObject:
