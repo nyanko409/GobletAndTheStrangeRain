@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 
+delegate void Alf();
+
 public class DropDroplet : MonoBehaviour
 {
     RippleData? data;
     GameInput action;
- 
+
 
     private void Awake()
     {
