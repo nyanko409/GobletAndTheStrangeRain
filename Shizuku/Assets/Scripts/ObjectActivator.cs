@@ -18,6 +18,8 @@ public class ObjectActivator : MonoBehaviour
         mat = GetComponent<Renderer>().material;
         col = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
+
+        rb.mass = float.PositiveInfinity;
         curAlpha = 1;
     }
 

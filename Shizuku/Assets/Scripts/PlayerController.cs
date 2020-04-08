@@ -3,19 +3,23 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 1;
-    public float rotationSpeed = 10;
-    public float jumpHeight = 5;
-    public float jumpFalloff = 2;
-    public float slopeLimit = 10;
-    public float floorOffsetY = 1;
+    public float moveSpeed = 1;                 // movespeed of the player
+    public float dragSpeedMultiplier = 0.5F;    // the speed multiplier while dragging
+    public float rotationSpeed = 10;            // rotation speed of the player
+    public float jumpHeight = 5;                // jump height the player
+    public float slopeLimit = 10;               // max degree of slope to climb
+    public float floorOffsetY = 1;              // offset to the floor
 
     GameInput action;
     Vector2 movementInput;
     Vector3 moveDirection;
     new Rigidbody rigidbody;
+    float jumpFalloff = 2;
     Vector3 gravity;
     Vector3 floorNormal;
+    Rigidbody dragRigidbody;                    // the rigidbody of the dragging object
+    bool isDragging;                            // true if dragging
+    Vector3 dragStartDiff;
 
    
     private void Awake()
@@ -23,6 +27,8 @@ public class PlayerController : MonoBehaviour
         // init listeners
         action = new GameInput();
         action.Player.Move.performed += context => { movementInput = context.ReadValue<Vector2>(); };
+        action.Player.Drag.started += context => isDragging = true;
+        action.Player.Drag.canceled += context => isDragging = false;
         action.Player.Jump.performed += Jump;
     }
 
@@ -36,14 +42,28 @@ public class PlayerController : MonoBehaviour
         // reset movement
         moveDirection = Vector3.zero;
 
-        Vector3 vertical = movementInput.y * Camera.main.transform.forward;
-        Vector3 horizontal = movementInput.x * Camera.main.transform.right;
+        // get direction from input
+        // if not dragging, move based on camera direction
+        Vector3 vertical, horizontal;
+        if (!dragRigidbody)
+        {
+            vertical = movementInput.y * Camera.main.transform.forward;
+            horizontal = movementInput.x * Camera.main.transform.right;
+        }
+        // if dragging, move based on player direction
+        else
+        {
+            vertical = movementInput.y * transform.forward;
+            horizontal = movementInput.x * transform.right;
+        }
 
+        // normalize direction
         moveDirection = vertical + horizontal;
         moveDirection.y = 0;
         moveDirection.Normalize();
 
-        if (moveDirection != Vector3.zero)
+        // rotate to moving direction
+        if (!dragRigidbody && moveDirection != Vector3.zero)
         {
             Quaternion rot = Quaternion.LookRotation(moveDirection);
             Quaternion targetRot = Quaternion.Slerp(transform.rotation, rot, Time.deltaTime * rotationSpeed);
@@ -53,13 +73,13 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!IsGrounded())
+        if (!IsGrounded())
         {
             gravity += Vector3.up * Physics.gravity.y * jumpFalloff * Time.fixedDeltaTime;
         }
 
         // update the velocity
-        rigidbody.velocity = moveDirection * moveSpeed;
+        rigidbody.velocity = moveDirection * GetMoveSpeed();
         rigidbody.velocity += gravity;
 
         // find the y position
@@ -73,9 +93,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void LateUpdate()
+    {
+        DragObject();
+    }
+
+    // returns the movespeed of the player
+    private float GetMoveSpeed()
+    {
+        return dragRigidbody ? moveSpeed * dragSpeedMultiplier : moveSpeed;
+    }
+
     private void Jump(InputAction.CallbackContext context)
     {
-        if(IsGrounded())
+        if(!dragRigidbody && IsGrounded())
         {
             gravity.y = jumpHeight;
         }
@@ -144,6 +175,39 @@ public class PlayerController : MonoBehaviour
         return Vector3.zero;
     }
 
+    private void DragObject()
+    {
+        if (isDragging && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 1.5F))
+        {
+            if (hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
+            {
+                if(!dragRigidbody)
+                {
+                    // look at object
+                    transform.rotation = Quaternion.LookRotation(-hit.normal);
+
+                    // cache rigidbody of target and start position difference
+                    dragRigidbody = hit.transform.GetComponent<Rigidbody>();
+                    dragStartDiff = transform.position - dragRigidbody.transform.position;
+                }
+
+                // move the target back to start drag position when player is moving too fast
+                var diff = transform.position - dragRigidbody.transform.position;
+                if (diff != dragStartDiff)
+                {
+                    transform.position += dragStartDiff - diff;
+                }
+
+                // move the target with player
+                dragRigidbody.velocity = moveDirection * GetMoveSpeed();
+            }
+        }
+        else if (dragRigidbody)
+        {
+            dragRigidbody.velocity = Vector3.zero;
+            dragRigidbody = null;
+        }
+    }
 
 
     private void OnEnable()

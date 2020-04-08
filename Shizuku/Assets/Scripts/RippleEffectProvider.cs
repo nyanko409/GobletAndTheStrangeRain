@@ -18,30 +18,13 @@ public class RippleEffectProvider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // get the parent
-        Transform parent = other.transform.parent;
+        RippleEffectReceiver receiver;
 
-        // if parent is null check the collided object
-        if (!parent)
+        // find the receiver on collided object and apply the effect
+        if(other.transform.TryGetComponent(out receiver) ||
+           other.transform.parent.TryGetComponent(out receiver))
         {
-            if (other.transform.GetComponent<Tag>().HasTag(TagType.RippleReceiver))
-            {
-                var receiver = other.GetComponent<RippleEffectReceiver>();
-
-                // apply the effect on receiver
-                if (receiver)
-                    receiver.ApplyEffect(transform.position, RippleColor, RippleSpreadSpeed);
-            }
-        }
-
-        // else check for parent
-        else if (parent.GetComponent<Tag>().HasTag(TagType.RippleReceiver))
-        {
-            var receiver = parent.GetComponent<RippleEffectReceiver>();
-
-            // apply the effect on receiver
-            if (receiver)
-                receiver.ApplyEffect(transform.position, RippleColor, RippleSpreadSpeed);
+            receiver.ApplyEffect(transform.position, RippleColor, RippleSpreadSpeed);
         }
 
         Destroy(gameObject);
