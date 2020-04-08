@@ -24,7 +24,7 @@ public class RippleEffectProvider : MonoBehaviour
         // if parent is null check the collided object
         if (!parent)
         {
-            if (other.transform.CompareTag("RippleReceiver"))
+            if (other.transform.GetComponent<Tag>().HasTag(TagType.RippleReceiver))
             {
                 var receiver = other.GetComponent<RippleEffectReceiver>();
 
@@ -35,7 +35,7 @@ public class RippleEffectProvider : MonoBehaviour
         }
 
         // else check for parent
-        else if (parent.CompareTag("RippleReceiver"))
+        else if (parent.GetComponent<Tag>().HasTag(TagType.RippleReceiver))
         {
             var receiver = parent.GetComponent<RippleEffectReceiver>();
 

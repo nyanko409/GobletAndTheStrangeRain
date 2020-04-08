@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3888948564194452007}
+  - component: {fileID: 1541452580944833315}
   - component: {fileID: 4591924512690808689}
   - component: {fileID: 1281248933473432408}
   - component: {fileID: 3249375828145652580}
@@ -18,7 +19,7 @@ GameObject:
   - component: {fileID: -5620930503686768580}
   m_Layer: 2
   m_Name: Droplet
-  m_TagString: RippleProvider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37,6 +38,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1541452580944833315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289224749090763718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfd514d0ced24e8fbf0b5ebdfdc62ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: 02000000
 --- !u!33 &4591924512690808689
 MeshFilter:
   m_ObjectHideFlags: 0
