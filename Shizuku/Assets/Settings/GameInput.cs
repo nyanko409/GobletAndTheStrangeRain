@@ -49,6 +49,14 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Drag"",
+                    ""type"": ""Button"",
+                    ""id"": ""c99c4592-725e-4f0d-9647-4d16328d6273"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -282,6 +290,28 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""action"": ""Camera Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1f49ea7-dd80-41c6-9797-b861aa3415da"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Drag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e9cf930-4b7d-4ef0-a7d4-ae0a78c35e3e"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -355,6 +385,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_Player_CameraLook = m_Player.FindAction("Camera Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_DropDroplet = m_Player.FindAction("Drop Droplet", throwIfNotFound: true);
+        m_Player_Drag = m_Player.FindAction("Drag", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -408,6 +439,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_CameraLook;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_DropDroplet;
+    private readonly InputAction m_Player_Drag;
     public struct PlayerActions
     {
         private @GameInput m_Wrapper;
@@ -416,6 +448,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         public InputAction @CameraLook => m_Wrapper.m_Player_CameraLook;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @DropDroplet => m_Wrapper.m_Player_DropDroplet;
+        public InputAction @Drag => m_Wrapper.m_Player_Drag;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -437,6 +470,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @DropDroplet.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropDroplet;
                 @DropDroplet.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropDroplet;
                 @DropDroplet.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropDroplet;
+                @Drag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrag;
+                @Drag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrag;
+                @Drag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrag;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -453,6 +489,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @DropDroplet.started += instance.OnDropDroplet;
                 @DropDroplet.performed += instance.OnDropDroplet;
                 @DropDroplet.canceled += instance.OnDropDroplet;
+                @Drag.started += instance.OnDrag;
+                @Drag.performed += instance.OnDrag;
+                @Drag.canceled += instance.OnDrag;
             }
         }
     }
@@ -508,5 +547,6 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnCameraLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnDropDroplet(InputAction.CallbackContext context);
+        void OnDrag(InputAction.CallbackContext context);
     }
 }

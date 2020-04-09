@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 
-public class RippleEffectProvider : MonoBehaviour
+public class RippleEffectProviderCP : MonoBehaviour
 {
     public Color RippleColor { get; set; }         // color of the ripple
     public float RippleSpreadSpeed { get; set; }   // the spread speed of the ripple
 
 
     // constructor
-    public RippleEffectProvider() {}
+    public RippleEffectProviderCP() { }
 
     // copy constructor
-    public RippleEffectProvider(RippleEffectProvider provider)
+    public RippleEffectProviderCP(RippleEffectProviderCP provider)
     {
         RippleColor = provider.RippleColor;
         RippleSpreadSpeed = provider.RippleSpreadSpeed;
@@ -21,7 +21,7 @@ public class RippleEffectProvider : MonoBehaviour
         RippleEffectReceiver receiver;
 
         // find the receiver on collided object and apply the effect
-        if(other.transform.TryGetComponent(out receiver) ||
+        if (other.transform.TryGetComponent(out receiver) ||
            (other.transform.parent && other.transform.parent.TryGetComponent(out receiver)))
         {
             receiver.ApplyEffect(transform.position, RippleColor, RippleSpreadSpeed);
