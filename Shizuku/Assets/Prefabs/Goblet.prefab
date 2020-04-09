@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5150738743125741876}
+  - component: {fileID: 3917704906215783755}
   - component: {fileID: 4188381909242686210}
   - component: {fileID: 7574093928654100475}
   - component: {fileID: 144587249485207502}
@@ -17,7 +18,7 @@ GameObject:
   - component: {fileID: -8349308555332901060}
   m_Layer: 0
   m_Name: Goblet
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,6 +37,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3917704906215783755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151585970056913703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfd514d0ced24e8fbf0b5ebdfdc62ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: 00000000
 --- !u!33 &4188381909242686210
 MeshFilter:
   m_ObjectHideFlags: 0

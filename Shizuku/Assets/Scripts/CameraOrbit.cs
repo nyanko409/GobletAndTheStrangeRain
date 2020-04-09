@@ -3,11 +3,15 @@
 public class CameraOrbit : MonoBehaviour
 {
     public Transform pivot;
-    public float speed = 500;
+    public float horizontalSpeed = 400;
+    public float verticalSpeed = 100;
+    public int clampMaxRot = 30;
+    public int clampMinRot = -30;
     public Vector3 offset;
 
     GameInput action;
     Vector2 cameraLookInput;
+    Vector3 eulerAngles;
 
 
     private void Awake()
@@ -21,11 +25,14 @@ public class CameraOrbit : MonoBehaviour
     private void Start()
     {
         transform.position = pivot.position + offset;
+        eulerAngles = pivot.transform.eulerAngles;
     }
 
     private void LateUpdate()
     {
-        pivot.transform.eulerAngles += new Vector3(0, cameraLookInput.x, 0) * speed * Time.deltaTime;
+        eulerAngles += new Vector3(cameraLookInput.y * verticalSpeed, cameraLookInput.x * horizontalSpeed, 0) * Time.deltaTime;
+        eulerAngles.x = Mathf.Clamp(eulerAngles.x, clampMinRot, clampMaxRot);
+        pivot.transform.eulerAngles = eulerAngles;
     }
 
     private void OnEnable()

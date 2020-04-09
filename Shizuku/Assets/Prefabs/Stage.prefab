@@ -229,12 +229,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6306362388989633319}
+  - component: {fileID: -6629981840766198729}
   - component: {fileID: 3089387504618658065}
   - component: {fileID: 8782930744866022888}
   - component: {fileID: 4875617792137364869}
   m_Layer: 0
   m_Name: Stage
-  m_TagString: RippleReceiver
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +259,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6629981840766198729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7052613887174807860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfd514d0ced24e8fbf0b5ebdfdc62ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: 01000000
 --- !u!33 &3089387504618658065
 MeshFilter:
   m_ObjectHideFlags: 0
