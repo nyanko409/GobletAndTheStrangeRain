@@ -10,6 +10,8 @@ public class plmizukobosi : MonoBehaviour
     // Droplet prefab
     public GameObject Droplet;
 
+    public GameObject marker;
+
     // DropletAppearance
     public Transform mainchara;
 
@@ -22,8 +24,21 @@ public class plmizukobosi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKey(KeyCode.V))
+        {
+            Debug.Log("targetmarker");
+
+            GameObject markers= Instantiate(marker) as GameObject;
+            Vector3 force;
+
+            // Droplet Adjustment
+            markers.transform.position = mainchara.position;
+        }
+
+
         //mizukobosi
-        if (Input.GetAxis("Axis 10") > 0f || Input.GetKeyDown(KeyCode.V))
+        if (Input.GetAxis("Axis 10") > 0f || Input.GetKeyUp(KeyCode.V))
         {
             Debug.Log("Ripple");
 
