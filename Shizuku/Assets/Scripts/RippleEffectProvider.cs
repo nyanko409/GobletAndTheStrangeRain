@@ -22,7 +22,7 @@ public class RippleEffectProvider : MonoBehaviour
 
         // find the receiver on collided object and apply the effect
         if(other.transform.TryGetComponent(out receiver) ||
-           other.transform.parent.TryGetComponent(out receiver))
+           (other.transform.parent && other.transform.parent.TryGetComponent(out receiver)))
         {
             receiver.ApplyEffect(transform.position, RippleColor, RippleSpreadSpeed);
         }
