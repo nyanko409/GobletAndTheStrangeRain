@@ -30,10 +30,12 @@ public class plmizukobosi : MonoBehaviour
             Debug.Log("targetmarker");
 
             GameObject markers= Instantiate(marker) as GameObject;
-            Vector3 force;
+           
 
-            // Droplet Adjustment
             markers.transform.position = mainchara.position;
+
+            
+
         }
 
 
