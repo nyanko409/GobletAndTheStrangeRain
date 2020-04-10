@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
 
     private void DragObject()
     {
-        if (isDragging && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 1.5F))
+        if (IsGrounded() && isDragging && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 1.5F))
         {
             if (hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
             {
