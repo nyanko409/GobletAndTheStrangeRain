@@ -314,6 +314,93 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""aaab999e-b277-425c-a71b-dc419f3e16df"",
+            ""actions"": [
+                {
+                    ""name"": ""Stage Select Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""b0ea38e2-3082-4910-9a5d-f7f72f6a8d98"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Stage Select Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""e328c5d8-59d8-4cd3-b492-8c2dd8344083"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Confirm Stage"",
+                    ""type"": ""Button"",
+                    ""id"": ""657a9170-ecd5-4565-938c-ce32f1ea3fa3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2a5f901b-2613-41ca-8582-e2f045d80702"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Stage Select Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b541126-f2cf-4199-8e0c-e763254e9692"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Stage Select Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c71cddb-0687-4ecd-9d43-938e5d80300a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Stage Select Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6802269-2547-4691-80d5-83fe14c5039d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Stage Select Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16f83738-e4d3-4759-a2f7-2205a597c4fc"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm Stage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -386,6 +473,11 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_DropDroplet = m_Player.FindAction("Drop Droplet", throwIfNotFound: true);
         m_Player_Drag = m_Player.FindAction("Drag", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_StageSelectLeft = m_UI.FindAction("Stage Select Left", throwIfNotFound: true);
+        m_UI_StageSelectRight = m_UI.FindAction("Stage Select Right", throwIfNotFound: true);
+        m_UI_ConfirmStage = m_UI.FindAction("Confirm Stage", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -496,6 +588,55 @@ public class @GameInput : IInputActionCollection, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_StageSelectLeft;
+    private readonly InputAction m_UI_StageSelectRight;
+    private readonly InputAction m_UI_ConfirmStage;
+    public struct UIActions
+    {
+        private @GameInput m_Wrapper;
+        public UIActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StageSelectLeft => m_Wrapper.m_UI_StageSelectLeft;
+        public InputAction @StageSelectRight => m_Wrapper.m_UI_StageSelectRight;
+        public InputAction @ConfirmStage => m_Wrapper.m_UI_ConfirmStage;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @StageSelectLeft.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectLeft;
+                @StageSelectLeft.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectLeft;
+                @StageSelectLeft.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectLeft;
+                @StageSelectRight.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectRight;
+                @StageSelectRight.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectRight;
+                @StageSelectRight.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectRight;
+                @ConfirmStage.started -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirmStage;
+                @ConfirmStage.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirmStage;
+                @ConfirmStage.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirmStage;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @StageSelectLeft.started += instance.OnStageSelectLeft;
+                @StageSelectLeft.performed += instance.OnStageSelectLeft;
+                @StageSelectLeft.canceled += instance.OnStageSelectLeft;
+                @StageSelectRight.started += instance.OnStageSelectRight;
+                @StageSelectRight.performed += instance.OnStageSelectRight;
+                @StageSelectRight.canceled += instance.OnStageSelectRight;
+                @ConfirmStage.started += instance.OnConfirmStage;
+                @ConfirmStage.performed += instance.OnConfirmStage;
+                @ConfirmStage.canceled += instance.OnConfirmStage;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -548,5 +689,11 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnDropDroplet(InputAction.CallbackContext context);
         void OnDrag(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnStageSelectLeft(InputAction.CallbackContext context);
+        void OnStageSelectRight(InputAction.CallbackContext context);
+        void OnConfirmStage(InputAction.CallbackContext context);
     }
 }
