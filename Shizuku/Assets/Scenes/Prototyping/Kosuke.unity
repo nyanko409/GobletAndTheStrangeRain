@@ -172,13 +172,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.84313726, b: 1, a: 0.9490196}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 44be97001a3c62e4a9ad001a8339fcce, type: 3}
+  m_Texture: {fileID: 2800000, guid: 0445c3d777d499640bb18e7aecef29bb, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -739,8 +739,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 1, g: 1, b: 1, a: 1}
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.90588236}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 2
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 5
   m_WholeNumbers: 0
   m_Value: 1
   m_OnValueChanged:
@@ -778,6 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7470067ab2b26c24999bddcd5a1894ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sliderImage: {fileID: 62526223}
 --- !u!1 &1667071234
 GameObject:
   m_ObjectHideFlags: 0
