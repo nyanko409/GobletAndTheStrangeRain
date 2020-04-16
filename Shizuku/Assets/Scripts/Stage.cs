@@ -14,8 +14,10 @@ public class Stage : MonoBehaviour
     SpriteRenderer rend;
 
 
+
     private void Start()
     {
+
         rend = GetComponent<SpriteRenderer>();
 
         if(isLocked)
