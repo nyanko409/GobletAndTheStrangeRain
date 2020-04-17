@@ -78,26 +78,26 @@ public class playerC : MonoBehaviour
         //light
         if (Input.GetAxis("Axis 1") > 0f|| Input.GetKey(KeyCode.D))
         {
-            this.gameObject.transform.Translate(0.08f, 0, 0);
+            this.gameObject.transform.Translate(0.03f, 0, 0);
 
 
         }
         ///left
         else if (Input.GetAxis("Axis 1") < 0f || Input.GetKey(KeyCode.A))
         {
-            this.gameObject.transform.Translate(-0.08f, 0, 0);
+            this.gameObject.transform.Translate(-0.03f, 0, 0);
         }
         //down
         if (Input.GetAxis("Axis 2") > 0f || Input.GetKey(KeyCode.S))
         {
-            this.gameObject.transform.Translate(0, 0, -0.08f);
+            this.gameObject.transform.Translate(0, 0, -0.03f);
 
 
         }
         //up
         if (Input.GetAxis("Axis 2") < 0f || Input.GetKey(KeyCode.W))
         {
-            this.gameObject.transform.Translate(0, 0, 0.08f);
+            this.gameObject.transform.Translate(0, 0, 0.03f);
 
 
         }
