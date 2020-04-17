@@ -8,14 +8,29 @@ public class DropletSpawner : MonoBehaviour
     public Color dropletColor = Color.blue;   // color of the droplet including hdr
     [Space]
     public float spawnInterval = 2F;          // spawn interval in seconds
+    public float startDelay = 0F;             // delay the first spawn
+    public bool spawnImmediate = false;     
     public float rippleSpreadSpeed = 0.2F;    // spread speed of the droplet
 
     float timeTillNextSpawn = 0;              // counter for next spawn
+    bool spawnStarted;
 
+
+    private void Start()
+    {
+        if (spawnImmediate)
+            timeTillNextSpawn = spawnInterval;
+    }
 
     private void Update()
     {
         timeTillNextSpawn += Time.deltaTime;
+
+        if(!spawnStarted && timeTillNextSpawn >= startDelay)
+        {
+            timeTillNextSpawn -= startDelay;
+            spawnStarted = true;
+        }
 
         if(timeTillNextSpawn >= spawnInterval)
         {
