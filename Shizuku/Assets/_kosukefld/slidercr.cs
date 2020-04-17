@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class slidercr : MonoBehaviour
 {
+    
 
     public RawImage sliderImage;
 
@@ -18,6 +19,9 @@ public class slidercr : MonoBehaviour
 
         //color get
         fill = GameObject.Find("Fill");
+
+        _slider.maxValue = 5;
+
     }
 
     //value max
@@ -33,7 +37,7 @@ public class slidercr : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.R))
         {
-            if (max > 0)
+            if (max > _slider.minValue)
             {
 
                 max -= 1;
@@ -43,7 +47,7 @@ public class slidercr : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.T))
         {
-            if (max < 5)
+            if (max < _slider.maxValue)
             {
                 max += 1;
             }
