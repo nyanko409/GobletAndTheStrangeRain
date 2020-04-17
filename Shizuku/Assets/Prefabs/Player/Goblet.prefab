@@ -139,11 +139,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 20
+  dragSpeedMultiplier: 0.5
   rotationSpeed: 10
   jumpHeight: 20
-  jumpFalloff: 3
-  slopeLimit: 20
-  floorOffsetY: 1.1
+  fallMultiplier: 2.5
+  lowJumpMultiplier: 3.5
+  slopeLimit: 40
+  floorOffsetY: 1
 --- !u!114 &-8349308555332901060
 MonoBehaviour:
   m_ObjectHideFlags: 0

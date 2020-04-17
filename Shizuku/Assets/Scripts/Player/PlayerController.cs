@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
@@ -7,19 +6,21 @@ public class PlayerController : MonoBehaviour
     public float dragSpeedMultiplier = 0.5F;    // the speed multiplier while dragging
     public float rotationSpeed = 10;            // rotation speed of the player
     public float jumpHeight = 5;                // jump height the player
+    public float fallMultiplier = 2.5F;         // fall speed multiplier
+    public float lowJumpMultiplier = 3;         // fall multiplier if jump button is released midair
     public float slopeLimit = 10;               // max degree of slope to climb
     public float floorOffsetY = 1;              // offset to the floor
 
-    GameInput action;
-    Vector2 movementInput;
-    Vector3 moveDirection;
-    new Rigidbody rigidbody;
-    float jumpFalloff = 2;
-    Vector3 gravity;
-    Vector3 floorNormal;
-    Rigidbody dragRigidbody;                    // the rigidbody of the dragging object
-    bool isDragging;                            // true if dragging
-    Vector3 dragStartDiff;
+    private GameInput action;
+    private Vector2 movementInput;
+    private Vector3 moveDirection;
+    private new Rigidbody rigidbody;
+    private float jumpFalloff = 2.5F;
+    private bool jumpPressed;
+    private Vector3 gravity;
+    private Rigidbody dragRigidbody;            // the rigidbody of the dragging object
+    private bool isDragging;                    // true if dragging
+    private Vector3 dragStartDiff;
 
    
     private void Awake()
@@ -27,9 +28,12 @@ public class PlayerController : MonoBehaviour
         // init listeners
         action = new GameInput();
         action.Player.Move.performed += context => { movementInput = context.ReadValue<Vector2>(); };
+
         action.Player.Drag.started += context => isDragging = true;
         action.Player.Drag.canceled += context => isDragging = false;
-        action.Player.Jump.performed += Jump;
+
+        action.Player.Jump.started += context => { jumpPressed = true;  Jump(); };
+        action.Player.Jump.canceled += context => { jumpPressed = false; };
     }
 
     private void Start()
@@ -76,6 +80,17 @@ public class PlayerController : MonoBehaviour
         if (!IsGrounded())
         {
             gravity += Vector3.up * Physics.gravity.y * jumpFalloff * Time.fixedDeltaTime;
+
+            if(gravity.y < 0)
+            {
+                // fall faster to the ground
+                gravity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+            }
+            else if(gravity.y > 0 && !jumpPressed)
+            {
+                // fall faster if jump button is released midair
+                gravity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+            }
         }
 
         // update the velocity
@@ -104,7 +119,7 @@ public class PlayerController : MonoBehaviour
         return dragRigidbody ? moveSpeed * dragSpeedMultiplier : moveSpeed;
     }
 
-    private void Jump(InputAction.CallbackContext context)
+    private void Jump()
     {
         if(!dragRigidbody && IsGrounded())
         {
@@ -164,8 +179,6 @@ public class PlayerController : MonoBehaviour
 
         if(Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastDistance))
         {
-            floorNormal = hit.normal;
-
             if (Vector3.Angle(hit.normal, Vector3.up) <= slopeLimit)
             {
                 return hit.point + new Vector3(0, floorOffsetY, 0);
@@ -177,9 +190,10 @@ public class PlayerController : MonoBehaviour
 
     private void DragObject()
     {
-        if (IsGrounded() && isDragging && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 1.5F))
+        if (isDragging && IsGrounded() && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 1.5F))
         {
-            if (hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
+            print(hit.normal);
+            if (hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
             {
                 if(!dragRigidbody)
                 {

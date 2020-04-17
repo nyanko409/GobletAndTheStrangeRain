@@ -116,7 +116,9 @@ public class StageSelect : MonoBehaviour
 
     private void LoadStage()
     {
-        SceneManager.LoadScene(stages[curStageIndex].sceneName);
+        // load the selected stage
+        if (stages[curStageIndex].sceneName.Length > 0)
+            SceneManager.LoadScene(stages[curStageIndex].sceneName);
     }
 
     private void OnEnable()
