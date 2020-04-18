@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4760833906076120037
+--- !u!114 &-151606203492261046
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat_RippleProvider
+  m_Name: mat_Water
   m_Shader: {fileID: -6465566751694194690, guid: 223bd1a8032a240ab92e1cea8db3a29d,
     type: 3}
   m_ShaderKeywords: 
@@ -62,13 +62,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_403A4BDE: 16.05
-    - Vector1_5835E4A7: 0.77
-    - Vector1_74CC5BCB: 0.57
-    - Vector1_8F6376D8: 15.81
-    - Vector1_ED9220E6: 3.1
+    - Vector1_403A4BDE: 13
+    - Vector1_5835E4A7: 1
+    - Vector1_74CC5BCB: 0.5
+    - Vector1_8F6376D8: 4.72
+    - Vector1_ED9220E6: 1.14
     - Vector1_EFDD9662: 0
-    - Vector1_F1008227: 1
+    - Vector1_F1008227: 0.9
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -91,8 +91,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Vector2_22BB142D: {r: 0, g: 0, b: 0, a: 0}
-    - _BaseColor: {r: 0, g: 0.07986283, b: 1, a: 1}
+    - Color_AC8417D0: {r: 0, g: 0.47749817, b: 1.7207954, a: 0}
+    - Color_C34A5E0F: {r: 0, g: 0.2824192, b: 1, a: 1}
+    - Color_E7653B7C: {r: 0, g: 0.13725491, b: 1, a: 0}
+    - Vector2_22BB142D: {r: 0.05, g: 0.06, b: 0, a: 0}
+    - _BaseColor: {r: 0, g: 0.2824192, b: 1, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _RippleColor: {r: 0.2688679, g: 0.8614324, b: 1, a: 0}
