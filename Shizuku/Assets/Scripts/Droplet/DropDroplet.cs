@@ -2,10 +2,9 @@
 
 public class DropDroplet : MonoBehaviour
 {
-    public GameObject water;
-
     RippleData? data;
     GameInput action;
+    MeshRenderer renderer;
 
 
     private void Awake()
@@ -17,7 +16,8 @@ public class DropDroplet : MonoBehaviour
 
     private void Start()
     {
-        water.SetActive(false);
+        renderer = GetComponent<MeshRenderer>();
+        renderer.enabled = false;
     }
 
     private void Drop()
@@ -33,7 +33,7 @@ public class DropDroplet : MonoBehaviour
                     receiver.ApplyEffect(hit.point, data.Value.color, data.Value.spreadSpeed);
                     data = null;
 
-                    water.SetActive(false);
+                    renderer.enabled = false;
                 }
             }
         }
@@ -44,16 +44,16 @@ public class DropDroplet : MonoBehaviour
         RippleEffectProvider provider;
         if (other.gameObject.TryGetComponent(out provider))
         {
-            // copy the ripple data to local variable
+            // copy the ripple data
             RippleData d = new RippleData();
             d.color = provider.RippleColor;
             d.spreadSpeed = provider.RippleSpreadSpeed;
             data = d;
 
             // change the water color
-            water.SetActive(true);
-            water.GetComponent<MeshRenderer>().material.SetColor("_BaseColor", d.color);
-            water.GetComponent<MeshRenderer>().material.SetColor("_RippleColor", d.color);
+            renderer.enabled = true;
+            renderer.material.SetColor("_BaseColor", d.color);
+            renderer.material.SetColor("_RippleColor", d.color);
         }
     }
 
