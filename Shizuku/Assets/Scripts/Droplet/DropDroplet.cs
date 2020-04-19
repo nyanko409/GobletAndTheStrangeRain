@@ -2,9 +2,16 @@
 
 public class DropDroplet : MonoBehaviour
 {
+    public float rippleSpreadSpeed = 0.1F;
+
     RippleData? data;
     GameInput action;
-    MeshRenderer renderer;
+    Animator anim;
+    MeshRenderer rend;
+    Vector3 contactPoint;
+    Vector3 contactTransformPos;
+    float rippleRadius;
+    bool isSpreading;
 
 
     private void Awake()
@@ -16,8 +23,8 @@ public class DropDroplet : MonoBehaviour
 
     private void Start()
     {
-        renderer = GetComponent<MeshRenderer>();
-        renderer.enabled = false;
+        anim = GetComponent<Animator>();
+        rend = GetComponent<MeshRenderer>();
     }
 
     private void Drop()
@@ -33,7 +40,7 @@ public class DropDroplet : MonoBehaviour
                     receiver.ApplyEffect(hit.point, data.Value.color, data.Value.spreadSpeed);
                     data = null;
 
-                    renderer.enabled = false;
+                    anim.SetTrigger("Empty Water");
                 }
             }
         }
@@ -44,17 +51,67 @@ public class DropDroplet : MonoBehaviour
         RippleEffectProvider provider;
         if (other.gameObject.TryGetComponent(out provider))
         {
+            if (!data.HasValue)
+            {
+                // play animation if water is not filled
+                anim.SetTrigger("Fill Water");
+                rend.material.SetColor("_BaseColor", provider.RippleColor);
+            }
+            else if(!isSpreading)
+            {
+                // else start color transition
+                var offsetPoint = other.transform.position;
+                offsetPoint.y -= other.transform.position.y - transform.position.y;
+
+                InitColorTransition(provider, offsetPoint);
+            }
+
             // copy the ripple data
             RippleData d = new RippleData();
             d.color = provider.RippleColor;
             d.spreadSpeed = provider.RippleSpreadSpeed;
             data = d;
-
-            // change the water color
-            renderer.enabled = true;
-            renderer.material.SetColor("_BaseColor", d.color);
-            renderer.material.SetColor("_RippleColor", d.color);
         }
+    }
+
+    private void InitColorTransition(RippleEffectProvider provider, Vector3 contactPoint)
+    {
+        rippleRadius = 0;
+        isSpreading = true;
+        this.contactPoint = contactPoint;
+        contactTransformPos = transform.position;
+
+        rend.material.SetColor("_RippleColor", provider.RippleColor);
+        rend.material.SetVector("_RippleContactPoint", contactPoint);
+        rend.material.SetFloat("_RippleRadius", rippleRadius);
+    }
+
+    private void UpdateShader()
+    {
+        if (isSpreading)
+        {
+            // adjust the contact point when player moves
+            var diff = transform.position - contactTransformPos;
+            contactPoint += diff;
+
+            contactTransformPos = transform.position;
+
+            rend.material.SetVector("_RippleContactPoint", contactPoint);
+
+            // update the ripple radius
+            rippleRadius += rippleSpreadSpeed * Time.deltaTime;
+            rend.material.SetFloat("_RippleRadius", rippleRadius);
+            if (rippleRadius >= 2.5F)
+            {
+                isSpreading = false;
+                rend.material.SetColor("_BaseColor", data.Value.color);
+            }
+        }
+    }
+
+    private void Update()
+    {
+        UpdateShader();   
     }
 
     private void OnEnable()
