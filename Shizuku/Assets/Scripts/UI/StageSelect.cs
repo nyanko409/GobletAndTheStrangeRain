@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class StageSelect : MonoBehaviour
@@ -118,7 +117,9 @@ public class StageSelect : MonoBehaviour
     {
         // load the selected stage
         if (stages[curStageIndex].sceneName.Length > 0)
-            SceneManager.LoadScene(stages[curStageIndex].sceneName);
+        {
+            StartCoroutine(LoadingScreen.LoadSceneAsync(stages[curStageIndex].sceneName));
+        }
     }
 
     private void OnEnable()

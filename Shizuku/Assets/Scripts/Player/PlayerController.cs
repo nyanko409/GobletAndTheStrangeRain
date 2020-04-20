@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private bool jumpPressed;
     private Vector3 gravity;
     private Rigidbody dragRigidbody;            // the rigidbody of the dragging object
-    private bool isDragging;                    // true if dragging
+    private bool isDragging;                    // is true when drag keybind is pressed
     private Vector3 dragStartDiff;
 
    
@@ -192,7 +192,6 @@ public class PlayerController : MonoBehaviour
     {
         if (isDragging && IsGrounded() && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 1.5F))
         {
-            print(hit.normal);
             if (hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
             {
                 if(!dragRigidbody)
