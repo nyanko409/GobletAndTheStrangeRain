@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat_RippleReceiver_Transparent
+  m_Name: mat_RippleReceiver_Obstacle
   m_Shader: {fileID: -6465566751694194690, guid: cace6a04ad8664e8d876f5055396f7f5,
     type: 3}
   m_ShaderKeywords: 
@@ -123,6 +123,7 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _maxRippleCount: 1
     m_Colors:
     - Color_1FD9502A: {r: 0, g: 0.20058575, b: 1, a: 0}
     - Color_271921D9: {r: 1, g: 0, b: 0, a: 0}

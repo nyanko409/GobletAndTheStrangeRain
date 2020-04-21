@@ -5,6 +5,8 @@ using UnityEngine.UI;
 public class slidercr : MonoBehaviour
 {
     
+    
+
 
     public RawImage sliderImage;
 
@@ -35,21 +37,25 @@ public class slidercr : MonoBehaviour
         
 
 
-        if(Input.GetKeyDown(KeyCode.R))
+        if(Input.GetKey(KeyCode.R))
         {
             if (max > _slider.minValue)
             {
 
-                max -= 1;
+                max -= 0.05f;
             }
 
         }
 
-        if(Input.GetKeyDown(KeyCode.T))
+        if(Input.GetKey(KeyCode.T))
         {
             if (max < _slider.maxValue)
             {
-                max += 1;
+                
+                    max += 0.05f;
+                   
+                
+               
             }
         }
 

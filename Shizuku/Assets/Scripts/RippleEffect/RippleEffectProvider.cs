@@ -18,9 +18,12 @@ public class RippleEffectProvider : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        RippleEffectReceiver receiver;
+        // ignore player
+        if (other.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Player))
+            return;
 
         // find the receiver on collided object and apply the effect
+        RippleEffectReceiver receiver;
         if(other.transform.TryGetComponent(out receiver) ||
            (other.transform.parent && other.transform.parent.TryGetComponent(out receiver)))
         {

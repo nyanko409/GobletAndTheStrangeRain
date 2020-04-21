@@ -5,8 +5,7 @@ public class RippleEffectReceiver : MonoBehaviour
     [ColorUsage(false, true)] public Color startColor;      // the starting color
 
     Material material;                                      // reference to the material
-    const int rippleCount = 4;                              // maximum active ripple count
-
+    int rippleCount;                                        // maximum active ripple count
     RippleData[] ripples;                                   // ripple data to pass to the shader
     Color backgroundColor;                                  // current background color of the mesh
 
@@ -45,6 +44,8 @@ public class RippleEffectReceiver : MonoBehaviour
     void Start()
     {
         material = GetComponent<Renderer>().material;
+
+        rippleCount = material.GetInt("_maxRippleCount");
 
         ripples = new RippleData[rippleCount];
         for(int i = 0; i < rippleCount; ++i)

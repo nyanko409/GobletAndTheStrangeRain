@@ -289,21 +289,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8349308555332901060, guid: eda06e5f0fa8d42689ce5dea2283fc8f,
-        type: 3}
-      propertyPath: water
-      value: 
-      objectReference: {fileID: 1494471307}
-    - target: {fileID: 5006512735463794277, guid: eda06e5f0fa8d42689ce5dea2283fc8f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.64
-      objectReference: {fileID: 0}
-    - target: {fileID: 5006512735463794277, guid: eda06e5f0fa8d42689ce5dea2283fc8f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0
-      objectReference: {fileID: 0}
     - target: {fileID: 5150738743125741876, guid: eda06e5f0fa8d42689ce5dea2283fc8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -312,7 +297,7 @@ PrefabInstance:
     - target: {fileID: 5150738743125741876, guid: eda06e5f0fa8d42689ce5dea2283fc8f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.2
+      value: 1.215
       objectReference: {fileID: 0}
     - target: {fileID: 5150738743125741876, guid: eda06e5f0fa8d42689ce5dea2283fc8f,
         type: 3}
@@ -693,12 +678,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3a0ce262f98d4e7983fe465a71a8bdf, type: 3}
---- !u!1 &1494471307 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8296172668535641206, guid: eda06e5f0fa8d42689ce5dea2283fc8f,
-    type: 3}
-  m_PrefabInstance: {fileID: 724452133}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1573988366
 GameObject:
   m_ObjectHideFlags: 0
@@ -1061,7 +1040,7 @@ PrefabInstance:
     - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
       propertyPath: spawnInterval
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
@@ -1072,6 +1051,16 @@ PrefabInstance:
         type: 3}
       propertyPath: startOffset
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: spawnImmediate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: startDelay
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7780238659214071540, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
@@ -1348,12 +1337,17 @@ PrefabInstance:
     - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
       propertyPath: spawnInterval
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
       propertyPath: dropletSpeed
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: spawnImmediate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7780238659214071540, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
