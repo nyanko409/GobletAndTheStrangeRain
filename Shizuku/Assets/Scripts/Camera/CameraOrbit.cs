@@ -34,11 +34,11 @@ public class CameraOrbit : MonoBehaviour
         eulerAngles += new Vector3(cameraLookInput.y * verticalSpeed, cameraLookInput.x * horizontalSpeed, 0) * Time.deltaTime;
         eulerAngles.x = Mathf.Clamp(eulerAngles.x, clampMinRot, clampMaxRot);
 
-        // update camera position
+        // rotate the pivot
         pivot.transform.eulerAngles = eulerAngles;
 
+        // prevent camera from clipping into objects
         var newDist = distance;
-        Debug.DrawRay(pivot.position, transform.position - pivot.position, Color.yellow);
         if (Physics.Raycast(pivot.position, transform.position - pivot.position, out RaycastHit hit, 1000))
         {
             if (hit.distance < distance)

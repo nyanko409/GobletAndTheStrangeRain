@@ -175,7 +175,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 FloorRaycast(float offsetX, float offsetZ, float raycastDistance)
     {
         Vector3 rayOrigin = transform.TransformPoint(offsetX, 0.5F, offsetZ);
-        Debug.DrawRay(rayOrigin, Vector3.down * (floorOffsetY + 1), Color.blue);
 
         if(Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastDistance))
         {
