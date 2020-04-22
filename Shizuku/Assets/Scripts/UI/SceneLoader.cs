@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class SceneLoader : MonoBehaviour
+public abstract class SceneLoader : MonoBehaviour
 {
     public static IEnumerator LoadSceneAsync(string sceneName, string prefabPath, float simulatedTime = -1)
     {
