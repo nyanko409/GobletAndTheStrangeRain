@@ -30,7 +30,7 @@ public class DropDroplet : MonoBehaviour
     private void Drop()
     {
         // raycast down and apply ripple effect if receiver is found
-        if(data.HasValue)
+        if(data.HasValue && !isSpreading)
         {
             if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 10))
             {
@@ -101,9 +101,14 @@ public class DropDroplet : MonoBehaviour
             // update the ripple radius
             rippleRadius += rippleSpreadSpeed * Time.deltaTime;
             rend.material.SetFloat("_RippleRadius", rippleRadius);
-            if (rippleRadius >= 2.5F)
+
+            // reset the values if water is transitioned to the new color
+            if (rippleRadius >= 2.0F)
             {
                 isSpreading = false;
+                rippleRadius = -1;
+
+                rend.material.SetFloat("_RippleRadius", rippleRadius);
                 rend.material.SetColor("_BaseColor", data.Value.color);
             }
         }
