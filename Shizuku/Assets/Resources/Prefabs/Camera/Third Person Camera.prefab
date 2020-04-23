@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8974442149334718019}
   - component: {fileID: 8974442149334718018}
   m_Layer: 0
-  m_Name: CameraPivot
+  m_Name: Third Person Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -180,7 +180,7 @@ MonoBehaviour:
   verticalSpeed: 100
   clampMaxRot: 50
   clampMinRot: 0
-  distance: 16
+  distance: 25
 --- !u!114 &8974442150237456012
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,7 +7,8 @@ public class CameraOrbit : MonoBehaviour
     public float verticalSpeed = 100;
     public int clampMaxRot = 30;
     public int clampMinRot = -30;
-    public float distance;
+    public float distance = 25;
+    public bool collideWithStage = true;
 
     GameInput action;
     Vector2 cameraLookInput;
@@ -39,11 +40,13 @@ public class CameraOrbit : MonoBehaviour
 
         // prevent camera from clipping into objects
         var newDist = distance;
-        if (Physics.Raycast(pivot.position, transform.position - pivot.position, out RaycastHit hit, 1000))
+        if (collideWithStage &&
+            Physics.Raycast(pivot.position, transform.position - pivot.position, out RaycastHit hit, 1000, LayerMask.GetMask("Room")))
         {
             if (hit.distance < distance)
                 newDist = hit.distance - 1;
         }
+
         transform.position = pivot.position + (-transform.forward * newDist);
     }
 
