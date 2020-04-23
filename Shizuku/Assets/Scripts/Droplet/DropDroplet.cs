@@ -34,8 +34,7 @@ public class DropDroplet : MonoBehaviour
         {
             if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 10))
             {
-                RippleEffectReceiver receiver = hit.transform.GetComponentInParent<RippleEffectReceiver>();
-                if(receiver || hit.transform.gameObject.TryGetComponent(out receiver))
+                if(hit.transform.gameObject.TryGetComponent(out RippleEffectReceiver receiver))
                 {
                     receiver.ApplyEffect(hit.point, data.Value.color, data.Value.spreadSpeed);
                     data = null;
