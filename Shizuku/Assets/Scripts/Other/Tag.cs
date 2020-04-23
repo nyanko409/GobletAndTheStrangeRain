@@ -44,10 +44,15 @@ public class Tag : MonoBehaviour
         // set values depending on selected tags
         if (TryGetComponent(out Rigidbody rb))
         {
+            // rigidbody interpolation
             if (HasTag(TagType.Moveable) || HasTag(TagType.Player))
                 rb.interpolation = RigidbodyInterpolation.Interpolate;
             else
                 rb.interpolation = RigidbodyInterpolation.None;
+
+            // rigidbody mass
+            if (HasTag(TagType.Moveable))
+                rb.mass = Mathf.Infinity;
         }
     }
 }
