@@ -32,7 +32,7 @@ public class DropDroplet : MonoBehaviour
         // raycast down and apply ripple effect if receiver is found
         if(data.HasValue && !isSpreading)
         {
-            if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 10))
+            if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1000))
             {
                 if(hit.transform.gameObject.TryGetComponent(out RippleEffectReceiver receiver))
                 {
