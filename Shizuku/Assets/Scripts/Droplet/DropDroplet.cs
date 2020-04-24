@@ -14,6 +14,16 @@ public class DropDroplet : MonoBehaviour
     bool isSpreading;
 
 
+    public bool HasWater()
+    {
+        return data.HasValue;
+    }
+
+    public Color GetColor()
+    {
+        return data.HasValue ? data.Value.color : default;
+    }
+
     private void Awake()
     {
         // init actions
