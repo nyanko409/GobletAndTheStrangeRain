@@ -23,6 +23,9 @@ public class RippleEffectReceiver : MonoBehaviour
 
     public void ApplyEffect(Vector3 contactPoint, Color rippleColor, float spreadSpeed)
     {
+        // return if this object does not have a ripple receiver tag
+        if (!GetComponent<Tag>().HasTag(TagType.RippleReceiver)) return;
+
         // activate the ripple effect if there is a free space
         for (int i = 0; i < rippleCount; ++i)
         {
@@ -35,6 +38,7 @@ public class RippleEffectReceiver : MonoBehaviour
                 ripples[i].spreadSpeed = spreadSpeed;
                 ripples[i].isSpreading = true;
                 ripples[i].layer = GetNextLayer();
+
                 break;
             }
         }
@@ -45,14 +49,15 @@ public class RippleEffectReceiver : MonoBehaviour
     {
         material = GetComponent<Renderer>().material;
 
+        // get the maximum ripple count from the shader and init the ripple layers
         rippleCount = material.GetInt("_maxRippleCount");
-
         ripples = new RippleData[rippleCount];
         for(int i = 0; i < rippleCount; ++i)
         {
             ripples[i].layer = i + 1;
         }
 
+        // set the start color of the shader
         material.SetColor("_BaseColor", startColor);
         backgroundColor = startColor;
     }
