@@ -24,6 +24,7 @@ public class DropDroplet : MonoBehaviour
         return data.HasValue ? data.Value.color : default;
     }
 
+
     private void Awake()
     {
         // init actions
@@ -125,7 +126,7 @@ public class DropDroplet : MonoBehaviour
 
     private void Update()
     {
-        UpdateShader();   
+        UpdateShader();
     }
 
     private void OnEnable()
