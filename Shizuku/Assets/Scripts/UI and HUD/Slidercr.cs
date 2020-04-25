@@ -6,6 +6,7 @@ public class Slidercr : MonoBehaviour
 {
     //zenzai
     public DropDroplet sabu;
+    public RawImage sliderImage;
 
     //kako
     Color cl;
@@ -13,29 +14,14 @@ public class Slidercr : MonoBehaviour
     //sub
     Color cl2;
 
-    public RawImage sliderImage;
-
     Slider _slider;
-
-
-
-
-
-
 
 
 
     void Start()
     {
-
-
-
-        _slider = GameObject.Find("Slider").GetComponent<Slider>();
-
-
-
+        _slider = GetComponent<Slider>();
         _slider.maxValue = 1;
-
     }
 
     //value max
@@ -46,13 +32,8 @@ public class Slidercr : MonoBehaviour
     int colorset = 0;
 
 
-    float clcount = 0;
-
-
     void Update()
     {
-
-
         if (!sabu.HasWater())
         {
 
@@ -125,12 +106,6 @@ public class Slidercr : MonoBehaviour
         {
             Debug.Log(sabu.GetColor());
         }
-
-
-
-
-
-
 
         // value set
         _slider.value = max;
