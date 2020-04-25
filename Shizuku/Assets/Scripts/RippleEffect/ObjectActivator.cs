@@ -80,6 +80,7 @@ public class ObjectActivator : MonoBehaviour
         // get all colliders inside
         Collider[] colliders = Physics.OverlapBox(transform.position,
             (transform.localScale / 2) - new Vector3(0.1F, 0.1F, 0.1F), transform.rotation);
+
         foreach(Collider col in colliders)
         {
             // ignore self collision
@@ -89,5 +90,10 @@ public class ObjectActivator : MonoBehaviour
 
         // not overlapping with anything
         return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position, transform.localScale - new Vector3(0.1F, 0.1F, 0.1F));
     }
 }
