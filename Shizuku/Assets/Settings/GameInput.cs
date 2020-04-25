@@ -27,9 +27,33 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Camera Look"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""77728557-68af-4cfa-b176-cf997fe758f3"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
-                    ""id"": ""77728557-68af-4cfa-b176-cf997fe758f3"",
+                    ""id"": ""55008414-9251-40d4-b42c-4785514391fa"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Drop Droplet"",
+                    ""type"": ""Button"",
+                    ""id"": ""5d2d6012-24e0-42f9-83aa-0d6873255bff"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Drag"",
+                    ""type"": ""Button"",
+                    ""id"": ""c99c4592-725e-4f0d-9647-4d16328d6273"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -178,6 +202,214 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1e9bf83a-e3a3-4ecf-8f07-3e1c422e5372"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Drop Droplet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a5f77e5-20fc-4a26-9658-3534282bf687"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drop Droplet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Mouse Look"",
+                    ""id"": ""6ef2de43-b029-4e68-bd76-625743d3cf48"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera Look"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""23f631d3-8fac-429e-ac9d-a857051ac1e6"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Camera Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""4d39401b-2531-4bf7-9711-486598218a77"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Camera Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d92ae977-3d2d-42d2-bece-2767f918c3c3"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": ""Invert"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Camera Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f9e9cece-adff-4caa-bf90-02cf532de089"",
+                    ""path"": ""<Mouse>/delta/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Camera Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""00b09188-87ad-40dd-bf84-e6c3ab3549ac"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Camera Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1f49ea7-dd80-41c6-9797-b861aa3415da"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Drag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4e9cf930-4b7d-4ef0-a7d4-ae0a78c35e3e"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Drag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""aaab999e-b277-425c-a71b-dc419f3e16df"",
+            ""actions"": [
+                {
+                    ""name"": ""Stage Select Left"",
+                    ""type"": ""Button"",
+                    ""id"": ""b0ea38e2-3082-4910-9a5d-f7f72f6a8d98"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Stage Select Right"",
+                    ""type"": ""Button"",
+                    ""id"": ""e328c5d8-59d8-4cd3-b492-8c2dd8344083"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Confirm Stage"",
+                    ""type"": ""Button"",
+                    ""id"": ""657a9170-ecd5-4565-938c-ce32f1ea3fa3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2a5f901b-2613-41ca-8582-e2f045d80702"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Stage Select Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b541126-f2cf-4199-8e0c-e763254e9692"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Stage Select Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c71cddb-0687-4ecd-9d43-938e5d80300a"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Stage Select Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a6802269-2547-4691-80d5-83fe14c5039d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Stage Select Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""16f83738-e4d3-4759-a2f7-2205a597c4fc"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm Stage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ffedf1d2-0492-406f-9446-ce5c8438c69a"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Confirm Stage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -248,7 +480,15 @@ public class @GameInput : IInputActionCollection, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
+        m_Player_CameraLook = m_Player.FindAction("Camera Look", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_DropDroplet = m_Player.FindAction("Drop Droplet", throwIfNotFound: true);
+        m_Player_Drag = m_Player.FindAction("Drag", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_StageSelectLeft = m_UI.FindAction("Stage Select Left", throwIfNotFound: true);
+        m_UI_StageSelectRight = m_UI.FindAction("Stage Select Right", throwIfNotFound: true);
+        m_UI_ConfirmStage = m_UI.FindAction("Confirm Stage", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -299,13 +539,19 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
+    private readonly InputAction m_Player_CameraLook;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_DropDroplet;
+    private readonly InputAction m_Player_Drag;
     public struct PlayerActions
     {
         private @GameInput m_Wrapper;
         public PlayerActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
+        public InputAction @CameraLook => m_Wrapper.m_Player_CameraLook;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @DropDroplet => m_Wrapper.m_Player_DropDroplet;
+        public InputAction @Drag => m_Wrapper.m_Player_Drag;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -318,9 +564,18 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
+                @CameraLook.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraLook;
+                @CameraLook.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraLook;
+                @CameraLook.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCameraLook;
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @DropDroplet.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropDroplet;
+                @DropDroplet.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropDroplet;
+                @DropDroplet.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDropDroplet;
+                @Drag.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrag;
+                @Drag.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrag;
+                @Drag.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDrag;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -328,13 +583,71 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @CameraLook.started += instance.OnCameraLook;
+                @CameraLook.performed += instance.OnCameraLook;
+                @CameraLook.canceled += instance.OnCameraLook;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @DropDroplet.started += instance.OnDropDroplet;
+                @DropDroplet.performed += instance.OnDropDroplet;
+                @DropDroplet.canceled += instance.OnDropDroplet;
+                @Drag.started += instance.OnDrag;
+                @Drag.performed += instance.OnDrag;
+                @Drag.canceled += instance.OnDrag;
             }
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_StageSelectLeft;
+    private readonly InputAction m_UI_StageSelectRight;
+    private readonly InputAction m_UI_ConfirmStage;
+    public struct UIActions
+    {
+        private @GameInput m_Wrapper;
+        public UIActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StageSelectLeft => m_Wrapper.m_UI_StageSelectLeft;
+        public InputAction @StageSelectRight => m_Wrapper.m_UI_StageSelectRight;
+        public InputAction @ConfirmStage => m_Wrapper.m_UI_ConfirmStage;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @StageSelectLeft.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectLeft;
+                @StageSelectLeft.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectLeft;
+                @StageSelectLeft.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectLeft;
+                @StageSelectRight.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectRight;
+                @StageSelectRight.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectRight;
+                @StageSelectRight.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectRight;
+                @ConfirmStage.started -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirmStage;
+                @ConfirmStage.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirmStage;
+                @ConfirmStage.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirmStage;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @StageSelectLeft.started += instance.OnStageSelectLeft;
+                @StageSelectLeft.performed += instance.OnStageSelectLeft;
+                @StageSelectLeft.canceled += instance.OnStageSelectLeft;
+                @StageSelectRight.started += instance.OnStageSelectRight;
+                @StageSelectRight.performed += instance.OnStageSelectRight;
+                @StageSelectRight.canceled += instance.OnStageSelectRight;
+                @ConfirmStage.started += instance.OnConfirmStage;
+                @ConfirmStage.performed += instance.OnConfirmStage;
+                @ConfirmStage.canceled += instance.OnConfirmStage;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -383,6 +696,15 @@ public class @GameInput : IInputActionCollection, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnCameraLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnDropDroplet(InputAction.CallbackContext context);
+        void OnDrag(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnStageSelectLeft(InputAction.CallbackContext context);
+        void OnStageSelectRight(InputAction.CallbackContext context);
+        void OnConfirmStage(InputAction.CallbackContext context);
     }
 }

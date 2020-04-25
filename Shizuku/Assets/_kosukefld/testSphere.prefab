@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2160908076508474441}
   - component: {fileID: 2160908076508474442}
   - component: {fileID: 3779347008522876674}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: testSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2160908076508474443}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 770c3161c0547b34188f4588777dfb55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6289224749090763718, guid: deff2f12c659b42b6becede2feb46704, type: 3}
+  prefab: {fileID: 891924842161293515, guid: 658805032ebe83b4781281f81e9e4070, type: 3}
   dropletSpeed: 1
   dropletColor: {r: 0, g: 1, b: 0.024491787, a: 1}
   spawnInterval: 0.1
   rippleSpreadSpeed: 2
-  time: 0.15
+  time: 0.2

@@ -6,15 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_KazukiFile/SceneTrans/Title.unity
-    guid: ccc34f9e62ca1204dbbeea8a41ce605b
+    path: Assets/Scenes/Title.unity
+    guid: 9e25fc3072c4f45e0aa0044808de041e
   - enabled: 1
-    path: Assets/_KazukiFile/SceneTrans/StageSelect.unity
+    path: Assets/Scenes/StageSelect.unity
     guid: 5bba6696490b3c444bdba51db109d084
-  - enabled: 0
-    path: Assets/_KazukiFile/SceneTrans/GameScene.unity
-    guid: a4d4bcf31d725824eb321a44a6f788e6
   - enabled: 1
-    path: Assets/Scenes/Ato.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
-  m_configObjects: {}
+    path: Assets/Scenes/Stages/Stage1_Wareroom.unity
+    guid: 608525eba5afa4d399aca9e02d9970d1
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage2_Hallway1.unity
+    guid: 5aa64daab05a04d38b651c13f90a5aaa
+  - enabled: 1
+    path: Assets/Scenes/Stages/Stage3_FoodStorage.unity
+    guid: 313fd608b9323470aaa95f3ddf4313ad
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: f29959ce3074c4fe486cfab2437a1961,
+      type: 2}
