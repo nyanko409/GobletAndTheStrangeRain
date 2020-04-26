@@ -53,6 +53,12 @@ public class Tag : MonoBehaviour
             // rigidbody mass
             if (HasTag(TagType.Moveable))
                 rb.mass = Mathf.Infinity;
+
+            // rigidbody constraints
+            if (HasTag(TagType.Moveable))
+                rb.constraints = RigidbodyConstraints.None;
+            else if(!HasTag(TagType.Player))
+                rb.constraints = RigidbodyConstraints.FreezeAll;
         }
     }
 }

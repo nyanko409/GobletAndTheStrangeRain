@@ -201,6 +201,9 @@ public class PlayerController : MonoBehaviour
                     // cache rigidbody of target and start position difference
                     dragRigidbody = hit.transform.GetComponent<Rigidbody>();
                     dragStartDiff = transform.position - dragRigidbody.transform.position;
+
+                    // set the rigidbody constraints
+                    dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
                 }
 
                 // move the target back to start drag position when player is moving too fast
@@ -216,7 +219,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (dragRigidbody)
         {
+            // reset the rigidbody
             dragRigidbody.velocity = Vector3.zero;
+            dragRigidbody.constraints = RigidbodyConstraints.None;
             dragRigidbody = null;
         }
     }
