@@ -100,7 +100,7 @@ public class ObjectActivator : MonoBehaviour
         foreach(Collider col in colliders)
         {
             // ignore self collision
-            if(col.name != name)
+            if(col.name != name && !col.isTrigger)
                 return true;
         }
 
