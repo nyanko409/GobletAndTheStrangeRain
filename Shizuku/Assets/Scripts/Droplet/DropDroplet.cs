@@ -11,6 +11,7 @@ public class DropDroplet : MonoBehaviour
     Vector3 contactPoint;
     Vector3 contactTransformPos;
     float rippleRadius;
+    float maxRadius;
     bool isSpreading;
 
 
@@ -73,6 +74,7 @@ public class DropDroplet : MonoBehaviour
                 var offsetPoint = other.transform.position;
                 offsetPoint.y -= other.transform.position.y - transform.position.y;
 
+                maxRadius = GetFarthestVertex(offsetPoint);
                 InitColorTransition(provider, offsetPoint);
             }
 
@@ -113,7 +115,7 @@ public class DropDroplet : MonoBehaviour
             rend.material.SetFloat("_RippleRadius", rippleRadius);
 
             // reset the values if water is transitioned to the new color
-            if (rippleRadius >= 2.0F)
+            if (rippleRadius >= maxRadius)
             {
                 isSpreading = false;
                 rippleRadius = -1;
@@ -122,6 +124,28 @@ public class DropDroplet : MonoBehaviour
                 rend.material.SetColor("_BaseColor", data.Value.color);
             }
         }
+    }
+
+    float GetFarthestVertex(Vector3 origin)
+    {
+        // get every vertex from mesh (enable read/write in mesh settings!)
+        Vector3[] vertices = GetComponent<MeshFilter>().sharedMesh.vertices;
+
+        // get the local to world transformation matrix
+        Matrix4x4 localToWorld = transform.localToWorldMatrix;
+
+        // offset each vertex to world position and
+        // calculate the distance between contact point and vertex position
+        float[] dist = new float[vertices.Length];
+        for (int i = 0; i < vertices.Length; ++i)
+        {
+            vertices[i] = localToWorld.MultiplyPoint3x4(vertices[i]);
+            dist[i] = Mathf.Abs(Vector3.Distance(vertices[i], origin));
+        }
+
+        // sort the array and return the farthest vertex position
+        System.Array.Sort(dist);
+        return dist[dist.Length - 1];
     }
 
     private void Update()
