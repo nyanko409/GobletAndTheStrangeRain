@@ -3,9 +3,9 @@
 public class ObjectActivator : MonoBehaviour
 {
     public float rangeOffset;                           // offset to the range when this object should appear/disappear
-    public RippleEffectReceiver receiver;               // receiver object to check the color from
     public float alphaSpeed = 0.5F;                     // the alpha fading speed
 
+    RippleEffectReceiver receiver;                      // receiver object to check the color from
     Material mat;                                       // reference to the attached material
     Collider col;                                       // reference to the attached collider
     Rigidbody rb;                                       // reference to the attached rigidbody
@@ -21,11 +21,14 @@ public class ObjectActivator : MonoBehaviour
 
         rb.mass = float.PositiveInfinity;
         curAlpha = 1;
+
+        UpdateRippleEffectReceiver();
     }
 
     void Update()
     {
         // get the nearest receiver color
+        UpdateRippleEffectReceiver();
         receiverColor = GetNearestReceiverColor();
 
         // disable or enable the object depending on the nearest receiver color
@@ -48,7 +51,20 @@ public class ObjectActivator : MonoBehaviour
         }
     }
 
-    Color GetNearestReceiverColor()
+    private void UpdateRippleEffectReceiver()
+    {
+        // update the receiver to get the color from when transform has moved
+        if (transform.hasChanged)
+        {
+            transform.hasChanged = false;
+            if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1000, LayerMask.GetMask("Room")))
+            {
+                receiver = hit.transform.GetComponent<RippleEffectReceiver>();
+            }
+        }
+    }
+
+    private Color GetNearestReceiverColor()
     {
         // get ripple data and sort it by layer
         var ripples = receiver.GetRippleDatas();
@@ -80,14 +96,20 @@ public class ObjectActivator : MonoBehaviour
         // get all colliders inside
         Collider[] colliders = Physics.OverlapBox(transform.position,
             (transform.localScale / 2) - new Vector3(0.1F, 0.1F, 0.1F), transform.rotation);
+
         foreach(Collider col in colliders)
         {
             // ignore self collision
-            if(col.name != name)
+            if(col.name != name && !col.isTrigger)
                 return true;
         }
 
         // not overlapping with anything
         return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position, transform.localScale - new Vector3(0.1F, 0.1F, 0.1F));
     }
 }

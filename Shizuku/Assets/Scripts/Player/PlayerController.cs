@@ -175,7 +175,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 FloorRaycast(float offsetX, float offsetZ, float raycastDistance)
     {
         Vector3 rayOrigin = transform.TransformPoint(offsetX, 0.5F, offsetZ);
-        Debug.DrawRay(rayOrigin, Vector3.down * (floorOffsetY + 1), Color.blue);
 
         if(Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastDistance))
         {
@@ -202,6 +201,9 @@ public class PlayerController : MonoBehaviour
                     // cache rigidbody of target and start position difference
                     dragRigidbody = hit.transform.GetComponent<Rigidbody>();
                     dragStartDiff = transform.position - dragRigidbody.transform.position;
+
+                    // set the rigidbody constraints
+                    dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
                 }
 
                 // move the target back to start drag position when player is moving too fast
@@ -217,7 +219,9 @@ public class PlayerController : MonoBehaviour
         }
         else if (dragRigidbody)
         {
+            // reset the rigidbody
             dragRigidbody.velocity = Vector3.zero;
+            dragRigidbody.constraints = RigidbodyConstraints.None;
             dragRigidbody = null;
         }
     }
