@@ -5,36 +5,65 @@ using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
 {
-    public bool Titletest()
-    {
-        return action;
-    }
-
     
+
+    public PushAUI aui;
+
     public Image Title;
     public GameObject canvas;
     public GameObject starttext;
     public GameObject button;
     public GameObject button2;
+
+    private RectTransform data;
+
     Color color;
     Color color2;
+
     int CL_MAX = 255;
+    int sizemax = 100;
+    int nextselect = 0;
+    int posmin = -406;
+
+    float poscount = 0;
+    float sizenow = 0;
     float CL_now = 0;
-    float count = 0;
+    float sizecount = 0;
+    float colorcount = 0;
+    float nextsize = 0;
+
+    bool nextST = false;
     bool action = false;
     bool textcheck = false;
     bool buttoncheck = false;
+    bool stratcheck = true;
+
+    public bool Titletest()
+    {
+        return action;
+    }
 
     public bool BuuttonCK()
     {
         return buttoncheck;
     }
 
+    public bool stratCK()
+    {
+        return stratcheck;
+    }
+
+    public int nextCK()
+    {
+        return nextselect;
+    }
+
     void Start()
     {
         //text.SetActive(false);
-
+        data = GetComponent<RectTransform>();
         //color.a = 0;
+        //RectTransform rectTransform = GetComponent<RectTransform>();
         Title.color = new Color32(255, 255, 255, 0);
     }
 
@@ -42,40 +71,84 @@ public class TitleUI : MonoBehaviour
     
     void Update()
     {
-
-        //GameObject A = GameObject.Find("StartA");
-
-        Title.color = new Color32(255,255,255,(byte)CL_now);
-        if(count<=1)
+        //position data.anchoredPosition
+        if (Input.GetKeyDown(KeyCode.JoystickButton2) == true)
         {
-            CL_now = Mathf.Lerp( 0, CL_MAX, count);
-            count += 0.01F;
+            Debug.Log(data.anchoredPosition);
         }
-        else
+
+        data.sizeDelta = new Vector2(sizenow, sizenow);
+        Title.color = new Color32(255,255,255,(byte)CL_now);
+        data.anchoredPosition = new Vector2(nextsize,62);
+        if (nextST == false)
         {
-            if(!textcheck)
+            if (sizecount < 1)
             {
+                sizenow = Mathf.Lerp(0, sizemax, sizecount);
+                sizecount += 0.01F;
+
+
+            }
+            else if (!textcheck)
+            {
+                action = true;
                 textcheck = true;
                 starttext.SetActive(true);
             }
-            action = true;
+            if (sizecount > 0.4f && colorcount < 1)
+            {
+                CL_now = Mathf.Lerp(0, CL_MAX, colorcount);
+                colorcount += 0.01F;
+            }
         }
+       
+        if(nextST==true)
+        {
+            if (poscount < 1)
+            {
+                nextsize = Mathf.Lerp(0, posmin, poscount);
+                poscount += 0.05f;
+            }
+            if (sizecount > 0.7f)
+            {
+                sizenow = Mathf.Lerp(0, sizemax, sizecount);
+                sizecount -= 0.015F;
+
+
+            }
+
+        }
+      
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) == true&&Titletest()==true&&buttoncheck==false)
         {
-            Destroy(starttext);
+            stratcheck = false;
+            nextST = true;
+        }
+
+        if(aui.destroyCK()==true)
+        {
             if (!buttoncheck)
             {
                 buttoncheck = true;
                 button.SetActive(true);
                 button2.SetActive(true);
             }
-            Debug.Log("push A");
-
-            
+        }
+        if (buttoncheck == true&& Input.GetAxis("Axis 7") > 0f)
+        {
+            nextselect = 1;
+            Debug.Log(nextselect);
+        }
+        if(buttoncheck == true && Input.GetAxis("Axis 7") < 0f)
+        {
+            nextselect = 2;
+            Debug.Log(nextselect);
         }
 
-        //Title.color = new Color32(255, 255, 255, 255);
     }
-    
+    //if (Input.GetKeyDown(KeyCode.JoystickButton2) == true)
+    //    {
+    //        Debug.Log();
+    //    }
 }

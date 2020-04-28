@@ -4,8 +4,11 @@ public class ObjectActivator : MonoBehaviour
 {
     public float rangeOffset;                           // offset to the range when this object should appear/disappear
     public float alphaSpeed = 0.5F;                     // the alpha fading speed
+    public Shader opaqueShader;                         // render with this shader if it is visible
+    public Shader transparentShader;                    // render with this shader if it is transparent
 
     RippleEffectReceiver receiver;                      // receiver object to check the color from
+    MeshRenderer rend;                                  // reference to the attached mesh renderer
     Material mat;                                       // reference to the attached material
     Collider col;                                       // reference to the attached collider
     Rigidbody rb;                                       // reference to the attached rigidbody
@@ -15,13 +18,15 @@ public class ObjectActivator : MonoBehaviour
 
     void Start()
     {
+        rend = GetComponent<MeshRenderer>();
         mat = GetComponent<Renderer>().material;
         col = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
 
+        //mat.shader = opaqueShader;
+        mat.shader = opaqueShader;
         rb.mass = float.PositiveInfinity;
         curAlpha = 1;
-
         UpdateRippleEffectReceiver();
     }
 
@@ -34,6 +39,12 @@ public class ObjectActivator : MonoBehaviour
         // disable or enable the object depending on the nearest receiver color
         if(mat.GetColor("_BaseColor").IsEqualTo(receiverColor))
         {
+            if (mat.shader != transparentShader)
+            {
+                mat.shader = transparentShader;
+                rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            }
+
             col.enabled = false;
             curAlpha -= alphaSpeed * Time.deltaTime;
             curAlpha = Mathf.Clamp(curAlpha, 0.05F, 1);
@@ -48,6 +59,12 @@ public class ObjectActivator : MonoBehaviour
             curAlpha = Mathf.Clamp01(curAlpha);
             mat.SetFloat("_Alpha", curAlpha);
             rb.isKinematic = false;
+
+            if (mat.shader != opaqueShader && curAlpha == 1)
+            {
+                mat.shader = opaqueShader;
+                rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+            }
         }
     }
 
