@@ -8,10 +8,11 @@ using UnityEngine.UI;
 public class PushAUI : MonoBehaviour
 {
     public TitleUI titleui;
+    public GameObject data;
 
     public Image image;
     public float colorspeed = 0.05f;
-    public float Destroyspeed = 0.01f;
+    public float Destroyspeed = 0.05f;
     float count = 0;
     float CL_A = 0;
     int colorcount = 1;
@@ -62,7 +63,7 @@ public class PushAUI : MonoBehaviour
             {
                 Destroyswitch = true;
 
-                Destroy(this.gameObject);
+                data.SetActive(false);
             }
         }
         
