@@ -23,14 +23,15 @@ public class TitleUI : MonoBehaviour
     int CL_MAX = 255;
     int sizemax = 100;
     int nextselect = 0;
-    int posmin = -406;
-
+    int posxmin = -573;
+    int posymin = 289;
     float poscount = 0;
     float sizenow = 0;
     float CL_now = 0;
     float sizecount = 0;
     float colorcount = 0;
-    float nextsize = 0;
+    float nextsizex = 0;
+    float nextsizey = 62;
 
     bool nextST = false;
     bool action = false;
@@ -79,7 +80,7 @@ public class TitleUI : MonoBehaviour
 
         data.sizeDelta = new Vector2(sizenow, sizenow);
         Title.color = new Color32(255,255,255,(byte)CL_now);
-        data.anchoredPosition = new Vector2(nextsize,62);
+        data.anchoredPosition = new Vector2(nextsizex,nextsizey);
         if (nextST == false)
         {
             if (sizecount < 1)
@@ -106,7 +107,8 @@ public class TitleUI : MonoBehaviour
         {
             if (poscount < 1)
             {
-                nextsize = Mathf.Lerp(0, posmin, poscount);
+                nextsizex = Mathf.Lerp(0, posxmin, poscount);
+                nextsizey = Mathf.Lerp(62, posymin, poscount);
                 poscount += 0.05f;
             }
             if (sizecount > 0.7f)
@@ -138,12 +140,12 @@ public class TitleUI : MonoBehaviour
         if (buttoncheck == true&& Input.GetAxis("Axis 7") > 0f)
         {
             nextselect = 1;
-            Debug.Log(nextselect);
+            
         }
         if(buttoncheck == true && Input.GetAxis("Axis 7") < 0f)
         {
             nextselect = 2;
-            Debug.Log(nextselect);
+            
         }
 
     }
