@@ -47,17 +47,23 @@ public class NextButton : MonoBehaviour
             case 1:
                 textH.color = new Color32(255, 255, 255, (byte)CL_A);
                 textT.color = new Color32(0, 0, 0, 255);
+                if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && check.BuuttonCK() == true)
+                {
+                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
+                    Debug.Log("osita A");
+                }
                 break;
             case 2:
                 textT.color = new Color32(255, 255, 255, (byte)CL_A);
                 textH.color = new Color32(0, 0, 0, 255);
+                if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && check.BuuttonCK() == true)
+                {
+                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
+                    Debug.Log("osita A");
+                }
                 break;
         }
 
-       if( Input.GetKeyDown(KeyCode.JoystickButton0) == true && check.BuuttonCK()==true)
-        {
-            StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
-            Debug.Log("osita A");
-        }
+      
     }
 }

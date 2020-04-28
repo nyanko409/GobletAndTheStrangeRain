@@ -5,10 +5,7 @@ using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
 {
-    public bool Titletest()
-    {
-        return action;
-    }
+    
 
     public PushAUI aui;
 
@@ -17,16 +14,25 @@ public class TitleUI : MonoBehaviour
     public GameObject starttext;
     public GameObject button;
     public GameObject button2;
+    private RectTransform data;
     Color color;
     Color color2;
     int CL_MAX = 255;
+    int sizemax = 100;
     int nextselect = 0;
+    float sizenow = 0;
     float CL_now = 0;
-    float count = 0;
+    float sizecount = 0;
+    float colorcount = 0;
     bool action = false;
     bool textcheck = false;
     bool buttoncheck = false;
     bool stratcheck = true;
+
+    public bool Titletest()
+    {
+        return action;
+    }
 
     public bool BuuttonCK()
     {
@@ -46,33 +52,40 @@ public class TitleUI : MonoBehaviour
     void Start()
     {
         //text.SetActive(false);
-
+        data = GetComponent<RectTransform>();
         //color.a = 0;
+        //RectTransform rectTransform = GetComponent<RectTransform>();
         Title.color = new Color32(255, 255, 255, 0);
     }
 
     
     
     void Update()
-    {
-
-        //GameObject A = GameObject.Find("StartA");
-
+    {             
+        data.sizeDelta = new Vector2(sizenow, sizenow);
         Title.color = new Color32(255,255,255,(byte)CL_now);
-        if(count<=1)
+
+        if(sizecount<1)
         {
-            CL_now = Mathf.Lerp( 0, CL_MAX, count);
-            count += 0.01F;
+            sizenow= Mathf.Lerp(0, sizemax, sizecount);
+            sizecount += 0.01F;
+            
+           
         }
-        else
+        else if(!textcheck)
         {
-            if(!textcheck)
-            {
-                textcheck = true;
-                starttext.SetActive(true);
-            }
             action = true;
+            textcheck = true;
+            starttext.SetActive(true);
         }
+        if (sizecount>0.4f&&colorcount<1)
+        {
+            CL_now = Mathf.Lerp(0, CL_MAX, colorcount);
+            colorcount += 0.01F;
+        }
+       
+
+      
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) == true&&Titletest()==true&&buttoncheck==false)
         {
@@ -98,7 +111,10 @@ public class TitleUI : MonoBehaviour
             nextselect = 2;
             Debug.Log(nextselect);
         }
-        
+
     }
-    
+    //if (Input.GetKeyDown(KeyCode.JoystickButton2) == true)
+    //    {
+    //        Debug.Log();
+    //    }
 }
