@@ -14,16 +14,25 @@ public class TitleUI : MonoBehaviour
     public GameObject starttext;
     public GameObject button;
     public GameObject button2;
+
     private RectTransform data;
+
     Color color;
     Color color2;
+
     int CL_MAX = 255;
     int sizemax = 100;
     int nextselect = 0;
+    int posmin = -406;
+
+    float poscount = 0;
     float sizenow = 0;
     float CL_now = 0;
     float sizecount = 0;
     float colorcount = 0;
+    float nextsize = 0;
+
+    bool nextST = false;
     bool action = false;
     bool textcheck = false;
     bool buttoncheck = false;
@@ -61,35 +70,60 @@ public class TitleUI : MonoBehaviour
     
     
     void Update()
-    {             
+    {
+        //position data.anchoredPosition
+        if (Input.GetKeyDown(KeyCode.JoystickButton2) == true)
+        {
+            Debug.Log(data.anchoredPosition);
+        }
+
         data.sizeDelta = new Vector2(sizenow, sizenow);
         Title.color = new Color32(255,255,255,(byte)CL_now);
+        data.anchoredPosition = new Vector2(nextsize,62);
+        if (nextST == false)
+        {
+            if (sizecount < 1)
+            {
+                sizenow = Mathf.Lerp(0, sizemax, sizecount);
+                sizecount += 0.01F;
 
-        if(sizecount<1)
-        {
-            sizenow= Mathf.Lerp(0, sizemax, sizecount);
-            sizecount += 0.01F;
-            
-           
-        }
-        else if(!textcheck)
-        {
-            action = true;
-            textcheck = true;
-            starttext.SetActive(true);
-        }
-        if (sizecount>0.4f&&colorcount<1)
-        {
-            CL_now = Mathf.Lerp(0, CL_MAX, colorcount);
-            colorcount += 0.01F;
+
+            }
+            else if (!textcheck)
+            {
+                action = true;
+                textcheck = true;
+                starttext.SetActive(true);
+            }
+            if (sizecount > 0.4f && colorcount < 1)
+            {
+                CL_now = Mathf.Lerp(0, CL_MAX, colorcount);
+                colorcount += 0.01F;
+            }
         }
        
+        if(nextST==true)
+        {
+            if (poscount < 1)
+            {
+                nextsize = Mathf.Lerp(0, posmin, poscount);
+                poscount += 0.05f;
+            }
+            if (sizecount > 0.7f)
+            {
+                sizenow = Mathf.Lerp(0, sizemax, sizecount);
+                sizecount -= 0.015F;
 
+
+            }
+
+        }
       
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0) == true&&Titletest()==true&&buttoncheck==false)
         {
-            stratcheck = false;           
+            stratcheck = false;
+            nextST = true;
         }
 
         if(aui.destroyCK()==true)

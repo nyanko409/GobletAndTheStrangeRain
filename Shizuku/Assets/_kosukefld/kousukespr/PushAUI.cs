@@ -9,7 +9,7 @@ public class PushAUI : MonoBehaviour
 {
     public TitleUI titleui;
 
-    public Text text;
+    public Image image;
     public float colorspeed = 0.05f;
     public float Destroyspeed = 0.01f;
     float count = 0;
@@ -24,15 +24,15 @@ public class PushAUI : MonoBehaviour
 
     void Start()
     {
-       text =  this.GetComponent<Text>();
-        text.color = new Color32(255, 255, 255, 0);
+        image=  this.GetComponent<Image>();
+        image.color = new Color32(255, 255, 255, 0);
     }
 
     
     void Update()
     {
         CL_A = Mathf.Lerp(0, 255, count);
-        text.color = new Color32(255, 255, 255, (byte)CL_A);
+        image.color = new Color32(255, 255, 255, (byte)CL_A);
 
         if (titleui.stratCK() == true)
         {
