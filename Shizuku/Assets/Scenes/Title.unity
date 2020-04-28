@@ -303,8 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0100dc44a1414754ab28d5b9f2db4d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleui: {fileID: 1460119361}
   text: {fileID: 446096851}
   colorspeed: 0.05
+  Destroyspeed: 0.01
 --- !u!1 &572146288
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +452,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 1412077470}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -488,7 +490,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next1
+  m_Text: NextH
 --- !u!222 &766522768
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -528,7 +530,7 @@ RectTransform:
   m_LocalScale: {x: 2, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 1412077470}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -566,7 +568,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next 2
+  m_Text: Next T
 --- !u!222 &1262939493
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -588,6 +590,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   check: {fileID: 1460119361}
+  textH: {fileID: 766522767}
+  textT: {fileID: 1262939492}
+  colorspeed: 0.05
 --- !u!1 &1412077466
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,8 +687,8 @@ RectTransform:
   - {fileID: 1460119358}
   - {fileID: 1452693155}
   - {fileID: 446096850}
-  - {fileID: 1262939491}
   - {fileID: 766522766}
+  - {fileID: 1262939491}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -919,6 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cef0c9f419521b44a8cdb4c4f130864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  aui: {fileID: 446096853}
   Title: {fileID: 1460119359}
   canvas: {fileID: 1412077466}
   starttext: {fileID: 446096849}
