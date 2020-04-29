@@ -104,7 +104,7 @@ public class ObjectActivator : MonoBehaviour
         {
             // check the color of the nearest receiver point
             if (ripples[i].isSpreading &&
-                Mathf.Abs(Vector3.Distance(ripples[i].position, transform.position))
+                Vector3.Distance(ripples[i].position, transform.position)
                 <= ripples[i].radius - rangeOffset)
             {
                 return ripples[i].color;
@@ -128,7 +128,7 @@ public class ObjectActivator : MonoBehaviour
 
         foreach(Collider col in colliders)
         {
-            // ignore self collision
+            // ignore self and trigger colliders
             if(col.name != name && !col.isTrigger)
                 return true;
         }
