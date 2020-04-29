@@ -2,6 +2,7 @@
 
 public class ObjectActivator : MonoBehaviour
 {
+    public Transform transitionPivot;                   // the pivot point to change the activation state
     public float rangeOffset;                           // offset to the range when this object should appear/disappear
     public float alphaSpeed = 0.5F;                     // the alpha fading speed
     public float minAlpha = 0.05F;
@@ -23,6 +24,9 @@ public class ObjectActivator : MonoBehaviour
         mat = GetComponent<Renderer>().material;
         col = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
+
+        if (!transitionPivot)
+            transitionPivot = transform;
 
         mat.shader = opaqueShader;
         rb.mass = float.PositiveInfinity;
@@ -104,7 +108,7 @@ public class ObjectActivator : MonoBehaviour
         {
             // check the color of the nearest receiver point
             if (ripples[i].isSpreading &&
-                Vector3.Distance(ripples[i].position, transform.position)
+                Vector3.Distance(ripples[i].position, transitionPivot.position)
                 <= ripples[i].radius - rangeOffset)
             {
                 return ripples[i].color;
