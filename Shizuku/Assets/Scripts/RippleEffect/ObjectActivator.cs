@@ -129,7 +129,7 @@ public class ObjectActivator : MonoBehaviour
         foreach(Collider col in colliders)
         {
             // ignore self and trigger colliders
-            if(col.name != name && !col.isTrigger)
+            if(col.name != name && !col.isTrigger && col.gameObject.layer != LayerMask.NameToLayer("Room"))
                 return true;
         }
 
