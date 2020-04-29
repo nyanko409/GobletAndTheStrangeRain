@@ -23,8 +23,8 @@ public class TitleUI : MonoBehaviour
     int CL_MAX = 255;
     int sizemax = 100;
     int nextselect = 0;
-    int posxmin = -573;
-    int posymin = 289;
+  public  float posxmin = -573;
+   public float posymin = 289;
     float poscount = 0;
     float sizenow = 0;
     float CL_now = 0;
