@@ -2,8 +2,10 @@
 
 public class ObjectActivator : MonoBehaviour
 {
+    public Transform transitionPivot;                   // the pivot point to change the activation state
     public float rangeOffset;                           // offset to the range when this object should appear/disappear
     public float alphaSpeed = 0.5F;                     // the alpha fading speed
+    public float minAlpha = 0.05F;
     public Shader opaqueShader;                         // render with this shader if it is visible
     public Shader transparentShader;                    // render with this shader if it is transparent
 
@@ -23,10 +25,13 @@ public class ObjectActivator : MonoBehaviour
         col = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
 
-        //mat.shader = opaqueShader;
+        if (!transitionPivot)
+            transitionPivot = transform;
+
         mat.shader = opaqueShader;
         rb.mass = float.PositiveInfinity;
         curAlpha = 1;
+
         UpdateRippleEffectReceiver();
     }
 
@@ -45,25 +50,36 @@ public class ObjectActivator : MonoBehaviour
                 rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             }
 
-            col.enabled = false;
-            curAlpha -= alphaSpeed * Time.deltaTime;
-            curAlpha = Mathf.Clamp(curAlpha, 0.05F, 1);
-            mat.SetFloat("_Alpha", curAlpha);
-            rb.isKinematic = true;
-        }
-        // enable if it is not overlapping
-        else if(!CheckOverlap())
-        {
-            col.enabled = true;
-            curAlpha += alphaSpeed * Time.deltaTime;
-            curAlpha = Mathf.Clamp01(curAlpha);
-            mat.SetFloat("_Alpha", curAlpha);
-            rb.isKinematic = false;
-
-            if (mat.shader != opaqueShader && curAlpha == 1)
+            if (curAlpha > minAlpha)
             {
-                mat.shader = opaqueShader;
-                rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                col.enabled = false;
+                rb.isKinematic = true;
+
+                curAlpha -= alphaSpeed * Time.deltaTime;
+                curAlpha = Mathf.Clamp(curAlpha, minAlpha, 1);
+                mat.SetFloat("_Alpha", curAlpha);
+            }
+        }
+        else
+        {
+            // enable if it is not overlapping
+            if (!col.enabled && !CheckOverlap())
+            {
+                col.enabled = true;
+                rb.isKinematic = false;
+            }
+
+            if (col.enabled)
+            {
+                curAlpha += alphaSpeed * Time.deltaTime;
+                curAlpha = Mathf.Clamp01(curAlpha);
+                mat.SetFloat("_Alpha", curAlpha);
+
+                if (mat.shader != opaqueShader && curAlpha == 1)
+                {
+                    mat.shader = opaqueShader;
+                    rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                }
             }
         }
     }
@@ -92,7 +108,7 @@ public class ObjectActivator : MonoBehaviour
         {
             // check the color of the nearest receiver point
             if (ripples[i].isSpreading &&
-                Mathf.Abs(Vector3.Distance(ripples[i].position, transform.position))
+                Vector3.Distance(ripples[i].position, transitionPivot.position)
                 <= ripples[i].radius - rangeOffset)
             {
                 return ripples[i].color;
@@ -116,8 +132,8 @@ public class ObjectActivator : MonoBehaviour
 
         foreach(Collider col in colliders)
         {
-            // ignore self collision
-            if(col.name != name && !col.isTrigger)
+            // ignore self and trigger colliders
+            if(col.name != name && !col.isTrigger && col.gameObject.layer != LayerMask.NameToLayer("Room"))
                 return true;
         }
 
