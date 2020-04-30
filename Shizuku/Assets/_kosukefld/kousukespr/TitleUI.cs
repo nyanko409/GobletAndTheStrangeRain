@@ -38,6 +38,7 @@ public class TitleUI : MonoBehaviour
     bool textcheck = false;
     bool buttoncheck = false;
     bool stratcheck = true;
+    bool axsiCK = true;
 
     public bool Titletest()
     {
@@ -137,16 +138,59 @@ public class TitleUI : MonoBehaviour
                 button2.SetActive(true);
             }
         }
-        if (buttoncheck == true&& Input.GetAxis("Axis 7") > 0f)
+
+        if(Input.GetAxis("Axis 7") == 0f&&axsiCK==false)
         {
-            nextselect = 1;
-            
+            axsiCK = true;
         }
-        if(buttoncheck == true && Input.GetAxis("Axis 7") < 0f)
+
+        if (buttoncheck == true && Input.GetAxis("Axis 7") > 0f && nextselect == 1 && axsiCK == true)
         {
             nextselect = 2;
-            
+            Debug.Log(nextselect);
+            axsiCK = false;
+
         }
+        if (buttoncheck == true && Input.GetAxis("Axis 7") < 0f && nextselect == 2 && axsiCK == true)
+        {
+            nextselect = 1;
+            Debug.Log(nextselect);
+            axsiCK = false;
+
+        }
+
+        if (buttoncheck == true && Input.GetAxis("Axis 7") > 0f && axsiCK == true)
+            {
+                nextselect = 1;
+                Debug.Log(nextselect);
+                axsiCK = false;
+            }
+
+        if (buttoncheck == true && Input.GetAxis("Axis 7") < 0f && axsiCK == true)
+        {
+            nextselect = 2;
+            Debug.Log(nextselect);
+            axsiCK = false;
+        }
+
+
+        //if (nextselect==1&&buttoncheck == true && Input.GetAxis("Axis 7") > 0f)
+        //{
+        //    nextselect = 2;
+
+        //}
+
+        //if (buttoncheck == true && Input.GetAxis("Axis 7") < 0f)
+        //{
+        //    nextselect = 2;
+
+        //}
+
+        //if (buttoncheck == true && Input.GetAxis("Axis 7") < 0f&&nextselect==2)
+        //{
+        //    nextselect = 1;
+
+        //}
 
     }
     //if (Input.GetKeyDown(KeyCode.JoystickButton2) == true)

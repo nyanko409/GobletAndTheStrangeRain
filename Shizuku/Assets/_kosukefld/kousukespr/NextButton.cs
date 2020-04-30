@@ -71,8 +71,8 @@ public class NextButton : MonoBehaviour
                 }
                 break;
             case 2:
-                textT.color = new Color32(255, 255, 255, (byte)CL_A);
                 textH.color = new Color32(0, 0, 0, 255);
+                textT.color = new Color32(255, 255, 255, (byte)CL_A);
                 if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && check.BuuttonCK() == true)
                 {
                     StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
