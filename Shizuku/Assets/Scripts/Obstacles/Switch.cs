@@ -4,7 +4,6 @@ using UnityEngine.Events;
 public class Switch : MonoBehaviour
 {
     public float pressHeight = 0.2F;
-    public float colliderSize = 1;
     public UnityEvent pressEvent;
     public UnityEvent releaseEvent;
 
@@ -20,6 +19,8 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
+
         overlap++;
 
         if (overlap == 1)
@@ -30,6 +31,8 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
+
         overlap--;
 
         if (overlap == 0)

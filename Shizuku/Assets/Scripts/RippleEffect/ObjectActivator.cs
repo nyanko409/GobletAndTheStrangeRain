@@ -2,20 +2,21 @@
 
 public class ObjectActivator : MonoBehaviour
 {
-    public Transform transitionPivot;                   // the pivot point to change the activation state
-    public float rangeOffset;                           // offset to the range when this object should appear/disappear
-    public float alphaSpeed = 0.5F;                     // the alpha fading speed
+    public Transform transitionPoint;               // the pivot point to change the activation state
+    public float rangeOffset;                       // offset to the range when this object should appear/disappear
+    public float alphaSpeed = 0.5F;                 // the alpha fading speed
     public float minAlpha = 0.05F;
-    public Shader opaqueShader;                         // render with this shader if it is visible
-    public Shader transparentShader;                    // render with this shader if it is transparent
+    public Shader opaqueShader;                     // render with this shader if it is visible
+    public Shader transparentShader;                // render with this shader if it is transparent
 
-    RippleEffectReceiver receiver;                      // receiver object to check the color from
-    MeshRenderer rend;                                  // reference to the attached mesh renderer
-    Material mat;                                       // reference to the attached material
-    Collider col;                                       // reference to the attached collider
-    Rigidbody rb;                                       // reference to the attached rigidbody
-    Color receiverColor;                                // current color the object is standing on
-    float curAlpha;
+    private RippleEffectReceiver receiver;          // receiver object to check the color from
+    private Tag tag;
+    private MeshRenderer rend;                      // reference to the attached mesh renderer
+    private Material mat;                           // reference to the attached material
+    private Collider col;                           // reference to the attached collider
+    private Rigidbody rb;                           // reference to the attached rigidbody
+    private Color receiverColor;                    // current color the object is standing on
+    private float curAlpha;
 
 
     void Start()
@@ -24,9 +25,10 @@ public class ObjectActivator : MonoBehaviour
         mat = GetComponent<Renderer>().material;
         col = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
+        tag = GetComponent<Tag>();
 
-        if (!transitionPivot)
-            transitionPivot = transform;
+        if (!transitionPoint)
+            transitionPoint = transform;
 
         mat.shader = opaqueShader;
         rb.mass = float.PositiveInfinity;
@@ -37,6 +39,9 @@ public class ObjectActivator : MonoBehaviour
 
     void Update()
     {
+        if (!tag.HasTag(TagType.RippleReceiver))
+            return;
+
         // get the nearest receiver color
         UpdateRippleEffectReceiver();
         receiverColor = GetNearestReceiverColor();
@@ -48,13 +53,13 @@ public class ObjectActivator : MonoBehaviour
             {
                 mat.shader = transparentShader;
                 rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+
+                col.enabled = false;
+                rb.isKinematic = true;
             }
 
             if (curAlpha > minAlpha)
             {
-                col.enabled = false;
-                rb.isKinematic = true;
-
                 curAlpha -= alphaSpeed * Time.deltaTime;
                 curAlpha = Mathf.Clamp(curAlpha, minAlpha, 1);
                 mat.SetFloat("_Alpha", curAlpha);
@@ -108,7 +113,7 @@ public class ObjectActivator : MonoBehaviour
         {
             // check the color of the nearest receiver point
             if (ripples[i].isSpreading &&
-                Vector3.Distance(ripples[i].position, transitionPivot.position)
+                Vector3.Distance(ripples[i].position, transitionPoint.position)
                 <= ripples[i].radius - rangeOffset)
             {
                 return ripples[i].color;
