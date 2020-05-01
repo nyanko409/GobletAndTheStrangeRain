@@ -18,8 +18,8 @@ public class NextButton : MonoBehaviour
 
     void Start()
     {
-        textH.color = new Color32(0, 0, 0, 0);
-        textT.color = new Color32(0, 0, 0, 0);
+        textH.color = new Color32(255, 255, 255, 0);
+        textT.color = new Color32(255, 255, 255, 0);
         //textH = this.GetComponent<Text>();
         //textT = this.GetComponent<Text>();      
     }
@@ -63,7 +63,7 @@ public class NextButton : MonoBehaviour
         {
             case 1:
                 textH.color = new Color32(255, 255, 255, (byte)CL_A);
-                textT.color = new Color32(0, 0, 0, 255);
+                textT.color = new Color32(255, 255, 255, 255);
                 if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && check.BuuttonCK() == true)
                 {
                     StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
@@ -71,7 +71,7 @@ public class NextButton : MonoBehaviour
                 }
                 break;
             case 2:
-                textH.color = new Color32(0, 0, 0, 255);
+                textH.color = new Color32(255, 255, 255, 255);
                 textT.color = new Color32(255, 255, 255, (byte)CL_A);
                 if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && check.BuuttonCK() == true)
                 {
@@ -80,8 +80,8 @@ public class NextButton : MonoBehaviour
                 }
                 break;
             default:
-                textT.color = new Color32(0, 0, 0, (byte)STCL_A);
-                textH.color = new Color32(0, 0, 0, (byte)STCL_A);
+                textT.color = new Color32(255, 255, 255, (byte)STCL_A);
+                textH.color = new Color32(255, 255, 255, (byte)STCL_A);
                 break;
         }
 

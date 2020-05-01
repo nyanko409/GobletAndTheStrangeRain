@@ -10,7 +10,6 @@ public class TitleUI : MonoBehaviour
     public PushAUI aui;
 
     public Image Title;
-    public GameObject canvas;
     public GameObject starttext;
     public GameObject button;
     public GameObject button2;
