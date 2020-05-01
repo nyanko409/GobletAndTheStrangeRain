@@ -148,6 +148,7 @@ public class ObjectActivator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, transform.localScale - new Vector3(0.1F, 0.1F, 0.1F));
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(Vector3.zero, Vector3.one - new Vector3(0.1F, 0.1F, 0.1F));
     }
 }
