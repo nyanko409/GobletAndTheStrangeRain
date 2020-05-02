@@ -73,10 +73,6 @@ public class TitleUI : MonoBehaviour
     void Update()
     {
         //position data.anchoredPosition
-        if (Input.GetKeyDown(KeyCode.JoystickButton2) == true)
-        {
-            Debug.Log(data.anchoredPosition);
-        }
 
         data.sizeDelta = new Vector2(sizenow, sizenow);
         Title.color = new Color32(255,255,255,(byte)CL_now);
