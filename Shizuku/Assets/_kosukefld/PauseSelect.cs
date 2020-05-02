@@ -24,7 +24,7 @@ public class PauseSelect : MonoBehaviour
     int Hmax = 470;
     int nextselect = 1;
     float SZcount = 0;
-    float countSpeed = 0.1f;
+    public float countSpeed = 0.05f;
 
     public bool BCK()
     {
