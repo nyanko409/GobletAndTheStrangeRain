@@ -2,10 +2,15 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public abstract class SceneLoader : MonoBehaviour
+public class SceneLoader : MonoBehaviour
 {
     private static bool isLoading = false;
 
+
+    private void Awake()
+    {
+        isLoading = false;
+    }
 
     public static IEnumerator LoadSceneAsync(string sceneName, string prefabPath, float simulatedTime = -1)
     {

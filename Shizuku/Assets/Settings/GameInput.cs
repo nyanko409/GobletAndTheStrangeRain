@@ -470,6 +470,14 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Return To Title"",
+                    ""type"": ""Button"",
+                    ""id"": ""165a3f44-9d53-457a-baff-2ab6c7070b35"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -536,6 +544,28 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Confirm Stage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22df31cc-080a-4045-ac1d-c95ac2722cc8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Return To Title"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f03caf11-11dc-4dd8-aa9b-13239df17962"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Return To Title"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -623,6 +653,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_UIStageSelect_StageSelectLeft = m_UIStageSelect.FindAction("Stage Select Left", throwIfNotFound: true);
         m_UIStageSelect_StageSelectRight = m_UIStageSelect.FindAction("Stage Select Right", throwIfNotFound: true);
         m_UIStageSelect_ConfirmStage = m_UIStageSelect.FindAction("Confirm Stage", throwIfNotFound: true);
+        m_UIStageSelect_ReturnToTitle = m_UIStageSelect.FindAction("Return To Title", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -797,6 +828,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_UIStageSelect_StageSelectLeft;
     private readonly InputAction m_UIStageSelect_StageSelectRight;
     private readonly InputAction m_UIStageSelect_ConfirmStage;
+    private readonly InputAction m_UIStageSelect_ReturnToTitle;
     public struct UIStageSelectActions
     {
         private @GameInput m_Wrapper;
@@ -804,6 +836,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         public InputAction @StageSelectLeft => m_Wrapper.m_UIStageSelect_StageSelectLeft;
         public InputAction @StageSelectRight => m_Wrapper.m_UIStageSelect_StageSelectRight;
         public InputAction @ConfirmStage => m_Wrapper.m_UIStageSelect_ConfirmStage;
+        public InputAction @ReturnToTitle => m_Wrapper.m_UIStageSelect_ReturnToTitle;
         public InputActionMap Get() { return m_Wrapper.m_UIStageSelect; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -822,6 +855,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @ConfirmStage.started -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnConfirmStage;
                 @ConfirmStage.performed -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnConfirmStage;
                 @ConfirmStage.canceled -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnConfirmStage;
+                @ReturnToTitle.started -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnReturnToTitle;
+                @ReturnToTitle.performed -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnReturnToTitle;
+                @ReturnToTitle.canceled -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnReturnToTitle;
             }
             m_Wrapper.m_UIStageSelectActionsCallbackInterface = instance;
             if (instance != null)
@@ -835,6 +871,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @ConfirmStage.started += instance.OnConfirmStage;
                 @ConfirmStage.performed += instance.OnConfirmStage;
                 @ConfirmStage.canceled += instance.OnConfirmStage;
+                @ReturnToTitle.started += instance.OnReturnToTitle;
+                @ReturnToTitle.performed += instance.OnReturnToTitle;
+                @ReturnToTitle.canceled += instance.OnReturnToTitle;
             }
         }
     }
@@ -904,5 +943,6 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnStageSelectLeft(InputAction.CallbackContext context);
         void OnStageSelectRight(InputAction.CallbackContext context);
         void OnConfirmStage(InputAction.CallbackContext context);
+        void OnReturnToTitle(InputAction.CallbackContext context);
     }
 }

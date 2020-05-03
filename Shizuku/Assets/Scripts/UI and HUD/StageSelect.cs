@@ -23,6 +23,8 @@ public class StageSelect : MonoBehaviour
 
         action.UIStageSelect.ConfirmStage.performed += context => LoadStage();
 
+        action.UIStageSelect.ReturnToTitle.performed += context => LoadTitle();
+
         action.UIStageSelect.StageSelectLeft.performed += context =>
         {
             // check if stage is locked
@@ -120,6 +122,11 @@ public class StageSelect : MonoBehaviour
         {
            StartCoroutine(SceneLoader.LoadSceneAsync(stages[curStageIndex].sceneName, "Prefabs/UI and HUD/Loading Canvas", 3));
         }
+    }
+
+    private void LoadTitle()
+    {
+        StartCoroutine(SceneLoader.LoadSceneAsync("Title", "Prefabs/UI and HUD/Loading Canvas"));
     }
 
     private void OnEnable()
