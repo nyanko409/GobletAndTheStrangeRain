@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class PauseSelect : MonoBehaviour
 {
+
+    public Posenext Posenext;
     public Image CLdata;
     public RectTransform data;
     public GameObject pose;
@@ -13,6 +15,7 @@ public class PauseSelect : MonoBehaviour
     GameInput actions;
     //bool check = false;
     bool Bcheck = false;
+    bool poseend = false;
 
     float nowW = 0;
     float nowH = 0;
@@ -39,6 +42,11 @@ public class PauseSelect : MonoBehaviour
         actions.UIPauseMenu.NavigateDown.canceled += context => downPressed = false;
     }
 
+
+    public bool poseED()
+    {
+        return poseend;
+    }
     public bool BCK()
     {
         return Bcheck;
@@ -86,6 +94,7 @@ public class PauseSelect : MonoBehaviour
 
         if (Bcheck == true)
         {
+            poseend = false;
             // main.SetActive(true);
             if (SZcount < 1)
             {
@@ -99,6 +108,7 @@ public class PauseSelect : MonoBehaviour
         }
         else if (Bcheck == false)
         {
+            poseend = true;
             Active(false);
            
             if (SZcount > 0)
@@ -108,7 +118,19 @@ public class PauseSelect : MonoBehaviour
             }
         }
 
-        if (downPressed && nextselect==1 && Bcheck == true)
+        switch(Posenext.PoseRCK())
+        {
+           
+
+            case 1:
+                Bcheck = false;
+                poseend = true;
+             
+                break;
+
+        }
+       
+        if (downPressed && nextselect==1&& Bcheck == true)
         {
             downPressed = false;
             nextselect = 2;

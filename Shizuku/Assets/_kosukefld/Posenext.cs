@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class Posenext : MonoBehaviour
 {
+
     public PauseSelect data;
     public Image res;
     public Image theck;
@@ -14,6 +15,25 @@ public class Posenext : MonoBehaviour
     float CL_A = 0;
     float count = 0;
     int colorcount = 2;
+    int poseR = 0;
+
+    bool Restart = false;
+    bool checkpoint = false;
+
+    public int PoseRCK()
+    {
+        return poseR;
+    }
+
+    public bool RestartCK()
+    {
+        return Restart;
+    }
+
+    public bool CheckpointCK()
+    {
+        return checkpoint;
+    }
 
 
     private void Awake()
@@ -58,11 +78,26 @@ public class Posenext : MonoBehaviour
                 res.color = new Color32(0, 0, 0, (byte)CL_A);
                 theck.color = new Color32(0, 0, 0, 255);
                 map.color = new Color32(0, 0, 0, 255);
-                break;
+                if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
+                {
+                    poseR = 1;
+                    Restart = true;
+                    Debug.Log("Restart");
+                    Debug.Log(Restart);
+                }
+
+                    break;
             case 2:
                 res.color = new Color32(0, 0, 0, 255);
                 theck.color = new Color32(0, 0, 0, (byte)CL_A);
                 map.color = new Color32(0, 0, 0, 255);
+                if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
+                {
+                    poseR = 1;
+                    checkpoint = true;
+                    Debug.Log("checkpoint");
+                    Debug.Log(checkpoint);
+                }
                 break;
             case 3:
                 res.color = new Color32(0, 0, 0, 255);
@@ -76,6 +111,18 @@ public class Posenext : MonoBehaviour
                     Debug.Log("osita A");
                 }
                 break;
+        }
+        if(data.poseED()==true)
+        {
+            poseR = 0;
+            Restart = false;
+            Debug.Log(Restart);
+        }
+        if(data.poseED()==true)
+        {
+            poseR = 0;
+            checkpoint = false;
+            Debug.Log(checkpoint);
         }
     }
 
