@@ -457,6 +457,14 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Return To Title",
+                    "type": "Button",
+                    "id": "165a3f44-9d53-457a-baff-2ab6c7070b35",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -523,6 +531,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Confirm Stage",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "22df31cc-080a-4045-ac1d-c95ac2722cc8",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Return To Title",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f03caf11-11dc-4dd8-aa9b-13239df17962",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Return To Title",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
