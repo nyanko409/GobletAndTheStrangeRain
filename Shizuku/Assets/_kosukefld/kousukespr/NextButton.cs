@@ -8,6 +8,7 @@ public class NextButton : MonoBehaviour
     public TitleUI check;
     public Image textH;
     public Image textT;
+    public Image textQ;
     public float colorspeed = 0.05f;
 
     GameInput actions;
@@ -30,6 +31,7 @@ public class NextButton : MonoBehaviour
 
     void Start()
     {
+        textQ.color = new Color32(255, 255, 255, 0); 
         textH.color = new Color32(255, 255, 255, 0);
         textT.color = new Color32(255, 255, 255, 0);
         //textH = this.GetComponent<Text>();
@@ -75,6 +77,7 @@ public class NextButton : MonoBehaviour
             case 1:
                 textH.color = new Color32(255, 255, 255, (byte)CL_A);
                 textT.color = new Color32(255, 255, 255, 255);
+                textQ.color = new Color32(255, 255, 255, 255);
                 if (confirmPressed && check.BuuttonCK() == true)
                 {
                     StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
@@ -84,15 +87,30 @@ public class NextButton : MonoBehaviour
             case 2:
                 textH.color = new Color32(255, 255, 255, 255);
                 textT.color = new Color32(255, 255, 255, (byte)CL_A);
+                textQ.color = new Color32(255, 255, 255, 255);
                 if (confirmPressed && check.BuuttonCK() == true)
                 {
                     StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
                     Debug.Log("osita A");
                 }
                 break;
+            case 3:
+                textH.color = new Color32(255, 255, 255, 255);
+                textT.color = new Color32(255, 255, 255, 255);
+                textQ.color = new Color32(255, 255, 255, (byte)CL_A);
+                if (confirmPressed && check.BuuttonCK() == true)
+                {
+#if UNITY_EDITOR
+                    UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
+                }
+                break;
             default:
                 textT.color = new Color32(255, 255, 255, (byte)STCL_A);
                 textH.color = new Color32(255, 255, 255, (byte)STCL_A);
+                textQ.color = new Color32(255, 255, 255, (byte)STCL_A);
                 break;
         }
     }

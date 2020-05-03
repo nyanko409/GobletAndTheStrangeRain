@@ -11,6 +11,7 @@ public class TitleUI : MonoBehaviour
     public GameObject starttext;
     public GameObject button;
     public GameObject button2;
+    public GameObject button3;
 
     private RectTransform data;
 
@@ -19,7 +20,7 @@ public class TitleUI : MonoBehaviour
 
     int CL_MAX = 255;
     int sizemax = 100;
-    int nextselect = 0;
+    int nextselect = 1;
     public  float posxmin = -573;
     public float posymin = 289;
     float poscount = 0;
@@ -140,33 +141,41 @@ public class TitleUI : MonoBehaviour
                 buttoncheck = true;
                 button.SetActive(true);
                 button2.SetActive(true);
+                button3.SetActive(true);
             }
         }
+
+       
+        
 
         if (buttoncheck == true && upPressed && nextselect == 1)
         {
             upPressed = false;
+            nextselect = 3;
+            Debug.Log(nextselect);
+        }
+        if (buttoncheck == true && upPressed&&nextselect==2)
+        {
+            upPressed = false;
+            nextselect = 1;
+            Debug.Log(nextselect);
+        }
+        if (buttoncheck == true && downPressed&&nextselect==1)
+        {
+            downPressed = false;
             nextselect = 2;
             Debug.Log(nextselect);
         }
         if (buttoncheck == true && downPressed && nextselect == 2)
         {
             downPressed = false;
-            nextselect = 1;
+            nextselect = 3;
             Debug.Log(nextselect);
         }
-
-        if (buttoncheck == true && upPressed)
-        {
-            upPressed = false;
-            nextselect = 1;
-            Debug.Log(nextselect);
-        }
-
-        if (buttoncheck == true && downPressed)
+        if (buttoncheck == true && downPressed && nextselect == 3)
         {
             downPressed = false;
-            nextselect = 2;
+            nextselect = 1;
             Debug.Log(nextselect);
         }
 
