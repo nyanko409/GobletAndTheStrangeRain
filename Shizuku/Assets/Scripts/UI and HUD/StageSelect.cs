@@ -21,9 +21,9 @@ public class StageSelect : MonoBehaviour
         // init listeners
         action = new GameInput();
 
-        action.UI.ConfirmStage.performed += context => LoadStage();
+        action.UIStageSelect.ConfirmStage.performed += context => LoadStage();
 
-        action.UI.StageSelectLeft.performed += context =>
+        action.UIStageSelect.StageSelectLeft.performed += context =>
         {
             // check if stage is locked
             if (curStageIndex - 1 < 0 && stages[stages.Length - 1].isLocked)
@@ -51,7 +51,7 @@ public class StageSelect : MonoBehaviour
             DisplayNextStage();
         };
 
-        action.UI.StageSelectRight.performed += context =>
+        action.UIStageSelect.StageSelectRight.performed += context =>
         {
             // check if stage is locked
             if (curStageIndex < stages.Length - 1 && stages[curStageIndex + 1].isLocked)

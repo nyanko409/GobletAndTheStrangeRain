@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
@@ -22,8 +20,8 @@ public class TitleUI : MonoBehaviour
     int CL_MAX = 255;
     int sizemax = 100;
     int nextselect = 0;
-  public  float posxmin = -573;
-   public float posymin = 289;
+    public  float posxmin = -573;
+    public float posymin = 289;
     float poscount = 0;
     float sizenow = 0;
     float CL_now = 0;
@@ -37,7 +35,24 @@ public class TitleUI : MonoBehaviour
     bool textcheck = false;
     bool buttoncheck = false;
     bool stratcheck = true;
-    bool axsiCK = true;
+
+    private GameInput actions;
+    bool upPressed = false, downPressed = false;
+    bool startPressed = false;
+
+
+    private void Awake()
+    {
+        actions = new GameInput();
+
+        actions.UITitle.PressToStart.started += context => { startPressed = true; };
+        actions.UITitle.PressToStart.canceled += context => { startPressed = false; };
+
+        actions.UITitle.NavigateUp.started += context => { upPressed = true; };
+        actions.UITitle.NavigateUp.canceled += context => { upPressed = false; };
+        actions.UITitle.NavigateDown.started += context => { downPressed = true; };
+        actions.UITitle.NavigateDown.canceled += context => { downPressed = false; };
+    }
 
     public bool Titletest()
     {
@@ -72,8 +87,6 @@ public class TitleUI : MonoBehaviour
     
     void Update()
     {
-        //position data.anchoredPosition
-
         data.sizeDelta = new Vector2(sizenow, sizenow);
         Title.color = new Color32(255,255,255,(byte)CL_now);
         data.anchoredPosition = new Vector2(nextsizex,nextsizey);
@@ -83,8 +96,6 @@ public class TitleUI : MonoBehaviour
             {
                 sizenow = Mathf.Lerp(0, sizemax, sizecount);
                 sizecount += 0.01F;
-
-
             }
             else if (!textcheck)
             {
@@ -114,17 +125,15 @@ public class TitleUI : MonoBehaviour
 
 
             }
-
         }
-      
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton0) == true&&Titletest()==true&&buttoncheck==false)
+        if (startPressed && Titletest() && !buttoncheck)
         {
             stratcheck = false;
             nextST = true;
         }
 
-        if(aui.destroyCK()==true)
+        if(aui.destroyCK())
         {
             if (!buttoncheck)
             {
@@ -134,40 +143,32 @@ public class TitleUI : MonoBehaviour
             }
         }
 
-        if(Input.GetAxis("Axis 7") == 0f&&axsiCK==false)
+        if (buttoncheck == true && upPressed && nextselect == 1)
         {
-            axsiCK = true;
-        }
-
-        if (buttoncheck == true && Input.GetAxis("Axis 7") > 0f && nextselect == 1 && axsiCK == true)
-        {
+            upPressed = false;
             nextselect = 2;
             Debug.Log(nextselect);
-            axsiCK = false;
-
         }
-        if (buttoncheck == true && Input.GetAxis("Axis 7") < 0f && nextselect == 2 && axsiCK == true)
+        if (buttoncheck == true && downPressed && nextselect == 2)
         {
+            downPressed = false;
             nextselect = 1;
             Debug.Log(nextselect);
-            axsiCK = false;
-
         }
 
-        if (buttoncheck == true && Input.GetAxis("Axis 7") > 0f && axsiCK == true)
-            {
-                nextselect = 1;
-                Debug.Log(nextselect);
-                axsiCK = false;
-            }
-
-        if (buttoncheck == true && Input.GetAxis("Axis 7") < 0f && axsiCK == true)
+        if (buttoncheck == true && upPressed)
         {
+            upPressed = false;
+            nextselect = 1;
+            Debug.Log(nextselect);
+        }
+
+        if (buttoncheck == true && downPressed)
+        {
+            downPressed = false;
             nextselect = 2;
             Debug.Log(nextselect);
-            axsiCK = false;
         }
-
 
         //if (nextselect==1&&buttoncheck == true && Input.GetAxis("Axis 7") > 0f)
         //{
@@ -186,10 +187,15 @@ public class TitleUI : MonoBehaviour
         //    nextselect = 1;
 
         //}
-
     }
-    //if (Input.GetKeyDown(KeyCode.JoystickButton2) == true)
-    //    {
-    //        Debug.Log();
-    //    }
+
+    private void OnEnable()
+    {
+        actions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        actions.Disable();
+    }
 }
