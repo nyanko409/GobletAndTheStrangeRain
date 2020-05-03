@@ -1,12 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PauseSelect : MonoBehaviour
 {
-
-
     public Image CLdata;
     public RectTransform data;
     public GameObject pose;
@@ -14,9 +10,9 @@ public class PauseSelect : MonoBehaviour
     public GameObject check;
     public GameObject remap;
 
+    GameInput actions;
     //bool check = false;
     bool Bcheck = false;
-    bool axsiCK = true;
 
     float nowW = 0;
     float nowH = 0;
@@ -25,6 +21,23 @@ public class PauseSelect : MonoBehaviour
     int nextselect = 1;
     float SZcount = 0;
     public float countSpeed = 0.05f;
+    
+    bool pausePressed = false;
+    bool upPressed = false, downPressed = false;
+
+
+    private void Awake()
+    {
+        actions = new GameInput();
+
+        actions.UIPauseMenu.TogglePauseMenu.started += context => pausePressed = true;
+        actions.UIPauseMenu.TogglePauseMenu.canceled += context => pausePressed = false;
+
+        actions.UIPauseMenu.NavigateUp.started += context => upPressed = true;
+        actions.UIPauseMenu.NavigateUp.canceled += context => upPressed = false;
+        actions.UIPauseMenu.NavigateDown.started += context => downPressed = true;
+        actions.UIPauseMenu.NavigateDown.canceled += context => downPressed = false;
+    }
 
     public bool BCK()
     {
@@ -42,7 +55,6 @@ public class PauseSelect : MonoBehaviour
         restart.SetActive(x);
         check.SetActive(x);
         remap.SetActive(x);
-        
     }
 
     void Start()
@@ -60,19 +72,20 @@ public class PauseSelect : MonoBehaviour
 
     void Update()
     {
-        data.sizeDelta =new Vector2(nowW, nowH);
+        data.sizeDelta = new Vector2(nowW, nowH);
         nowW = Mathf.Lerp(0, Wmax, SZcount);
         nowH = Mathf.Lerp(0, Hmax, SZcount);
-        if (Input.GetKeyDown(KeyCode.JoystickButton7) == true/*&&check==false*/)
-        {
-           
-            Bcheck = !Bcheck;
-            Debug.Log(check);
 
+        if (pausePressed /*&&check==false*/)
+        {
+            pausePressed = false;
+            Bcheck = !Bcheck;
+            Time.timeScale = Bcheck ? 0 : 1;
+            Debug.Log(check);
         }
+
         if (Bcheck == true)
         {
-
             // main.SetActive(true);
             if (SZcount < 1)
             {
@@ -84,8 +97,7 @@ public class PauseSelect : MonoBehaviour
                 Active(true);
             }
         }
-        else
-        if (Bcheck == false)
+        else if (Bcheck == false)
         {
             Active(false);
            
@@ -95,49 +107,55 @@ public class PauseSelect : MonoBehaviour
 
             }
         }
-        //
-        if (Input.GetAxis("Axis 7") == 0f && axsiCK == false)
+
+        if (downPressed && nextselect==1 && Bcheck == true)
         {
-            axsiCK = true;
-        }
-        if (Input.GetAxis("Axis 7") < 0f&&axsiCK==true&&nextselect==1&& Bcheck == true)
-        {
+            downPressed = false;
             nextselect = 2;
-            axsiCK = false;
             
         }
-        if(Input.GetAxis("Axis 7") < 0f && axsiCK == true&&nextselect==2 && Bcheck == true)
+
+        if(downPressed && nextselect==2 && Bcheck == true)
         {
+            downPressed = false;
             nextselect = 3;
-            axsiCK = false;
             
         }
-        if (Input.GetAxis("Axis 7") < 0f && axsiCK == true && nextselect == 3 && Bcheck == true)
+
+        if (downPressed && nextselect == 3 && Bcheck == true)
         {
+            downPressed = false;
             nextselect = 1;
-            axsiCK = false;
             
         }
-        if (Input.GetAxis("Axis 7") > 0f && axsiCK == true && nextselect == 1 && Bcheck == true)
+
+        if (upPressed && nextselect == 1 && Bcheck == true)
         {
+            upPressed = false;
             nextselect = 3;
-            axsiCK = false;
             
         }
-        if (Input.GetAxis("Axis 7") > 0f && axsiCK == true && nextselect == 3 && Bcheck == true)
+
+        if (upPressed && nextselect == 3 && Bcheck == true)
         {
-            nextselect = 2;
-            axsiCK = false;
-           
+            upPressed = false;
+            nextselect = 2;           
         }
-        if (Input.GetAxis("Axis 7") > 0f && axsiCK == true && nextselect == 2 && Bcheck == true)
+
+        if (upPressed && nextselect == 2 && Bcheck == true)
         {
+            upPressed = false;
             nextselect = 1;
-            axsiCK = false;
-            
         }
+    }
 
+    private void OnEnable()
+    {
+        actions.Enable();
+    }
 
-
+    private void OnDisable()
+    {
+        actions.Disable();
     }
 }

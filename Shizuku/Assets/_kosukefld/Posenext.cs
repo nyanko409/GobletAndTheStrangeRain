@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Posenext : MonoBehaviour
@@ -10,9 +8,21 @@ public class Posenext : MonoBehaviour
     public Image theck;
     public Image map;
     public float colorspeed = 0.05f;
+
+    GameInput actions;
+    bool confirmPressed = false;
     float CL_A = 0;
     float count = 0;
     int colorcount = 2;
+
+
+    private void Awake()
+    {
+        actions = new GameInput();
+
+        actions.UIPauseMenu.Confirm.started += context => confirmPressed = true;
+        actions.UIPauseMenu.Confirm.canceled += context => confirmPressed = false;
+    }
 
     void Start()
     {
@@ -58,14 +68,24 @@ public class Posenext : MonoBehaviour
                 res.color = new Color32(0, 0, 0, 255);
                 theck.color = new Color32(0, 0, 0, 255);
                 map.color = new Color32(0, 0, 0, (byte)CL_A);
-                if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
+
+                if (confirmPressed && data.BCK() == true)
                 {
-                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
+                    Time.timeScale = 1;
+                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas"));
                     Debug.Log("osita A");
                 }
                 break;
-               
-
         }
+    }
+
+    private void OnEnable()
+    {
+        actions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        actions.Disable();
     }
 }

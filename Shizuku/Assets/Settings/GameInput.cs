@@ -570,6 +570,134 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI Pause Menu"",
+            ""id"": ""6d8b2b63-e0d0-4d40-b85f-9d72dce243af"",
+            ""actions"": [
+                {
+                    ""name"": ""Toggle Pause Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""26d3fe27-f4e5-4910-9851-cc3df9abb7d2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Navigate Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""299c9b06-abe9-4e01-8e16-68c837014e2c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Navigate Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""72b21733-deda-4096-8d14-7879293f2f80"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""bfa5cc85-25b0-4ff1-9e5f-a69e887221a8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""38d3b943-16de-45e7-bd8e-335ce49efdb2"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f52442a-3a64-403b-966e-28677bb4112c"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Navigate Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""752ee163-a947-44e1-8a25-650cf3ff890f"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2ba8106-211c-4b30-a29b-3386d0ed8e16"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a54d689-de00-40dc-ae10-4c4082930d48"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9df14ef3-4098-433f-96e4-4f7066c2e130"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61f2f5e1-cf84-441a-8f6f-c5825fe079bc"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Toggle Pause Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8fcf72b-3929-48e7-810e-ca387117848f"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Toggle Pause Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -654,6 +782,12 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_UIStageSelect_StageSelectRight = m_UIStageSelect.FindAction("Stage Select Right", throwIfNotFound: true);
         m_UIStageSelect_ConfirmStage = m_UIStageSelect.FindAction("Confirm Stage", throwIfNotFound: true);
         m_UIStageSelect_ReturnToTitle = m_UIStageSelect.FindAction("Return To Title", throwIfNotFound: true);
+        // UI Pause Menu
+        m_UIPauseMenu = asset.FindActionMap("UI Pause Menu", throwIfNotFound: true);
+        m_UIPauseMenu_TogglePauseMenu = m_UIPauseMenu.FindAction("Toggle Pause Menu", throwIfNotFound: true);
+        m_UIPauseMenu_NavigateUp = m_UIPauseMenu.FindAction("Navigate Up", throwIfNotFound: true);
+        m_UIPauseMenu_NavigateDown = m_UIPauseMenu.FindAction("Navigate Down", throwIfNotFound: true);
+        m_UIPauseMenu_Confirm = m_UIPauseMenu.FindAction("Confirm", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -878,6 +1012,63 @@ public class @GameInput : IInputActionCollection, IDisposable
         }
     }
     public UIStageSelectActions @UIStageSelect => new UIStageSelectActions(this);
+
+    // UI Pause Menu
+    private readonly InputActionMap m_UIPauseMenu;
+    private IUIPauseMenuActions m_UIPauseMenuActionsCallbackInterface;
+    private readonly InputAction m_UIPauseMenu_TogglePauseMenu;
+    private readonly InputAction m_UIPauseMenu_NavigateUp;
+    private readonly InputAction m_UIPauseMenu_NavigateDown;
+    private readonly InputAction m_UIPauseMenu_Confirm;
+    public struct UIPauseMenuActions
+    {
+        private @GameInput m_Wrapper;
+        public UIPauseMenuActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TogglePauseMenu => m_Wrapper.m_UIPauseMenu_TogglePauseMenu;
+        public InputAction @NavigateUp => m_Wrapper.m_UIPauseMenu_NavigateUp;
+        public InputAction @NavigateDown => m_Wrapper.m_UIPauseMenu_NavigateDown;
+        public InputAction @Confirm => m_Wrapper.m_UIPauseMenu_Confirm;
+        public InputActionMap Get() { return m_Wrapper.m_UIPauseMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIPauseMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IUIPauseMenuActions instance)
+        {
+            if (m_Wrapper.m_UIPauseMenuActionsCallbackInterface != null)
+            {
+                @TogglePauseMenu.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnTogglePauseMenu;
+                @TogglePauseMenu.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnTogglePauseMenu;
+                @TogglePauseMenu.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnTogglePauseMenu;
+                @NavigateUp.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateUp;
+                @NavigateUp.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateUp;
+                @NavigateUp.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateUp;
+                @NavigateDown.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateDown;
+                @NavigateDown.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateDown;
+                @NavigateDown.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateDown;
+                @Confirm.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnConfirm;
+            }
+            m_Wrapper.m_UIPauseMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @TogglePauseMenu.started += instance.OnTogglePauseMenu;
+                @TogglePauseMenu.performed += instance.OnTogglePauseMenu;
+                @TogglePauseMenu.canceled += instance.OnTogglePauseMenu;
+                @NavigateUp.started += instance.OnNavigateUp;
+                @NavigateUp.performed += instance.OnNavigateUp;
+                @NavigateUp.canceled += instance.OnNavigateUp;
+                @NavigateDown.started += instance.OnNavigateDown;
+                @NavigateDown.performed += instance.OnNavigateDown;
+                @NavigateDown.canceled += instance.OnNavigateDown;
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+            }
+        }
+    }
+    public UIPauseMenuActions @UIPauseMenu => new UIPauseMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -944,5 +1135,12 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnStageSelectRight(InputAction.CallbackContext context);
         void OnConfirmStage(InputAction.CallbackContext context);
         void OnReturnToTitle(InputAction.CallbackContext context);
+    }
+    public interface IUIPauseMenuActions
+    {
+        void OnTogglePauseMenu(InputAction.CallbackContext context);
+        void OnNavigateUp(InputAction.CallbackContext context);
+        void OnNavigateDown(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
     }
 }
