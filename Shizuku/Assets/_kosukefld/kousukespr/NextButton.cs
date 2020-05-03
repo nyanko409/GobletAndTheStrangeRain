@@ -80,7 +80,7 @@ public class NextButton : MonoBehaviour
                 textQ.color = new Color32(255, 255, 255, 255);
                 if (confirmPressed && check.BuuttonCK() == true)
                 {
-                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
+                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
                     Debug.Log("osita A");
                 }
                 break;
@@ -90,7 +90,7 @@ public class NextButton : MonoBehaviour
                 textQ.color = new Color32(255, 255, 255, 255);
                 if (confirmPressed && check.BuuttonCK() == true)
                 {
-                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
+                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
                     Debug.Log("osita A");
                 }
                 break;

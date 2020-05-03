@@ -95,7 +95,7 @@ public class Posenext : MonoBehaviour
                 map.color = new Color32(0, 0, 0, (byte)CL_A);
                 if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
                 {
-                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 3));
+                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 1));
                     Debug.Log("osita A");
                 }
                 break;
