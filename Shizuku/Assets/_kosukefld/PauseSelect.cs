@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PauseSelect : MonoBehaviour
 {
 
-
+    public Posenext Posenext;
     public Image CLdata;
     public RectTransform data;
     public GameObject pose;
@@ -17,6 +17,7 @@ public class PauseSelect : MonoBehaviour
     //bool check = false;
     bool Bcheck = false;
     bool axsiCK = true;
+    bool poseend = false;
 
     float nowW = 0;
     float nowH = 0;
@@ -26,6 +27,11 @@ public class PauseSelect : MonoBehaviour
     float SZcount = 0;
     public float countSpeed = 0.05f;
 
+
+    public bool poseED()
+    {
+        return poseend;
+    }
     public bool BCK()
     {
         return Bcheck;
@@ -67,12 +73,12 @@ public class PauseSelect : MonoBehaviour
         {
            
             Bcheck = !Bcheck;
-            Debug.Log(check);
+            Debug.Log(Bcheck);
 
         }
         if (Bcheck == true)
         {
-
+            poseend = false;
             // main.SetActive(true);
             if (SZcount < 1)
             {
@@ -87,6 +93,7 @@ public class PauseSelect : MonoBehaviour
         else
         if (Bcheck == false)
         {
+            poseend = true;
             Active(false);
            
             if (SZcount > 0)
@@ -95,7 +102,19 @@ public class PauseSelect : MonoBehaviour
 
             }
         }
-        //
+
+        switch(Posenext.PoseRCK())
+        {
+           
+
+            case 1:
+                Bcheck = false;
+                poseend = true;
+             
+                break;
+
+        }
+       
         if (Input.GetAxis("Axis 7") == 0f && axsiCK == false)
         {
             axsiCK = true;
@@ -136,7 +155,7 @@ public class PauseSelect : MonoBehaviour
             axsiCK = false;
             
         }
-
+      
 
 
     }

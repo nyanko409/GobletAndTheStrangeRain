@@ -90,12 +90,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3e7e0b34a3ea04da7bf0530df3749a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Posenext: {fileID: 2313638563741966472}
   CLdata: {fileID: 210902648837319020}
   data: {fileID: 210902648837319018}
   pose: {fileID: 1767946633725619584}
   restart: {fileID: 221341207283268687}
   check: {fileID: 6904838684514638001}
   remap: {fileID: 4224795850080515542}
+  countSpeed: 0.1
 --- !u!1 &221341207283268687
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +188,7 @@ MonoBehaviour:
   res: {fileID: 7776246760273106099}
   theck: {fileID: 6826649783376223428}
   map: {fileID: 1718114389635031750}
-  colorspeed: 0.01
+  colorspeed: 0.1
 --- !u!1 &1767946633725619584
 GameObject:
   m_ObjectHideFlags: 0
