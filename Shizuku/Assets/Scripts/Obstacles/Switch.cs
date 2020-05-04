@@ -23,7 +23,7 @@ public class Switch : MonoBehaviour
 
         overlap++;
 
-        if (overlap == 1)
+        if(SwitchIsActivated())
             pressEvent.Invoke();
 
         transform.position = startPos - new Vector3(0, pressHeight, 0);
@@ -35,10 +35,20 @@ public class Switch : MonoBehaviour
 
         overlap--;
 
-        if (overlap == 0)
+        if (!SwitchIsActivated())
         {
             transform.position = startPos;
             releaseEvent.Invoke();
         }
+    }
+
+    private bool SwitchIsActivated()
+    {
+        return IsPressed();
+    }
+
+    public bool IsPressed()
+    {
+        return overlap != 0;
     }
 }

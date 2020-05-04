@@ -6,7 +6,6 @@ public class MoveInOut : MonoBehaviour
     public float speed = 1;
     public float moveDistance = 3;
 
-    Vector3 startPos, goalPos;
     bool finishedMoving;
     bool movingOut;
     Vector3 dir;
@@ -15,22 +14,20 @@ public class MoveInOut : MonoBehaviour
 
     private void Start()
     {
-        startPos = transform.position;
-        goalPos = startPos + moveDirection.normalized * moveDistance;
-
         movingOut = false;
         finishedMoving = true;
         dir = moveDirection.normalized;
         distanceTraveled = 0;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (finishedMoving)
             return;
 
         transform.position += dir * speed * Time.deltaTime;
         distanceTraveled += movingOut ? speed * Time.deltaTime : -speed * Time.deltaTime;
+
         if(distanceTraveled >= moveDistance || distanceTraveled <= 0)
         {
             finishedMoving = true;
