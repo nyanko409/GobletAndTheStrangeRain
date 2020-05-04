@@ -316,8 +316,136 @@ public class @GameInput : IInputActionCollection, IDisposable
             ]
         },
         {
-            ""name"": ""UI"",
+            ""name"": ""UI Title"",
             ""id"": ""aaab999e-b277-425c-a71b-dc419f3e16df"",
+            ""actions"": [
+                {
+                    ""name"": ""Press To Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""d7041dfc-013e-4f26-aa8f-5cfc197ec104"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Navigate Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""35fa15db-6b93-4d81-b3f1-b2a543fd75a7"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Navigate Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""b3a44066-57e4-4083-8313-72ddde4fd619"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""5c67921e-256b-426f-b5d4-a40db883c0e4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""fd55e90a-2f10-4573-af1b-650c209648d6"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Press To Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""166cdfb3-f8bc-43c9-8a85-552ba3d439d1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Press To Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c24cb427-75de-4115-95df-a163064e3407"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cf5863d1-3487-442a-bde4-2611385b9e4f"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Navigate Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6426eda4-d583-4bfe-981c-90afa63a1642"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""adb4a7ae-e0d8-4308-bf53-958043de70d5"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Navigate Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e1f4651d-5485-48b3-b7af-f266441946c5"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5964bcbe-b062-4471-84ee-b48882e8c3db"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI Stage Select"",
+            ""id"": ""a69c44cf-1f2e-4aad-85aa-3a4c6d2b1cb3"",
             ""actions"": [
                 {
                     ""name"": ""Stage Select Left"",
@@ -339,6 +467,14 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""name"": ""Confirm Stage"",
                     ""type"": ""Button"",
                     ""id"": ""657a9170-ecd5-4565-938c-ce32f1ea3fa3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Return To Title"",
+                    ""type"": ""Button"",
+                    ""id"": ""165a3f44-9d53-457a-baff-2ab6c7070b35"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -408,6 +544,156 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Confirm Stage"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""22df31cc-080a-4045-ac1d-c95ac2722cc8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Return To Title"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f03caf11-11dc-4dd8-aa9b-13239df17962"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Return To Title"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI Pause Menu"",
+            ""id"": ""6d8b2b63-e0d0-4d40-b85f-9d72dce243af"",
+            ""actions"": [
+                {
+                    ""name"": ""Toggle Pause Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""26d3fe27-f4e5-4910-9851-cc3df9abb7d2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Navigate Up"",
+                    ""type"": ""Button"",
+                    ""id"": ""299c9b06-abe9-4e01-8e16-68c837014e2c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Navigate Down"",
+                    ""type"": ""Button"",
+                    ""id"": ""72b21733-deda-4096-8d14-7879293f2f80"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""bfa5cc85-25b0-4ff1-9e5f-a69e887221a8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""38d3b943-16de-45e7-bd8e-335ce49efdb2"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9f52442a-3a64-403b-966e-28677bb4112c"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Navigate Up"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""752ee163-a947-44e1-8a25-650cf3ff890f"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e2ba8106-211c-4b30-a29b-3386d0ed8e16"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate Down"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a54d689-de00-40dc-ae10-4c4082930d48"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9df14ef3-4098-433f-96e4-4f7066c2e130"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""61f2f5e1-cf84-441a-8f6f-c5825fe079bc"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Toggle Pause Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b8fcf72b-3929-48e7-810e-ca387117848f"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Toggle Pause Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -484,11 +770,24 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_DropDroplet = m_Player.FindAction("Drop Droplet", throwIfNotFound: true);
         m_Player_Drag = m_Player.FindAction("Drag", throwIfNotFound: true);
-        // UI
-        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_StageSelectLeft = m_UI.FindAction("Stage Select Left", throwIfNotFound: true);
-        m_UI_StageSelectRight = m_UI.FindAction("Stage Select Right", throwIfNotFound: true);
-        m_UI_ConfirmStage = m_UI.FindAction("Confirm Stage", throwIfNotFound: true);
+        // UI Title
+        m_UITitle = asset.FindActionMap("UI Title", throwIfNotFound: true);
+        m_UITitle_PressToStart = m_UITitle.FindAction("Press To Start", throwIfNotFound: true);
+        m_UITitle_NavigateUp = m_UITitle.FindAction("Navigate Up", throwIfNotFound: true);
+        m_UITitle_NavigateDown = m_UITitle.FindAction("Navigate Down", throwIfNotFound: true);
+        m_UITitle_Confirm = m_UITitle.FindAction("Confirm", throwIfNotFound: true);
+        // UI Stage Select
+        m_UIStageSelect = asset.FindActionMap("UI Stage Select", throwIfNotFound: true);
+        m_UIStageSelect_StageSelectLeft = m_UIStageSelect.FindAction("Stage Select Left", throwIfNotFound: true);
+        m_UIStageSelect_StageSelectRight = m_UIStageSelect.FindAction("Stage Select Right", throwIfNotFound: true);
+        m_UIStageSelect_ConfirmStage = m_UIStageSelect.FindAction("Confirm Stage", throwIfNotFound: true);
+        m_UIStageSelect_ReturnToTitle = m_UIStageSelect.FindAction("Return To Title", throwIfNotFound: true);
+        // UI Pause Menu
+        m_UIPauseMenu = asset.FindActionMap("UI Pause Menu", throwIfNotFound: true);
+        m_UIPauseMenu_TogglePauseMenu = m_UIPauseMenu.FindAction("Toggle Pause Menu", throwIfNotFound: true);
+        m_UIPauseMenu_NavigateUp = m_UIPauseMenu.FindAction("Navigate Up", throwIfNotFound: true);
+        m_UIPauseMenu_NavigateDown = m_UIPauseMenu.FindAction("Navigate Down", throwIfNotFound: true);
+        m_UIPauseMenu_Confirm = m_UIPauseMenu.FindAction("Confirm", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -600,39 +899,101 @@ public class @GameInput : IInputActionCollection, IDisposable
     }
     public PlayerActions @Player => new PlayerActions(this);
 
-    // UI
-    private readonly InputActionMap m_UI;
-    private IUIActions m_UIActionsCallbackInterface;
-    private readonly InputAction m_UI_StageSelectLeft;
-    private readonly InputAction m_UI_StageSelectRight;
-    private readonly InputAction m_UI_ConfirmStage;
-    public struct UIActions
+    // UI Title
+    private readonly InputActionMap m_UITitle;
+    private IUITitleActions m_UITitleActionsCallbackInterface;
+    private readonly InputAction m_UITitle_PressToStart;
+    private readonly InputAction m_UITitle_NavigateUp;
+    private readonly InputAction m_UITitle_NavigateDown;
+    private readonly InputAction m_UITitle_Confirm;
+    public struct UITitleActions
     {
         private @GameInput m_Wrapper;
-        public UIActions(@GameInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @StageSelectLeft => m_Wrapper.m_UI_StageSelectLeft;
-        public InputAction @StageSelectRight => m_Wrapper.m_UI_StageSelectRight;
-        public InputAction @ConfirmStage => m_Wrapper.m_UI_ConfirmStage;
-        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public UITitleActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @PressToStart => m_Wrapper.m_UITitle_PressToStart;
+        public InputAction @NavigateUp => m_Wrapper.m_UITitle_NavigateUp;
+        public InputAction @NavigateDown => m_Wrapper.m_UITitle_NavigateDown;
+        public InputAction @Confirm => m_Wrapper.m_UITitle_Confirm;
+        public InputActionMap Get() { return m_Wrapper.m_UITitle; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
-        public void SetCallbacks(IUIActions instance)
+        public static implicit operator InputActionMap(UITitleActions set) { return set.Get(); }
+        public void SetCallbacks(IUITitleActions instance)
         {
-            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            if (m_Wrapper.m_UITitleActionsCallbackInterface != null)
             {
-                @StageSelectLeft.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectLeft;
-                @StageSelectLeft.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectLeft;
-                @StageSelectLeft.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectLeft;
-                @StageSelectRight.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectRight;
-                @StageSelectRight.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectRight;
-                @StageSelectRight.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStageSelectRight;
-                @ConfirmStage.started -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirmStage;
-                @ConfirmStage.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirmStage;
-                @ConfirmStage.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnConfirmStage;
+                @PressToStart.started -= m_Wrapper.m_UITitleActionsCallbackInterface.OnPressToStart;
+                @PressToStart.performed -= m_Wrapper.m_UITitleActionsCallbackInterface.OnPressToStart;
+                @PressToStart.canceled -= m_Wrapper.m_UITitleActionsCallbackInterface.OnPressToStart;
+                @NavigateUp.started -= m_Wrapper.m_UITitleActionsCallbackInterface.OnNavigateUp;
+                @NavigateUp.performed -= m_Wrapper.m_UITitleActionsCallbackInterface.OnNavigateUp;
+                @NavigateUp.canceled -= m_Wrapper.m_UITitleActionsCallbackInterface.OnNavigateUp;
+                @NavigateDown.started -= m_Wrapper.m_UITitleActionsCallbackInterface.OnNavigateDown;
+                @NavigateDown.performed -= m_Wrapper.m_UITitleActionsCallbackInterface.OnNavigateDown;
+                @NavigateDown.canceled -= m_Wrapper.m_UITitleActionsCallbackInterface.OnNavigateDown;
+                @Confirm.started -= m_Wrapper.m_UITitleActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_UITitleActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_UITitleActionsCallbackInterface.OnConfirm;
             }
-            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            m_Wrapper.m_UITitleActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @PressToStart.started += instance.OnPressToStart;
+                @PressToStart.performed += instance.OnPressToStart;
+                @PressToStart.canceled += instance.OnPressToStart;
+                @NavigateUp.started += instance.OnNavigateUp;
+                @NavigateUp.performed += instance.OnNavigateUp;
+                @NavigateUp.canceled += instance.OnNavigateUp;
+                @NavigateDown.started += instance.OnNavigateDown;
+                @NavigateDown.performed += instance.OnNavigateDown;
+                @NavigateDown.canceled += instance.OnNavigateDown;
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+            }
+        }
+    }
+    public UITitleActions @UITitle => new UITitleActions(this);
+
+    // UI Stage Select
+    private readonly InputActionMap m_UIStageSelect;
+    private IUIStageSelectActions m_UIStageSelectActionsCallbackInterface;
+    private readonly InputAction m_UIStageSelect_StageSelectLeft;
+    private readonly InputAction m_UIStageSelect_StageSelectRight;
+    private readonly InputAction m_UIStageSelect_ConfirmStage;
+    private readonly InputAction m_UIStageSelect_ReturnToTitle;
+    public struct UIStageSelectActions
+    {
+        private @GameInput m_Wrapper;
+        public UIStageSelectActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @StageSelectLeft => m_Wrapper.m_UIStageSelect_StageSelectLeft;
+        public InputAction @StageSelectRight => m_Wrapper.m_UIStageSelect_StageSelectRight;
+        public InputAction @ConfirmStage => m_Wrapper.m_UIStageSelect_ConfirmStage;
+        public InputAction @ReturnToTitle => m_Wrapper.m_UIStageSelect_ReturnToTitle;
+        public InputActionMap Get() { return m_Wrapper.m_UIStageSelect; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIStageSelectActions set) { return set.Get(); }
+        public void SetCallbacks(IUIStageSelectActions instance)
+        {
+            if (m_Wrapper.m_UIStageSelectActionsCallbackInterface != null)
+            {
+                @StageSelectLeft.started -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectLeft;
+                @StageSelectLeft.performed -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectLeft;
+                @StageSelectLeft.canceled -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectLeft;
+                @StageSelectRight.started -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectRight;
+                @StageSelectRight.performed -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectRight;
+                @StageSelectRight.canceled -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectRight;
+                @ConfirmStage.started -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnConfirmStage;
+                @ConfirmStage.performed -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnConfirmStage;
+                @ConfirmStage.canceled -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnConfirmStage;
+                @ReturnToTitle.started -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnReturnToTitle;
+                @ReturnToTitle.performed -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnReturnToTitle;
+                @ReturnToTitle.canceled -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnReturnToTitle;
+            }
+            m_Wrapper.m_UIStageSelectActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @StageSelectLeft.started += instance.OnStageSelectLeft;
@@ -644,10 +1005,70 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @ConfirmStage.started += instance.OnConfirmStage;
                 @ConfirmStage.performed += instance.OnConfirmStage;
                 @ConfirmStage.canceled += instance.OnConfirmStage;
+                @ReturnToTitle.started += instance.OnReturnToTitle;
+                @ReturnToTitle.performed += instance.OnReturnToTitle;
+                @ReturnToTitle.canceled += instance.OnReturnToTitle;
             }
         }
     }
-    public UIActions @UI => new UIActions(this);
+    public UIStageSelectActions @UIStageSelect => new UIStageSelectActions(this);
+
+    // UI Pause Menu
+    private readonly InputActionMap m_UIPauseMenu;
+    private IUIPauseMenuActions m_UIPauseMenuActionsCallbackInterface;
+    private readonly InputAction m_UIPauseMenu_TogglePauseMenu;
+    private readonly InputAction m_UIPauseMenu_NavigateUp;
+    private readonly InputAction m_UIPauseMenu_NavigateDown;
+    private readonly InputAction m_UIPauseMenu_Confirm;
+    public struct UIPauseMenuActions
+    {
+        private @GameInput m_Wrapper;
+        public UIPauseMenuActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TogglePauseMenu => m_Wrapper.m_UIPauseMenu_TogglePauseMenu;
+        public InputAction @NavigateUp => m_Wrapper.m_UIPauseMenu_NavigateUp;
+        public InputAction @NavigateDown => m_Wrapper.m_UIPauseMenu_NavigateDown;
+        public InputAction @Confirm => m_Wrapper.m_UIPauseMenu_Confirm;
+        public InputActionMap Get() { return m_Wrapper.m_UIPauseMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIPauseMenuActions set) { return set.Get(); }
+        public void SetCallbacks(IUIPauseMenuActions instance)
+        {
+            if (m_Wrapper.m_UIPauseMenuActionsCallbackInterface != null)
+            {
+                @TogglePauseMenu.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnTogglePauseMenu;
+                @TogglePauseMenu.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnTogglePauseMenu;
+                @TogglePauseMenu.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnTogglePauseMenu;
+                @NavigateUp.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateUp;
+                @NavigateUp.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateUp;
+                @NavigateUp.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateUp;
+                @NavigateDown.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateDown;
+                @NavigateDown.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateDown;
+                @NavigateDown.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnNavigateDown;
+                @Confirm.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnConfirm;
+            }
+            m_Wrapper.m_UIPauseMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @TogglePauseMenu.started += instance.OnTogglePauseMenu;
+                @TogglePauseMenu.performed += instance.OnTogglePauseMenu;
+                @TogglePauseMenu.canceled += instance.OnTogglePauseMenu;
+                @NavigateUp.started += instance.OnNavigateUp;
+                @NavigateUp.performed += instance.OnNavigateUp;
+                @NavigateUp.canceled += instance.OnNavigateUp;
+                @NavigateDown.started += instance.OnNavigateDown;
+                @NavigateDown.performed += instance.OnNavigateDown;
+                @NavigateDown.canceled += instance.OnNavigateDown;
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+            }
+        }
+    }
+    public UIPauseMenuActions @UIPauseMenu => new UIPauseMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -701,10 +1122,25 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnDropDroplet(InputAction.CallbackContext context);
         void OnDrag(InputAction.CallbackContext context);
     }
-    public interface IUIActions
+    public interface IUITitleActions
+    {
+        void OnPressToStart(InputAction.CallbackContext context);
+        void OnNavigateUp(InputAction.CallbackContext context);
+        void OnNavigateDown(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
+    }
+    public interface IUIStageSelectActions
     {
         void OnStageSelectLeft(InputAction.CallbackContext context);
         void OnStageSelectRight(InputAction.CallbackContext context);
         void OnConfirmStage(InputAction.CallbackContext context);
+        void OnReturnToTitle(InputAction.CallbackContext context);
+    }
+    public interface IUIPauseMenuActions
+    {
+        void OnTogglePauseMenu(InputAction.CallbackContext context);
+        void OnNavigateUp(InputAction.CallbackContext context);
+        void OnNavigateDown(InputAction.CallbackContext context);
+        void OnConfirm(InputAction.CallbackContext context);
     }
 }

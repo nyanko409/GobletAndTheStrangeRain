@@ -6,7 +6,7 @@ public class CameraFollow : MonoBehaviour
     public float smoothSpeed = 15F;
 
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         transform.position = Vector3.Lerp(transform.position, target.position, smoothSpeed * Time.deltaTime);
     }

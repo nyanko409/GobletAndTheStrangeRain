@@ -29,7 +29,7 @@ public class CameraOrbit : MonoBehaviour
         eulerAngles = pivot.transform.eulerAngles;
     }
 
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         // calculate new angle based on input
         eulerAngles += new Vector3(cameraLookInput.y * verticalSpeed, cameraLookInput.x * horizontalSpeed, 0) * Time.deltaTime;

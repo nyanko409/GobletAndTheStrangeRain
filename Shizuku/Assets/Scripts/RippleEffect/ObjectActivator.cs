@@ -49,7 +49,7 @@ public class ObjectActivator : MonoBehaviour
         // disable or enable the object depending on the nearest receiver color
         if(mat.GetColor("_BaseColor").IsEqualTo(receiverColor))
         {
-            if (mat.shader != transparentShader)
+            if (col.enabled)
             {
                 mat.shader = transparentShader;
                 rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;

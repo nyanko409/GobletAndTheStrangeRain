@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class DropletSpawner : MonoBehaviour
 {
     public GameObject prefab;                 // the prefab to spawn
+    public bool spawnManually = false;        // spawn the droplet externally via script
     public float dropletSpeed = 1F;           // speed of the droplet
     [ColorUsage(false, true)]
     public Color dropletColor = Color.blue;   // color of the droplet including hdr
@@ -24,6 +26,8 @@ public class DropletSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (spawnManually) return;
+
         timeTillNextSpawn += Time.deltaTime;
 
         if(!spawnStarted && timeTillNextSpawn >= startDelay)
@@ -54,5 +58,17 @@ public class DropletSpawner : MonoBehaviour
         provider.RippleSpreadSpeed = rippleSpreadSpeed;
 
         go.GetComponent<Renderer>().material.SetColor("_BaseColor", dropletColor);
+    }
+
+    private IEnumerator SpawnWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SpawnDroplet();
+    }
+
+    public void Spawn(float delay)
+    {
+        StopAllCoroutines();
+        StartCoroutine(SpawnWithDelay(delay));
     }
 }
