@@ -19,12 +19,14 @@ public class TitleUI : MonoBehaviour
     Color color2;
 
     int CL_MAX = 255;
-    int sizemax = 100;
+    int sizemaxW = 100;
+    int sizemaxH = 110;
     int nextselect = 1;
     public  float posxmin = -573;
     public float posymin = 289;
     float poscount = 0;
-    float sizenow = 0;
+    float sizenowW = 0;
+    float sizenowH = 0;
     float CL_now = 0;
     float sizecount = 0;
     float colorcount = 0;
@@ -88,14 +90,15 @@ public class TitleUI : MonoBehaviour
     
     void Update()
     {
-        data.sizeDelta = new Vector2(sizenow, sizenow);
+        data.sizeDelta = new Vector2(sizenowW, sizenowH);
         Title.color = new Color32(255,255,255,(byte)CL_now);
         data.anchoredPosition = new Vector2(nextsizex,nextsizey);
         if (nextST == false)
         {
             if (sizecount < 1)
             {
-                sizenow = Mathf.Lerp(0, sizemax, sizecount);
+                sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
+                sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
                 sizecount += 0.01F;
             }
             else if (!textcheck)
@@ -121,7 +124,8 @@ public class TitleUI : MonoBehaviour
             }
             if (sizecount > 0.7f)
             {
-                sizenow = Mathf.Lerp(0, sizemax, sizecount);
+                sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
+                sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
                 sizecount -= 0.015F;
 
 
