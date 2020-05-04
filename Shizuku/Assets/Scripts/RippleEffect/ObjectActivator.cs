@@ -2,23 +2,35 @@
 
 public class ObjectActivator : MonoBehaviour
 {
-    public float rangeOffset;                           // offset to the range when this object should appear/disappear
-    public float alphaSpeed = 0.5F;                     // the alpha fading speed
+    public Transform transitionPoint;               // the pivot point to change the activation state
+    public float rangeOffset;                       // offset to the range when this object should appear/disappear
+    public float alphaSpeed = 0.5F;                 // the alpha fading speed
+    public float minAlpha = 0.05F;
+    public Shader opaqueShader;                     // render with this shader if it is visible
+    public Shader transparentShader;                // render with this shader if it is transparent
 
-    RippleEffectReceiver receiver;                      // receiver object to check the color from
-    Material mat;                                       // reference to the attached material
-    Collider col;                                       // reference to the attached collider
-    Rigidbody rb;                                       // reference to the attached rigidbody
-    Color receiverColor;                                // current color the object is standing on
-    float curAlpha;
+    private RippleEffectReceiver receiver;          // receiver object to check the color from
+    private Tag tag;
+    private MeshRenderer rend;                      // reference to the attached mesh renderer
+    private Material mat;                           // reference to the attached material
+    private Collider col;                           // reference to the attached collider
+    private Rigidbody rb;                           // reference to the attached rigidbody
+    private Color receiverColor;                    // current color the object is standing on
+    private float curAlpha;
 
 
     void Start()
     {
+        rend = GetComponent<MeshRenderer>();
         mat = GetComponent<Renderer>().material;
         col = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
+        tag = GetComponent<Tag>();
 
+        if (!transitionPoint)
+            transitionPoint = transform;
+
+        mat.shader = opaqueShader;
         rb.mass = float.PositiveInfinity;
         curAlpha = 1;
 
@@ -27,6 +39,9 @@ public class ObjectActivator : MonoBehaviour
 
     void Update()
     {
+        if (!tag.HasTag(TagType.RippleReceiver))
+            return;
+
         // get the nearest receiver color
         UpdateRippleEffectReceiver();
         receiverColor = GetNearestReceiverColor();
@@ -34,20 +49,43 @@ public class ObjectActivator : MonoBehaviour
         // disable or enable the object depending on the nearest receiver color
         if(mat.GetColor("_BaseColor").IsEqualTo(receiverColor))
         {
-            col.enabled = false;
-            curAlpha -= alphaSpeed * Time.deltaTime;
-            curAlpha = Mathf.Clamp(curAlpha, 0.05F, 1);
-            mat.SetFloat("_Alpha", curAlpha);
-            rb.isKinematic = true;
+            if (col.enabled)
+            {
+                mat.shader = transparentShader;
+                rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+
+                col.enabled = false;
+                rb.isKinematic = true;
+            }
+
+            if (curAlpha > minAlpha)
+            {
+                curAlpha -= alphaSpeed * Time.deltaTime;
+                curAlpha = Mathf.Clamp(curAlpha, minAlpha, 1);
+                mat.SetFloat("_Alpha", curAlpha);
+            }
         }
-        // enable if it is not overlapping
-        else if(!CheckOverlap())
+        else
         {
-            col.enabled = true;
-            curAlpha += alphaSpeed * Time.deltaTime;
-            curAlpha = Mathf.Clamp01(curAlpha);
-            mat.SetFloat("_Alpha", curAlpha);
-            rb.isKinematic = false;
+            // enable if it is not overlapping
+            if (!col.enabled && !CheckOverlap())
+            {
+                col.enabled = true;
+                rb.isKinematic = false;
+            }
+
+            if (col.enabled)
+            {
+                curAlpha += alphaSpeed * Time.deltaTime;
+                curAlpha = Mathf.Clamp01(curAlpha);
+                mat.SetFloat("_Alpha", curAlpha);
+
+                if (mat.shader != opaqueShader && curAlpha == 1)
+                {
+                    mat.shader = opaqueShader;
+                    rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+                }
+            }
         }
     }
 
@@ -75,7 +113,7 @@ public class ObjectActivator : MonoBehaviour
         {
             // check the color of the nearest receiver point
             if (ripples[i].isSpreading &&
-                Mathf.Abs(Vector3.Distance(ripples[i].position, transform.position))
+                Vector3.Distance(ripples[i].position, transitionPoint.position)
                 <= ripples[i].radius - rangeOffset)
             {
                 return ripples[i].color;
@@ -99,8 +137,8 @@ public class ObjectActivator : MonoBehaviour
 
         foreach(Collider col in colliders)
         {
-            // ignore self collision
-            if(col.name != name && !col.isTrigger)
+            // ignore self and trigger colliders
+            if(col.name != name && !col.isTrigger && col.gameObject.layer != LayerMask.NameToLayer("Room"))
                 return true;
         }
 
@@ -110,6 +148,7 @@ public class ObjectActivator : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, transform.localScale - new Vector3(0.1F, 0.1F, 0.1F));
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(Vector3.zero, Vector3.one - new Vector3(0.1F, 0.1F, 0.1F));
     }
 }

@@ -56,7 +56,7 @@ public class Slidercr : MonoBehaviour
                 if (max > _slider.minValue)
                 {
 
-                    max -= 0.005f;
+                    max -= 0.02f;
 
                 }
                 break;
@@ -68,7 +68,7 @@ public class Slidercr : MonoBehaviour
                 if (max < _slider.maxValue)
                 {
 
-                    max += 0.005f;
+                    max += 0.02f;
                     
                 }
 
@@ -78,7 +78,7 @@ public class Slidercr : MonoBehaviour
                 break;
 
         }
-        cl2 = Color.Lerp(cl2, sabu.GetColor(), max * 0.02f);
+        cl2 = Color.Lerp(cl2, sabu.GetColor(), max * 0.1f);
 
 
         sliderImage.color = cl2;

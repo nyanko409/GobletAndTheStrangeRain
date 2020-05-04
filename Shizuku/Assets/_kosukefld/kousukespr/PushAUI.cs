@@ -7,45 +7,65 @@ using UnityEngine.UI;
 
 public class PushAUI : MonoBehaviour
 {
-    public Text text;
+    public TitleUI titleui;
+    public GameObject data;
+
+    public Image image;
     public float colorspeed = 0.05f;
+    public float Destroyspeed = 0.05f;
     float count = 0;
     float CL_A = 0;
     int colorcount = 1;
+    bool Destroyswitch = false;
    
+    public bool destroyCK()
+    {
+        return Destroyswitch;
+    }
 
     void Start()
     {
-       text =  this.GetComponent<Text>();
-        text.color = new Color32(255, 255, 255, 0);
+        image=  this.GetComponent<Image>();
+        image.color = new Color32(255, 255, 255, 0);
     }
 
     
     void Update()
     {
         CL_A = Mathf.Lerp(0, 255, count);
-        text.color = new Color32(255, 255, 255, (byte)CL_A);
+        image.color = new Color32(255, 255, 255, (byte)CL_A);
 
-        
-        switch (colorcount)
+        if (titleui.stratCK() == true)
         {
-            case 1:
-                count += colorspeed;
-               if(count>=1)
-                {
-                    colorcount = 2;
-                }
-                break;
-            case 2:
-                count -= colorspeed;
-                if(count<=0)
-                {
-                    colorcount = 1;
-                }
-                break;
+            switch (colorcount)
+            {
+                case 1:
+                    count += colorspeed;
+                    if (count >= 1)
+                    {
+                        colorcount = 2;
+                    }
+                    break;
+                case 2:
+                    count -= colorspeed;
+                    if (count <= 0)
+                    {
+                        colorcount = 1;
+                    }
+                    break;
+            }
+        }else
+            
+        if(titleui.stratCK()==false)
+        {
+            count -= Destroyspeed;
+            if (count <= 0)
+            {
+                Destroyswitch = true;
+
+                data.SetActive(false);
+            }
         }
-            //count += 0.01F;
-        
         
 
     }

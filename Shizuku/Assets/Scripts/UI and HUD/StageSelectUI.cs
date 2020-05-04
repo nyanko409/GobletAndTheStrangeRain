@@ -10,7 +10,7 @@ public class StageSelectUI : MonoBehaviour
     {
         action = new GameInput();
 
-        action.UI.StageSelectLeft.performed += context =>
+        action.UIStageSelect.StageSelectLeft.performed += context =>
         {
             if (anim.GetCurrentAnimatorStateInfo(
                 anim.GetLayerIndex("Left Arrow")).IsName("ArrowLeft_Animation"))
@@ -19,7 +19,7 @@ public class StageSelectUI : MonoBehaviour
             anim.SetTrigger("LeftTrigger");
         };
 
-        action.UI.StageSelectRight.performed += context =>
+        action.UIStageSelect.StageSelectRight.performed += context =>
         {
             if (anim.GetCurrentAnimatorStateInfo(
                 anim.GetLayerIndex("Right Arrow")).IsName("ArrowRight_Animation"))

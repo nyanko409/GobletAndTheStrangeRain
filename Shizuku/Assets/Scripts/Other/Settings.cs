@@ -7,6 +7,7 @@ public class Settings : MonoBehaviour
 
     private void Awake()
     {
+        // return if no preset is set
         if (!settings) return;
 
         Application.targetFrameRate = settings.targetFPS;
