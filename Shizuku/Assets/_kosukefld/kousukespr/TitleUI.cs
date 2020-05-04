@@ -160,6 +160,12 @@ public class TitleUI : MonoBehaviour
             nextselect = 1;
             Debug.Log(nextselect);
         }
+        if (buttoncheck == true && upPressed && nextselect == 3)
+        {
+            upPressed = false;
+            nextselect = 2;
+            Debug.Log(nextselect);
+        }
         if (buttoncheck == true && downPressed&&nextselect==1)
         {
             downPressed = false;
