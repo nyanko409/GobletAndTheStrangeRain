@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 815674175}
   - component: {fileID: 815674176}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Feet Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 144587249485207502}
   - component: {fileID: 1854670059}
   - component: {fileID: 144587249485207345}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Goblet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8573c90d78f2e4697be35011d567b7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rippleSpreadSpeed: 1
+  colorTransitionSpeed: 1
 --- !u!1001 &693128575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,7 +347,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 4841b72009aa14a04a4a225ccc2463af,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4841b72009aa14a04a4a225ccc2463af, type: 3}
