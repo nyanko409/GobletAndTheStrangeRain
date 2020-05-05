@@ -17,6 +17,7 @@ public class PauseSelect : MonoBehaviour
     bool Bcheck = false;
     bool poseend = false;
 
+    float time = 0;
     float nowW = 0;
     float nowH = 0;
     int Wmax = 770;
@@ -80,94 +81,98 @@ public class PauseSelect : MonoBehaviour
 
     void Update()
     {
-        data.sizeDelta = new Vector2(nowW, nowH);
-        nowW = Mathf.Lerp(0, Wmax, SZcount);
-        nowH = Mathf.Lerp(0, Hmax, SZcount);
-
-        if (pausePressed /*&&check==false*/)
+        time += Time.deltaTime;
+        if (time >= 0.01f)
         {
-            pausePressed = false;
-            Bcheck = !Bcheck;
-            Time.timeScale = Bcheck ? 0 : 1;
-            Debug.Log(check);
-        }
+            data.sizeDelta = new Vector2(nowW, nowH);
+            nowW = Mathf.Lerp(0, Wmax, SZcount);
+            nowH = Mathf.Lerp(0, Hmax, SZcount);
 
-        if (Bcheck == true)
-        {
-            poseend = false;
-            // main.SetActive(true);
-            if (SZcount < 1)
+            if (pausePressed /*&&check==false*/)
             {
-                SZcount += countSpeed;
-                // Debug.Log(SZcount);
+                pausePressed = false;
+                Bcheck = !Bcheck;
+                Time.timeScale = Bcheck ? 0 : 1;
+                Debug.Log(check);
             }
-            else
+
+            if (Bcheck == true)
             {
-                Active(true);
+                poseend = false;
+                // main.SetActive(true);
+                if (SZcount < 1)
+                {
+                    SZcount += countSpeed;
+                    // Debug.Log(SZcount);
+                }
+                else
+                {
+                    Active(true);
+                }
             }
-        }
-        else if (Bcheck == false)
-        {
-            poseend = true;
-            Active(false);
-           
-            if (SZcount > 0)
+            else if (Bcheck == false)
             {
-                SZcount -= countSpeed;
-
-            }
-        }
-
-        switch(Posenext.PoseRCK())
-        {
-           
-
-            case 1:
-                Bcheck = false;
                 poseend = true;
-             
-                break;
+                Active(false);
 
-        }
-       
-        if (downPressed && nextselect==1&& Bcheck == true)
-        {
-            downPressed = false;
-            nextselect = 2;
-            
-        }
+                if (SZcount > 0)
+                {
+                    SZcount -= countSpeed;
 
-        if(downPressed && nextselect==2 && Bcheck == true)
-        {
-            downPressed = false;
-            nextselect = 3;
-            
-        }
+                }
+            }
 
-        if (downPressed && nextselect == 3 && Bcheck == true)
-        {
-            downPressed = false;
-            nextselect = 1;
-            
-        }
+            switch (Posenext.PoseRCK())
+            {
 
-        if (upPressed && nextselect == 1 && Bcheck == true)
-        {
-            upPressed = false;
-            nextselect = 3;
-            
-        }
 
-        if (upPressed && nextselect == 3 && Bcheck == true)
-        {
-            upPressed = false;
-            nextselect = 2;           
-        }
+                case 1:
+                    Bcheck = false;
+                    poseend = true;
 
-        if (upPressed && nextselect == 2 && Bcheck == true)
-        {
-            upPressed = false;
-            nextselect = 1;
+                    break;
+
+            }
+
+            if (downPressed && nextselect == 1 && Bcheck == true)
+            {
+                downPressed = false;
+                nextselect = 2;
+
+            }
+
+            if (downPressed && nextselect == 2 && Bcheck == true)
+            {
+                downPressed = false;
+                nextselect = 3;
+
+            }
+
+            if (downPressed && nextselect == 3 && Bcheck == true)
+            {
+                downPressed = false;
+                nextselect = 1;
+
+            }
+
+            if (upPressed && nextselect == 1 && Bcheck == true)
+            {
+                upPressed = false;
+                nextselect = 3;
+
+            }
+
+            if (upPressed && nextselect == 3 && Bcheck == true)
+            {
+                upPressed = false;
+                nextselect = 2;
+            }
+
+            if (upPressed && nextselect == 2 && Bcheck == true)
+            {
+                upPressed = false;
+                nextselect = 1;
+            }
         }
     }
 
