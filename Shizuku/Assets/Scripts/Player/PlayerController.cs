@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+
+        isDragging = false;
     }
 
     private void Update()
@@ -164,19 +166,14 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if(FloorRaycast(0, 0, floorOffsetY + 1) != Vector3.zero)
-        {
-            return true;
-        }
-
-        return false;
+        return FloorRaycast(0, 0, floorOffsetY + 1) != Vector3.zero;
     }
 
     private Vector3 FloorRaycast(float offsetX, float offsetZ, float raycastDistance)
     {
         Vector3 rayOrigin = transform.TransformPoint(offsetX, 0.5F, offsetZ);
 
-        if(Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastDistance))
+        if(Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastDistance, LayerMask.GetMask("Room", "Obstacle", "Ignore Ripple")))
         {
             if (Vector3.Angle(hit.normal, Vector3.up) <= slopeLimit)
             {
@@ -222,6 +219,9 @@ public class PlayerController : MonoBehaviour
             // reset the rigidbody
             dragRigidbody.velocity = Vector3.zero;
             dragRigidbody.constraints = RigidbodyConstraints.None;
+            if (dragRigidbody.GetComponent<Tag>().HasTag(TagType.FreezeRotation))
+                dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+
             dragRigidbody = null;
         }
     }
