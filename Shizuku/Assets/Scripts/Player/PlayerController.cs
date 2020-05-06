@@ -4,7 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 1;                 // movespeed of the player
     public float dragSpeedMultiplier = 0.5F;    // the speed multiplier while dragging
-    public float rotationSpeed = 10;            // rotation speed of the player
+    public float dragDistance = 1.5F;
+    public float rotationSpeed = 10;             // rotation speed of the player
     public float jumpHeight = 5;                // jump height the player
     public float fallMultiplier = 2.5F;         // fall speed multiplier
     public float lowJumpMultiplier = 3;         // fall multiplier if jump button is released midair
@@ -18,8 +19,9 @@ public class PlayerController : MonoBehaviour
     private float jumpFalloff = 2.5F;
     private bool jumpPressed;
     private Vector3 gravity;
-    private Rigidbody dragRigidbody;            // the rigidbody of the dragging object
+    private Rigidbody dragRigidbody = null;     // the rigidbody of the dragging object
     private bool isDragging;                    // is true when drag keybind is pressed
+    private bool isColliding;
     private Vector3 dragStartDiff;
 
    
@@ -186,7 +188,8 @@ public class PlayerController : MonoBehaviour
 
     private void DragObject()
     {
-        if (isDragging && IsGrounded() && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 1.5F))
+        if (!isColliding && isDragging && IsGrounded() &&
+            Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, dragDistance))
         {
             if (hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
             {
@@ -226,6 +229,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(isDragging)
+            isColliding = true;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        isColliding = false;
+    }
 
     private void OnEnable()
     {
