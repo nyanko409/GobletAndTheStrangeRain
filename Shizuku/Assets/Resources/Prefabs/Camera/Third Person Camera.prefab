@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8974442149334718019}
   - component: {fileID: 8974442149334718018}
+  - component: {fileID: 1223516457}
   m_Layer: 0
   m_Name: Third Person Camera
   m_TagString: Untagged
@@ -46,6 +47,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   smoothSpeed: 15
+--- !u!81 &1223516457
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974442149334718012}
+  m_Enabled: 1
 --- !u!1 &8974442150237456013
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,7 +65,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8974442150237456016}
   - component: {fileID: 8974442150237456017}
-  - component: {fileID: 8974442150237456018}
   - component: {fileID: 8974442150237456019}
   - component: {fileID: 8974442150237456023}
   - component: {fileID: 8974442150237456012}
@@ -124,14 +132,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8974442150237456018
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8974442150237456013}
-  m_Enabled: 1
 --- !u!114 &8974442150237456019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +181,7 @@ MonoBehaviour:
   clampMaxRot: 50
   clampMinRot: 0
   distance: 25
+  collideWithStage: 1
 --- !u!114 &8974442150237456012
 MonoBehaviour:
   m_ObjectHideFlags: 0
