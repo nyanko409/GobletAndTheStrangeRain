@@ -8,9 +8,11 @@ public class PauseSelect : MonoBehaviour
     public Image CLdata;
     public RectTransform data;
     public GameObject pose;
+    public GameObject Continue;
     public GameObject restart;
     public GameObject check;
     public GameObject remap;
+    public float colorspeed = 0.05f;
 
     GameInput actions;
     //bool check = false;
@@ -20,9 +22,11 @@ public class PauseSelect : MonoBehaviour
     float time = 0;
     float nowW = 0;
     float nowH = 0;
+    float count = 0;
     int Wmax = 770;
     int Hmax = 470;
     int nextselect = 1;
+    int colorcount = 2;
     float SZcount = 0;
     public float countSpeed = 0.05f;
     
@@ -43,7 +47,10 @@ public class PauseSelect : MonoBehaviour
         actions.UIPauseMenu.NavigateDown.canceled += context => downPressed = false;
     }
 
-
+   public float CL()
+    {
+        return count;
+    }
     public bool poseED()
     {
         return poseend;
@@ -60,7 +67,9 @@ public class PauseSelect : MonoBehaviour
 
     private void Active(bool x)
     {
+
         pose.SetActive(x);
+        Continue.SetActive(x);
         restart.SetActive(x);
         check.SetActive(x);
         remap.SetActive(x);
@@ -68,10 +77,7 @@ public class PauseSelect : MonoBehaviour
 
     void Start()
     {
-        pose.SetActive(false);
-        restart.SetActive(false);
-        check.SetActive(false);
-        remap.SetActive(false);
+        Active(false);
         //main.SetActive(false);
         data = GetComponent<RectTransform>();
         data.sizeDelta = new Vector2(0, 0);
@@ -84,6 +90,8 @@ public class PauseSelect : MonoBehaviour
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
+
+            
             data.sizeDelta = new Vector2(nowW, nowH);
             nowW = Mathf.Lerp(0, Wmax, SZcount);
             nowH = Mathf.Lerp(0, Hmax, SZcount);
@@ -98,6 +106,23 @@ public class PauseSelect : MonoBehaviour
 
             if (Bcheck == true)
             {
+                switch (colorcount)
+                {
+                    case 1:
+                        count += colorspeed;
+                        if (count >= 1)
+                        {
+                            colorcount = 2;
+                        }
+                        break;
+                    case 2:
+                        count -= colorspeed;
+                        if (count <= 0)
+                        {
+                            colorcount = 1;
+                        }
+                        break;
+                }
                 poseend = false;
                 // main.SetActive(true);
                 if (SZcount < 1)
@@ -138,6 +163,7 @@ public class PauseSelect : MonoBehaviour
             {
                 downPressed = false;
                 nextselect = 2;
+               
 
             }
 
@@ -145,34 +171,49 @@ public class PauseSelect : MonoBehaviour
             {
                 downPressed = false;
                 nextselect = 3;
-
+              
             }
 
             if (downPressed && nextselect == 3 && Bcheck == true)
             {
                 downPressed = false;
+                nextselect = 4;
+               
+            }
+            if (downPressed && nextselect == 4 && Bcheck == true)
+            {
+                downPressed = false;
                 nextselect = 1;
-
+            
             }
 
             if (upPressed && nextselect == 1 && Bcheck == true)
             {
                 upPressed = false;
-                nextselect = 3;
-
+                nextselect = 4;
+           
             }
-
-            if (upPressed && nextselect == 3 && Bcheck == true)
-            {
-                upPressed = false;
-                nextselect = 2;
-            }
-
             if (upPressed && nextselect == 2 && Bcheck == true)
             {
                 upPressed = false;
                 nextselect = 1;
+             
             }
+            if (upPressed && nextselect == 3 && Bcheck == true)
+            {
+                upPressed = false;
+                nextselect = 2;
+          
+            }
+            if (upPressed && nextselect == 4 && Bcheck == true)
+            {
+                upPressed = false;
+                nextselect = 3;
+            
+
+            }
+
+
         }
     }
 
