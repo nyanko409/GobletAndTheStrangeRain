@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -361,6 +361,321 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1302225459}
     m_Modifications:
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedFaces.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[0].m_Uv.m_Offset.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[0].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[1].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[2].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[3].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[0].b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[1].a
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[2].a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[2].b
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[3].a
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.data[3].b
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[0].m_Uv.m_Offset.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[0].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[1].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[2].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[3].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[3].m_Uv.m_Offset.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[12].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[13].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[14].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[15].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[3].m_Uv.m_Offset.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[12].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[13].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[14].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[15].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[4].m_Uv.m_Offset.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[16].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[17].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[18].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[19].y
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[4].m_Uv.m_Offset.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[16].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[17].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[18].x
+      value: 0.000000029802322
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[19].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[4].m_Uv.m_Rotation
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[1].m_Uv.m_Offset.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[4].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[5].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[6].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[7].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[1].m_Uv.m_Offset.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[4].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[5].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[6].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[7].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[2].m_Uv.m_Offset.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[8].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[9].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[10].x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[11].x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Faces.Array.data[2].m_Uv.m_Offset.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[8].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[9].y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[10].y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141320, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: m_Textures0.Array.data[11].y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141323, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_Mesh
@@ -664,7 +979,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-110040
+  m_Name: pb_Mesh-3404
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1171,7 +1486,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-109888
+  m_Name: pb_Mesh-3242
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -1262,7 +1577,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 1152
-    _typelessdata: 000000bf000000bf0000003f00000000000000000000803f000080bf0000000000000000000080bf0000003f000000bf0000003f000000bf0000003f00000000000000000000803f000080bf0000000000000000000080bf000000bf000000bf000000bf0000003f0000003f00000000000000000000803f000080bf0000000000000000000080bf0000003f0000003f0000003f0000003f0000003f00000000000000000000803f000080bf0000000000000000000080bf000000bf0000003f0000003f000000bf0000003f0000803f000000000000000000000000000000000000803f000080bf0000003f000000bf0000003f000000bf000000bf0000803f000000000000000000000000000000000000803f000080bf000000bf000000bf0000003f0000003f0000003f0000803f000000000000000000000000000000000000803f000080bf0000003f0000003f0000003f0000003f000000bf0000803f000000000000000000000000000000000000803f000080bf000000bf0000003f0000003f000000bf000000bf0000000000000000000080bf0000803f0000000000000000000080bf0000003f000000bf000000bf000000bf000000bf0000000000000000000080bf0000803f0000000000000000000080bf000000bf000000bf0000003f0000003f000000bf0000000000000000000080bf0000803f0000000000000000000080bf0000003f0000003f000000bf0000003f000000bf0000000000000000000080bf0000803f0000000000000000000080bf000000bf0000003f000000bf000000bf000000bf000080bf00000000000000000000000000000000000080bf000080bf0000003f000000bf000000bf000000bf0000003f000080bf00000000000000000000000000000000000080bf000080bf000000bf000000bf000000bf0000003f000000bf000080bf00000000000000000000000000000000000080bf000080bf0000003f0000003f000000bf0000003f0000003f000080bf00000000000000000000000000000000000080bf000080bf000000bf0000003f000000bf0000003f0000003f000000000000803f000000000000803f0000000000000000000080bf000000bf0000003f0000003f0000003f0000003f000000000000803f000000000000803f0000000000000000000080bf0000003f0000003f000000bf0000003f000000bf000000000000803f000000000000803f0000000000000000000080bf000000bf000000bf0000003f0000003f000000bf000000000000803f000000000000803f0000000000000000000080bf0000003f000000bf000000bf000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf0000003f000000bf0000003f000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf000000bf000000bf000000bf000000bf0000003f00000000000080bf00000000000080bf0000000000000000000080bf0000003f0000003f0000003f000000bf0000003f00000000000080bf00000000000080bf0000000000000000000080bf000000bf0000003f
+    _typelessdata: 000000bf000000bf0000003f00000000000000000000803f000080bf0000000000000000000080bf0000803f000000000000003f000000bf0000003f00000000000000000000803f000080bf0000000000000000000080bf0000000000000000000000bf0000003f0000003f00000000000000000000803f000080bf0000000000000000000080bf0000803f0000803f0000003f0000003f0000003f00000000000000000000803f000080bf0000000000000000000080bf000000000000803f0000003f000000bf0000003f0000803f000000000000000000000000000000000000803f000080bf0000803f000000000000003f000000bf000000bf0000803f000000000000000000000000000000000000803f000080bf00000000000000000000003f0000003f0000003f0000803f000000000000000000000000000000000000803f000080bf0000803f0000803f0000003f0000003f000000bf0000803f000000000000000000000000000000000000803f000080bf000000000000803f0000003f000000bf000000bf0000000000000000000080bf0000803f0000000000000000000080bf0000803f00000000000000bf000000bf000000bf0000000000000000000080bf0000803f0000000000000000000080bf00000000000000000000003f0000003f000000bf0000000000000000000080bf0000803f0000000000000000000080bf0000803f0000803f000000bf0000003f000000bf0000000000000000000080bf0000803f0000000000000000000080bf000000000000803f000000bf000000bf000000bf000080bf00000000000000000000000000000000000080bf000080bf0000803f00000000000000bf000000bf0000003f000080bf00000000000000000000000000000000000080bf000080bf0000000000000000000000bf0000003f000000bf000080bf00000000000000000000000000000000000080bf000080bf0000803f0000803f000000bf0000003f0000003f000080bf00000000000000000000000000000000000080bf000080bf000000000000803f000000bf0000003f0000003f000000000000803f0000000000000000000000000000803f000080bf0000803f0000803f0000003f0000003f0000003f000000000000803f00000000000080b2000000000000803f000080bf0000803f00000000000000bf0000003f000000bf000000000000803f00000000000080b2000000000000803f000080bf000000330000803f0000003f0000003f000000bf000000000000803f00000000000000b3000000000000803f000080bf0000000000000033000000bf000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf0000003f000000bf0000003f000000bf000000bf00000000000080bf00000000000080bf0000000000000000000080bf000000bf000000bf000000bf000000bf0000003f00000000000080bf00000000000080bf0000000000000000000080bf0000003f0000003f0000003f000000bf0000003f00000000000080bf00000000000080bf0000000000000000000080bf000000bf0000003f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -1793,12 +2108,12 @@ PrefabInstance:
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
@@ -1873,7 +2188,7 @@ PrefabInstance:
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
