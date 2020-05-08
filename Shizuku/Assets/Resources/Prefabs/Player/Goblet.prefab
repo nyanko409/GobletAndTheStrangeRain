@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4188381909242686210}
   - component: {fileID: 7574093928654100475}
   - component: {fileID: 144587249485207502}
+  - component: {fileID: 4807030342609913117}
   - component: {fileID: 1854670059}
   - component: {fileID: 144587249485207345}
   m_Layer: 11
@@ -158,6 +159,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &4807030342609913117
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151585970056913703}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!135 &1854670059
 SphereCollider:
   m_ObjectHideFlags: 0

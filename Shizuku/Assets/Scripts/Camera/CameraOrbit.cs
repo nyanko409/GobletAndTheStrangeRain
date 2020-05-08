@@ -9,6 +9,7 @@ public class CameraOrbit : MonoBehaviour
     public int clampMinRot = -30;
     public float distance = 25;
     public bool collideWithStage = true;
+    public bool activateInput = false;
 
     GameInput action;
     Vector2 cameraLookInput;
@@ -20,7 +21,11 @@ public class CameraOrbit : MonoBehaviour
         // init actions
         action = new GameInput();
 
-        action.Player.CameraLook.performed += context => cameraLookInput = context.ReadValue<Vector2>();
+        action.Player.CameraLook.performed += context =>
+        {
+            if (!activateInput) return;
+            cameraLookInput = context.ReadValue<Vector2>();
+        };
     }
 
     private void Start()
