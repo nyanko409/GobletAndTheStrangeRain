@@ -20,9 +20,16 @@ public class PlayerController : MonoBehaviour
     private bool jumpPressed;
     private Vector3 gravity;
     private Rigidbody dragRigidbody = null;     // the rigidbody of the dragging object
+    private bool inDragDistance;
     private bool isDragging;                    // is true when drag keybind is pressed
     private bool isColliding;
     private Vector3 dragStartDiff;
+
+
+    public bool IsDragging()
+    {
+        return inDragDistance;
+    }
 
    
     private void Awake()
@@ -188,12 +195,15 @@ public class PlayerController : MonoBehaviour
 
     private void DragObject()
     {
-        if (!isColliding && isDragging && IsGrounded() &&
-            Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, dragDistance))
+        if(IsGrounded() && !isColliding &&
+           Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, dragDistance) &&
+           hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
         {
-            if (hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
+            inDragDistance = true;
+
+            if (isDragging)
             {
-                if(!dragRigidbody)
+                if (!dragRigidbody)
                 {
                     // look at object
                     transform.rotation = Quaternion.LookRotation(-hit.normal);
@@ -216,16 +226,20 @@ public class PlayerController : MonoBehaviour
                 // move the target with player
                 dragRigidbody.velocity = moveDirection * GetMoveSpeed();
             }
-        }
-        else if (dragRigidbody)
-        {
-            // reset the rigidbody
-            dragRigidbody.velocity = Vector3.zero;
-            dragRigidbody.constraints = RigidbodyConstraints.None;
-            if (dragRigidbody.GetComponent<Tag>().HasTag(TagType.FreezeRotation))
-                dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+            else if (dragRigidbody)
+            {
+                // reset the rigidbody
+                dragRigidbody.velocity = Vector3.zero;
+                dragRigidbody.constraints = RigidbodyConstraints.None;
+                if (dragRigidbody.GetComponent<Tag>().HasTag(TagType.FreezeRotation))
+                    dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
 
-            dragRigidbody = null;
+                dragRigidbody = null;
+            }
+        }
+        else
+        {
+            inDragDistance = false;
         }
     }
 
