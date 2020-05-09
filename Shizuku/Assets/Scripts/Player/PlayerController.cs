@@ -20,15 +20,15 @@ public class PlayerController : MonoBehaviour
     private bool jumpPressed;
     private Vector3 gravity;
     private Rigidbody dragRigidbody = null;     // the rigidbody of the dragging object
-    private bool inDragDistance;
+    private bool inDragRange;
     private bool isDragging;                    // is true when drag keybind is pressed
     private bool isColliding;
     private Vector3 dragStartDiff;
 
 
-    public bool IsDragging()
+    public bool IsInDragRange()
     {
-        return inDragDistance;
+        return inDragRange;
     }
 
    
@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
            Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, dragDistance) &&
            hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
         {
-            inDragDistance = true;
+            inDragRange = true;
 
             if (isDragging)
             {
@@ -239,7 +239,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            inDragDistance = false;
+            inDragRange = false;
         }
     }
 
