@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1272452080}
   - component: {fileID: 98323457282180829}
   - component: {fileID: 98323457282180828}
-  m_Layer: 10
+  m_Layer: 13
   m_Name: Wind Area
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -75,9 +75,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d26629b537fdc49549cc1606eecef064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 1
   direction: {x: 0, y: 0, z: 1}
   force: 10
-  active: 1
 --- !u!1 &7686682859485471514
 GameObject:
   m_ObjectHideFlags: 0
