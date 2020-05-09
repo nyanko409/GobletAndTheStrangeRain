@@ -28,8 +28,14 @@ public class MoveInOut : MonoBehaviour
         transform.position += dir * speed * Time.deltaTime;
         distanceTraveled += movingOut ? speed * Time.deltaTime : -speed * Time.deltaTime;
 
-        if(distanceTraveled >= moveDistance || distanceTraveled <= 0)
+        if(distanceTraveled >= moveDistance)
         {
+            distanceTraveled = moveDistance;
+            finishedMoving = true;
+        }
+        else if(distanceTraveled <= 0)
+        {
+            distanceTraveled = 0;
             finishedMoving = true;
         }
     }

@@ -227,15 +227,12 @@ public class PlayerController : MonoBehaviour
                 dragRigidbody.velocity = moveDirection * GetMoveSpeed();
             }
             else if (dragRigidbody)
-            {
                 ResetDragRigidbody();
-            }
         }
         else if(dragRigidbody)
-        {
             ResetDragRigidbody();
+        else
             inDragRange = false;
-        }
     }
 
     private void ResetDragRigidbody()
@@ -251,8 +248,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(isDragging)
-            isColliding = true;
+        if (!isDragging ||
+            dragRigidbody && collision.transform.TryGetComponent(out Rigidbody rb) && rb == dragRigidbody)
+            return;
+
+        isColliding = true;
     }
 
     private void OnCollisionExit(Collision collision)

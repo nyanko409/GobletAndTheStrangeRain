@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class WindArea : MonoBehaviour
 {
+    public bool active = true;
     public Vector3 direction = Vector3.forward;
     public float force = 10;
 
@@ -16,6 +17,8 @@ public class WindArea : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!active) return;
+
         // move all rigidbodies inside wind area
         foreach(Rigidbody rb in rigidbodies)
         {
