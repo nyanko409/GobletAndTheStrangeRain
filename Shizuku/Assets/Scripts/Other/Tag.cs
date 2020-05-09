@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 public enum TagType
 {
-    Player, RippleReceiver, RippleProvider, Moveable, FreezeRotation
+    Player, RippleReceiver, RippleProvider,
+    Moveable, FreezeRotation, AffectedByWind
 }
 
 
