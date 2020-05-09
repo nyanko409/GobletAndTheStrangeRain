@@ -39,4 +39,13 @@ public class WindArea : MonoBehaviour
 
         rigidbodies.Remove(other.attachedRigidbody);
     }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.matrix = transform.localToWorldMatrix;
+
+        Gizmos.DrawWireCube(Vector3.zero, Vector3.one);
+    }
 }
