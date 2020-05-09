@@ -228,19 +228,25 @@ public class PlayerController : MonoBehaviour
             }
             else if (dragRigidbody)
             {
-                // reset the rigidbody
-                dragRigidbody.velocity = Vector3.zero;
-                dragRigidbody.constraints = RigidbodyConstraints.None;
-                if (dragRigidbody.GetComponent<Tag>().HasTag(TagType.FreezeRotation))
-                    dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-
-                dragRigidbody = null;
+                ResetDragRigidbody();
             }
         }
-        else
+        else if(dragRigidbody)
         {
+            ResetDragRigidbody();
             inDragRange = false;
         }
+    }
+
+    private void ResetDragRigidbody()
+    {
+        // reset the rigidbody
+        dragRigidbody.velocity = Vector3.zero;
+        dragRigidbody.constraints = RigidbodyConstraints.None;
+        if (dragRigidbody.GetComponent<Tag>().HasTag(TagType.FreezeRotation))
+            dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+        dragRigidbody = null;
     }
 
     private void OnCollisionEnter(Collision collision)
