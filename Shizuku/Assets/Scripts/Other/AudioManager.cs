@@ -13,57 +13,68 @@ public class AudioManager : MonoBehaviour
     {
         public AudioClip clip;
         public AudioType type;
-        public bool loop;
+        public float volume;
 
         internal AudioSource source;
 
-        public AudioData(AudioClip clip, AudioType type, bool loop, AudioSource source) : this()
+        public AudioData(AudioClip clip, AudioType type, float volume, AudioSource source) : this()
         {
             this.clip = clip;
             this.type = type;
-            this.loop = loop;
+            this.volume = volume;
             this.source = source;
         }
     }
 
 
-    public List<AudioData> bgm;             // holds every bgm in game
-    public List<AudioData> soundEffect;     // holds every sound effect in game
+    public List<AudioData> bgm, se;
+
+    private GameSettings settings;
+
+
+    public AudioSource GetAudioSourceByType(AudioType type)
+    {
+        // search for audio type
+        var source = bgm.Find(data => data.type == type).source;
+        if (source) return source;
+
+        source = se.Find(data => data.type == type).source;
+        if (source) return source;
+
+        // type not found
+        return null;
+    }
+
+    public void UpdateVolumeFromSettings()
+    {
+        foreach (var audio in bgm)
+            audio.source.volume = settings.masterVolume * settings.bgmVolume * audio.volume;
+
+        foreach (var audio in se)
+            audio.source.volume = settings.masterVolume * settings.seVolume * audio.volume;
+    }
 
 
     private void Start()
     {
+        // get game settings for volume
+        settings = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Settings>().settings;
+
         // initialize audio sources for bgm and soundeffects
         for(int i = 0; i < bgm.Count; ++i)
         {
             AudioSource source = gameObject.AddComponent<AudioSource>();
             source.clip = bgm[i].clip;
-            source.loop = bgm[i].loop;
 
-            bgm[i] = new AudioData(bgm[i].clip, bgm[i].type, bgm[i].loop, source);
+            bgm[i] = new AudioData(bgm[i].clip, bgm[i].type, bgm[i].volume, source);
         }
 
-        for (int i = 0; i < soundEffect.Count; ++i)
+        for (int i = 0; i < se.Count; ++i)
         {
             AudioSource source = gameObject.AddComponent<AudioSource>();
-            source.clip = soundEffect[i].clip;
-            source.loop = soundEffect[i].loop;
+            source.clip = se[i].clip;
 
-            soundEffect[i] = new AudioData(soundEffect[i].clip, soundEffect[i].type, soundEffect[i].loop, source);
+            se[i] = new AudioData(se[i].clip, se[i].type, se[i].volume, source);
         }
-    }
-
-    public AudioSource GetAudioSourceByType(AudioType type)
-    {
-        // search in bgm
-        var source = bgm.Find(data => data.type == type).source;
-        if (source) return source;
-
-        // search in sound effect
-        source = soundEffect.Find(data => data.type == type).source;
-        if (source) return source;
-
-        // type not found
-        return null;
     }
 }
