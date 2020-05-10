@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4429318002226766412}
   - component: {fileID: 4882623277124107}
   - component: {fileID: 8619328795307320750}
-  - component: {fileID: 7871511781075103808}
   m_Layer: 2
   m_Name: Game Manager
   m_TagString: GameManager
@@ -28,9 +27,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1422724095800929777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 7544479174975533043}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -71,15 +71,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfecab6ba547a4259ba6bacbc26c80a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7871511781075103808
+--- !u!1 &2550667658573394122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7544479174975533043}
+  - component: {fileID: 6485922020263213660}
+  m_Layer: 2
+  m_Name: Audio Manager
+  m_TagString: AudioManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7544479174975533043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2550667658573394122}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3357127279876056544}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6485922020263213660
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1422724095800929777}
+  m_GameObject: {fileID: 2550667658573394122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd618271aa774e7eb2221ec123b2617, type: 3}
+  m_Script: {fileID: 11500000, guid: a8a58f027d0ce40a19810367f46d75dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bgm: []
+  soundEffect:
+  - clip: {fileID: 8300000, guid: 8af2e8d3be7b54e5e83f01a0156a8a29, type: 3}
+    type: 0
+    loop: 1
