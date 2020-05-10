@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8974442149334718019}
   - component: {fileID: 514482661}
-  - component: {fileID: 1223516457}
   - component: {fileID: 8974442149334718018}
   m_Layer: 0
   m_Name: Third Person Camera
@@ -53,14 +52,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!81 &1223516457
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8974442149334718012}
-  m_Enabled: 1
 --- !u!114 &8974442149334718018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,6 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8974442150237456016}
   - component: {fileID: 8974442150237456017}
+  - component: {fileID: 1496948250}
   - component: {fileID: 8974442150237456019}
   - component: {fileID: 8974442150237456023}
   - component: {fileID: 8974442150237456012}
@@ -152,6 +144,14 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!81 &1496948250
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974442150237456013}
+  m_Enabled: 1
 --- !u!114 &8974442150237456019
 MonoBehaviour:
   m_ObjectHideFlags: 0
