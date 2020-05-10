@@ -65,6 +65,7 @@ public class AudioManager : MonoBehaviour
         {
             AudioSource source = gameObject.AddComponent<AudioSource>();
             source.clip = bgm[i].clip;
+            source.loop = true;
 
             bgm[i] = new AudioData(bgm[i].clip, bgm[i].type, bgm[i].volume, source);
         }
