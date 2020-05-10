@@ -92,7 +92,6 @@ public class TitleUI : MonoBehaviour
     void Update()
     {
         time += Time.deltaTime;
-        Debug.Log(time);
         if (time >= 0.01f)
         {
 

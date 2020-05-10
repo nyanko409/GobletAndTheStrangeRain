@@ -4,4 +4,8 @@
 public class GameSettings : ScriptableObject
 {
     public int targetFPS;
+
+    [Range(0, 1)] public float masterVolume;
+    [Range(0, 1)] public float bgmVolume;
+    [Range(0, 1)] public float seVolume;
 }

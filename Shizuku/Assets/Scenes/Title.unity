@@ -580,24 +580,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766522765}
   m_CullTransparentMesh: 0
---- !u!1 &1090288239 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1422724095800929777, guid: 244defdb888cb4d1d86ad890d48743f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1990920494}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1090288240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1090288239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2cd618271aa774e7eb2221ec123b2617, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1262939490
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,11 +967,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 1422724095800929777, guid: 244defdb888cb4d1d86ad890d48743f7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3357127279876056544, guid: 244defdb888cb4d1d86ad890d48743f7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -998,7 +975,7 @@ PrefabInstance:
     - target: {fileID: 3357127279876056544, guid: 244defdb888cb4d1d86ad890d48743f7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3357127279876056544, guid: 244defdb888cb4d1d86ad890d48743f7,
         type: 3}
@@ -1045,10 +1022,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3759909585234405561, guid: 244defdb888cb4d1d86ad890d48743f7,
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
         type: 3}
-      propertyPath: simulatedLoadTime
-      value: 2
+      propertyPath: se.Array.data[0].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
+        type: 3}
+      propertyPath: se.Array.data[0].volume
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 244defdb888cb4d1d86ad890d48743f7, type: 3}

@@ -319,11 +319,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 803121397}
-    - target: {fileID: 8974442149334718018, guid: 58185e3a124574c3a85d60b1d78975f6,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8974442149334718019, guid: 58185e3a124574c3a85d60b1d78975f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -377,11 +372,6 @@ PrefabInstance:
     - target: {fileID: 8974442149334718019, guid: 58185e3a124574c3a85d60b1d78975f6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8974442150237456023, guid: 58185e3a124574c3a85d60b1d78975f6,
-        type: 3}
-      propertyPath: startUpdating
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2791,6 +2781,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1164602330867865201, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 1998809821}
     - target: {fileID: 2795979779703197544, guid: 749019124bd4cb54ab21a2cf59e33c7b,
         type: 3}
       propertyPath: sabu
@@ -21699,6 +21694,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8573c90d78f2e4697be35011d567b7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1998809821 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 144587249485207345, guid: eda06e5f0fa8d42689ce5dea2283fc8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1998809819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0bc2b38055041b8a3059598a80a329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2011692820

@@ -227,26 +227,32 @@ public class PlayerController : MonoBehaviour
                 dragRigidbody.velocity = moveDirection * GetMoveSpeed();
             }
             else if (dragRigidbody)
-            {
-                // reset the rigidbody
-                dragRigidbody.velocity = Vector3.zero;
-                dragRigidbody.constraints = RigidbodyConstraints.None;
-                if (dragRigidbody.GetComponent<Tag>().HasTag(TagType.FreezeRotation))
-                    dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-
-                dragRigidbody = null;
-            }
+                ResetDragRigidbody();
         }
+        else if(dragRigidbody)
+            ResetDragRigidbody();
         else
-        {
             inDragRange = false;
-        }
+    }
+
+    private void ResetDragRigidbody()
+    {
+        // reset the rigidbody
+        dragRigidbody.velocity = Vector3.zero;
+        dragRigidbody.constraints = RigidbodyConstraints.None;
+        if (dragRigidbody.GetComponent<Tag>().HasTag(TagType.FreezeRotation))
+            dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+        dragRigidbody = null;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(isDragging)
-            isColliding = true;
+        if (!isDragging ||
+            dragRigidbody && collision.transform.TryGetComponent(out Rigidbody rb) && rb == dragRigidbody)
+            return;
+
+        isColliding = true;
     }
 
     private void OnCollisionExit(Collision collision)
