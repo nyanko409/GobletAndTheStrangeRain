@@ -12,6 +12,7 @@ public class TitleUI : MonoBehaviour
     public GameObject button;
     public GameObject button2;
     public GameObject button3;
+    public GameObject back;
 
     private RectTransform data;
 
@@ -151,6 +152,8 @@ public class TitleUI : MonoBehaviour
                     button.SetActive(true);
                     button2.SetActive(true);
                     button3.SetActive(true);
+                    back.SetActive(true);
+
                 }
             }
 

@@ -231,7 +231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &384038391
 RectTransform:
   m_ObjectHideFlags: 0
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0, a: 0}
+  m_Color: {r: 0, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -671,6 +671,7 @@ MonoBehaviour:
   textT: {fileID: 1262939492}
   textQ: {fileID: 1508826544}
   colorspeed: 0.05
+  backimage: {fileID: 384038392}
 --- !u!1 &1412077466
 GameObject:
   m_ObjectHideFlags: 0
@@ -880,6 +881,7 @@ MonoBehaviour:
   button: {fileID: 1262939490}
   button2: {fileID: 766522765}
   button3: {fileID: 1508826542}
+  back: {fileID: 384038390}
   posxmin: -573
   posymin: 0
 --- !u!1 &1508826542

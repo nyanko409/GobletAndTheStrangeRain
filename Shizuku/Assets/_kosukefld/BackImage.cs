@@ -27,19 +27,19 @@ public class BackImage : MonoBehaviour
         switch (check.nextCK())
             {
             case 1:
-                image.color = new Color32(0, 255, 0, 255);
+                //image.color = new Color32(0, 255, 0, 255);
                 pos = 155;
                 break;
             case 2:
-                image.color = new Color32(0, 255, 0, 255);
+               // image.color = new Color32(0, 255, 0, 255);
                 pos = -39;
                 break;
             case 3:
-                image.color = new Color32(0, 255, 0, 255);
+               // image.color = new Color32(0, 255, 0, 255);
                 pos = -249;
                 break;
             default:
-                image.color = new Color32(0, 255, 0, 0);
+               // image.color = new Color32(0, 255, 0, 0);
                 break;
 
         }

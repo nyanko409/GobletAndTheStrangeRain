@@ -10,6 +10,9 @@ public class NextButton : MonoBehaviour
     public Image textT;
     public Image textQ;
     public float colorspeed = 0.05f;
+    public Image backimage;
+
+    private RectTransform data;
 
     GameInput actions;
     float STcount = 0;
@@ -18,6 +21,7 @@ public class NextButton : MonoBehaviour
     float STCL_A = 0;
     int colorcount = 1;
     int STCLcount = 1;
+    int pos;
     bool confirmPressed = false;
 
 
@@ -25,6 +29,8 @@ public class NextButton : MonoBehaviour
     {
         actions = new GameInput();
 
+        //data = GetComponent<RectTransform>();
+        backimage.color = new Color32(0, 255, 0, 0);
         actions.UITitle.Confirm.started += context => { confirmPressed = true; };
         actions.UITitle.Confirm.canceled += context => { confirmPressed = false; };
     }
@@ -40,6 +46,8 @@ public class NextButton : MonoBehaviour
 
     void Update()
     {
+       // data.anchoredPosition = new Vector2(500, pos);
+
         CL_A = Mathf.Lerp(0, 255, count);
         STCL_A = Mathf.Lerp(0, 255, STcount);
         switch (STCLcount)
@@ -71,13 +79,14 @@ public class NextButton : MonoBehaviour
                 }
                 break;
         }
-
+        backimage.color = new Color32(0, 255, 255, (byte)CL_A);
+        textH.color = new Color32(255, 255, 255, 255);
+        textT.color = new Color32(255, 255, 255, 255);
+        textQ.color = new Color32(255, 255, 255, 255);
         switch (check.nextCK())
         {
             case 1:
-                textH.color = new Color32(255, 255, 255, (byte)CL_A);
-                textT.color = new Color32(255, 255, 255, 255);
-                textQ.color = new Color32(255, 255, 255, 255);
+              
                 if (confirmPressed && check.BuuttonCK() == true)
                 {
                     StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
@@ -85,9 +94,7 @@ public class NextButton : MonoBehaviour
                 }
                 break;
             case 2:
-                textH.color = new Color32(255, 255, 255, 255);
-                textT.color = new Color32(255, 255, 255, (byte)CL_A);
-                textQ.color = new Color32(255, 255, 255, 255);
+              
                 if (confirmPressed && check.BuuttonCK() == true)
                 {
                     StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
@@ -95,9 +102,7 @@ public class NextButton : MonoBehaviour
                 }
                 break;
             case 3:
-                textH.color = new Color32(255, 255, 255, 255);
-                textT.color = new Color32(255, 255, 255, 255);
-                textQ.color = new Color32(255, 255, 255, (byte)CL_A);
+               
                 if (confirmPressed && check.BuuttonCK() == true)
                 {
 #if UNITY_EDITOR
@@ -108,6 +113,7 @@ public class NextButton : MonoBehaviour
                 }
                 break;
             default:
+                backimage.color = new Color32(0, 255, 0, 0);
                 textT.color = new Color32(255, 255, 255, (byte)STCL_A);
                 textH.color = new Color32(255, 255, 255, (byte)STCL_A);
                 textQ.color = new Color32(255, 255, 255, (byte)STCL_A);
