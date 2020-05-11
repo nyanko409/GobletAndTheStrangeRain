@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 224404378}
   - component: {fileID: 224404377}
   m_Layer: 0
-  m_Name: Stage 5
+  m_Name: Stage 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,7 +383,7 @@ Transform:
   m_Children:
   - {fileID: 1711943255}
   m_Father: {fileID: 1095113698}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &224404377
 BoxCollider2D:
@@ -1861,8 +1861,8 @@ Transform:
   - {fileID: 1945589285}
   - {fileID: 1283369668}
   - {fileID: 1341405913}
-  - {fileID: 224404375}
   - {fileID: 1509848276}
+  - {fileID: 224404375}
   - {fileID: 1941933254}
   - {fileID: 747916351}
   - {fileID: 842551767}
@@ -1915,8 +1915,8 @@ MonoBehaviour:
   - {fileID: 1945589284}
   - {fileID: 1283369667}
   - {fileID: 1341405912}
-  - {fileID: 224404374}
   - {fileID: 1509848275}
+  - {fileID: 224404374}
   - {fileID: 1941933253}
   - {fileID: 747916350}
   - {fileID: 842551766}
@@ -2629,7 +2629,7 @@ GameObject:
   - component: {fileID: 1509848279}
   - component: {fileID: 1509848278}
   m_Layer: 0
-  m_Name: Stage 6
+  m_Name: Stage 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2648,7 +2648,7 @@ Transform:
   m_Children:
   - {fileID: 1087432661}
   m_Father: {fileID: 1095113698}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1509848278
 BoxCollider2D:

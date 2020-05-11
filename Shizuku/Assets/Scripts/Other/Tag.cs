@@ -3,7 +3,8 @@ using System.Collections.Generic;
 
 public enum TagType
 {
-    Player, RippleReceiver, RippleProvider, Moveable
+    Player, RippleReceiver, RippleProvider,
+    Moveable, FreezeRotation, AffectedByWind
 }
 
 
@@ -53,6 +54,9 @@ public class Tag : MonoBehaviour
                 rb.constraints = RigidbodyConstraints.None;
             else if(!HasTag(TagType.Player))
                 rb.constraints = RigidbodyConstraints.FreezeAll;
+
+            if (HasTag(TagType.FreezeRotation))
+                rb.constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 }

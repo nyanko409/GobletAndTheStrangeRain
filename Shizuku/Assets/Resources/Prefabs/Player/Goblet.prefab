@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 815674175}
   - component: {fileID: 815674176}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Feet Collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,9 +57,10 @@ GameObject:
   - component: {fileID: 4188381909242686210}
   - component: {fileID: 7574093928654100475}
   - component: {fileID: 144587249485207502}
+  - component: {fileID: 4807030342609913117}
   - component: {fileID: 1854670059}
   - component: {fileID: 144587249485207345}
-  m_Layer: 2
+  m_Layer: 11
   m_Name: Goblet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfd514d0ced24e8fbf0b5ebdfdc62ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: 00000000
+  tags: 0000000005000000
 --- !u!33 &4188381909242686210
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -158,6 +159,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &4807030342609913117
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8151585970056913703}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!135 &1854670059
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -185,6 +205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 20
   dragSpeedMultiplier: 0.5
+  dragDistance: 2
   rotationSpeed: 10
   jumpHeight: 20
   fallMultiplier: 4
@@ -251,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8573c90d78f2e4697be35011d567b7b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rippleSpreadSpeed: 1
+  colorTransitionSpeed: 1
 --- !u!1001 &693128575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -347,7 +368,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 4841b72009aa14a04a4a225ccc2463af,
         type: 3}
       propertyPath: m_Layer
-      value: 2
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4841b72009aa14a04a4a225ccc2463af, type: 3}

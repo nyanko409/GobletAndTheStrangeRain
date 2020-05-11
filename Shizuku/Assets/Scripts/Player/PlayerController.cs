@@ -4,7 +4,8 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 1;                 // movespeed of the player
     public float dragSpeedMultiplier = 0.5F;    // the speed multiplier while dragging
-    public float rotationSpeed = 10;            // rotation speed of the player
+    public float dragDistance = 1.5F;
+    public float rotationSpeed = 10;             // rotation speed of the player
     public float jumpHeight = 5;                // jump height the player
     public float fallMultiplier = 2.5F;         // fall speed multiplier
     public float lowJumpMultiplier = 3;         // fall multiplier if jump button is released midair
@@ -18,9 +19,17 @@ public class PlayerController : MonoBehaviour
     private float jumpFalloff = 2.5F;
     private bool jumpPressed;
     private Vector3 gravity;
-    private Rigidbody dragRigidbody;            // the rigidbody of the dragging object
+    private Rigidbody dragRigidbody = null;     // the rigidbody of the dragging object
+    private bool inDragRange;
     private bool isDragging;                    // is true when drag keybind is pressed
+    private bool isColliding;
     private Vector3 dragStartDiff;
+
+
+    public bool IsInDragRange()
+    {
+        return inDragRange;
+    }
 
    
     private void Awake()
@@ -39,6 +48,8 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+
+        isDragging = false;
     }
 
     private void Update()
@@ -164,19 +175,14 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        if(FloorRaycast(0, 0, floorOffsetY + 1) != Vector3.zero)
-        {
-            return true;
-        }
-
-        return false;
+        return FloorRaycast(0, 0, floorOffsetY + 1) != Vector3.zero;
     }
 
     private Vector3 FloorRaycast(float offsetX, float offsetZ, float raycastDistance)
     {
         Vector3 rayOrigin = transform.TransformPoint(offsetX, 0.5F, offsetZ);
 
-        if(Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastDistance))
+        if(Physics.Raycast(rayOrigin, Vector3.down, out RaycastHit hit, raycastDistance, LayerMask.GetMask("Room", "Obstacle", "Ignore Ripple")))
         {
             if (Vector3.Angle(hit.normal, Vector3.up) <= slopeLimit)
             {
@@ -189,11 +195,15 @@ public class PlayerController : MonoBehaviour
 
     private void DragObject()
     {
-        if (isDragging && IsGrounded() && Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, 1.5F))
+        if(IsGrounded() && !isColliding &&
+           Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, dragDistance) &&
+           hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
         {
-            if (hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
+            inDragRange = true;
+
+            if (isDragging)
             {
-                if(!dragRigidbody)
+                if (!dragRigidbody)
                 {
                     // look at object
                     transform.rotation = Quaternion.LookRotation(-hit.normal);
@@ -216,16 +226,39 @@ public class PlayerController : MonoBehaviour
                 // move the target with player
                 dragRigidbody.velocity = moveDirection * GetMoveSpeed();
             }
+            else if (dragRigidbody)
+                ResetDragRigidbody();
         }
-        else if (dragRigidbody)
-        {
-            // reset the rigidbody
-            dragRigidbody.velocity = Vector3.zero;
-            dragRigidbody.constraints = RigidbodyConstraints.None;
-            dragRigidbody = null;
-        }
+        else if(dragRigidbody)
+            ResetDragRigidbody();
+        else
+            inDragRange = false;
     }
 
+    private void ResetDragRigidbody()
+    {
+        // reset the rigidbody
+        dragRigidbody.velocity = Vector3.zero;
+        dragRigidbody.constraints = RigidbodyConstraints.None;
+        if (dragRigidbody.GetComponent<Tag>().HasTag(TagType.FreezeRotation))
+            dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
+
+        dragRigidbody = null;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!isDragging ||
+            dragRigidbody && collision.transform.TryGetComponent(out Rigidbody rb) && rb == dragRigidbody)
+            return;
+
+        isColliding = true;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        isColliding = false;
+    }
 
     private void OnEnable()
     {

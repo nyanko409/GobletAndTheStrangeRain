@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8422230964014141321}
   - component: {fileID: 8422230964014141366}
   - component: {fileID: 8422230964014141367}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfd514d0ced24e8fbf0b5ebdfdc62ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: 0100000003000000
+  tags: 010000000300000005000000
 --- !u!33 &8422230964014141325
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -135,12 +135,12 @@ MonoBehaviour:
       m_SwapUV: 0
       m_Fill: 1
       m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
+      m_Offset: {x: -0.5, y: -0.49987376}
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
-    m_ManualUV: 0
+    m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
   - m_Indexes: 040000000500000006000000050000000700000006000000
@@ -152,12 +152,12 @@ MonoBehaviour:
       m_SwapUV: 0
       m_Fill: 1
       m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
+      m_Offset: {x: -0.5, y: -0.49987376}
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
-    m_ManualUV: 0
+    m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
   - m_Indexes: 08000000090000000a000000090000000b0000000a000000
@@ -169,12 +169,12 @@ MonoBehaviour:
       m_SwapUV: 0
       m_Fill: 1
       m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
+      m_Offset: {x: -0.5, y: -0.49987376}
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
-    m_ManualUV: 0
+    m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
   - m_Indexes: 0c0000000d0000000e0000000d0000000f0000000e000000
@@ -186,12 +186,12 @@ MonoBehaviour:
       m_SwapUV: 0
       m_Fill: 1
       m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
+      m_Offset: {x: -0.5, y: -0.49987376}
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
-    m_ManualUV: 0
+    m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
   - m_Indexes: 100000001100000012000000110000001300000012000000
@@ -203,12 +203,12 @@ MonoBehaviour:
       m_SwapUV: 0
       m_Fill: 1
       m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
+      m_Offset: {x: -0.5, y: -0.49987376}
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
-    m_ManualUV: 0
+    m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
   - m_Indexes: 140000001500000016000000150000001700000016000000
@@ -220,12 +220,12 @@ MonoBehaviour:
       m_SwapUV: 0
       m_Fill: 1
       m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 0}
+      m_Offset: {x: -0.5, y: -0.49987376}
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
     m_SubmeshIndex: 0
-    m_ManualUV: 0
+    m_ManualUV: 1
     elementGroup: -1
     m_TextureGroup: -1
   m_SharedVertices:
@@ -264,30 +264,30 @@ MonoBehaviour:
   - {x: -0.5, y: -0.5, z: 0.5}
   - {x: 0.5, y: -0.5, z: 0.5}
   m_Textures0:
-  - {x: 0.5, y: -0.5}
-  - {x: -0.5, y: -0.5}
-  - {x: 0.5, y: 0.5}
-  - {x: -0.5, y: 0.5}
-  - {x: 0.5, y: -0.5}
-  - {x: -0.5, y: -0.5}
-  - {x: 0.5, y: 0.5}
-  - {x: -0.5, y: 0.5}
-  - {x: 0.5, y: -0.5}
-  - {x: -0.5, y: -0.5}
-  - {x: 0.5, y: 0.5}
-  - {x: -0.5, y: 0.5}
-  - {x: 0.5, y: -0.5}
-  - {x: -0.5, y: -0.5}
-  - {x: 0.5, y: 0.5}
-  - {x: -0.5, y: 0.5}
-  - {x: -0.5, y: 0.5}
-  - {x: 0.5, y: 0.5}
-  - {x: -0.5, y: -0.5}
-  - {x: 0.5, y: -0.5}
-  - {x: 0.5, y: -0.5}
-  - {x: -0.5, y: -0.5}
-  - {x: 0.5, y: 0.5}
-  - {x: -0.5, y: 0.5}
+  - {x: 1, y: -0.00012624264}
+  - {x: 0, y: -0.00012624264}
+  - {x: 1, y: 0.99987376}
+  - {x: 0, y: 0.99987376}
+  - {x: 1, y: -0.00012624264}
+  - {x: 0, y: -0.00012624264}
+  - {x: 1, y: 0.99987376}
+  - {x: 0, y: 0.99987376}
+  - {x: 1, y: -0.00012624264}
+  - {x: 0, y: -0.00012624264}
+  - {x: 1, y: 0.99987376}
+  - {x: 0, y: 0.99987376}
+  - {x: 1, y: -0.00012624264}
+  - {x: 0, y: -0.00012624264}
+  - {x: 1, y: 0.99987376}
+  - {x: 0, y: 0.99987376}
+  - {x: 0, y: 0.99987376}
+  - {x: 1, y: 0.99987376}
+  - {x: 0, y: -0.00012624264}
+  - {x: 1, y: -0.00012624264}
+  - {x: 1, y: -0.00012624264}
+  - {x: 0, y: -0.00012624264}
+  - {x: 1, y: 0.99987376}
+  - {x: 0, y: 0.99987376}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -355,8 +355,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 535a5f2fc56614877bbee5b07387cc2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  transitionPoint: {fileID: 0}
   rangeOffset: -4
   alphaSpeed: 1
+  minAlpha: 0.05
   opaqueShader: {fileID: -6465566751694194690, guid: 6f19b637563c74be1959475117cefec9,
     type: 3}
   transparentShader: {fileID: -6465566751694194690, guid: cace6a04ad8664e8d876f5055396f7f5,

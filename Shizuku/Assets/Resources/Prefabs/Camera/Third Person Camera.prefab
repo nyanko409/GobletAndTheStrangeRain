@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8974442149334718019}
+  - component: {fileID: 514482661}
   - component: {fileID: 8974442149334718018}
   m_Layer: 0
   m_Name: Third Person Camera
@@ -32,6 +33,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &514482661
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974442149334718012}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8974442149334718018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39,7 +59,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8974442149334718012}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33436f8aac2aa433cb023529b3c3b4de, type: 3}
   m_Name: 
@@ -56,7 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8974442150237456016}
   - component: {fileID: 8974442150237456017}
-  - component: {fileID: 8974442150237456018}
+  - component: {fileID: 1496948250}
   - component: {fileID: 8974442150237456019}
   - component: {fileID: 8974442150237456023}
   - component: {fileID: 8974442150237456012}
@@ -74,7 +94,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8974442150237456013}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -124,7 +144,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8974442150237456018
+--- !u!81 &1496948250
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,8 +199,10 @@ MonoBehaviour:
   horizontalSpeed: 400
   verticalSpeed: 100
   clampMaxRot: 50
-  clampMinRot: 0
+  clampMinRot: -10
   distance: 25
+  collideWithStage: 1
+  activateInput: 0
 --- !u!114 &8974442150237456012
 MonoBehaviour:
   m_ObjectHideFlags: 0
