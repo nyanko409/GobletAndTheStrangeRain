@@ -59,8 +59,7 @@ public class Posenext : MonoBehaviour
 
     void Update()
     {
-       
-            CL_A = Mathf.Lerp(255, 0, data.CL());
+        CL_A = Mathf.Lerp(255, 0, data.CL());
 
         back.color = new Color32(0, 255, 255, (byte)CL_A);
         con.color = new Color32(0, 0, 0, 255);
@@ -72,7 +71,7 @@ public class Posenext : MonoBehaviour
             {
                 case 1:
               
-                if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
+                if (confirmPressed && data.BCK() == true)
                 {
                     Time.timeScale = 1;
                     poseR = 1;
@@ -80,23 +79,23 @@ public class Posenext : MonoBehaviour
                 break;
                 case 2:
                 
-                    if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
-                    {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                if (confirmPressed && data.BCK() == true)
+                {
+                    StartCoroutine(SceneLoader.LoadSceneAsync(SceneManager.GetActiveScene().name, "Prefabs/UI and HUD/Loading Canvas"));
                     Time.timeScale = 1;
                     poseR = 1;
-                        Restart = true;
-                        Debug.Log("Restart");
-                        Debug.Log(Restart);
-                    }
+                    Restart = true;
+                    Debug.Log("Restart");
+                    Debug.Log(Restart);
+                }
 
                     break;
                 case 3:
                    
-                    if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
+                    if (confirmPressed && data.BCK() == true)
                     {
-                    Time.timeScale = 1;
-                    poseR = 1;
+                        Time.timeScale = 1;
+                        poseR = 1;
                         checkpoint = true;
                         Debug.Log("checkpoint");
                         Debug.Log(checkpoint);
