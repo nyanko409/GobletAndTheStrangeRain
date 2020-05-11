@@ -13,7 +13,7 @@ public class NextButton : MonoBehaviour
     public Image backimage;
 
     private RectTransform data;
-
+    float time = 0;
     GameInput actions;
     float STcount = 0;
     float count = 0;
@@ -46,78 +46,84 @@ public class NextButton : MonoBehaviour
 
     void Update()
     {
-       // data.anchoredPosition = new Vector2(500, pos);
+        time += Time.deltaTime;
+        if (time >= 0.01f)
+        {
+            // data.anchoredPosition = new Vector2(500, pos);
 
-        CL_A = Mathf.Lerp(0, 255, count);
-        STCL_A = Mathf.Lerp(0, 255, STcount);
-        switch (STCLcount)
-        {
-            case 1:
-                STcount += colorspeed;
-                if (STcount >= 1)
-                {
-                    STCLcount = 2;
-                }
-                break;
-            case 2:
-                break;
-        }
-        switch (colorcount)
-        {
-            case 1:
-                count += colorspeed;
-                if (count >= 1)
-                {
-                    colorcount = 2;
-                }
-                break;
-            case 2:
-                count -= colorspeed;
-                if (count <= 0)
-                {
-                    colorcount = 1;
-                }
-                break;
-        }
-        backimage.color = new Color32(0, 255, 255, (byte)CL_A);
-        textH.color = new Color32(255, 255, 255, 255);
-        textT.color = new Color32(255, 255, 255, 255);
-        textQ.color = new Color32(255, 255, 255, 255);
-        switch (check.nextCK())
-        {
-            case 1:
-              
-                if (confirmPressed && check.BuuttonCK() == true)
-                {
-                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
-                    Debug.Log("osita A");
-                }
-                break;
-            case 2:
-              
-                if (confirmPressed && check.BuuttonCK() == true)
-                {
-                    StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
-                    Debug.Log("osita A");
-                }
-                break;
-            case 3:
-               
-                if (confirmPressed && check.BuuttonCK() == true)
-                {
+            CL_A = Mathf.Lerp(0, 255, count);
+            STCL_A = Mathf.Lerp(0, 255, STcount);
+            switch (STCLcount)
+            {
+                case 1:
+                    STcount += colorspeed;
+                    if (STcount >= 1)
+                    {
+                        STCLcount = 2;
+                    }
+                    break;
+                case 2:
+                    break;
+            }
+            switch (colorcount)
+            {
+                case 1:
+                    count += colorspeed;
+                    if (count >= 1)
+                    {
+                        colorcount = 2;
+                    }
+                    break;
+                case 2:
+                    count -= colorspeed;
+                    if (count <= 0)
+                    {
+                        colorcount = 1;
+                    }
+                    break;
+            }
+            backimage.color = new Color32(0, 255, 255, (byte)CL_A);
+            textH.color = new Color32(255, 255, 255, 255);
+            textT.color = new Color32(255, 255, 255, 255);
+            textQ.color = new Color32(255, 255, 255, 255);
+            switch (check.nextCK())
+            {
+                case 1:
+
+                    if (confirmPressed && check.BuuttonCK() == true)
+                    {
+                        StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
+                        Debug.Log("osita A");
+                    }
+                    break;
+                case 2:
+
+                    if (confirmPressed && check.BuuttonCK() == true)
+                    {
+                        StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
+                        Debug.Log("osita A");
+                    }
+                    break;
+                case 3:
+
+                    if (confirmPressed && check.BuuttonCK() == true)
+                    {
 #if UNITY_EDITOR
-                    UnityEditor.EditorApplication.isPlaying = false;
+                        UnityEditor.EditorApplication.isPlaying = false;
 #else
     Application.Quit();
 #endif
-                }
-                break;
-            default:
-                backimage.color = new Color32(0, 255, 0, 0);
-                textT.color = new Color32(255, 255, 255, (byte)STCL_A);
-                textH.color = new Color32(255, 255, 255, (byte)STCL_A);
-                textQ.color = new Color32(255, 255, 255, (byte)STCL_A);
-                break;
+                    }
+                    break;
+                default:
+                    backimage.color = new Color32(0, 255, 0, 0);
+                    textT.color = new Color32(255, 255, 255, (byte)STCL_A);
+                    textH.color = new Color32(255, 255, 255, (byte)STCL_A);
+                    textQ.color = new Color32(255, 255, 255, (byte)STCL_A);
+                    break;
+         
+            }
+            time = 0;
         }
     }
 
