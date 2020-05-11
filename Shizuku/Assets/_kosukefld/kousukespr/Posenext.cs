@@ -10,6 +10,7 @@ public class Posenext : MonoBehaviour
     public Image res;
     public Image theck;
     public Image map;
+    public Image back;
     public float colorspeed = 0.05f;
     float time = 0; 
     GameInput actions;
@@ -61,15 +62,16 @@ public class Posenext : MonoBehaviour
        
             CL_A = Mathf.Lerp(255, 0, data.CL());
 
-        
+        back.color = new Color32(0, 255, 255, (byte)CL_A);
+        con.color = new Color32(0, 0, 0, 255);
+        res.color = new Color32(0, 0, 0, 255);
+        theck.color = new Color32(0, 0, 0, 255);
+        map.color = new Color32(0, 0, 0, 255);
 
         switch (data.nextCK())
             {
                 case 1:
-                    con.color = new Color32(0, 0, 0, (byte)CL_A);
-                    res.color = new Color32(0, 0, 0, 255);
-                    theck.color = new Color32(0, 0, 0, 255);
-                    map.color = new Color32(0, 0, 0, 255);
+              
                 if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
                 {
                     Time.timeScale = 1;
@@ -77,10 +79,7 @@ public class Posenext : MonoBehaviour
                 }
                 break;
                 case 2:
-                    con.color = new Color32(0, 0, 0, 255);
-                    res.color = new Color32(0, 0, 0, (byte)CL_A);
-                    theck.color = new Color32(0, 0, 0, 255);
-                    map.color = new Color32(0, 0, 0, 255);
+                
                     if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
                     {
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -93,10 +92,7 @@ public class Posenext : MonoBehaviour
 
                     break;
                 case 3:
-                    con.color = new Color32(0, 0, 0, 255);
-                    res.color = new Color32(0, 0, 0, 255);
-                    theck.color = new Color32(0, 0, 0, (byte)CL_A);
-                    map.color = new Color32(0, 0, 0, 255);
+                   
                     if (Input.GetKeyDown(KeyCode.JoystickButton0) == true && data.BCK() == true)
                     {
                     Time.timeScale = 1;
@@ -107,10 +103,7 @@ public class Posenext : MonoBehaviour
                     }
                     break;
                 case 4:
-                    con.color = new Color32(0, 0, 0, 255);
-                    res.color = new Color32(0, 0, 0, 255);
-                    theck.color = new Color32(0, 0, 0, 255);
-                    map.color = new Color32(0, 0, 0, (byte)CL_A);
+                   
 
                     if (confirmPressed && data.BCK() == true)
                     {

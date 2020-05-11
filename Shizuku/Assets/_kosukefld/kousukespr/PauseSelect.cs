@@ -12,6 +12,7 @@ public class PauseSelect : MonoBehaviour
     public GameObject restart;
     public GameObject check;
     public GameObject remap;
+    public GameObject back;
     public float colorspeed = 0.05f;
 
     GameInput actions;
@@ -29,7 +30,9 @@ public class PauseSelect : MonoBehaviour
     int colorcount = 2;
     float SZcount = 0;
     public float countSpeed = 0.05f;
-    
+
+
+
     bool pausePressed = false;
     bool upPressed = false, downPressed = false;
 
@@ -46,6 +49,8 @@ public class PauseSelect : MonoBehaviour
         actions.UIPauseMenu.NavigateDown.started += context => downPressed = true;
         actions.UIPauseMenu.NavigateDown.canceled += context => downPressed = false;
     }
+
+    
 
    public float CL()
     {
@@ -73,6 +78,7 @@ public class PauseSelect : MonoBehaviour
         restart.SetActive(x);
         check.SetActive(x);
         remap.SetActive(x);
+        back.SetActive(x);
     }
 
     void Start()
@@ -101,7 +107,7 @@ public class PauseSelect : MonoBehaviour
                 pausePressed = false;
                 Bcheck = !Bcheck;
                 Time.timeScale = Bcheck ? 0 : 1;
-                Debug.Log(check);
+               // Debug.Log(check);
             }
 
             if (Bcheck == true)
@@ -212,8 +218,8 @@ public class PauseSelect : MonoBehaviour
             
 
             }
-
-
+         
+          
         }
     }
 
