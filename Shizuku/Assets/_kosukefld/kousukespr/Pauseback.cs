@@ -27,10 +27,11 @@ public class Pauseback : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(check.BPOS());
-        data.anchoredPosition = new Vector2(0, Bposnext);
-        data.sizeDelta = new Vector2(size,100);
-        Bpos = Mathf.Lerp(Bpospast, Bposnext, Bcount);
+       
+        data.anchoredPosition = new Vector2(0, check.BposCK());
+        data.sizeDelta = new Vector2(check.BsizeCK(),100);
+        //Bpos = Mathf.Lerp(Bpospast, Bposnext, Bcount);
+       // Debug.Log(check.BposCK());
         //switch (BSTcount)
         //{
         //    case 1:
@@ -44,53 +45,53 @@ public class Pauseback : MonoBehaviour
         //        BCcheck = false;
         //        break;
         //}
-        switch (check.nextCK())
-        {
-            case 1:
-                //if (!BCcheck)
-                //{
+        //switch (check.nextCK())
+        //{
+        //    case 1:
+        //        //if (!BCcheck)
+        //        //{
 
-                    Bcount = 0;
-                    BSTcount = 1;
-                    BCcheck = true;
-                    Bpospast = Bpos;
-                    Bposnext = 64;
-                    size = 200;
+        //            Bcount = 0;
+        //            BSTcount = 1;
+        //            BCcheck = true;
+        //            Bpospast = Bpos;
+        //            Bposnext = 64;
+        //            size = 200;
                 
-                break;
-            case 2:
-                
-
-                    Bcount = 0;
-                    BSTcount = 1;
-                    BCcheck = true;
-                    Bpospast = Bpos;
-                    Bposnext = -21;
-                size = 400;
-                
-                break;
-            case 3:
+        //        break;
+        //    case 2:
                 
 
-                    Bcount = 0;
-                    BSTcount = 1;
-                    BCcheck = true;
-                    Bpospast = Bpos;
-                    Bposnext = -108;
-                size = 500;
+        //            Bcount = 0;
+        //            BSTcount = 1;
+        //            BCcheck = true;
+        //            Bpospast = Bpos;
+        //            Bposnext = -21;
+        //        size = 400;
                 
-                break;
-            case 4:
+        //        break;
+        //    case 3:
                 
 
-                    Bcount = 0;
-                    BSTcount = 1;
-                    BCcheck = true;
-                    Bpospast = Bpos;
-                    Bposnext = -195;
-                size = 400;
+        //            Bcount = 0;
+        //            BSTcount = 1;
+        //            BCcheck = true;
+        //            Bpospast = Bpos;
+        //            Bposnext = -108;
+        //        size = 500;
                 
-                break;
-        }
+        //        break;
+        //    case 4:
+                
+
+        //            Bcount = 0;
+        //            BSTcount = 1;
+        //            BCcheck = true;
+        //            Bpospast = Bpos;
+        //            Bposnext = -195;
+        //        size = 400;
+                
+        //        break;
+        //}
     }
 }
