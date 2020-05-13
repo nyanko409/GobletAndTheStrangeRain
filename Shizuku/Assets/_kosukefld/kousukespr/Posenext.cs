@@ -12,8 +12,10 @@ public class Posenext : MonoBehaviour
     public Image map;
     public Image back;
     public float colorspeed = 0.05f;
-    float time = 0; 
+
     GameInput actions;
+    SavePointManager savePointManager;
+    float time = 0; 
     bool confirmPressed = false;
     float CL_A = 0;
     float count = 0;
@@ -23,6 +25,7 @@ public class Posenext : MonoBehaviour
 
     bool Restart = false;
     bool checkpoint = false;
+
 
     public int PoseRCK()
     {
@@ -50,6 +53,8 @@ public class Posenext : MonoBehaviour
 
     void Start()
     {
+        savePointManager = GameObject.FindGameObjectWithTag("SavePointManager").GetComponent<SavePointManager>();
+
         con.color = new Color32(0,0,0,255);
         res.color = new Color32(0, 0, 0, 255);
         theck.color = new Color32(0, 0, 0, 255);
@@ -81,10 +86,14 @@ public class Posenext : MonoBehaviour
                 
                 if (confirmPressed && data.BCK() == true)
                 {
+                    // reset the save point and reload the scene
+                    savePointManager.ResetSavePoint();
                     StartCoroutine(SceneLoader.LoadSceneAsync(SceneManager.GetActiveScene().name, "Prefabs/UI and HUD/Loading Canvas"));
+
                     Time.timeScale = 1;
                     poseR = 1;
                     Restart = true;
+
                     Debug.Log("Restart");
                     Debug.Log(Restart);
                 }
@@ -92,15 +101,17 @@ public class Posenext : MonoBehaviour
                     break;
                 case 3:
                    
-                    if (confirmPressed && data.BCK() == true)
-                    {
-                        Time.timeScale = 1;
-                        poseR = 1;
-                        checkpoint = true;
-                        Debug.Log("checkpoint");
-                        Debug.Log(checkpoint);
-                    }
-                    break;
+                if (confirmPressed && data.BCK() == true)
+                {
+                    StartCoroutine(SceneLoader.LoadSceneAsync(SceneManager.GetActiveScene().name, "Prefabs/UI and HUD/Loading Canvas"));
+
+                    Time.timeScale = 1;
+                    poseR = 1;
+                    checkpoint = true;
+                    Debug.Log("checkpoint");
+                    Debug.Log(checkpoint);
+                }
+                break;
                 case 4:
                    
 
@@ -108,7 +119,6 @@ public class Posenext : MonoBehaviour
                     {
                         Time.timeScale = 1;
                         StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas"));
-                       
                     }
                     break;
             }
@@ -124,8 +134,6 @@ public class Posenext : MonoBehaviour
                 checkpoint = false;
                 Debug.Log(checkpoint);
             }
-       
-
     }
 
     private void OnEnable()

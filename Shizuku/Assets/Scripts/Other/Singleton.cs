@@ -1,16 +1,30 @@
 ﻿using UnityEngine;
 
-public class Singleton : MonoBehaviour
+public class Singleton<T> : MonoBehaviour where T : Component
 {
-    private static MonoBehaviour instance;
+    protected bool isDestroyed = false;
+    private static T _instance;
 
-
-    private void Awake()
+    protected virtual void Awake()
     {
-        // allow only one instance of this object
-        if (!instance)
-            instance = this;
+        if (_instance == null)
+        {
+            DontDestroyOnLoad(gameObject);
+            _instance = this as T;
+        }
         else
-            Destroy(gameObject);
+        {
+            if (this != _instance)
+            {
+                Destroy(gameObject);
+                isDestroyed = true;
+            }
+        }
+    }
+
+    protected void DeleteInstance()
+    {
+        if(this == _instance)
+            _instance = null;
     }
 }

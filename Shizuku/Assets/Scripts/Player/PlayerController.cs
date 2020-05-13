@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
     private void DragObject()
     {
         if(IsGrounded() && !isColliding &&
-           Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, dragDistance) &&
+           Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.forward, out RaycastHit hit, dragDistance) &&
            hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
         {
             inDragRange = true;
