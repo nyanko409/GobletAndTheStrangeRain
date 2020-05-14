@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         // reset movement
         moveDirection = Vector3.zero;
 
-        // set animation
+        // idle and walking animation
         anim.SetBool("isWalking", movementInput == Vector2.zero ? false : true);
 
         // get direction from input
@@ -230,6 +230,9 @@ public class PlayerController : MonoBehaviour
 
                 // move the target with player
                 dragRigidbody.velocity = moveDirection * GetMoveSpeed();
+
+                // switch to push animation
+                anim.SetBool("isPushing", true);
             }
             else if (dragRigidbody)
                 ResetDragRigidbody();
@@ -249,6 +252,8 @@ public class PlayerController : MonoBehaviour
             dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
 
         dragRigidbody = null;
+
+        anim.SetBool("isPushing", false);
     }
 
     private void OnCollisionEnter(Collision collision)
