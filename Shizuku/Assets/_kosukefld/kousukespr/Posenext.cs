@@ -66,7 +66,7 @@ public class Posenext : MonoBehaviour
     {
         CL_A = Mathf.Lerp(255, 0, data.CL());
 
-        back.color = new Color32(0, 255, 255, (byte)CL_A);
+        back.color = new Color32(0, 255, 0, (byte)CL_A);
         con.color = new Color32(0, 0, 0, 255);
         res.color = new Color32(0, 0, 0, 255);
         theck.color = new Color32(0, 0, 0, 255);

@@ -34,7 +34,7 @@ public class BackImage : MonoBehaviour
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
-            data.anchoredPosition = new Vector2(500, pos);
+            data.anchoredPosition = new Vector2(500, posnext);
             Debug.Log(pos);
             pos = Mathf.Lerp(pospast, posnext, count);
             switch (STcount)
