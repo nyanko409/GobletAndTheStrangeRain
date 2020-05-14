@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float floorOffsetY = 1;              // offset to the floor
 
     private GameInput action;
+    private Animator anim;
     private Vector2 movementInput;
     private Vector3 moveDirection;
     private new Rigidbody rigidbody;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
 
         isDragging = false;
     }
@@ -56,6 +58,9 @@ public class PlayerController : MonoBehaviour
     {
         // reset movement
         moveDirection = Vector3.zero;
+
+        // set animation
+        anim.SetBool("isWalking", movementInput == Vector2.zero ? false : true);
 
         // get direction from input
         // if not dragging, move based on camera direction
