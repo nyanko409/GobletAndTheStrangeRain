@@ -4,7 +4,7 @@ public class RippleEffectReceiver : MonoBehaviour
 {
     [ColorUsage(false, true)] public Color startColor;      // the starting color
 
-    Material material;                                      // reference to the material
+    Material[] material;                                    // reference to the material
     int rippleCount;                                        // maximum active ripple count
     RippleData[] ripples;                                   // ripple data to pass to the shader
     Color backgroundColor;                                  // current background color of the mesh
@@ -47,10 +47,10 @@ public class RippleEffectReceiver : MonoBehaviour
 
     void Start()
     {
-        material = GetComponent<Renderer>().material;
+        material = GetComponent<Renderer>().materials;
 
         // get the maximum ripple count from the shader and init the ripple layers
-        rippleCount = material.GetInt("_maxRippleCount");
+        rippleCount = material[0].GetInt("_maxRippleCount");
         ripples = new RippleData[rippleCount];
         for(int i = 0; i < rippleCount; ++i)
         {
@@ -58,7 +58,11 @@ public class RippleEffectReceiver : MonoBehaviour
         }
 
         // set the start color of the shader
-        material.SetColor("_BaseColor", startColor);
+        foreach(Material mat in material)
+        {
+            mat.SetColor("_BaseColor", startColor);
+        }
+
         backgroundColor = startColor;
     }
 
@@ -71,16 +75,22 @@ public class RippleEffectReceiver : MonoBehaviour
             {
                 ripples[i].radius += ripples[i].spreadSpeed * Time.deltaTime;
 
-                material.SetFloat("_RippleRadius" + ripples[i].layer, ripples[i].radius);
-                material.SetVector("_RippleLocation" + ripples[i].layer, ripples[i].position);
-                material.SetColor("_RippleColor" + ripples[i].layer, ripples[i].color);
+                foreach (Material mat in material)
+                {
+                    mat.SetFloat("_RippleRadius" + ripples[i].layer, ripples[i].radius);
+                    mat.SetVector("_RippleLocation" + ripples[i].layer, ripples[i].position);
+                    mat.SetColor("_RippleColor" + ripples[i].layer, ripples[i].color);  
+                }
 
                 // ripple finished expanding through the whole mesh
                 if (ripples[i].radius >= ripples[i].maxRadius)
                 {
                     // set ripple radius forcefully to 0 to prevent overlapping
-                    material.SetFloat("_RippleRadius" + ripples[i].layer, 0);
-                    material.SetColor("_BaseColor", ripples[i].color);
+                    foreach (Material mat in material)
+                    {
+                        mat.SetFloat("_RippleRadius" + ripples[i].layer, 0);
+                        mat.SetColor("_BaseColor", ripples[i].color);
+                    }
 
                     ripples[i].layer = -1;
                     ripples[i].radius = -1;
