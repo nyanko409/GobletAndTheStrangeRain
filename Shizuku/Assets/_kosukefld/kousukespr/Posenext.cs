@@ -86,16 +86,11 @@ public class Posenext : MonoBehaviour
                 
                 if (confirmPressed && data.BCK() == true)
                 {
-                    // reset the save point and reload the scene
-                    savePointManager.ResetSavePoint();
                     StartCoroutine(SceneLoader.LoadSceneAsync(SceneManager.GetActiveScene().name, "Prefabs/UI and HUD/Loading Canvas"));
 
                     Time.timeScale = 1;
                     poseR = 1;
                     Restart = true;
-
-                    Debug.Log("Restart");
-                    Debug.Log(Restart);
                 }
 
                     break;
@@ -103,13 +98,13 @@ public class Posenext : MonoBehaviour
                    
                 if (confirmPressed && data.BCK() == true)
                 {
+                    // reset the save point and reload the scene
+                    savePointManager.ResetSavePoint();
                     StartCoroutine(SceneLoader.LoadSceneAsync(SceneManager.GetActiveScene().name, "Prefabs/UI and HUD/Loading Canvas"));
 
                     Time.timeScale = 1;
                     poseR = 1;
                     checkpoint = true;
-                    Debug.Log("checkpoint");
-                    Debug.Log(checkpoint);
                 }
                 break;
                 case 4:
