@@ -16,7 +16,7 @@ public class tutorial : MonoBehaviour
     float CL_X = 0;
 
     bool confirmPressed = false;
-
+    bool isDragging = false;
     GameInput actions;
 
     private void Awake()
@@ -25,6 +25,8 @@ public class tutorial : MonoBehaviour
 
         actions.UIPauseMenu.Confirm.started += context => confirmPressed = true;
         actions.UIPauseMenu.Confirm.canceled += context => confirmPressed = false;
+        actions.Player.Drag.started += context => isDragging = true;
+        actions.Player.Drag.canceled += context => isDragging = false;
     }
         void Start()
     {
@@ -52,12 +54,12 @@ public class tutorial : MonoBehaviour
         if (confirmPressed && check == true)
         {
             CL_A = 0;
+            
+        }
+        if (isDragging&&check==true&&pl.IsInDragRange())
+        {
             CL_X = 0;
         }
-        //if ()
-        //{
-
-        //}
 
     }
     private void OnEnable()
