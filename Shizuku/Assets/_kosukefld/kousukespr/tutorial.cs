@@ -15,6 +15,8 @@ public class tutorial : MonoBehaviour
     float CL_A = 0;
     float CL_X = 0;
 
+    bool startcheck = false;
+
     bool confirmPressed = false;
     bool isDragging = false;
     GameInput actions;
@@ -46,6 +48,7 @@ public class tutorial : MonoBehaviour
             if (!check)
             {
                 check = true;
+                startcheck = true;
                 CL_A = 255;
                 CL_X = 255;
                 //Debug.Log("CHECK");
@@ -56,7 +59,7 @@ public class tutorial : MonoBehaviour
             CL_A = 0;
             
         }
-        if (isDragging&&check==true&&pl.IsInDragRange())
+        if (isDragging && check == true && pl.IsInDragRange() && check == true)
         {
             CL_X = 0;
         }
