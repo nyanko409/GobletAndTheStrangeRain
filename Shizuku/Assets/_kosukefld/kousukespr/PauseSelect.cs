@@ -236,7 +236,7 @@ public class PauseSelect : MonoBehaviour
             
 
             }
-            Debug.Log(Bcount);
+           // Debug.Log(Bcount);
             switch (BSTcount)
             {
                 case 1:
