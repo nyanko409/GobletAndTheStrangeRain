@@ -62,11 +62,11 @@ public class PauseSelect : MonoBehaviour
     
     public float BposCK()
     {
-        return Bpos;
+        return Bposnext;
     }
     public float BsizeCK()
     {
-        return size;
+        return Bsizenext;
     }
    public float CL()
     {
@@ -273,7 +273,7 @@ public class PauseSelect : MonoBehaviour
                         Bpospast = Bpos;
                         Bposnext = -21;
                         Bsizepast = size;
-                        Bsizenext = 400;
+                        Bsizenext = 500;
                     }
                     break;
                 case 3:
@@ -285,7 +285,7 @@ public class PauseSelect : MonoBehaviour
                         Bpospast = Bpos;
                         Bposnext = -108;
                         Bsizepast = size;
-                        Bsizenext = 500;
+                        Bsizenext = 400;
                     }
                     break;
                 case 4:

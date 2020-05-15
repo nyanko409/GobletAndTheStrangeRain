@@ -82,7 +82,7 @@ public class NextButton : MonoBehaviour
                     }
                     break;
             }
-            backimage.color = new Color32(0, 255, 255, (byte)CL_A);
+            backimage.color = new Color32(0, 0, 255, (byte)CL_A);
             textH.color = new Color32(255, 255, 255, 255);
             textT.color = new Color32(255, 255, 255, 255);
             textQ.color = new Color32(255, 255, 255, 255);

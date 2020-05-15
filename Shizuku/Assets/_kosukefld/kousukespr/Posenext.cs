@@ -66,7 +66,7 @@ public class Posenext : MonoBehaviour
     {
         CL_A = Mathf.Lerp(255, 0, data.CL());
 
-        back.color = new Color32(0, 255, 255, (byte)CL_A);
+        back.color = new Color32(0, 255, 0, (byte)CL_A);
         con.color = new Color32(0, 0, 0, 255);
         res.color = new Color32(0, 0, 0, 255);
         theck.color = new Color32(0, 0, 0, 255);
@@ -86,16 +86,11 @@ public class Posenext : MonoBehaviour
                 
                 if (confirmPressed && data.BCK() == true)
                 {
-                    // reset the save point and reload the scene
-                    savePointManager.ResetSavePoint();
                     StartCoroutine(SceneLoader.LoadSceneAsync(SceneManager.GetActiveScene().name, "Prefabs/UI and HUD/Loading Canvas"));
 
                     Time.timeScale = 1;
                     poseR = 1;
                     Restart = true;
-
-                    Debug.Log("Restart");
-                    Debug.Log(Restart);
                 }
 
                     break;
@@ -103,13 +98,13 @@ public class Posenext : MonoBehaviour
                    
                 if (confirmPressed && data.BCK() == true)
                 {
+                    // reset the save point and reload the scene
+                    savePointManager.ResetSavePoint();
                     StartCoroutine(SceneLoader.LoadSceneAsync(SceneManager.GetActiveScene().name, "Prefabs/UI and HUD/Loading Canvas"));
 
                     Time.timeScale = 1;
                     poseR = 1;
                     checkpoint = true;
-                    Debug.Log("checkpoint");
-                    Debug.Log(checkpoint);
                 }
                 break;
                 case 4:
