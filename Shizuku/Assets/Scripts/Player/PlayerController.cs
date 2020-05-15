@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour
         return inDragRange;
     }
 
+    public bool IsDragging()
+    {
+        return dragRigidbody;
+    }
+
    
     private void Awake()
     {
