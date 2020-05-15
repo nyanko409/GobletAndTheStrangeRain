@@ -121,13 +121,13 @@ public class Posenext : MonoBehaviour
             {
                 poseR = 0;
                 Restart = false;
-                Debug.Log(Restart);
+               // Debug.Log(Restart);
             }
             if (data.poseED() == true)
             {
                 poseR = 0;
                 checkpoint = false;
-                Debug.Log(checkpoint);
+               // Debug.Log(checkpoint);
             }
     }
 
