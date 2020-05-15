@@ -31,7 +31,16 @@ public class PauseSelect : MonoBehaviour
     float SZcount = 0;
     public float countSpeed = 0.05f;
 
-
+    float size;
+    int BSTcount;
+    float Bcount=0;
+    float Bcountspeed=0.2f;
+    float Bpos = 0;
+    float Bposnext;
+    float Bsizenext;
+    float Bpospast;
+    float Bsizepast;
+    bool BCcheck = false;
 
     bool pausePressed = false;
     bool upPressed = false, downPressed = false;
@@ -51,7 +60,14 @@ public class PauseSelect : MonoBehaviour
     }
 
     
-
+    public float BposCK()
+    {
+        return Bposnext;
+    }
+    public float BsizeCK()
+    {
+        return Bsizenext;
+    }
    public float CL()
     {
         return count;
@@ -101,6 +117,8 @@ public class PauseSelect : MonoBehaviour
             data.sizeDelta = new Vector2(nowW, nowH);
             nowW = Mathf.Lerp(0, Wmax, SZcount);
             nowH = Mathf.Lerp(0, Hmax, SZcount);
+            Bpos = Mathf.Lerp(Bpospast, Bposnext, Bcount);
+            size = Mathf.Lerp(Bsizepast, Bsizenext, Bcount);
 
             if (pausePressed /*&&check==false*/)
             {
@@ -218,8 +236,72 @@ public class PauseSelect : MonoBehaviour
             
 
             }
-         
-          
+            Debug.Log(Bcount);
+            switch (BSTcount)
+            {
+                case 1:
+                    Bcount += Bcountspeed;
+                    if (Bcount >= 1)
+                    {
+                        BSTcount = 2;
+                    }
+                    break;
+                case 2:
+                    BCcheck = false;
+                    break;
+            }
+            switch (nextselect)
+            {
+                case 1:
+                    if (!BCcheck)
+                  {
+                    Bcount = 0;
+                        BSTcount = 1;
+                        BCcheck = true;
+                        Bpospast = Bpos;
+                        Bposnext = 64;
+                        Bsizepast = size;
+                        Bsizenext = 200;
+                        }
+                    break;
+                case 2:
+                    if (!BCcheck)
+                    {
+                        Bcount = 0;
+                        BSTcount = 1;
+                        BCcheck = true;
+                        Bpospast = Bpos;
+                        Bposnext = -21;
+                        Bsizepast = size;
+                        Bsizenext = 500;
+                    }
+                    break;
+                case 3:
+                    if (!BCcheck)
+                    {
+                        Bcount = 0;
+                        BSTcount = 1;
+                        BCcheck = true;
+                        Bpospast = Bpos;
+                        Bposnext = -108;
+                        Bsizepast = size;
+                        Bsizenext = 400;
+                    }
+                    break;
+                case 4:
+                    if (!BCcheck)
+                    {
+                        Bcount = 0;
+                        BSTcount = 1;
+                        BCcheck = true;
+                        Bpospast = Bpos;
+                        Bposnext = -195;
+                        Bsizepast = size;
+                        Bsizenext = 400;
+                    }
+                    break;
+            }
+
         }
     }
 

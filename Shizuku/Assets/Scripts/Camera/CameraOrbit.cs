@@ -45,6 +45,7 @@ public class CameraOrbit : MonoBehaviour
 
         // prevent camera from clipping into objects
         var newDist = distance;
+
         if (collideWithStage &&
             Physics.Raycast(pivot.position, transform.position - pivot.position, out RaycastHit hit, 1000, LayerMask.GetMask("Room")))
         {

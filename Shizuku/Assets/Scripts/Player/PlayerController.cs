@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float floorOffsetY = 1;              // offset to the floor
 
     private GameInput action;
+    private Animator anim;
     private Vector2 movementInput;
     private Vector3 moveDirection;
     private new Rigidbody rigidbody;
@@ -48,6 +49,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
 
         isDragging = false;
     }
@@ -56,6 +58,9 @@ public class PlayerController : MonoBehaviour
     {
         // reset movement
         moveDirection = Vector3.zero;
+
+        // idle and walking animation
+        anim.SetBool("isWalking", movementInput == Vector2.zero ? false : true);
 
         // get direction from input
         // if not dragging, move based on camera direction
@@ -196,7 +201,7 @@ public class PlayerController : MonoBehaviour
     private void DragObject()
     {
         if(IsGrounded() && !isColliding &&
-           Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, dragDistance) &&
+           Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.forward, out RaycastHit hit, dragDistance) &&
            hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
         {
             inDragRange = true;
@@ -225,6 +230,9 @@ public class PlayerController : MonoBehaviour
 
                 // move the target with player
                 dragRigidbody.velocity = moveDirection * GetMoveSpeed();
+
+                // switch to push animation
+                anim.SetBool("isPushing", true);
             }
             else if (dragRigidbody)
                 ResetDragRigidbody();
@@ -244,6 +252,8 @@ public class PlayerController : MonoBehaviour
             dragRigidbody.constraints = RigidbodyConstraints.FreezeRotation;
 
         dragRigidbody = null;
+
+        anim.SetBool("isPushing", false);
     }
 
     private void OnCollisionEnter(Collision collision)
