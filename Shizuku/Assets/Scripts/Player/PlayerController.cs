@@ -200,8 +200,8 @@ public class PlayerController : MonoBehaviour
 
     private void DragObject()
     {
-        if(IsGrounded() && !isColliding &&
-           Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.forward, out RaycastHit hit, dragDistance) &&
+        if (IsGrounded() && !isColliding &&
+           Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.forward, out RaycastHit hit, dragDistance, LayerMask.GetMask("Obstacle")) &&
            hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
         {
             inDragRange = true;
@@ -235,12 +235,18 @@ public class PlayerController : MonoBehaviour
                 anim.SetBool("isPushing", true);
             }
             else if (dragRigidbody)
+            {
                 ResetDragRigidbody();
+            }
         }
-        else if(dragRigidbody)
+        else if (dragRigidbody)
+        {
             ResetDragRigidbody();
+        }
         else
+        {
             inDragRange = false;
+        }
     }
 
     private void ResetDragRigidbody()
