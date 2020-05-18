@@ -615,6 +615,22 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "leftstick",
+                    "type": "Button",
+                    "id": "c06ca4fd-7c75-4433-9f7a-56a5704622e0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "rightstick",
+                    "type": "Button",
+                    "id": "3b120146-845c-4dae-a1ca-bbb518f6325f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -703,6 +719,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Toggle Pause Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "23b8fab8-b514-4521-ae2f-563945fe537d",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "leftstick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e305df37-6474-47cb-9cf9-96755a7733f0",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "rightstick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

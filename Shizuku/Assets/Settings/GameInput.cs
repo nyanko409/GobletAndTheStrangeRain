@@ -628,6 +628,22 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""leftstick"",
+                    ""type"": ""Button"",
+                    ""id"": ""c06ca4fd-7c75-4433-9f7a-56a5704622e0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""rightstick"",
+                    ""type"": ""Button"",
+                    ""id"": ""3b120146-845c-4dae-a1ca-bbb518f6325f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -716,6 +732,28 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Toggle Pause Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23b8fab8-b514-4521-ae2f-563945fe537d"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""leftstick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e305df37-6474-47cb-9cf9-96755a7733f0"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""rightstick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -810,6 +848,8 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_UIPauseMenu_NavigateUp = m_UIPauseMenu.FindAction("Navigate Up", throwIfNotFound: true);
         m_UIPauseMenu_NavigateDown = m_UIPauseMenu.FindAction("Navigate Down", throwIfNotFound: true);
         m_UIPauseMenu_Confirm = m_UIPauseMenu.FindAction("Confirm", throwIfNotFound: true);
+        m_UIPauseMenu_leftstick = m_UIPauseMenu.FindAction("leftstick", throwIfNotFound: true);
+        m_UIPauseMenu_rightstick = m_UIPauseMenu.FindAction("rightstick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1042,6 +1082,8 @@ public class @GameInput : IInputActionCollection, IDisposable
     private readonly InputAction m_UIPauseMenu_NavigateUp;
     private readonly InputAction m_UIPauseMenu_NavigateDown;
     private readonly InputAction m_UIPauseMenu_Confirm;
+    private readonly InputAction m_UIPauseMenu_leftstick;
+    private readonly InputAction m_UIPauseMenu_rightstick;
     public struct UIPauseMenuActions
     {
         private @GameInput m_Wrapper;
@@ -1050,6 +1092,8 @@ public class @GameInput : IInputActionCollection, IDisposable
         public InputAction @NavigateUp => m_Wrapper.m_UIPauseMenu_NavigateUp;
         public InputAction @NavigateDown => m_Wrapper.m_UIPauseMenu_NavigateDown;
         public InputAction @Confirm => m_Wrapper.m_UIPauseMenu_Confirm;
+        public InputAction @leftstick => m_Wrapper.m_UIPauseMenu_leftstick;
+        public InputAction @rightstick => m_Wrapper.m_UIPauseMenu_rightstick;
         public InputActionMap Get() { return m_Wrapper.m_UIPauseMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1071,6 +1115,12 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Confirm.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnConfirm;
                 @Confirm.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnConfirm;
                 @Confirm.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnConfirm;
+                @leftstick.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnLeftstick;
+                @leftstick.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnLeftstick;
+                @leftstick.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnLeftstick;
+                @rightstick.started -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnRightstick;
+                @rightstick.performed -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnRightstick;
+                @rightstick.canceled -= m_Wrapper.m_UIPauseMenuActionsCallbackInterface.OnRightstick;
             }
             m_Wrapper.m_UIPauseMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -1087,6 +1137,12 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @Confirm.started += instance.OnConfirm;
                 @Confirm.performed += instance.OnConfirm;
                 @Confirm.canceled += instance.OnConfirm;
+                @leftstick.started += instance.OnLeftstick;
+                @leftstick.performed += instance.OnLeftstick;
+                @leftstick.canceled += instance.OnLeftstick;
+                @rightstick.started += instance.OnRightstick;
+                @rightstick.performed += instance.OnRightstick;
+                @rightstick.canceled += instance.OnRightstick;
             }
         }
     }
@@ -1164,5 +1220,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnNavigateUp(InputAction.CallbackContext context);
         void OnNavigateDown(InputAction.CallbackContext context);
         void OnConfirm(InputAction.CallbackContext context);
+        void OnLeftstick(InputAction.CallbackContext context);
+        void OnRightstick(InputAction.CallbackContext context);
     }
 }

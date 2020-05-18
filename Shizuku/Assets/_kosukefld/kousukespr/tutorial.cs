@@ -12,6 +12,8 @@ public class tutorial : MonoBehaviour
     public Image WTout;
     public Image Adata;
     public Image Xdata;
+    public Image move;
+    public Image cameraui;
     float time;
     float starttime;
     bool check = false;
@@ -19,13 +21,15 @@ public class tutorial : MonoBehaviour
     float CL_X = 0;
     float CL_WTIN = 0;
     float CL_WTOUT = 0;
+    float CL_MV = 0;
+    float CL_CM = 0;
     float CL_Amax = 255;
     float CL_Xmax = 255;
     float CLcountA = 0;
     float CLcountX = 0;
     float CLcountIN = 0;
     float CLcountOUT = 0;
-    float countspeed = 0.01f;
+    float countspeed = 0.05f;
 
     int secondCLcheck = 1;
     int CLcheck = 1;
@@ -48,11 +52,18 @@ public class tutorial : MonoBehaviour
     bool confirmPressed = false;
     bool isDragging = false;
     bool Dropcheck = false;
+    bool movecheck = false;
+    bool cameracheck = false;
     GameInput actions;
 
     private void Awake()
     {
         actions = new GameInput();
+
+        actions.UIPauseMenu.leftstick.started += context => movecheck = true; 
+        actions.UIPauseMenu.leftstick.canceled += context => movecheck = false;
+        actions.UIPauseMenu.rightstick.started += context => cameracheck = true;
+        actions.UIPauseMenu.rightstick.canceled += context => cameracheck = false;
 
         actions.UIPauseMenu.Confirm.started += context => confirmPressed = true;
         actions.UIPauseMenu.Confirm.canceled += context => confirmPressed = false;
@@ -64,15 +75,13 @@ public class tutorial : MonoBehaviour
     }
         void Start()
     {
-        WTin.color = new Color32(255, 255, 255, 0);
-        WTout.color = new Color32(255, 255, 255, 0);
-        //starttime = 0;
+
     }
 
 
     void Update()
     {
-        
+        Debug.Log(CLcountA);
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
@@ -81,10 +90,12 @@ public class tutorial : MonoBehaviour
             Xdata.color = new Color32(255, 255, 255, (byte)CL_X);
             WTin.color = new Color32(255, 255, 255, (byte)CL_WTIN);
             WTout.color = new Color32(255, 255, 255, (byte)CL_WTOUT);
+            move.color = new Color32(255, 255, 255, (byte)CL_MV);
+            cameraui.color = new Color32(255, 255, 255, (byte)CL_CM);
             starttime += Time.deltaTime;
 
 
-            if (starttime > 7.5f)
+            if (starttime > 0.1f)
             {
                 if (!check)
                 {
@@ -145,7 +156,7 @@ public class tutorial : MonoBehaviour
                 switch(CLcheckA)
                 {
                     case 1:
-                        CL_A = Mathf.Lerp(0, CL_Amax, CLcountA);
+                        CL_A = Mathf.Lerp(-12, CL_Amax, CLcountA);
                         CLcountA -= countspeed;
                         if(CLcountA<=0)
                         {
@@ -163,7 +174,7 @@ public class tutorial : MonoBehaviour
                 switch (CLcheckX)
                 {
                     case 1:
-                        CL_X = Mathf.Lerp(0, CL_Xmax, CLcountX);
+                        CL_X = Mathf.Lerp(-12, CL_Xmax, CLcountX);
                         CLcountX -= countspeed;
                         if (CLcountX <= 0)
                         {
@@ -181,7 +192,7 @@ public class tutorial : MonoBehaviour
                 switch (CLcheckIN)
                 {
                     case 1:
-                        CL_WTIN = Mathf.Lerp(0, 255, CLcountIN);
+                        CL_WTIN = Mathf.Lerp(-12, 255, CLcountIN);
                         CLcountIN -= countspeed;
                         if (CLcountIN <= 0)
                         {
@@ -197,7 +208,7 @@ public class tutorial : MonoBehaviour
                 switch(CLcheckOUT)
                 {
                     case 1:
-                        CL_WTOUT = Mathf.Lerp(0, 255, CLcountOUT);
+                        CL_WTOUT = Mathf.Lerp(-12, 255, CLcountOUT);
                         CLcountOUT -= countspeed;
                         if (CLcountOUT <= 0)
                         {
