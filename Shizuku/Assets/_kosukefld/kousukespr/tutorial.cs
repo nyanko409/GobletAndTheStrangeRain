@@ -14,6 +14,7 @@ public class tutorial : MonoBehaviour
     public Image Xdata;
     public Image move;
     public Image cameraui;
+
     float time;
     float starttime;
     bool check = false;
@@ -25,10 +26,14 @@ public class tutorial : MonoBehaviour
     float CL_CM = 0;
     float CL_Amax = 255;
     float CL_Xmax = 255;
+    float CL_MVmax = 255;
+    float CL_CMmax = 255;
     float CLcountA = 0;
     float CLcountX = 0;
     float CLcountIN = 0;
     float CLcountOUT = 0;
+    float CLcountMV = 0;
+    float CLcountCM = 0;
     float countspeed = 0.05f;
 
     int secondCLcheck = 1;
@@ -37,10 +42,14 @@ public class tutorial : MonoBehaviour
     int CLcheckX = 1;
     int CLcheckIN = 1;
     int CLcheckOUT = 1;
+    int CLcheckMV = 1;
+    int CLcheckCM = 1;
+    int thirdCLcheck = 1;
 
     bool startcheck = false;
     bool colorcheck = false;
     bool colorcheck2 = false;
+    bool colorcheck3 = false;
     bool endAcheck = false;
     bool endXcheck = false;
     bool fastcheck1 = false;
@@ -48,6 +57,11 @@ public class tutorial : MonoBehaviour
     bool secondcheck = false;
     bool endINcheck = false;
     bool endOUTcheck = false;
+    bool thirdcheck = false;
+    bool endMVcheck = false;
+    bool endCMcheck = false;
+    bool CM = false;
+    bool MV = false;
 
     bool confirmPressed = false;
     bool isDragging = false;
@@ -114,11 +128,11 @@ public class tutorial : MonoBehaviour
                 switch (CLcheck)
                 {
                     case 1:
-                        CL_A = Mathf.Lerp(0, CL_Amax, CLcountA);
-                        CL_X = Mathf.Lerp(0, CL_Xmax, CLcountX);
-                        CLcountA += countspeed;
-                        CLcountX += countspeed;
-                        if (CLcountA >= 1)
+                        CL_MV = Mathf.Lerp(0, CL_MVmax, CLcountMV);
+                        CL_CM = Mathf.Lerp(0, CL_CMmax, CLcountCM);
+                        CLcountMV += countspeed;
+                        CLcountCM += countspeed;
+                        if (CLcountMV >= 1)
                         {
                             CLcheck = 2;
                         }
@@ -134,17 +148,37 @@ public class tutorial : MonoBehaviour
                 switch(secondCLcheck)
                 {
                     case 1:
-                        CL_WTIN= Mathf.Lerp(0, 255, CLcountIN);
-                        CL_WTOUT = Mathf.Lerp(0, 255, CLcountOUT);
-                        CLcountIN += countspeed;
-                        CLcountOUT += countspeed;
-                        if(CLcountIN>=1)
+                        CL_A = Mathf.Lerp(0, CL_Amax, CLcountA);
+                        CL_X = Mathf.Lerp(0, CL_Xmax, CLcountX);
+                        CLcountA += countspeed;
+                        CLcountX += countspeed;
+                        if (CLcountA >= 1)
                         {
                             secondCLcheck = 2;
                         }
                         break;
                     case 2:
                         colorcheck2 = true;
+                        break;
+                }
+            }
+
+            if(thirdcheck==true)
+            {
+                switch(thirdCLcheck)
+                {
+                    case 1:
+                        CL_WTIN= Mathf.Lerp(0, 255, CLcountIN);
+                        CL_WTOUT = Mathf.Lerp(0, 255, CLcountOUT);
+                        CLcountIN += countspeed;
+                        CLcountOUT += countspeed;
+                        if(CLcountIN>=1)
+                        {
+                            thirdCLcheck = 2;
+                        }
+                        break;
+                    case 2:
+                        colorcheck3 = true;
                         break;
                 }
             }
@@ -219,10 +253,44 @@ public class tutorial : MonoBehaviour
                         break;
                 }
             }
+            if (endMVcheck == true)
+            {
+                switch (CLcheckMV)
+                {
+                    case 1:
+                        CL_MV = Mathf.Lerp(-12, 255, CLcountMV);
+                        CLcountMV -= countspeed;
+                        if (CLcountMV <= 0)
+                        {
+                            CLcheckMV = 2;
+                        }
+                            break;
+                    case 2:
+                        MV = true;
+                        break;
+                }
+            }
+            if (endCMcheck == true)
+            {
+                switch (CLcheckCM)
+                {
+                    case 1:
+                        CL_CM = Mathf.Lerp(-12, 255, CLcountCM);
+                        CLcountCM -= countspeed;
+                        if (CLcountCM <= 0)
+                        {
+                            CLcheckCM = 2;
+                        }
+                        break;
+                    case 2:
+                        CM = true;
+                        break;
+                }
+            }
             //========================================================
             //if
             //========================================================
-            if (confirmPressed && colorcheck == true)
+            if (confirmPressed==true && colorcheck == true)
             {
                 endAcheck = true;
                
@@ -236,12 +304,14 @@ public class tutorial : MonoBehaviour
             }
             if(fastcheck1==true&&fastcheck2==true)
             {
-                //WTin.color = new Color32(255, 255, 255, 255);
-                //WTout.color = new Color32(255, 255, 255, 255);
-                secondcheck = true;
+                thirdcheck = true;
             }
             //Debug.Log(endINcheck);
-            if(colorcheck2==true&& sabu.HasWater()==true)
+            if(CM==true&&MV==true)
+            {
+                secondcheck = true;
+            }
+            if(colorcheck3==true&& sabu.HasWater()==true)
             {
                 endINcheck = true;
             }
@@ -249,6 +319,14 @@ public class tutorial : MonoBehaviour
             if(Dropcheck==true&&endINcheck==true)
             {
                 endOUTcheck = true;
+            }
+            if(colorcheck == true&& movecheck == true)
+            {
+                endMVcheck = true;
+            }
+            if(colorcheck==true&&cameracheck==true)
+            {
+                endCMcheck = true;
             }
             time = 0;
 
