@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 3847268074718680717}
   - component: {fileID: 2856365674693325538}
   - component: {fileID: 1740964339717796577}
-  - component: {fileID: 8237447288671930336}
   m_Layer: 0
   m_Name: Seperator
   m_TagString: Untagged
@@ -120,9 +119,9 @@ MonoBehaviour:
   m_SharedTextures: []
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 10}
-  - {x: 10, y: 0, z: 0}
-  - {x: 10, y: 0, z: 10}
+  - {x: -0.000000007450581, y: 0, z: 5.9817815}
+  - {x: 4.5709777, y: 0, z: -0.00000004976988}
+  - {x: 4.5709777, y: 0, z: 5.9817815}
   m_Textures0:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
@@ -131,9 +130,9 @@ MonoBehaviour:
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
-  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: 1, y: 0, z: -0.000000010888235, w: -1}
+  - {x: 1, y: 0, z: -0.0000000054441176, w: -1}
+  - {x: 1, y: 0, z: -0.0000000054441176, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
   m_Colors: []
   m_UnwrapParameters:
@@ -145,19 +144,7 @@ MonoBehaviour:
   assetGuid: 
   m_IsSelectable: 1
   m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
---- !u!64 &8237447288671930336
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978657378480035608}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
+  m_SelectedEdges:
+  - a: 3
+    b: 2
+  m_SelectedVertices: 0300000002000000
