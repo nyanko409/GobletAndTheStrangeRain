@@ -3,6 +3,7 @@
 public class ObjectActivator : MonoBehaviour
 {
     public Transform transitionPoint;               // the pivot point to change the activation state
+    public float disabledScaleRatio;             
     public float rangeOffset;                       // offset to the range when this object should appear/disappear
     public float alphaSpeed = 0.5F;                 // the alpha fading speed
     public float minAlpha = 0.05F;
@@ -10,7 +11,10 @@ public class ObjectActivator : MonoBehaviour
     public Shader transparentShader;                // render with this shader if it is transparent
 
     private RippleEffectReceiver receiver;          // receiver object to check the color from
+    private Vector3 startingScale;
+    private bool scalingApplied;
     private Tag tag;
+    private bool isOverlapping;
     private MeshRenderer rend;                      // reference to the attached mesh renderer
     private Material mat;                           // reference to the attached material
     private Collider col;                           // reference to the attached collider
@@ -30,8 +34,10 @@ public class ObjectActivator : MonoBehaviour
         if (!transitionPoint)
             transitionPoint = transform;
 
+        startingScale = transform.localScale;
         mat.shader = opaqueShader;
         rb.mass = float.PositiveInfinity;
+        isOverlapping = false;
         curAlpha = 1;
 
         UpdateRippleEffectReceiver();
@@ -49,13 +55,15 @@ public class ObjectActivator : MonoBehaviour
         // disable or enable the object depending on the nearest receiver color
         if(mat.GetColor("_BaseColor").IsEqualTo(receiverColor))
         {
-            if (col.enabled)
+            if (!col.isTrigger)
             {
                 mat.shader = transparentShader;
                 rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
-                col.enabled = false;
+                col.isTrigger = true;
                 rb.isKinematic = true;
+                isOverlapping = false;
+                gameObject.layer = LayerMask.NameToLayer("Obstacle Disabled");
             }
 
             if (curAlpha > minAlpha)
@@ -64,17 +72,25 @@ public class ObjectActivator : MonoBehaviour
                 curAlpha = Mathf.Clamp(curAlpha, minAlpha, 1);
                 mat.SetFloat("_Alpha", curAlpha);
             }
+            else if(!scalingApplied)
+            {
+                transform.localScale *= disabledScaleRatio;
+                scalingApplied = true;
+            }
         }
         else
         {
             // enable if it is not overlapping
-            if (!col.enabled && !CheckOverlap())
+            if (col.isTrigger && !isOverlapping)
             {
-                col.enabled = true;
+                col.isTrigger = false;
                 rb.isKinematic = false;
+                transform.localScale = startingScale;
+                scalingApplied = false;
+                gameObject.layer = LayerMask.NameToLayer("Obstacle");
             }
 
-            if (col.enabled)
+            if (!col.isTrigger)
             {
                 curAlpha += alphaSpeed * Time.deltaTime;
                 curAlpha = Mathf.Clamp01(curAlpha);
@@ -128,27 +144,16 @@ public class ObjectActivator : MonoBehaviour
         return a.layer.CompareTo(b.layer);
     }
 
-    // returns true if overlapping with some object
-    private bool CheckOverlap()
+    private void OnTriggerStay(Collider other)
     {
-        // get all colliders inside
-        Collider[] colliders = Physics.OverlapBox(transform.position,
-            (transform.localScale / 2) - new Vector3(0.1F, 0.1F, 0.1F), transform.rotation);
+        if (!col.isTrigger)
+            return;
 
-        foreach(Collider col in colliders)
-        {
-            // ignore self and trigger colliders
-            if(col.name != name && !col.isTrigger && col.gameObject.layer != LayerMask.NameToLayer("Room"))
-                return true;
-        }
-
-        // not overlapping with anything
-        return false;
+        isOverlapping = true;
     }
 
-    private void OnDrawGizmos()
+    private void OnTriggerExit(Collider other)
     {
-        Gizmos.matrix = transform.localToWorldMatrix;
-        Gizmos.DrawWireCube(Vector3.zero, Vector3.one - new Vector3(0.1F, 0.1F, 0.1F));
+        isOverlapping = false;
     }
 }
