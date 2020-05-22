@@ -19,26 +19,33 @@ public class Switch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
+        // only trigger with tag
+        if (other.TryGetComponent(out Tag tag) && tag.HasTag(TagType.ToggleButton))
+        {
+            ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
 
-        overlap++;
+            overlap++;
 
-        if(IsPressed())
-            pressEvent.Invoke();
+            if(IsPressed())
+                pressEvent.Invoke();
 
-        transform.position = startPos - new Vector3(0, pressHeight, 0);
+            transform.position = startPos - new Vector3(0, pressHeight, 0);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
-
-        overlap--;
-
-        if (!IsPressed())
+        if (other.TryGetComponent(out Tag tag) && tag.HasTag(TagType.ToggleButton))
         {
-            transform.position = startPos;
-            releaseEvent.Invoke();
+            ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
+
+            overlap--;
+
+            if (!IsPressed())
+            {
+                transform.position = startPos;
+                releaseEvent.Invoke();
+            }
         }
     }
 

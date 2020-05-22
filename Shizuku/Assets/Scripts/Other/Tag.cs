@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public enum TagType
 {
     Player, RippleReceiver, RippleProvider,
-    Moveable, FreezeRotation, AffectedByWind
+    Moveable, FreezeRotation, AffectedByWind, ToggleButton
 }
 
 
