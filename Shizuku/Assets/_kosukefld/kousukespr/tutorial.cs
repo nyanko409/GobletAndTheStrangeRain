@@ -257,38 +257,38 @@ public class tutorial : MonoBehaviour
                 }
             }
 
-            if (endINcheck == true)
-            {
-                switch (CLcheckIN)
-                {
-                    case 1:
-                        CL_WTIN = Mathf.Lerp(-12, 255, CLcountIN);
-                        CLcountIN -= countspeed;
-                        if (CLcountIN <= 0)
-                        {
-                            CLcheckIN = 2;
-                        }
-                        break;
-                    case 2:
-                        break;
-                }
-            }
-            if(endOUTcheck==true)
-            {
-                switch(CLcheckOUT)
-                {
-                    case 1:
-                        CL_WTOUT = Mathf.Lerp(-12, 255, CLcountOUT);
-                        CLcountOUT -= countspeed;
-                        if (CLcountOUT <= 0)
-                        {
-                            CLcheckOUT = 2;
-                        }
-                        break;
-                    case 2:
-                        break;
-                }
-            }
+            //if (endINcheck == true)
+            //{
+            //    switch (CLcheckIN)
+            //    {
+            //        case 1:
+            //            CL_WTIN = Mathf.Lerp(-12, 255, CLcountIN);
+            //            CLcountIN -= countspeed;
+            //            if (CLcountIN <= 0)
+            //            {
+            //                CLcheckIN = 2;
+            //            }
+            //            break;
+            //        case 2:
+            //            break;
+            //    }
+            //}
+            //if(endOUTcheck==true)
+            //{
+            //    switch(CLcheckOUT)
+            //    {
+            //        case 1:
+            //            CL_WTOUT = Mathf.Lerp(-12, 255, CLcountOUT);
+            //            CLcountOUT -= countspeed;
+            //            if (CLcountOUT <= 0)
+            //            {
+            //                CLcheckOUT = 2;
+            //            }
+            //            break;
+            //        case 2:
+            //            break;
+            //    }
+            //}
 
             
             //========================================================
