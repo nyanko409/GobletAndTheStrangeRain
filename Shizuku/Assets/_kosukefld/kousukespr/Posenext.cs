@@ -14,7 +14,7 @@ public class Posenext : MonoBehaviour
     public float colorspeed = 0.05f;
 
     GameInput actions;
-    SavePointManager savePointManager;
+    CheckPointManager savePointManager;
     float time = 0; 
     bool confirmPressed = false;
     float CL_A = 0;
@@ -53,7 +53,7 @@ public class Posenext : MonoBehaviour
 
     void Start()
     {
-        savePointManager = GameObject.FindGameObjectWithTag("SavePointManager").GetComponent<SavePointManager>();
+        savePointManager = GameObject.FindGameObjectWithTag("SavePointManager").GetComponent<CheckPointManager>();
 
         con.color = new Color32(0,0,0,255);
         res.color = new Color32(0, 0, 0, 255);

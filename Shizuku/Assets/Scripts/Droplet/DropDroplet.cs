@@ -6,7 +6,8 @@ public class DropDroplet : MonoBehaviour
 
     RippleData? data;
     GameInput action;
-    Animator anim;
+    Animator animWater;
+    Animator animPlayer;
     MeshRenderer rend;
     Vector3 contactPoint;
     Vector3 contactTransformPos;
@@ -35,7 +36,9 @@ public class DropDroplet : MonoBehaviour
 
     private void Start()
     {
-        anim = GetComponent<Animator>();
+        animWater = GetComponent<Animator>();
+        animPlayer = GameObject.FindWithTag("Player").GetComponent<Animator>();
+        
         rend = GetComponent<MeshRenderer>();
     }
 
@@ -51,7 +54,8 @@ public class DropDroplet : MonoBehaviour
                     receiver.ApplyEffect(hit.point, data.Value.color, data.Value.spreadSpeed);
                     data = null;
 
-                    anim.SetTrigger("Empty Water");
+                    animWater.SetTrigger("Empty Water");
+                    animPlayer.SetTrigger("Spill");
                 }
             }
         }
@@ -65,7 +69,7 @@ public class DropDroplet : MonoBehaviour
             if (!data.HasValue)
             {
                 // play animation if water is not filled
-                anim.SetTrigger("Fill Water");
+                animWater.SetTrigger("Fill Water");
                 rend.material.SetColor("_BaseColor", provider.RippleColor);
             }
             else if(!isSpreading)

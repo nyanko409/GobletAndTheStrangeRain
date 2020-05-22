@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 
 
-public class SavePointManager : Singleton<SavePointManager>
+public class CheckPointManager : Singleton<CheckPointManager>
 {
     private Vector3 startPoint;
     private Vector3 curSavePoint;
