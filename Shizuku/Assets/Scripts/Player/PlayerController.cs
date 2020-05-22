@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     private bool isColliding;
     private Vector3 dragStartDiff;
 
+    private AudioSource audioRun;
+
 
     public bool IsInDragRange()
     {
@@ -55,6 +57,9 @@ public class PlayerController : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
+
+        AudioManager manager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
+        audioRun = manager.GetAudioSourceByType(AudioManager.AudioType.SE_PlayerRun);
 
         isDragging = false;
     }
@@ -86,6 +91,12 @@ public class PlayerController : MonoBehaviour
         moveDirection = vertical + horizontal;
         moveDirection.y = 0;
         moveDirection.Normalize();
+
+        // play running sound effect
+        if (moveDirection != Vector3.zero && !audioRun.isPlaying && rigidbody.velocity.y == 0)
+            audioRun.Play();
+        else if (moveDirection == Vector3.zero || rigidbody.velocity.y != 0)
+            audioRun.Pause();
 
         // rotate to moving direction
         if (!dragRigidbody && moveDirection != Vector3.zero)
@@ -206,7 +217,7 @@ public class PlayerController : MonoBehaviour
     private void DragObject()
     {
         if (IsGrounded() && !isColliding &&
-           Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.forward, out RaycastHit hit, dragDistance, LayerMask.GetMask("Obstacle")) &&
+           Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.forward, out RaycastHit hit, dragDistance, LayerMask.GetMask("Obstacle", "Ignore Ripple")) &&
            hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
         {
             inDragRange = true;
