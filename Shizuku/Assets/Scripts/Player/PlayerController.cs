@@ -93,9 +93,9 @@ public class PlayerController : MonoBehaviour
         moveDirection.Normalize();
 
         // play running sound effect
-        if (moveDirection != Vector3.zero && !audioRun.isPlaying && rigidbody.velocity.y == 0)
+        if (moveDirection != Vector3.zero && !audioRun.isPlaying && IsGrounded())
             audioRun.Play();
-        else if (moveDirection == Vector3.zero || rigidbody.velocity.y != 0)
+        else if (moveDirection == Vector3.zero || (audioRun.isPlaying && !IsGrounded()))
             audioRun.Pause();
 
         // rotate to moving direction
