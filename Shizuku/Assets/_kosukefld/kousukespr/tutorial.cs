@@ -7,6 +7,8 @@ public class tutorial : MonoBehaviour
 {
     public PlayerController pl;
     public DropDroplet sabu;
+    public TestTL CK1;
+    public TestTL2 CK2;
 
     public Image WTin;
     public Image WTout;
@@ -95,7 +97,7 @@ public class tutorial : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(CLcountA);
+        Debug.Log(CK2.CK2());
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
@@ -185,7 +187,45 @@ public class tutorial : MonoBehaviour
             //==============================================================
             // end
             //==============================================================
-            if(endAcheck==true)
+            if(CK1.CK1())
+            {
+                //if (endMVcheck == true)
+                //{
+                switch (CLcheckMV)
+                {
+                    case 1:
+                        CL_MV = Mathf.Lerp(-12, 255, CLcountMV);
+                        CLcountMV -= countspeed;
+                        if (CLcountMV <= 0)
+                        {
+                            CLcheckMV = 2;
+                        }
+                        break;
+                    case 2:
+                        MV = true;
+                        break;
+                }
+                //}
+                // if (endCMcheck == true)
+                //{
+                switch (CLcheckCM)
+                {
+                    case 1:
+                        CL_CM = Mathf.Lerp(-12, 255, CLcountCM);
+                        CLcountCM -= countspeed;
+                        if (CLcountCM <= 0)
+                        {
+                            CLcheckCM = 2;
+                        }
+                        break;
+                    case 2:
+                        CM = true;
+                        break;
+                        //}
+                }
+            }
+
+           if(CK2.CK2())            
             {
                 switch(CLcheckA)
                 {
@@ -201,10 +241,6 @@ public class tutorial : MonoBehaviour
                         fastcheck1 = true;
                         break;
                 }
-            }
-
-            if(endXcheck==true)
-            {
                 switch (CLcheckX)
                 {
                     case 1:
@@ -253,40 +289,8 @@ public class tutorial : MonoBehaviour
                         break;
                 }
             }
-            if (endMVcheck == true)
-            {
-                switch (CLcheckMV)
-                {
-                    case 1:
-                        CL_MV = Mathf.Lerp(-12, 255, CLcountMV);
-                        CLcountMV -= countspeed;
-                        if (CLcountMV <= 0)
-                        {
-                            CLcheckMV = 2;
-                        }
-                            break;
-                    case 2:
-                        MV = true;
-                        break;
-                }
-            }
-            if (endCMcheck == true)
-            {
-                switch (CLcheckCM)
-                {
-                    case 1:
-                        CL_CM = Mathf.Lerp(-12, 255, CLcountCM);
-                        CLcountCM -= countspeed;
-                        if (CLcountCM <= 0)
-                        {
-                            CLcheckCM = 2;
-                        }
-                        break;
-                    case 2:
-                        CM = true;
-                        break;
-                }
-            }
+
+            
             //========================================================
             //if
             //========================================================
@@ -331,6 +335,10 @@ public class tutorial : MonoBehaviour
             time = 0;
 
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("entered");
     }
     private void OnEnable()
     {
