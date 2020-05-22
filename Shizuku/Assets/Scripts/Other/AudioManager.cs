@@ -5,7 +5,7 @@ public class AudioManager : MonoBehaviour
 {
     public enum AudioType
     {
-        SE_Droplet
+        SE_Droplet, SE_PlayerRun
     }
 
     [System.Serializable]
@@ -13,6 +13,7 @@ public class AudioManager : MonoBehaviour
     {
         public AudioClip clip;
         public AudioType type;
+        [Range(0, 1)]
         public float volume;
 
         internal AudioSource source;
@@ -77,5 +78,7 @@ public class AudioManager : MonoBehaviour
 
             se[i] = new AudioData(se[i].clip, se[i].type, se[i].volume, source);
         }
+
+        UpdateVolumeFromSettings();
     }
 }
