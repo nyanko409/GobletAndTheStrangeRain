@@ -12,7 +12,7 @@ public class CheckPoint : MonoBehaviour
 
     private void Start()
     {
-        manager = GameObject.FindWithTag("SavePointManager").GetComponent<CheckPointManager>();
+        manager = GameObject.FindWithTag("CheckPointManager").GetComponent<CheckPointManager>();
 
         triggered = false;
     }
