@@ -122,13 +122,11 @@ public class ObjectActivator : MonoBehaviour
     {
         // get ripple data and sort it by layer
         var ripples = receiver.GetRippleDatas();
-        //System.Array.Sort(ripples, CompareRippleLayer);
 
-        // loop from back
+        // get the color this object is standing on
         int layer = -1, index = -1;
-        for (int i = ripples.Length - 1; i >= 0; --i)
+        for (int i = 0; i < ripples.Length; ++i)
         {
-            // check the color of the nearest receiver point
             if (ripples[i].isSpreading &&
                 Vector3.Distance(ripples[i].position, transitionPoint.position)
                 <= ripples[i].radius - rangeOffset)
@@ -143,11 +141,6 @@ public class ObjectActivator : MonoBehaviour
         }
 
         return index != -1 ? ripples[index].color : receiver.GetBackgroundColor();
-    }
-
-    private int CompareRippleLayer(RippleData a, RippleData b)
-    {
-        return a.layer.CompareTo(b.layer);
     }
 
     private void OnTriggerStay(Collider other)
