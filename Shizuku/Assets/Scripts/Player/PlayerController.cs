@@ -66,6 +66,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // return if pausing
+        if (Time.timeScale == 0)
+            return;
+
         // reset movement
         moveDirection = Vector3.zero;
 

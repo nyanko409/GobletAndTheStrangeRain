@@ -5,7 +5,8 @@ public class AudioManager : MonoBehaviour
 {
     public enum AudioType
     {
-        SE_Droplet, SE_PlayerRun
+        BGM_Rain,
+        SE_Droplet, SE_PlayerRun, SE_Switch
     }
 
     [System.Serializable]
@@ -56,7 +57,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    private void Start()
+    private void Awake()
     {
         // get game settings for volume
         settings = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Settings>().settings;

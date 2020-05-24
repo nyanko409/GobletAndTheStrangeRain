@@ -7,12 +7,23 @@ public class Switch : MonoBehaviour
     public UnityEvent pressEvent;
     public UnityEvent releaseEvent;
 
+    private static AudioSource switchSource;
     private Vector3 startPos;
     private int overlap;
 
 
+    public bool IsPressed()
+    {
+        return overlap != 0;
+    }
+
+
     private void Start()
     {
+        if(!switchSource)
+            switchSource = GameObject.FindGameObjectWithTag("AudioManager").
+                GetComponent<AudioManager>().GetAudioSourceByType(AudioManager.AudioType.SE_Switch);
+
         startPos = transform.position;
         overlap = 0;
     }
@@ -26,8 +37,11 @@ public class Switch : MonoBehaviour
 
             overlap++;
 
-            if(IsPressed())
+            if (overlap == 1)
+            {
                 pressEvent.Invoke();
+                AudioSource.PlayClipAtPoint(switchSource.clip, transform.position, switchSource.volume);
+            }
 
             transform.position = startPos - new Vector3(0, pressHeight, 0);
         }
@@ -41,16 +55,12 @@ public class Switch : MonoBehaviour
 
             overlap--;
 
-            if (!IsPressed())
+            if (overlap == 0)
             {
                 transform.position = startPos;
                 releaseEvent.Invoke();
+                AudioSource.PlayClipAtPoint(switchSource.clip, transform.position, switchSource.volume);
             }
         }
-    }
-
-    public bool IsPressed()
-    {
-        return overlap != 0;
     }
 }
