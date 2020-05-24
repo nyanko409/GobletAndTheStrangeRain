@@ -97,7 +97,7 @@ public class tutorial : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(CK2.CK2());
+        //Debug.Log(CK2.CK2());
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
@@ -336,10 +336,7 @@ public class tutorial : MonoBehaviour
 
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        Debug.Log("entered");
-    }
+    
     private void OnEnable()
     {
         actions.Enable();
