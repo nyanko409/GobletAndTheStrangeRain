@@ -7,7 +7,7 @@ public class Switch : MonoBehaviour
     public UnityEvent pressEvent;
     public UnityEvent releaseEvent;
 
-    private static AudioSource switchSource;
+    private AudioSource switchSource;
     private Vector3 startPos;
     private int overlap;
 
@@ -20,9 +20,8 @@ public class Switch : MonoBehaviour
 
     private void Start()
     {
-        if(!switchSource)
-            switchSource = GameObject.FindGameObjectWithTag("AudioManager").
-                GetComponent<AudioManager>().GetAudioSourceByType(AudioManager.AudioType.SE_Switch);
+        switchSource = GameObject.FindGameObjectWithTag("AudioManager").
+            GetComponent<AudioManager>().GetAudioSourceByType(AudioManager.AudioType.SE_Switch);
 
         startPos = transform.position;
         overlap = 0;

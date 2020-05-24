@@ -122,9 +122,10 @@ public class ObjectActivator : MonoBehaviour
     {
         // get ripple data and sort it by layer
         var ripples = receiver.GetRippleDatas();
-        System.Array.Sort(ripples, CompareRippleLayer);
+        //System.Array.Sort(ripples, CompareRippleLayer);
 
         // loop from back
+        int layer = -1, index = -1;
         for (int i = ripples.Length - 1; i >= 0; --i)
         {
             // check the color of the nearest receiver point
@@ -132,11 +133,16 @@ public class ObjectActivator : MonoBehaviour
                 Vector3.Distance(ripples[i].position, transitionPoint.position)
                 <= ripples[i].radius - rangeOffset)
             {
-                return ripples[i].color;
+                if (ripples[i].layer > layer)
+                {
+                    layer = ripples[i].layer;
+                    index = i;
+                }
             }
+
         }
 
-        return receiver.GetBackgroundColor();
+        return index != -1 ? ripples[index].color : receiver.GetBackgroundColor();
     }
 
     private int CompareRippleLayer(RippleData a, RippleData b)
