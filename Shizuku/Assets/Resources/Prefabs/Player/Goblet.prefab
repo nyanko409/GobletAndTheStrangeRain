@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dfd514d0ced24e8fbf0b5ebdfdc62ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tags: 000000000500000006000000
+  tags: 0000000005000000
 --- !u!95 &9190290260674679557
 Animator:
   serializedVersion: 3
@@ -223,7 +223,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1
-  m_Center: {x: 0, y: 0.82, z: 0}
+  m_Center: {x: 0, y: 1.4, z: 0}
 --- !u!114 &912987566990870556
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1414,6 +1414,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9190290261477370900}
+  - component: {fileID: 1858289955678357516}
   - component: {fileID: 9190290261477370901}
   m_Layer: 11
   m_Name: Feet Collider
@@ -1436,6 +1437,19 @@ Transform:
   m_Father: {fileID: 4247119308154485264}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1858289955678357516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9190290261477370907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dfd514d0ced24e8fbf0b5ebdfdc62ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags: 06000000
 --- !u!65 &9190290261477370901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1447,8 +1461,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.71, y: 0.34, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.71, y: 0.3, z: 1}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1001 &9190290260720540322
 PrefabInstance:
   m_ObjectHideFlags: 0
