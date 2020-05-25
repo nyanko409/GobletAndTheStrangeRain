@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 dragStartDiff;
 
     private AudioSource audioRun;
+    private AudioSource audioDrag;
 
 
     public bool IsInDragRange()
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
         AudioManager manager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         audioRun = manager.GetAudioSourceByType(AudioManager.AudioType.SE_PlayerRun);
+        audioDrag = manager.GetAudioSourceByType(AudioManager.AudioType.SE_MoveObstacle);
 
         isDragging = false;
     }
@@ -101,6 +103,12 @@ public class PlayerController : MonoBehaviour
             audioRun.Play();
         else if (moveDirection == Vector3.zero || (audioRun.isPlaying && !IsGrounded()))
             audioRun.Pause();
+
+        // play drag sound effect
+        if (dragRigidbody && moveDirection != Vector3.zero && !audioDrag.isPlaying)
+            audioDrag.Play();
+        else if (moveDirection == Vector3.zero || (!dragRigidbody && audioDrag.isPlaying))
+            audioDrag.Stop();
 
         // rotate to moving direction
         if (!dragRigidbody && moveDirection != Vector3.zero)
