@@ -97,7 +97,7 @@ public class PlayerController : MonoBehaviour
         moveDirection.Normalize();
 
         // play running sound effect
-        if (moveDirection != Vector3.zero && !audioRun.isPlaying && IsGrounded())
+        if (moveDirection != Vector3.zero && !audioRun.isPlaying && !dragRigidbody && IsGrounded())
             audioRun.Play();
         else if (moveDirection == Vector3.zero || (audioRun.isPlaying && !IsGrounded()))
             audioRun.Pause();
