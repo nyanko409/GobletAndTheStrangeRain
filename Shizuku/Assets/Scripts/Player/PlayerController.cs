@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         // play drag sound effect
         if (dragRigidbody && moveDirection != Vector3.zero && !audioDrag.isPlaying)
             audioDrag.Play();
-        else if (moveDirection == Vector3.zero || (!dragRigidbody && audioDrag.isPlaying))
+        else if (audioDrag.isPlaying && (moveDirection == Vector3.zero || !dragRigidbody))
             audioDrag.Stop();
 
         // rotate to moving direction

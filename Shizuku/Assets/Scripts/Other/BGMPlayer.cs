@@ -8,6 +8,12 @@ public class BGMPlayer : MonoBehaviour
     private AudioSource ambientSource;
 
 
+    public void StopAllBgm()
+    {
+        bgmSource.Stop();
+        ambientSource.Stop();
+    }
+
     private void Start()
     {
         manager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
