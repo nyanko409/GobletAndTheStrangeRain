@@ -33,7 +33,7 @@ public class DropletIndicator : MonoBehaviour
     {
         // get the position to spawn the prefab
         RaycastHit hit;
-        if(Physics.Raycast(transform.position, -transform.up, out hit, 1000, LayerMask.GetMask("Room")))
+        if(Physics.Raycast(transform.position, -transform.up, out hit, 1000, LayerMask.GetMask("Room", "Obstacle")))
         {
             // set the parent and offset the position by a tiny value
             indicator = Instantiate(prefab);
