@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private new Rigidbody rigidbody;
     private float jumpFalloff = 2.5F;
     private bool jumpPressed;
+    private bool isJumping;
     private Vector3 gravity;
     private Rigidbody dragRigidbody = null;     // the rigidbody of the dragging object
     private bool inDragRange;
@@ -75,8 +76,14 @@ public class PlayerController : MonoBehaviour
         // reset movement
         moveDirection = Vector3.zero;
 
+        // get the jumping state
+        isJumping = !IsGrounded();
+
         // idle and walking animation
         anim.SetBool("isWalking", movementInput == Vector2.zero ? false : true);
+
+        // jumping animation
+        anim.SetBool("isJumping", isJumping);
 
         // get direction from input
         // if not dragging, move based on camera direction
@@ -99,9 +106,9 @@ public class PlayerController : MonoBehaviour
         moveDirection.Normalize();
 
         // play running sound effect
-        if (moveDirection != Vector3.zero && !audioRun.isPlaying && !dragRigidbody && IsGrounded())
+        if (moveDirection != Vector3.zero && !audioRun.isPlaying && !dragRigidbody && !isJumping)
             audioRun.Play();
-        else if (moveDirection == Vector3.zero || (audioRun.isPlaying && !IsGrounded()))
+        else if (moveDirection == Vector3.zero || (audioRun.isPlaying && isJumping))
             audioRun.Pause();
 
         // play drag sound effect
@@ -121,7 +128,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!IsGrounded())
+        if (isJumping)
         {
             gravity += Vector3.up * Physics.gravity.y * jumpFalloff * Time.fixedDeltaTime;
 
@@ -145,7 +152,7 @@ public class PlayerController : MonoBehaviour
         Vector3 floorPos = new Vector3(rigidbody.position.x, FindFloor().y, rigidbody.position.z);
 
         // stick to floor when grounded
-        if (floorPos != rigidbody.position && IsGrounded() && rigidbody.velocity.y <= 0)
+        if (floorPos != rigidbody.position && !isJumping && rigidbody.velocity.y <= 0)
         {
             rigidbody.MovePosition(floorPos);
             gravity.y = 0;
@@ -168,6 +175,7 @@ public class PlayerController : MonoBehaviour
         if(!dragRigidbody && IsGrounded())
         {
             gravity.y = jumpHeight;
+            isJumping = true;
         }
     }
 
@@ -228,7 +236,7 @@ public class PlayerController : MonoBehaviour
 
     private void DragObject()
     {
-        if (IsGrounded() && !isColliding &&
+        if (!isJumping && !isColliding &&
            Physics.Raycast(transform.position + new Vector3(0, 1, 0), transform.forward, out RaycastHit hit, dragDistance, LayerMask.GetMask("Obstacle", "Ignore Ripple")) &&
            hit.normal.y <= 0.01F && hit.transform.TryGetComponent(out Tag tag) && tag.HasTag(TagType.Moveable))
         {

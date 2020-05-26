@@ -7,7 +7,11 @@ public class TitleUI : MonoBehaviour
 
     public PushAUI aui;
 
-    public Image Title;
+    public GameObject Title;
+    public Image bobre;
+    public Image gobreaicn;
+    public Image mizu;
+    public Image RAIN;
     public GameObject starttext;
     public GameObject button;
     public GameObject button2;
@@ -20,20 +24,21 @@ public class TitleUI : MonoBehaviour
     Color color2;
 
     int CL_MAX = 255;
-    int sizemaxW = 100;
-    int sizemaxH = 110;
+    int sizemaxW = 1;
+    int sizemaxH = 1;
     int nextselect = 1;
     public  float posxmin = -573;
     public float posymin = 289;
     float poscount = 0;
-    float sizenowW = 0;
-    float sizenowH = 0;
+    float sizenowW = 1;
+    float sizenowH = 1;
     float CL_now = 0;
     float sizecount = 0;
     float colorcount = 0;
     float nextsizex = 0;
     float nextsizey = 62;
     float time = 0;
+    float time2 = 0;
 
     bool nextST = false;
     bool action = false;
@@ -45,6 +50,13 @@ public class TitleUI : MonoBehaviour
     bool upPressed = false, downPressed = false;
     bool startPressed = false;
 
+    private void TLcolor(float x)
+    {
+        bobre.color = new Color32(255, 255, 255, (byte)x);
+        gobreaicn.color = new Color32(255, 255, 255, 255);
+        mizu.color = new Color32(255, 255, 255, 255);
+        RAIN.color = new Color32(255, 255, 255, (byte)x);
+    }
 
     private void Awake()
     {
@@ -81,30 +93,33 @@ public class TitleUI : MonoBehaviour
 
     void Start()
     {
+       
         //text.SetActive(false);
         data = GetComponent<RectTransform>();
         //color.a = 0;
         //RectTransform rectTransform = GetComponent<RectTransform>();
-        Title.color = new Color32(255, 255, 255, 0);
+        TLcolor(0);
     }
 
     
     
     void Update()
     {
+        time2 += Time.deltaTime;
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
-
-            data.sizeDelta = new Vector2(sizenowW, sizenowH);
-            Title.color = new Color32(255, 255, 255, (byte)CL_now);
+            Debug.Log(time2);
+            data.localScale = new Vector2(sizenowW, sizenowH);
+            TLcolor(CL_now);
+            //Title.color = new Color32(255, 255, 255, (byte)CL_now);
             data.anchoredPosition = new Vector2(nextsizex, nextsizey);
             if (nextST == false)
             {
                 if (sizecount < 1)
                 {
-                    sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
-                    sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
+                    //sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
+                    //sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
                     sizecount += 0.01F;
                 }
                 else if (!textcheck)
@@ -113,7 +128,7 @@ public class TitleUI : MonoBehaviour
                     textcheck = true;
                     starttext.SetActive(true);
                 }
-                if (sizecount > 0.4f && colorcount < 1)
+                if (sizecount > 0.8f && colorcount < 1)
                 {
                     CL_now = Mathf.Lerp(0, CL_MAX, colorcount);
                     colorcount += 0.01F;
