@@ -76,9 +76,6 @@ public class PlayerController : MonoBehaviour
         // reset movement
         moveDirection = Vector3.zero;
 
-        // get the jumping state
-        isJumping = !IsGrounded();
-
         // idle and walking animation
         anim.SetBool("isWalking", movementInput == Vector2.zero ? false : true);
 
@@ -128,6 +125,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // get the jumping state
+        isJumping = !IsGrounded();
+
         if (isJumping)
         {
             gravity += Vector3.up * Physics.gravity.y * jumpFalloff * Time.fixedDeltaTime;
