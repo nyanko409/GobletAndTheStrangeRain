@@ -82,10 +82,10 @@ public class NextButton : MonoBehaviour
                     }
                     break;
             }
-            backimage.color = new Color32(0, 0, 255, (byte)CL_A);
-            textH.color = new Color32(255, 255, 255, 255);
-            textT.color = new Color32(255, 255, 255, 255);
-            textQ.color = new Color32(255, 255, 255, 255);
+            backimage.color = new Color32(0, 255, 0, (byte)CL_A);
+            textH.color = new Color32(0,0,0,255);
+            textT.color = new Color32(0, 0, 0, 255);
+            textQ.color = new Color32(0, 0, 0, 255);
             switch (check.nextCK())
             {
                 case 1:
@@ -117,9 +117,9 @@ public class NextButton : MonoBehaviour
                     break;
                 default:
                     backimage.color = new Color32(0, 255, 0, 0);
-                    textT.color = new Color32(255, 255, 255, (byte)STCL_A);
-                    textH.color = new Color32(255, 255, 255, (byte)STCL_A);
-                    textQ.color = new Color32(255, 255, 255, (byte)STCL_A);
+                    textT.color = new Color32(0, 0, 0, (byte)STCL_A);
+                    textH.color = new Color32(0, 0, 0, (byte)STCL_A);
+                    textQ.color = new Color32(0, 0, 0, (byte)STCL_A);
                     break;
          
             }

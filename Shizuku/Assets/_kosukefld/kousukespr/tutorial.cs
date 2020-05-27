@@ -11,7 +11,7 @@ public class tutorial : MonoBehaviour
     public TestTL2 CK2;
 
     public Image WTin;
-    public Image WTout;
+   // public Image WTout;
     public Image Adata;
     public Image Xdata;
     public Image move;
@@ -105,7 +105,7 @@ public class tutorial : MonoBehaviour
             Adata.color = new Color32(255, 255, 255, (byte)CL_A);
             Xdata.color = new Color32(255, 255, 255, (byte)CL_X);
             WTin.color = new Color32(255, 255, 255, (byte)CL_WTIN);
-            WTout.color = new Color32(255, 255, 255, (byte)CL_WTOUT);
+           // WTout.color = new Color32(255, 255, 255, (byte)CL_WTOUT);
             move.color = new Color32(255, 255, 255, (byte)CL_MV);
             cameraui.color = new Color32(255, 255, 255, (byte)CL_CM);
             starttime += Time.deltaTime;
