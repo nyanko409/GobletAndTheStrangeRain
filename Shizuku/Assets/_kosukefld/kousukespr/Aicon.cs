@@ -28,31 +28,31 @@ public class Aicon : MonoBehaviour
     
     void Update()
     {
-        data.anchoredPosition = new Vector2(nowposx,nowposy);
-        nowposx = Mathf.Lerp(startposx, rastposx, count);
-        nowposy = Mathf.Lerp(startposy, rastposy, count);
-        maintime += Time.deltaTime;
-        if (maintime >= 0.01f)
-        {
-            if(title.TIME()>=1.5f)
-            {
-                switch(timeCK)
-                {
-                    case 1:
+        //data.anchoredPosition = new Vector2(nowposx,nowposy);
+        //nowposx = Mathf.Lerp(startposx, rastposx, count);
+        //nowposy = Mathf.Lerp(startposy, rastposy, count);
+        //maintime += Time.deltaTime;
+        //if (maintime >= 0.01f)
+        //{
+        //    if(title.TIME()>=1.5f)
+        //    {
+        //        switch(timeCK)
+        //        {
+        //            case 1:
                        
-                        count += 0.01f;
-                         if (count >= 1)
-                            {
-                                timeCK = 2;
-                            }
-                        break;
-                    case 2:
+        //                count += 0.01f;
+        //                 if (count >= 1)
+        //                    {
+        //                        timeCK = 2;
+        //                    }
+        //                break;
+        //            case 2:
 
-                        break;
-                }
-            }
+        //                break;
+        //        }
+        //    }
             
-            maintime = 0;
-        }
+        //    maintime = 0;
+        //}
     }
 }
