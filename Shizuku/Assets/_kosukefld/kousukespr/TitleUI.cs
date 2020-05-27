@@ -12,6 +12,7 @@ public class TitleUI : MonoBehaviour
     public Image gobreaicn;
     public Image mizu;
     public Image RAIN;
+    public Image BacLT;
     public GameObject starttext;
     public GameObject button;
     public GameObject button2;
@@ -33,13 +34,18 @@ public class TitleUI : MonoBehaviour
     float sizenowW = 1;
     float sizenowH = 1;
     float CL_now = 0;
-    float sizecount = 0;
+    float CL_now2 = 0;
+    float CL_now3 = 255;
+    float sizecount = 1;
     float colorcount = 0;
+    float colorcount2 = 0;
+    float colorcount3 = 0;
     float nextsizex = 0;
     float nextsizey = 62;
     float time = 0;
     float time2 = 0;
 
+    bool timeCK = false;
     bool nextST = false;
     bool action = false;
     bool textcheck = false;
@@ -50,12 +56,14 @@ public class TitleUI : MonoBehaviour
     bool upPressed = false, downPressed = false;
     bool startPressed = false;
 
-    private void TLcolor(float x)
+    
+    private void TLcolor(float x,float y,float z)//x=bobre y=rain
     {
         bobre.color = new Color32(255, 255, 255, (byte)x);
         gobreaicn.color = new Color32(255, 255, 255, 255);
         mizu.color = new Color32(255, 255, 255, 255);
-        RAIN.color = new Color32(255, 255, 255, (byte)x);
+        RAIN.color = new Color32(255, 255, 255, (byte)y);
+        BacLT.color = new Color32(0, 0, 0, (byte)z);
     }
 
     private void Awake()
@@ -71,6 +79,10 @@ public class TitleUI : MonoBehaviour
         actions.UITitle.NavigateDown.canceled += context => { downPressed = false; };
     }
 
+    public float TIME()
+    {
+        return time2;
+    }
     public bool Titletest()
     {
         return action;
@@ -98,40 +110,66 @@ public class TitleUI : MonoBehaviour
         data = GetComponent<RectTransform>();
         //color.a = 0;
         //RectTransform rectTransform = GetComponent<RectTransform>();
-        TLcolor(0);
+        TLcolor(0,0,255);
     }
 
     
     
     void Update()
     {
+        Debug.Log(sizecount);
+        
         time2 += Time.deltaTime;
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
-            Debug.Log(time2);
+           
+
+            
             data.localScale = new Vector2(sizenowW, sizenowH);
-            TLcolor(CL_now);
+            TLcolor(CL_now,CL_now2,CL_now3);
             //Title.color = new Color32(255, 255, 255, (byte)CL_now);
             data.anchoredPosition = new Vector2(nextsizex, nextsizey);
-            if (nextST == false)
+            if (time2 >= 2)
             {
-                if (sizecount < 1)
+                timeCK = true;
+            }
+            if(timeCK==true)
+            { 
+                if (nextST == false)
                 {
-                    //sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
-                    //sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
-                    sizecount += 0.01F;
-                }
-                else if (!textcheck)
-                {
-                    action = true;
-                    textcheck = true;
-                    starttext.SetActive(true);
-                }
-                if (sizecount > 0.8f && colorcount < 1)
-                {
-                    CL_now = Mathf.Lerp(0, CL_MAX, colorcount);
-                    colorcount += 0.01F;
+                    if (colorcount2 < 1)
+                    {
+                        //sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
+                        //sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
+                        
+                    }
+                    else if (!textcheck)
+                    {
+                        action = true;
+                        textcheck = true;
+                        starttext.SetActive(true);
+                    }
+
+                    //================================================
+                    //bacLT
+                    if(action==true)
+                    {
+                        CL_now3 = Mathf.Lerp(255, 0, colorcount3);
+                        colorcount3 += 0.05f;
+                    }
+
+
+                    if (time2>=4.0f && colorcount < 1)
+                    {
+                        CL_now = Mathf.Lerp(0, CL_MAX, colorcount);
+                        colorcount += 0.01F;
+                    }
+                    if (time2 >= 5.0f && colorcount2 < 1)
+                    {
+                        CL_now2 = Mathf.Lerp(0, CL_MAX, colorcount2);
+                        colorcount2 += 0.01F;
+                    }
                 }
             }
 
@@ -143,13 +181,11 @@ public class TitleUI : MonoBehaviour
                     nextsizey = Mathf.Lerp(62, posymin, poscount);
                     poscount += 0.05f;
                 }
-                if (sizecount > 0.7f)
+                if (sizecount>0.7f)
                 {
                     sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
                     sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
                     sizecount -= 0.015F;
-
-
                 }
             }
 
@@ -230,6 +266,10 @@ public class TitleUI : MonoBehaviour
 
             //}
             time = 0;
+            if(time2>=10)
+            {
+                time2 = 0;
+            }
         }
     }
 
