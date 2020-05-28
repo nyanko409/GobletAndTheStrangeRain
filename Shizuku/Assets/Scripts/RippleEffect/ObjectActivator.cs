@@ -3,6 +3,7 @@
 public class ObjectActivator : MonoBehaviour
 {
     public Transform transitionPoint;               // the pivot point to change the activation state
+    public Texture texture;
     public float disabledScaleRatio;             
     public float rangeOffset;                       // offset to the range when this object should appear/disappear
     public float alphaSpeed = 0.5F;                 // the alpha fading speed
@@ -39,6 +40,8 @@ public class ObjectActivator : MonoBehaviour
         rb.mass = float.PositiveInfinity;
         isOverlapping = false;
         curAlpha = 1;
+
+        mat.SetTexture("_MainTexture", texture);
 
         UpdateRippleEffectReceiver();
     }
