@@ -11,7 +11,7 @@ public class XBu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (sabu.HasWater())
+        if (sabu.CanDrop())
         {
             WT.enabled = true;
         }
