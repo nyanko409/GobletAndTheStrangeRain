@@ -50,6 +50,10 @@ public class Stage_nameC : MonoBehaviour
             {
                 CL_A = Mathf.Lerp(0, 255, count);
                 count -= FadeSpeed;
+                if(count<=0)
+                {
+                    CL_A = 0;
+                }
             }
             Woldtime = 0;
         }
