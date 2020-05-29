@@ -36,10 +36,12 @@ public class TitleUI : MonoBehaviour
     float CL_now = 0;
     float CL_now2 = 0;
     float CL_now3 = 255;
+    float CL_now4 = 0;
     float sizecount = 1;
     float colorcount = 0;
     float colorcount2 = 0;
     float colorcount3 = 0;
+    float colorcount4 = 0;
     float nextsizex = 0;
     float nextsizey = 62;
     float time = 0;
@@ -57,11 +59,11 @@ public class TitleUI : MonoBehaviour
     bool startPressed = false;
 
     
-    private void TLcolor(float x,float y,float z)//x=bobre y=rain
+    private void TLcolor(float x,float y,float z,float a)//x=bobre y=rain
     {
         bobre.color = new Color32(255, 255, 255, (byte)x);
-        gobreaicn.color = new Color32(255, 255, 255, 255);
-        mizu.color = new Color32(255, 255, 255, 255);
+        gobreaicn.color = new Color32(255, 255, 255, (byte)x);
+        mizu.color = new Color32(255, 255, 255, (byte)a);
         RAIN.color = new Color32(255, 255, 255, (byte)y);
         BacLT.color = new Color32(0, 0, 0, (byte)z);
     }
@@ -110,7 +112,7 @@ public class TitleUI : MonoBehaviour
         data = GetComponent<RectTransform>();
         //color.a = 0;
         //RectTransform rectTransform = GetComponent<RectTransform>();
-        TLcolor(0,0,255);
+        TLcolor(0,0,255,0);
     }
 
     
@@ -128,7 +130,7 @@ public class TitleUI : MonoBehaviour
 
             
             data.localScale = new Vector2(sizenowW, sizenowH);
-            TLcolor(CL_now,CL_now2,CL_now3);
+            TLcolor(CL_now,CL_now2,CL_now3,CL_now4);
             //Title.color = new Color32(255, 255, 255, (byte)CL_now);
             data.anchoredPosition = new Vector2(nextsizex, nextsizey);
             if (time2 >= 1)
@@ -170,6 +172,11 @@ public class TitleUI : MonoBehaviour
                     {
                         CL_now2 = Mathf.Lerp(0, CL_MAX, colorcount2);
                         colorcount2 += 0.01F;
+                    }
+                    if(time2>=4.0f&&colorcount4<1)
+                    {
+                        CL_now4 = Mathf.Lerp(0, 24, colorcount4);
+                        colorcount4 += 0.01F;
                     }
                 }
             }
