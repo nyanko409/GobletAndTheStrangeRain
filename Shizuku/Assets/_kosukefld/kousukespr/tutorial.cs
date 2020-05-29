@@ -198,6 +198,7 @@ public class tutorial : MonoBehaviour
                         CLcountMV -= countspeed;
                         if (CLcountMV <= 0)
                         {
+                            CL_MV = 0;
                             CLcheckMV = 2;
                         }
                         break;
@@ -215,6 +216,7 @@ public class tutorial : MonoBehaviour
                         CLcountCM -= countspeed;
                         if (CLcountCM <= 0)
                         {
+                            CL_CM = 0;
                             CLcheckCM = 2;
                         }
                         break;
@@ -234,6 +236,7 @@ public class tutorial : MonoBehaviour
                         CLcountA -= countspeed;
                         if(CLcountA<=0)
                         {
+                            CL_A = 0;
                             CLcheckA = 2;
                         }
                         break;
@@ -248,6 +251,7 @@ public class tutorial : MonoBehaviour
                         CLcountX -= countspeed;
                         if (CLcountX <= 0)
                         {
+                            CL_X = 0;
                             CLcheckX = 2;
                         }
                         break;
