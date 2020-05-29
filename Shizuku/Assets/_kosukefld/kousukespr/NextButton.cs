@@ -13,7 +13,6 @@ public class NextButton : MonoBehaviour
     public float colorspeed = 0.05f;
     public Image backimage;
 
-    private RectTransform data;
     float time = 0;
     float time2 = 0;
     GameInput actions;
@@ -21,11 +20,10 @@ public class NextButton : MonoBehaviour
     float count = 0;
     float CL_A = 0;
     float STCL_A = 0;
-    float AD;
-    float ADC;
+
     int colorcount = 1;
     int STCLcount = 1;
-    int pos;
+
     bool ADCK = false;
     bool confirmPressed = false;
     bool Bcheck = false;
@@ -34,6 +32,11 @@ public class NextButton : MonoBehaviour
     public bool ADCKc()
     {
         return ADCK;
+    }
+
+    public bool SCK()
+    {
+        return ADcheck;
     }
 
     private void Awake()

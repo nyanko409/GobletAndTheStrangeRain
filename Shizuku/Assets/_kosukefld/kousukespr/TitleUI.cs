@@ -214,10 +214,10 @@ public class TitleUI : MonoBehaviour
             {
             
                 stratcheck = false;
-                nextST = true;
+               nextST = true;
             }
-
-            if (aui.destroyCK())
+            
+            if (sizecount<=0.7f)
             {
                 if (!buttoncheck)
                 {
@@ -233,37 +233,37 @@ public class TitleUI : MonoBehaviour
 
 
 
-            if (buttoncheck == true && upPressed && nextselect == 1)
+            if (buttoncheck == true && upPressed && nextselect == 1&&Nx.SCK() == false)
             {
                 upPressed = false;
                 nextselect = 3;
                 //Debug.Log(nextselect);
             }
-            if (buttoncheck == true && upPressed && nextselect == 2)
+            if (buttoncheck == true && upPressed && nextselect == 2 && Nx.SCK() == false)
             {
                 upPressed = false;
                 nextselect = 1;
                 //Debug.Log(nextselect);
             }
-            if (buttoncheck == true && upPressed && nextselect == 3)
+            if (buttoncheck == true && upPressed && nextselect == 3 && Nx.SCK() == false)
             {
                 upPressed = false;
                 nextselect = 2;
                // Debug.Log(nextselect);
             }
-            if (buttoncheck == true && downPressed && nextselect == 1)
+            if (buttoncheck == true && downPressed && nextselect == 1 && Nx.SCK() == false)
             {
                 downPressed = false;
                 nextselect = 2;
                 //Debug.Log(nextselect);
             }
-            if (buttoncheck == true && downPressed && nextselect == 2)
+            if (buttoncheck == true && downPressed && nextselect == 2 && Nx.SCK() == false)
             {
                 downPressed = false;
                 nextselect = 3;
                 //Debug.Log(nextselect);
             }
-            if (buttoncheck == true && downPressed && nextselect == 3)
+            if (buttoncheck == true && downPressed && nextselect == 3 && Nx.SCK()==false)
             {
                 downPressed = false;
                 nextselect = 1;
