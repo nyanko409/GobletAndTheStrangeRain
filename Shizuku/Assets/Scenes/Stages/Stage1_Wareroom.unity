@@ -54487,6 +54487,21 @@ PrefabInstance:
       propertyPath: savePointManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4739790757942908392, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: FadeSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739790757942908392, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: FadeOutStartTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739790757942908392, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: FadeInStartTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5502764362382768956, guid: 749019124bd4cb54ab21a2cf59e33c7b,
         type: 3}
       propertyPath: m_Enabled
@@ -54661,7 +54676,7 @@ PrefabInstance:
     - target: {fileID: 4043076470695671077, guid: f6c1e8342a53248c789e0bbf6776ea96,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: NaN
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4043076470695671077, guid: f6c1e8342a53248c789e0bbf6776ea96,
         type: 3}
@@ -54671,7 +54686,7 @@ PrefabInstance:
     - target: {fileID: 4043076470695671077, guid: f6c1e8342a53248c789e0bbf6776ea96,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 1e-45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4043076470695671077, guid: f6c1e8342a53248c789e0bbf6776ea96,
         type: 3}
@@ -54697,6 +54712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4043076470695671077, guid: f6c1e8342a53248c789e0bbf6776ea96,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4962535745572082611, guid: f6c1e8342a53248c789e0bbf6776ea96,
         type: 3}
