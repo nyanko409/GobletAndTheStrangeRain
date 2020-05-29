@@ -14,11 +14,18 @@ public class DropDroplet : MonoBehaviour
     float rippleRadius;
     float maxRadius;
     bool isSpreading;
+    bool isDroppable;
+    bool dropPressed;
 
 
     public bool HasWater()
     {
         return data.HasValue;
+    }
+
+    public bool CanDrop()
+    {
+        return isDroppable;
     }
 
     public Color GetColor()
@@ -31,7 +38,8 @@ public class DropDroplet : MonoBehaviour
     {
         // init actions
         action = new GameInput();
-        action.Player.DropDroplet.performed += context => Drop();
+        action.Player.DropDroplet.started += context => dropPressed = true;
+        action.Player.DropDroplet.canceled += context => dropPressed = false;
     }
 
     private void Start()
@@ -51,14 +59,23 @@ public class DropDroplet : MonoBehaviour
             {
                 if(hit.transform.gameObject.TryGetComponent(out RippleEffectReceiver receiver))
                 {
+                    isDroppable = true;
+
+                    if (!dropPressed)
+                        return;
+
                     receiver.ApplyEffect(hit.point, data.Value.color, data.Value.spreadSpeed);
                     data = null;
 
                     animWater.SetTrigger("Empty Water");
                     animPlayer.SetTrigger("Spill");
+
+                    return;
                 }
             }
         }
+
+        isDroppable = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -155,6 +172,8 @@ public class DropDroplet : MonoBehaviour
     private void Update()
     {
         UpdateShader();
+
+        Drop();
     }
 
     private void OnEnable()
