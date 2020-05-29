@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &476251808536641208
+--- !u!1 &4575475256425415453
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 476251808536641209}
-  - component: {fileID: 476251808536641191}
-  - component: {fileID: 476251808536641190}
+  - component: {fileID: 4575475256425415452}
+  - component: {fileID: 4575475256425415454}
+  - component: {fileID: 4575475256425415455}
   m_Layer: 0
   m_Name: Dirt
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &476251808536641209
+--- !u!4 &4575475256425415452
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476251808536641208}
+  m_GameObject: {fileID: 4575475256425415453}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.00999999, y: 0.3699999, z: -0.055999756}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!198 &476251808536641191
+--- !u!198 &4575475256425415454
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476251808536641208}
+  m_GameObject: {fileID: 4575475256425415453}
   serializedVersion: 6
   lengthInSec: 5
   simulationSpeed: 1
@@ -991,7 +991,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 0.09213267
-          value: 0.7230778
+          value: 0.4153855
           inSlope: -4.6708765
           outSlope: -4.6708765
           tangentMode: 0
@@ -999,7 +999,7 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.108670734
         - serializedVersion: 3
-          time: 0.23356628
+          time: 0.17208862
           value: 0
           inSlope: 0.15641004
           outSlope: 0.15641004
@@ -4699,14 +4699,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &476251808536641190
+--- !u!199 &4575475256425415455
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476251808536641208}
+  m_GameObject: {fileID: 4575475256425415453}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 0
