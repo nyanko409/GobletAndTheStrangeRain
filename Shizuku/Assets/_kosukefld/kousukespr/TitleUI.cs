@@ -117,6 +117,7 @@ public class TitleUI : MonoBehaviour
     
     void Update()
     {
+
         Debug.Log(sizecount);
         
         time2 += Time.deltaTime;
@@ -130,7 +131,7 @@ public class TitleUI : MonoBehaviour
             TLcolor(CL_now,CL_now2,CL_now3);
             //Title.color = new Color32(255, 255, 255, (byte)CL_now);
             data.anchoredPosition = new Vector2(nextsizex, nextsizey);
-            if (time2 >= 2)
+            if (time2 >= 1)
             {
                 timeCK = true;
             }
@@ -160,12 +161,12 @@ public class TitleUI : MonoBehaviour
                     }
 
 
-                    if (time2>=4.0f && colorcount < 1)
+                    if (time2>=3.0f && colorcount < 1)//time
                     {
                         CL_now = Mathf.Lerp(0, CL_MAX, colorcount);
                         colorcount += 0.01F;
                     }
-                    if (time2 >= 5.0f && colorcount2 < 1)
+                    if (time2 >= 4.0f && colorcount2 < 1)//time
                     {
                         CL_now2 = Mathf.Lerp(0, CL_MAX, colorcount2);
                         colorcount2 += 0.01F;
