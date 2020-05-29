@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PushAUI : MonoBehaviour
 {
+    public AudioSource SE;
     public TitleUI titleui;
     public GameObject data;
 
@@ -18,7 +19,8 @@ public class PushAUI : MonoBehaviour
     float CL_A = 0;
     int colorcount = 1;
     bool Destroyswitch = false;
-   
+    bool STcheck = true;
+
     public bool destroyCK()
     {
         return Destroyswitch;
@@ -26,7 +28,8 @@ public class PushAUI : MonoBehaviour
 
     void Start()
     {
-        image=  this.GetComponent<Image>();
+        SE = this.GetComponent<AudioSource>();
+        image =  this.GetComponent<Image>();
         image.color = new Color32(255, 255, 255, 0);
     }
 
@@ -63,6 +66,11 @@ public class PushAUI : MonoBehaviour
 
             if (titleui.stratCK() == false)
             {
+                if (STcheck)
+                {
+                    STcheck = false;
+                    SE.Play();
+                }
                 count -= Destroyspeed;
                 if (count <= 0)
                 {

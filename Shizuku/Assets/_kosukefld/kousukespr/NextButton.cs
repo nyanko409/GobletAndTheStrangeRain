@@ -120,7 +120,7 @@ public class NextButton : MonoBehaviour
                         time2 += Time.deltaTime;
                     }
 
-                    if (time2 >= 1.5f)
+                    if (time2 >= 2.0f)
                     {
                         StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
                     }
@@ -144,7 +144,7 @@ public class NextButton : MonoBehaviour
                         time2 += Time.deltaTime;
                     }
 
-                    if (time2 >= 1.5f)
+                    if (time2 >= 2.0f)
                     {
                         StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
                     }
@@ -167,7 +167,7 @@ public class NextButton : MonoBehaviour
                         time2 += Time.deltaTime;
                     }
 
-                    if (time2 >= 1.5f)
+                    if (time2 >= 2.0f)
                     {
 
 #if UNITY_EDITOR

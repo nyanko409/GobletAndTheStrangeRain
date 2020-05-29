@@ -5,6 +5,7 @@ public class TitleUI : MonoBehaviour
 {
 
     public AudioSource Audio;
+    //public AudioSource SE;
     public PushAUI aui;
     public NextButton Nx;
 
@@ -56,12 +57,12 @@ public class TitleUI : MonoBehaviour
     bool textcheck = false;
     bool buttoncheck = false;
     bool stratcheck = true;
-    bool ADCK = false;
+
 
     private GameInput actions;
     bool upPressed = false, downPressed = false;
     bool startPressed = false;
-    bool confirmPressed=false;
+
 
 
     private void TLcolor(float x,float y,float z,float a)//x=bobre y=rain
@@ -85,8 +86,7 @@ public class TitleUI : MonoBehaviour
         actions.UITitle.NavigateDown.started += context => { downPressed = true; };
         actions.UITitle.NavigateDown.canceled += context => { downPressed = false; };
 
-        actions.UITitle.Confirm.started += context => { confirmPressed = true; };
-        actions.UITitle.Confirm.canceled += context => { confirmPressed = false; };
+        
     }
 
     public float TIME()
@@ -115,6 +115,7 @@ public class TitleUI : MonoBehaviour
 
     void Start()
     {
+        
         Audio = this.GetComponent<AudioSource>();
         //text.SetActive(false);
         data = GetComponent<RectTransform>();
@@ -211,6 +212,7 @@ public class TitleUI : MonoBehaviour
 
             if (startPressed && Titletest() && !buttoncheck)
             {
+            
                 stratcheck = false;
                 nextST = true;
             }
@@ -276,6 +278,10 @@ public class TitleUI : MonoBehaviour
             if (Nx.ADCKc())
             {
                 ADC -= 0.01f;
+                if(ADC<=0)
+                {
+                    Audio.Stop();
+                }
             }
 
             //=====================================================
