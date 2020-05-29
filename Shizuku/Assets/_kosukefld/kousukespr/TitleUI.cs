@@ -3,9 +3,10 @@ using UnityEngine.UI;
 
 public class TitleUI : MonoBehaviour
 {
-    
 
+    public AudioSource Audio;
     public PushAUI aui;
+    public NextButton Nx;
 
     public GameObject Title;
     public Image bobre;
@@ -46,6 +47,8 @@ public class TitleUI : MonoBehaviour
     float nextsizey = 62;
     float time = 0;
     float time2 = 0;
+    float AD;
+    float ADC=1;
 
     bool timeCK = false;
     bool nextST = false;
@@ -53,12 +56,14 @@ public class TitleUI : MonoBehaviour
     bool textcheck = false;
     bool buttoncheck = false;
     bool stratcheck = true;
+    bool ADCK = false;
 
     private GameInput actions;
     bool upPressed = false, downPressed = false;
     bool startPressed = false;
+    bool confirmPressed=false;
 
-    
+
     private void TLcolor(float x,float y,float z,float a)//x=bobre y=rain
     {
         bobre.color = new Color32(255, 255, 255, (byte)x);
@@ -79,6 +84,9 @@ public class TitleUI : MonoBehaviour
         actions.UITitle.NavigateUp.canceled += context => { upPressed = false; };
         actions.UITitle.NavigateDown.started += context => { downPressed = true; };
         actions.UITitle.NavigateDown.canceled += context => { downPressed = false; };
+
+        actions.UITitle.Confirm.started += context => { confirmPressed = true; };
+        actions.UITitle.Confirm.canceled += context => { confirmPressed = false; };
     }
 
     public float TIME()
@@ -107,9 +115,12 @@ public class TitleUI : MonoBehaviour
 
     void Start()
     {
-       
+        Audio = this.GetComponent<AudioSource>();
         //text.SetActive(false);
         data = GetComponent<RectTransform>();
+
+        Audio.volume = AD;
+        AD = Mathf.Lerp(0, 0.05f, ADC);
         //color.a = 0;
         //RectTransform rectTransform = GetComponent<RectTransform>();
         TLcolor(0,0,255,0);
@@ -119,8 +130,8 @@ public class TitleUI : MonoBehaviour
     
     void Update()
     {
-
-        Debug.Log(sizecount);
+        //Audio.volume = 0.09f;
+        //Debug.Log(sizecount);
         
         time2 += Time.deltaTime;
         time += Time.deltaTime;
@@ -141,7 +152,7 @@ public class TitleUI : MonoBehaviour
             { 
                 if (nextST == false)
                 {
-                    if (colorcount2 < 1)
+                    if (colorcount3 < 1)
                     {
                         //sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
                         //sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
@@ -155,12 +166,7 @@ public class TitleUI : MonoBehaviour
                     }
 
                     //================================================
-                    //bacLT
-                    if(action==true)
-                    {
-                        CL_now3 = Mathf.Lerp(255, 0, colorcount3);
-                        colorcount3 += 0.05f;
-                    }
+                    
 
 
                     if (time2>=3.0f && colorcount < 1)//time
@@ -173,7 +179,13 @@ public class TitleUI : MonoBehaviour
                         CL_now2 = Mathf.Lerp(0, CL_MAX, colorcount2);
                         colorcount2 += 0.01F;
                     }
-                    if(time2>=4.0f&&colorcount4<1)
+                    //bacLT
+                    if (time2 >= 5.0f && colorcount3 < 1)
+                    {
+                        CL_now3 = Mathf.Lerp(255, 0, colorcount3);
+                        colorcount3 += 0.05f;
+                    }
+                    if (time2>=4.0f&&colorcount4<1)
                     {
                         CL_now4 = Mathf.Lerp(0, 24, colorcount4);
                         colorcount4 += 0.01F;
@@ -223,38 +235,51 @@ public class TitleUI : MonoBehaviour
             {
                 upPressed = false;
                 nextselect = 3;
-                Debug.Log(nextselect);
+                //Debug.Log(nextselect);
             }
             if (buttoncheck == true && upPressed && nextselect == 2)
             {
                 upPressed = false;
                 nextselect = 1;
-                Debug.Log(nextselect);
+                //Debug.Log(nextselect);
             }
             if (buttoncheck == true && upPressed && nextselect == 3)
             {
                 upPressed = false;
                 nextselect = 2;
-                Debug.Log(nextselect);
+               // Debug.Log(nextselect);
             }
             if (buttoncheck == true && downPressed && nextselect == 1)
             {
                 downPressed = false;
                 nextselect = 2;
-                Debug.Log(nextselect);
+                //Debug.Log(nextselect);
             }
             if (buttoncheck == true && downPressed && nextselect == 2)
             {
                 downPressed = false;
                 nextselect = 3;
-                Debug.Log(nextselect);
+                //Debug.Log(nextselect);
             }
             if (buttoncheck == true && downPressed && nextselect == 3)
             {
                 downPressed = false;
                 nextselect = 1;
-                Debug.Log(nextselect);
+                //Debug.Log(nextselect);
             }
+
+
+            //Aodio================================================
+            Audio.volume = AD;
+            AD = Mathf.Lerp(0,0.05f,ADC);
+
+            if (Nx.ADCKc())
+            {
+                ADC -= 0.01f;
+            }
+
+            //=====================================================
+
 
             //if (nextselect==1&&buttoncheck == true && Input.GetAxis("Axis 7") > 0f)
             //{
