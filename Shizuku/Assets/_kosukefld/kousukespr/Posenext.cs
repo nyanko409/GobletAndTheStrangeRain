@@ -53,7 +53,10 @@ public class Posenext : MonoBehaviour
 
     void Start()
     {
-        checkPointManager = GameObject.FindGameObjectWithTag("CheckPointManager").GetComponent<CheckPointManager>();
+        var go = GameObject.FindGameObjectWithTag("CheckPointManager");
+
+        if(go)
+            checkPointManager = go.GetComponent<CheckPointManager>();
 
         con.color = new Color32(0,0,0,255);
         res.color = new Color32(0, 0, 0, 255);
@@ -99,7 +102,9 @@ public class Posenext : MonoBehaviour
                 if (confirmPressed && data.BCK() == true)
                 {
                     // reset the save point and reload the scene
-                    checkPointManager.ResetSavePoint();
+                    if(checkPointManager)
+                        checkPointManager.ResetSavePoint();
+
                     StartCoroutine(SceneLoader.LoadSceneAsync(SceneManager.GetActiveScene().name, "Prefabs/UI and HUD/Loading Canvas"));
 
                     Time.timeScale = 1;

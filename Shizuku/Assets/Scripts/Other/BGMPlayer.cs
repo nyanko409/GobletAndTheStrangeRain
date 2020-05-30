@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class BGMPlayer : MonoBehaviour
 {
@@ -10,8 +9,11 @@ public class BGMPlayer : MonoBehaviour
 
     public void StopAllBgm()
     {
-        bgmSource.Stop();
-        ambientSource.Stop();
+        if(bgmSource)
+            bgmSource.Stop();
+
+        if(ambientSource)
+            ambientSource.Stop();
     }
 
     private void Start()
@@ -20,5 +22,10 @@ public class BGMPlayer : MonoBehaviour
 
         ambientSource = manager.GetAudioSourceByType(AudioManager.AudioType.BGM_Rain);
         ambientSource.Play();
+    }
+
+    private void OnDestroy()
+    {
+        StopAllBgm();
     }
 }
