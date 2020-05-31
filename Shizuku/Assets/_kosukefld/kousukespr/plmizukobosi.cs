@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 public class plmizukobosi : MonoBehaviour
 {
-    public Text axis10Value;
+    //public Text axis10Value;
 
-    // Droplet prefab
-    public GameObject Droplet;
+    //// Droplet prefab
+    //public GameObject Droplet;
 
-    public GameObject marker;
+    //public GameObject marker;
 
-    // DropletAppearance
-    public Transform mainchara;
+    //// DropletAppearance
+    //public Transform mainchara;
 
     // Start is called before the first frame update
     void Start()
@@ -25,33 +25,33 @@ public class plmizukobosi : MonoBehaviour
     void Update()
     {
 
-        if(Input.GetKey(KeyCode.V))
-        {
-            Debug.Log("targetmarker");
+        //if(Input.GetKey(KeyCode.V))
+        //{
+        //    Debug.Log("targetmarker");
 
-            GameObject markers= Instantiate(marker) as GameObject;
+        //    GameObject markers= Instantiate(marker) as GameObject;
            
 
-            markers.transform.position = mainchara.position;
+        //    markers.transform.position = mainchara.position;
 
             
 
-        }
+        //}
 
 
-        //mizukobosi
-        if (Input.GetAxis("Axis 10") > 0f || Input.GetKeyUp(KeyCode.V))
-        {
-            Debug.Log("Ripple");
+        ////mizukobosi
+        //if (Input.GetAxis("Axis 10") > 0f || Input.GetKeyUp(KeyCode.V))
+        //{
+        //    Debug.Log("Ripple");
 
-            // Droplet
-            GameObject Droplets = Instantiate(Droplet) as GameObject;
+        //    // Droplet
+        //    GameObject Droplets = Instantiate(Droplet) as GameObject;
 
-            Vector3 force;
+        //    Vector3 force;
 
-            // Droplet Adjustment
-            Droplets.transform.position = mainchara.position;
+        //    // Droplet Adjustment
+        //    Droplets.transform.position = mainchara.position;
 
-        }
+        //}
     }
 }

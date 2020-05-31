@@ -13,7 +13,7 @@ public class PauseSelect : MonoBehaviour
     public GameObject check;
     public GameObject remap;
     public GameObject back;
-    public float colorspeed = 0.05f;
+    public float colorspeed = 0.1f;
 
     GameInput actions;
     //bool check = false;
@@ -109,8 +109,9 @@ public class PauseSelect : MonoBehaviour
 
     void Update()
     {
-        time += Time.deltaTime;
-        if (time >= 0.01f)
+        //Debug.Log(time);
+        time += Time.fixedDeltaTime;
+        if (time >= 0.03f)
         {
 
             
@@ -301,7 +302,7 @@ public class PauseSelect : MonoBehaviour
                     }
                     break;
             }
-
+            time = 0;
         }
     }
 
