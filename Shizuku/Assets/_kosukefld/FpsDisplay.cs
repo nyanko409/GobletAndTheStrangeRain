@@ -25,7 +25,7 @@ public class FpsDisplay : MonoBehaviour
         if (time >= 0.5f)
         {
             fps = frameCount / time;
-            Debug.Log(fps);
+           // Debug.Log(fps);
 
             frameCount = 0;
             prevTime = Time.realtimeSinceStartup;
