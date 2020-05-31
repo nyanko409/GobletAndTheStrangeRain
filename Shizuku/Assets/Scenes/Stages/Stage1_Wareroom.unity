@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731712, g: 0.13414735, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -59,7 +59,7 @@ LightmapSettings:
     m_BakeResolution: 1
     m_AtlasSize: 512
     m_AO: 1
-    m_AOMaxDistance: 1
+    m_AOMaxDistance: 5
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0.3
     m_ExtractAmbientOcclusion: 0
@@ -1379,7 +1379,7 @@ GameObject:
   - component: {fileID: 292263141}
   - component: {fileID: 292263140}
   m_Layer: 15
-  m_Name: Cube (1)
+  m_Name: Tutorial Collider 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1418,8 +1418,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 292263139}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -47.520004, y: 10.14, z: -3.5699959}
-  m_LocalScale: {x: 4.033399, y: 7.3201, z: 9.272298}
+  m_LocalPosition: {x: -48.47, y: 10.14, z: -3.57}
+  m_LocalScale: {x: 4.033399, y: 7.3201, z: 13.4}
   m_Children: []
   m_Father: {fileID: 201617697}
   m_RootOrder: 6
@@ -51693,7 +51693,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1466
+  m_Name: pb_Mesh-15990
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -53125,7 +53125,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1242
+  m_Name: pb_Mesh-15768
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -53990,7 +53990,7 @@ GameObject:
   - component: {fileID: 1810078233}
   - component: {fileID: 1810078232}
   m_Layer: 15
-  m_Name: Cube
+  m_Name: Tutorial Collider 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54029,8 +54029,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1810078231}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -63.24001, y: 10.14, z: 6.6300087}
-  m_LocalScale: {x: 1, y: 7.3201, z: 9.272298}
+  m_LocalPosition: {x: -63.8, y: 10.14, z: 6.63}
+  m_LocalScale: {x: 1, y: 7.3201, z: 12.07}
   m_Children: []
   m_Father: {fileID: 201617697}
   m_RootOrder: 5
@@ -54425,7 +54425,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1412
+  m_Name: pb_Mesh-15936
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
