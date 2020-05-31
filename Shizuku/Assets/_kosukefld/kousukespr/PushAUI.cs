@@ -101,10 +101,10 @@ public class PushAUI : MonoBehaviour
                     }
                     break;
             }
-                
-            
 
+
+            time = 0;
         }
-        time = 0;
+       
     }
 }
