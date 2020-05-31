@@ -31,4 +31,9 @@ public class FpsDisplay : MonoBehaviour
             prevTime = Time.realtimeSinceStartup;
         }
     }
+
+    private void OnGUI()
+    {
+        GUILayout.Label(fps.ToString());
+    }
 }
