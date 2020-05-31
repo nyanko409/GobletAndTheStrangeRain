@@ -6,23 +6,23 @@ public class Aicon : MonoBehaviour
 {
     public TitleUI title;
 
-    float startposx = 22;
-    float startposy = -117;
-    float rastposx = 384;
-    float rastposy = 131;
-    float nowposx = 0;
-    float nowposy = 0;
-    float count = 0;
-    float maintime = 0;
-    float time = 0;
+    //float startposx = 22;
+    //float startposy = -117;
+    //float rastposx = 384;
+    //float rastposy = 131;
+    //float nowposx = 0;
+    //float nowposy = 0;
+    //float count = 0;
+    //float maintime = 0;
+    //float time = 0;
 
-    float timeCK = 1;
+    //float timeCK = 1;
 
     private RectTransform data;
 
     void Start()
     {
-        data = GetComponent<RectTransform>();
+      //  data = GetComponent<RectTransform>();
     }
 
     

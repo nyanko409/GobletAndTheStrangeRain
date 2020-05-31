@@ -25,6 +25,5 @@ public class Droplet : MonoBehaviour
     private void OnDestroy()
     {
         AudioSource.PlayClipAtPoint(dropletSound.clip, transform.position, dropletSound.volume);
-        print(dropletSound.volume);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class NextButton : MonoBehaviour
 {
+    public AudioSource Audio;
     public TitleUI check;
     public Image textH;
     public Image textT;
@@ -12,18 +13,31 @@ public class NextButton : MonoBehaviour
     public float colorspeed = 0.05f;
     public Image backimage;
 
-    private RectTransform data;
     float time = 0;
+    float time2 = 0;
     GameInput actions;
     float STcount = 0;
     float count = 0;
     float CL_A = 0;
     float STCL_A = 0;
+
     int colorcount = 1;
     int STCLcount = 1;
-    int pos;
-    bool confirmPressed = false;
 
+    bool ADCK = false;
+    bool confirmPressed = false;
+    bool Bcheck = false;
+    bool ADcheck = false;
+
+    public bool ADCKc()
+    {
+        return ADCK;
+    }
+
+    public bool SCK()
+    {
+        return ADcheck;
+    }
 
     private void Awake()
     {
@@ -37,15 +51,19 @@ public class NextButton : MonoBehaviour
 
     void Start()
     {
+       
         textQ.color = new Color32(255, 255, 255, 0); 
         textH.color = new Color32(255, 255, 255, 0);
         textT.color = new Color32(255, 255, 255, 0);
+
+        Audio = this.GetComponent<AudioSource>();
         //textH = this.GetComponent<Text>();
         //textT = this.GetComponent<Text>();      
     }
 
     void Update()
     {
+       
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
@@ -89,31 +107,79 @@ public class NextButton : MonoBehaviour
             switch (check.nextCK())
             {
                 case 1:
-
                     if (confirmPressed && check.BuuttonCK() == true)
                     {
+                        if (!ADcheck)
+                        {
+                            ADcheck = true;
+                            Audio.Play();
+                        }
+                        Bcheck = true;
+                        ADCK = true;
+                    }
+
+                    if (Bcheck == true)
+                    {
+                        time2 += Time.deltaTime;
+                    }
+
+                    if (time2 >= 2.0f)
+                    {
                         StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
-                        Debug.Log("osita A");
                     }
                     break;
+
                 case 2:
 
                     if (confirmPressed && check.BuuttonCK() == true)
                     {
+                        if (!ADcheck)
+                        {
+                            ADcheck = true;
+                            Audio.Play();
+                        }
+                        Bcheck = true;
+                        ADCK = true;
+                    }
+
+                    if (Bcheck == true)
+                    {
+                        time2 += Time.deltaTime;
+                    }
+
+                    if (time2 >= 2.0f)
+                    {
                         StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
-                        Debug.Log("osita A");
                     }
                     break;
                 case 3:
 
                     if (confirmPressed && check.BuuttonCK() == true)
                     {
+                        if (!ADcheck)
+                        {
+                            ADcheck = true;
+                            Audio.Play();
+                        }
+                        Bcheck = true;
+                        ADCK = true;
+                    }
+
+                    if (Bcheck == true)
+                    {
+                        time2 += Time.deltaTime;
+                    }
+
+                    if (time2 >= 2.0f)
+                    {
+
 #if UNITY_EDITOR
                         UnityEditor.EditorApplication.isPlaying = false;
 #else
     Application.Quit();
 #endif
                     }
+                    
                     break;
                 default:
                     backimage.color = new Color32(0, 255, 0, 0);
@@ -123,6 +189,9 @@ public class NextButton : MonoBehaviour
                     break;
          
             }
+
+            
+            
             time = 0;
         }
     }

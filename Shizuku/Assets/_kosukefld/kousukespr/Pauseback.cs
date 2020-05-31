@@ -27,7 +27,7 @@ public class Pauseback : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+       // Debug.Log(Time.deltaTime);
         data.anchoredPosition = new Vector2(0, check.BposCK());
         data.sizeDelta = new Vector2(check.BsizeCK(),100);
         //Bpos = Mathf.Lerp(Bpospast, Bposnext, Bcount);

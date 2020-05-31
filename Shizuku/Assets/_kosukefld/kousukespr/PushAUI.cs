@@ -7,18 +7,22 @@ using UnityEngine.UI;
 
 public class PushAUI : MonoBehaviour
 {
+    public AudioSource SE;
     public TitleUI titleui;
     public GameObject data;
 
     public Image image;
-    public float colorspeed = 0.05f;
+    public float colorspeed = 0.02f;
     public float Destroyspeed = 0.05f;
     float time = 0;
+    float time2 =0;
     float count = 0;
     float CL_A = 0;
     int colorcount = 1;
     bool Destroyswitch = false;
-   
+    bool STcheck = true;
+    bool STcheck2 = true;
+
     public bool destroyCK()
     {
         return Destroyswitch;
@@ -26,13 +30,15 @@ public class PushAUI : MonoBehaviour
 
     void Start()
     {
-        image=  this.GetComponent<Image>();
+        SE = this.GetComponent<AudioSource>();
+        image =  this.GetComponent<Image>();
         image.color = new Color32(255, 255, 255, 0);
     }
 
 
     void Update()
     {
+        
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
@@ -63,17 +69,42 @@ public class PushAUI : MonoBehaviour
 
             if (titleui.stratCK() == false)
             {
-                count -= Destroyspeed;
-                if (count <= 0)
+               
+                time2 += Time.deltaTime;
+                if (STcheck)
                 {
-                    Destroyswitch = true;
-
-                    data.SetActive(false);
+                    count = 1;
+                    STcheck = false;
+                    
+                }
+                if (time2 >= 0.2f)
+                {
+                    count = 0;
+                 
+                        Destroyswitch = true;
+                        
+                        //data.SetActive(false);
+                    
+                    
                 }
             }
 
+            switch(STcheck)
+            {
+                case true:
+                    break;
+                case false:
+                    if(STcheck2)
+                    {
+                        STcheck2 = false;
+                        SE.Play();
+                    }
+                    break;
+            }
 
+
+            time = 0;
         }
-        time = 0;
+       
     }
 }
