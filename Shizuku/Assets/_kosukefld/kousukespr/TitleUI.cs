@@ -273,7 +273,7 @@ public class TitleUI : MonoBehaviour
 
             //Aodio================================================
             Audio.volume = AD;
-            AD = Mathf.Lerp(0,0.05f,ADC);
+            AD = Mathf.Lerp(0,0.25f,ADC);
 
             if (Nx.ADCKc())
             {
