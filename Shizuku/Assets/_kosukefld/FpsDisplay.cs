@@ -16,7 +16,12 @@ public class FpsDisplay : MonoBehaviour
         frameCount = 0;
         prevTime = 0.0f;
     }
-   
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     void Update()
     {
         frameCount++;
