@@ -33,7 +33,12 @@ public class WindArea : MonoBehaviour
             return;
 
         ReliableOnTriggerExit.NotifyTriggerEnter(other, gameObject, OnTriggerExit);
-        rigidbodies.Add(other.gameObject.GetComponent<Rigidbody>());
+
+        var rb = other.gameObject.GetComponent<Rigidbody>();
+        if (!other.CompareTag("Player"))
+            rb.useGravity = false;
+
+        rigidbodies.Add(rb);
     }
 
     private void OnTriggerExit(Collider other)
@@ -43,7 +48,12 @@ public class WindArea : MonoBehaviour
             return;
 
         ReliableOnTriggerExit.NotifyTriggerExit(other, gameObject);
-        rigidbodies.Remove(other.gameObject.GetComponent<Rigidbody>());
+
+        var rb = other.gameObject.GetComponent<Rigidbody>();
+        if (!other.CompareTag("Player"))
+            rb.useGravity = true;
+
+        rigidbodies.Remove(rb);
     }
 
 
