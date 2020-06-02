@@ -109,9 +109,9 @@ public class PauseSelect : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Time.fixedDeltaTime);
-        time += Time.fixedDeltaTime;
-        if (time >= 0.03f)
+       // Debug.Log(Time.fixedDeltaTime);
+        time += 0.016f;
+        if (time >= 0.01f)
         {
 
             
