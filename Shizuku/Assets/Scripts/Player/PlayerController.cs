@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float lowJumpMultiplier = 3;         // fall multiplier if jump button is released midair
     public float slopeLimit = 10;               // max degree of slope to climb
     public float floorOffsetY = 1;              // offset to the floor
+    public bool ignoreGravity;
 
     private GameInput action;
     private Animator anim;
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
         audioDrag = manager.GetAudioSourceByType(AudioManager.AudioType.SE_MoveObstacle);
 
         isDragging = false;
+        ignoreGravity = false;
     }
 
     private void Update()
@@ -142,6 +144,9 @@ public class PlayerController : MonoBehaviour
                 gravity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
             }
         }
+
+        if(ignoreGravity)
+            gravity.y = 0;
 
         // update the velocity
         rigidbody.velocity = moveDirection * GetMoveSpeed();
