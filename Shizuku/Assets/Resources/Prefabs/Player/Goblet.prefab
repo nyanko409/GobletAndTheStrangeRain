@@ -246,6 +246,8 @@ MonoBehaviour:
   lowJumpMultiplier: 15
   slopeLimit: 40
   floorOffsetY: 0
+  ignoreGravity: 0
+  dirtParticle: {fileID: 4575475255224190740}
 --- !u!1 &985797311802748300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1543,12 @@ PrefabInstance:
 --- !u!4 &4575475255224190742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4575475256425415452, guid: 16f0231c13ee0994da40027a970c633f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1273611274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4575475255224190740 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4575475256425415454, guid: 16f0231c13ee0994da40027a970c633f,
     type: 3}
   m_PrefabInstance: {fileID: 1273611274}
   m_PrefabAsset: {fileID: 0}
