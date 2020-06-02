@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float slopeLimit = 10;               // max degree of slope to climb
     public float floorOffsetY = 1;              // offset to the floor
     public bool ignoreGravity;
+    public ParticleSystem dirtParticle;
 
     private GameInput action;
     private Animator anim;
@@ -131,6 +132,8 @@ public class PlayerController : MonoBehaviour
 
         if (isJumping)
         {
+            dirtParticle.Stop();
+
             gravity += Vector3.up * Physics.gravity.y * jumpFalloff * Time.fixedDeltaTime;
 
             if(gravity.y < 0)
@@ -143,6 +146,10 @@ public class PlayerController : MonoBehaviour
                 // fall faster if jump button is released midair
                 gravity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
             }
+        }
+        else
+        {
+            dirtParticle.Play();
         }
 
         if(ignoreGravity)
