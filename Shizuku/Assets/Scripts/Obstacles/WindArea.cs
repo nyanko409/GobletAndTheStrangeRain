@@ -40,7 +40,7 @@ public class WindArea : MonoBehaviour
         if (!other.CompareTag("Player"))
             rb.useGravity = false;
         else
-            player.ignoreGravity = true;
+            player.IgnoreGravity = true;
 
         rigidbodies.Add(rb);
     }
@@ -57,7 +57,7 @@ public class WindArea : MonoBehaviour
         if (!other.CompareTag("Player"))
             rb.useGravity = true;
         else
-            player.ignoreGravity = false;
+            player.IgnoreGravity = false;
 
         rigidbodies.Remove(rb);
     }

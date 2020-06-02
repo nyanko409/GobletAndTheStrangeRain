@@ -5,14 +5,16 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 1;                 // movespeed of the player
     public float dragSpeedMultiplier = 0.5F;    // the speed multiplier while dragging
     public float dragDistance = 1.5F;
-    public float rotationSpeed = 10;             // rotation speed of the player
+    public float rotationSpeed = 10;            // rotation speed of the player
     public float jumpHeight = 5;                // jump height the player
+    public float coyoteTime = 0.5F;
     public float fallMultiplier = 2.5F;         // fall speed multiplier
     public float lowJumpMultiplier = 3;         // fall multiplier if jump button is released midair
     public float slopeLimit = 10;               // max degree of slope to climb
     public float floorOffsetY = 1;              // offset to the floor
-    public bool ignoreGravity;
     public ParticleSystem dirtParticle;
+
+    public bool IgnoreGravity { get; set; }
 
     private GameInput action;
     private Animator anim;
@@ -20,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDirection;
     private new Rigidbody rigidbody;
     private float jumpFalloff = 2.5F;
+    private float curCoyoteTime;
     private bool jumpPressed;
     private bool isJumping;
     private Vector3 gravity;
@@ -67,7 +70,7 @@ public class PlayerController : MonoBehaviour
         audioDrag = manager.GetAudioSourceByType(AudioManager.AudioType.SE_MoveObstacle);
 
         isDragging = false;
-        ignoreGravity = false;
+        IgnoreGravity = false;
     }
 
     private void Update()
@@ -134,8 +137,9 @@ public class PlayerController : MonoBehaviour
         {
             dirtParticle.Stop();
 
-            gravity += Vector3.up * Physics.gravity.y * jumpFalloff * Time.fixedDeltaTime;
+            curCoyoteTime += Time.deltaTime;
 
+            gravity += Vector3.up * Physics.gravity.y * jumpFalloff * Time.fixedDeltaTime;
             if(gravity.y < 0)
             {
                 // fall faster to the ground
@@ -150,9 +154,13 @@ public class PlayerController : MonoBehaviour
         else
         {
             dirtParticle.Play();
+
+            if(!jumpPressed)
+                curCoyoteTime = 0;
         }
 
-        if(ignoreGravity)
+        // ignore gravity if set by wind area
+        if(IgnoreGravity)
             gravity.y = 0;
 
         // update the velocity
@@ -183,8 +191,9 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if(!dragRigidbody && IsGrounded())
+        if(!dragRigidbody && (IsGrounded() || curCoyoteTime <= coyoteTime))
         {
+            curCoyoteTime += coyoteTime;
             gravity.y = jumpHeight;
             isJumping = true;
         }

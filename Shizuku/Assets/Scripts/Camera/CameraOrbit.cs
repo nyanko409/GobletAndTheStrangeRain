@@ -12,11 +12,13 @@ public class CameraOrbit : MonoBehaviour
     public bool collideWithStage = true;
     public bool activateInput = false;
 
+    Camera cam;
     GameInput action;
     Vector2 cameraLookInput;
     Vector3 eulerAngles;
     GameObject player;
     PlayerController playerCtrl;
+    Vector3 halfExtends;
 
 
     private void Awake()
@@ -35,9 +37,18 @@ public class CameraOrbit : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         playerCtrl = player.GetComponent<PlayerController>();
+        cam = GetComponent<Camera>();
 
         transform.position = pivot.position + (-transform.forward * distance);
         eulerAngles = pivot.transform.eulerAngles;
+
+        // calculate cameras half extends
+        halfExtends = new Vector3();
+        halfExtends.y =
+            cam.nearClipPlane *
+            Mathf.Tan(0.5f * Mathf.Deg2Rad * cam.fieldOfView);
+        halfExtends.x = halfExtends.y * cam.aspect;
+        halfExtends.z = 0f;
     }
 
     private void FixedUpdate()
@@ -72,14 +83,13 @@ public class CameraOrbit : MonoBehaviour
         var newDist = distance;
 
         if (collideWithStage &&
-            Physics.Raycast(pivot.position, transform.position - pivot.position, out RaycastHit hit, 1000, LayerMask.GetMask("Room")))
+            Physics.BoxCast(pivot.position, halfExtends, transform.position - pivot.position, out RaycastHit hit, transform.rotation, 1000, LayerMask.GetMask("Room")))
         {
             if (hit.distance < distance)
-                newDist = hit.distance - 1;
+                newDist = hit.distance + cam.nearClipPlane - 1;
         }
 
-        Vector3 lerpPos = pivot.position + (-transform.forward * newDist);
-        transform.position = Vector3.Lerp(transform.position, lerpPos, 0.1F);
+        transform.position = pivot.position + (-transform.forward * newDist);
     }
 
     private void OnEnable()
