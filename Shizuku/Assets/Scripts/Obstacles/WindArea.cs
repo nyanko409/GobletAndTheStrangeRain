@@ -7,11 +7,13 @@ public class WindArea : MonoBehaviour
     public Vector3 direction = Vector3.forward;
     public float force = 10;
 
+    private PlayerController player;
     private List<Rigidbody> rigidbodies;
 
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         rigidbodies = new List<Rigidbody>();
     }
 
@@ -37,6 +39,8 @@ public class WindArea : MonoBehaviour
         var rb = other.gameObject.GetComponent<Rigidbody>();
         if (!other.CompareTag("Player"))
             rb.useGravity = false;
+        else
+            player.ignoreGravity = true;
 
         rigidbodies.Add(rb);
     }
@@ -52,6 +56,8 @@ public class WindArea : MonoBehaviour
         var rb = other.gameObject.GetComponent<Rigidbody>();
         if (!other.CompareTag("Player"))
             rb.useGravity = true;
+        else
+            player.ignoreGravity = false;
 
         rigidbodies.Remove(rb);
     }
