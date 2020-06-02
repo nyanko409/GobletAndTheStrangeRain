@@ -8,6 +8,7 @@ public class RippleEffectReceiver : MonoBehaviour
     int rippleCount;                                        // maximum active ripple count
     RippleData[] ripples;                                   // ripple data to pass to the shader
     Color backgroundColor;                                  // current background color of the mesh
+    Tag tag;
 
 
 
@@ -21,10 +22,15 @@ public class RippleEffectReceiver : MonoBehaviour
         return backgroundColor;
     }
 
+    public bool CanBeSpilled()
+    {
+        return tag.HasTag(TagType.RippleReceiver);
+    }
+
     public void ApplyEffect(Vector3 contactPoint, Color rippleColor, float spreadSpeed)
     {
         // return if this object does not have a ripple receiver tag
-        if (!GetComponent<Tag>().HasTag(TagType.RippleReceiver)) return;
+        if (!CanBeSpilled()) return;
 
         // activate the ripple effect if there is a free space
         for (int i = 0; i < rippleCount; ++i)
@@ -48,6 +54,7 @@ public class RippleEffectReceiver : MonoBehaviour
     void Start()
     {
         material = GetComponent<Renderer>().materials;
+        tag = GetComponent<Tag>();
 
         // get the maximum ripple count from the shader and init the ripple layers
         rippleCount = material[0].GetInt("_maxRippleCount");

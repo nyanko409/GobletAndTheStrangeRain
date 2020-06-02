@@ -58,7 +58,7 @@ public class DropDroplet : MonoBehaviour
             if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1000, LayerMask.GetMask("Room", "Obstacle")))
             {
                 if(hit.transform.gameObject.TryGetComponent(out RippleEffectReceiver receiver) &&
-                    receiver.GetComponent<Tag>().HasTag(TagType.RippleReceiver))
+                    receiver.CanBeSpilled())
                 {
                     // ignore if same color
                     if (receiver.GetBackgroundColor() != data.Value.color ||
