@@ -100,7 +100,6 @@ public class PlayerController : MonoBehaviour
         // normalize direction
         moveDirection = vertical + horizontal;
         moveDirection.y = 0;
-        moveDirection.Normalize();
 
         // play running sound effect
         if (moveDirection != Vector3.zero && !audioRun.isPlaying && !dragRigidbody && !isJumping)
