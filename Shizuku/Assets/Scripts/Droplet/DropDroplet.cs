@@ -57,20 +57,27 @@ public class DropDroplet : MonoBehaviour
         {
             if(Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, 1000, LayerMask.GetMask("Room", "Obstacle")))
             {
-                if(hit.transform.gameObject.TryGetComponent(out RippleEffectReceiver receiver))
+                if(hit.transform.gameObject.TryGetComponent(out RippleEffectReceiver receiver) &&
+                    receiver.GetComponent<Tag>().HasTag(TagType.RippleReceiver))
                 {
-                    isDroppable = true;
+                    // ignore if same color
+                    if (receiver.GetBackgroundColor() != data.Value.color ||
+                        receiver.gameObject.layer == LayerMask.NameToLayer("Room"))
+                    {
+                        isDroppable = true;
 
-                    if (!dropPressed)
+                        if (!dropPressed)
+                            return;
+
+                        // apply color
+                        receiver.ApplyEffect(hit.point, data.Value.color, data.Value.spreadSpeed);
+                        data = null;
+
+                        animWater.SetTrigger("Empty Water");
+                        animPlayer.SetTrigger("Spill");
+
                         return;
-
-                    receiver.ApplyEffect(hit.point, data.Value.color, data.Value.spreadSpeed);
-                    data = null;
-
-                    animWater.SetTrigger("Empty Water");
-                    animPlayer.SetTrigger("Spill");
-
-                    return;
+                    }
                 }
             }
         }
