@@ -26,18 +26,20 @@ public class ObjectActivator : MonoBehaviour
 
     void Start()
     {
+        TryGetComponent(out rb);
         rend = GetComponent<MeshRenderer>();
         mat = GetComponent<Renderer>().material;
         col = GetComponent<Collider>();
-        rb = GetComponent<Rigidbody>();
         tag = GetComponent<Tag>();
 
         if (!transitionPoint)
             transitionPoint = transform;
 
+        if(rb)
+            rb.mass = float.PositiveInfinity;
+
         startingScale = transform.localScale;
         mat.shader = opaqueShader;
-        rb.mass = float.PositiveInfinity;
         isOverlapping = false;
         curAlpha = 1;
 
