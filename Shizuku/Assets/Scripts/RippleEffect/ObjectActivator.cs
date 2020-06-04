@@ -65,8 +65,10 @@ public class ObjectActivator : MonoBehaviour
                 mat.shader = transparentShader;
                 rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
+                if(rb)
+                    rb.isKinematic = true;
+
                 col.isTrigger = true;
-                rb.isKinematic = true;
                 isOverlapping = false;
                 gameObject.layer = LayerMask.NameToLayer("Obstacle Disabled");
             }
@@ -88,8 +90,10 @@ public class ObjectActivator : MonoBehaviour
             // enable if it is not overlapping
             if (col.isTrigger && !isOverlapping)
             {
+                if(rb)
+                    rb.isKinematic = false;
+
                 col.isTrigger = false;
-                rb.isKinematic = false;
                 transform.localScale = startingScale;
                 scalingApplied = false;
                 gameObject.layer = LayerMask.NameToLayer("Obstacle");
