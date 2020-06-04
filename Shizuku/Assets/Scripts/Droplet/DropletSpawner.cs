@@ -5,6 +5,8 @@ public class DropletSpawner : MonoBehaviour
 {
     public GameObject prefab;                 // the prefab to spawn
     public GameObject positionIndicator;      // sprite to project at drop position
+    [ColorUsage(false, true)]
+    public Color indicatorColor = Color.white;
     public bool spawnManually = false;        // spawn the droplet externally via script
     public float dropletSpeed = 1F;           // speed of the droplet
     [ColorUsage(false, true)]
@@ -88,6 +90,7 @@ public class DropletSpawner : MonoBehaviour
         {
             // set the parent and offset the position by a tiny value
             indicatorPrefab = Instantiate(positionIndicator, transform);
+            indicatorPrefab.GetComponent<SpriteRenderer>().color = indicatorColor;
             indicatorPrefab.transform.position = hit.point + hit.normal * 0.01F;
         }
     }
