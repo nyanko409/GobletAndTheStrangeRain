@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 74ab8c85a0a5b4daea5f70773041a1a8,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2391,7 +2391,7 @@ PrefabInstance:
     - target: {fileID: 8974442150237456023, guid: 58185e3a124574c3a85d60b1d78975f6,
         type: 3}
       propertyPath: collideWithStage
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58185e3a124574c3a85d60b1d78975f6, type: 3}
@@ -19254,7 +19254,7 @@ PrefabInstance:
     - target: {fileID: 6492866156851221577, guid: 99ae4b93abe7246b7a225b46643bf65c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6492866156851221582, guid: 99ae4b93abe7246b7a225b46643bf65c,
         type: 3}
@@ -19631,6 +19631,16 @@ PrefabInstance:
       propertyPath: sabu
       value: 
       objectReference: {fileID: 1765326794}
+    - target: {fileID: 1488791131127829608, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 858
+      objectReference: {fileID: 0}
+    - target: {fileID: 1488791131127829608, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 265
+      objectReference: {fileID: 0}
     - target: {fileID: 1952081773550807526, guid: 749019124bd4cb54ab21a2cf59e33c7b,
         type: 3}
       propertyPath: m_Name
@@ -19661,10 +19671,31 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2858733921443397843, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a4a8099091615d48b815381601c9798,
+        type: 3}
     - target: {fileID: 3910355107698560810, guid: 749019124bd4cb54ab21a2cf59e33c7b,
         type: 3}
       propertyPath: savePointManager
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739790757942908392, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: FadeSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739790757942908392, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: FadeInStartTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4739790757942908392, guid: 749019124bd4cb54ab21a2cf59e33c7b,
+        type: 3}
+      propertyPath: FadeOutStartTime
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5502764362382768956, guid: 749019124bd4cb54ab21a2cf59e33c7b,
         type: 3}
