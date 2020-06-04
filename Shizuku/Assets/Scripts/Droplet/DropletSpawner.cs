@@ -18,6 +18,7 @@ public class DropletSpawner : MonoBehaviour
 
     float timeTillNextSpawn = 0;              // counter for next spawn
     bool spawnStarted;
+    GameObject indicatorPrefab;
 
 
     public void Spawn(float delay)
@@ -37,6 +38,9 @@ public class DropletSpawner : MonoBehaviour
 
     private void Update()
     {
+        UpdateIndicatorPosition();
+
+        // stop spawning droplet automatically if manually spawning via switch
         if (spawnManually) return;
 
         timeTillNextSpawn += Time.deltaTime;
@@ -83,8 +87,16 @@ public class DropletSpawner : MonoBehaviour
         if (Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1000, LayerMask.GetMask("Room", "Obstacle")))
         {
             // set the parent and offset the position by a tiny value
-            var prefab = Instantiate(positionIndicator, transform);
-            prefab.transform.position = hit.point + hit.normal * 0.01F;
+            indicatorPrefab = Instantiate(positionIndicator, transform);
+            indicatorPrefab.transform.position = hit.point + hit.normal * 0.01F;
+        }
+    }
+
+    private void UpdateIndicatorPosition()
+    {
+        if(Physics.Raycast(transform.position, -transform.up, out RaycastHit hit, 1000, LayerMask.GetMask("Room", "Obstacle")))
+        {
+            indicatorPrefab.transform.position = hit.point + hit.normal * 0.01F;
         }
     }
 }

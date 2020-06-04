@@ -196,6 +196,9 @@ public class PlayerController : MonoBehaviour
             curCoyoteTime += coyoteTime;
             gravity.y = jumpHeight;
             isJumping = true;
+
+            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! kadokawa test Play jump se
+            GetComponent<AudioSource>().Play();
         }
     }
 
