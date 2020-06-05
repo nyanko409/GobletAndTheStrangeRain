@@ -10,6 +10,7 @@ public class MoveInOut : MonoBehaviour
     bool movingOut;
     Vector3 dir;
     float distanceTraveled;
+    Vector3 startPosition;
 
 
     private void Start()
@@ -18,6 +19,7 @@ public class MoveInOut : MonoBehaviour
         finishedMoving = true;
         dir = moveDirection.normalized;
         distanceTraveled = 0;
+        startPosition = transform.position;
     }
 
     private void FixedUpdate()
@@ -25,7 +27,6 @@ public class MoveInOut : MonoBehaviour
         if (finishedMoving)
             return;
 
-        transform.position += dir * speed * Time.deltaTime;
         distanceTraveled += movingOut ? speed * Time.deltaTime : -speed * Time.deltaTime;
 
         if(distanceTraveled >= moveDistance)
@@ -38,19 +39,20 @@ public class MoveInOut : MonoBehaviour
             distanceTraveled = 0;
             finishedMoving = true;
         }
+
+        transform.position = startPosition + dir * distanceTraveled;
+        print(transform.position);
     }
 
     public void MoveOut()
     {
         movingOut = true;
         finishedMoving = false;
-        dir = moveDirection.normalized;
     }
 
     public void MoveIn()
     {
         movingOut = false;
         finishedMoving = false;
-        dir = moveDirection.normalized * -1;
     }
 }

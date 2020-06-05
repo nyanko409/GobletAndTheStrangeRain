@@ -50,6 +50,7 @@ public class TitleUI : MonoBehaviour
     float time2 = 0;
     float AD;
     float ADC=1;
+    float STBGM = 0;
 
     bool timeCK = false;
     bool nextST = false;
@@ -57,7 +58,7 @@ public class TitleUI : MonoBehaviour
     bool textcheck = false;
     bool buttoncheck = false;
     bool stratcheck = true;
-
+    bool BGMS = false;
 
     private GameInput actions;
     bool upPressed = false, downPressed = false;
@@ -133,12 +134,21 @@ public class TitleUI : MonoBehaviour
     {
         //Audio.volume = 0.09f;
         //Debug.Log(sizecount);
-        
+        STBGM += Time.deltaTime;
         time2 += Time.deltaTime;
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
-           
+           if(STBGM>=3.0)
+            {
+                if(!BGMS)
+                {
+
+                    BGMS = true;
+                    Audio.Play();
+                }
+              
+            }
 
             
             data.localScale = new Vector2(sizenowW, sizenowH);
