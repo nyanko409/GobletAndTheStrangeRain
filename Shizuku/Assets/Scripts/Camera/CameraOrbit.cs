@@ -74,7 +74,14 @@ public class CameraOrbit : MonoBehaviour
         // rotate the pivot
         pivot.transform.eulerAngles = eulerAngles;
 
+        // clip inside the stage
         ClipInsideStage();
+
+        // reset the z angle so it does not look tilted (happens when drag is canceled)
+        if(pivot.eulerAngles.z != 0)
+        {
+            pivot.rotation = Quaternion.Euler(pivot.eulerAngles.x, pivot.eulerAngles.y, 0);
+        }
     }
 
     private void ClipInsideStage()
