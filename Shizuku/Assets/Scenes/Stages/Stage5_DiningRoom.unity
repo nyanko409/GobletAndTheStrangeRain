@@ -1343,6 +1343,16 @@ PrefabInstance:
       propertyPath: startDelay
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7780238659214071540, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
       propertyPath: m_Name
@@ -4749,7 +4759,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-33364
+  m_Name: pb_Mesh-54966
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5638,7 +5648,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-32694
+  m_Name: pb_Mesh-54288
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6564,7 +6574,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58906
+  m_Name: pb_Mesh38770
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -33622,7 +33632,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.78
+      value: 13.612
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -33667,7 +33677,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.0045815
+      value: 26.709654
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -33684,6 +33694,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141366, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: texture
+      value: 
+      objectReference: {fileID: 2800000, guid: df819de5933250a459216ad99e4bae23, type: 3}
     m_RemovedComponents:
     - {fileID: 8422230964014141321, guid: e1a1623758b4c41578c1d5c211af9c71, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e1a1623758b4c41578c1d5c211af9c71, type: 3}
@@ -36354,7 +36369,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.510002
+      value: 14.51
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -36364,7 +36379,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.029999
+      value: 21.724
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -36409,7 +36424,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.0045815
+      value: 10.488539
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -37042,7 +37057,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-194414
+  m_Name: pb_Mesh-54260
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -37315,6 +37330,26 @@ PrefabInstance:
         type: 3}
       propertyPath: startDelay
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: spawnManually
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.g
+      value: 0.97866994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7780238659214071540, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
@@ -37804,7 +37839,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-33414
+  m_Name: pb_Mesh-55016
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38816,7 +38851,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.15
+      value: 16.243
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -38861,7 +38896,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.0045815
+      value: 21.414501
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -40143,7 +40178,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh58658
+  m_Name: pb_Mesh38514
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -41748,6 +41783,16 @@ PrefabInstance:
       propertyPath: startDelay
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7780238659214071540, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
       propertyPath: m_Name
@@ -42653,12 +42698,12 @@ PrefabInstance:
     - target: {fileID: 8198461654503883733, guid: 32ce07cd4087b451790709c0f722a42c,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.6149962
       objectReference: {fileID: 0}
     - target: {fileID: 8198461654503883733, guid: 32ce07cd4087b451790709c0f722a42c,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 3.0000029
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32ce07cd4087b451790709c0f722a42c, type: 3}
@@ -43084,6 +43129,16 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnImmediate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.g
+      value: 0.24642372
       objectReference: {fileID: 0}
     - target: {fileID: 7780238659214071540, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
@@ -44191,6 +44246,16 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnImmediate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6242916664931941807, guid: a805f722551f9412e9ba37c476d70553,
+        type: 3}
+      propertyPath: indicatorColor.g
+      value: 0.24642372
       objectReference: {fileID: 0}
     - target: {fileID: 7780238659214071540, guid: a805f722551f9412e9ba37c476d70553,
         type: 3}
@@ -47801,7 +47866,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 21.569998
+      value: 18.918
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -47846,7 +47911,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.0045815
+      value: 16.141647
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -47863,15 +47928,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall 2
       objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141366, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: texture
+      value: 
+      objectReference: {fileID: 2800000, guid: df819de5933250a459216ad99e4bae23, type: 3}
     - target: {fileID: 8422230964014141367, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: startColor.r
-      value: 1
+      value: 0.7490196
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141367, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: startColor.g
-      value: 0.7817019
+      value: 0.0077310465
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141367, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -48817,7 +48887,7 @@ PrefabInstance:
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.49
+      value: 24.46
       objectReference: {fileID: 0}
     - target: {fileID: 8422230964014141364, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
@@ -48879,6 +48949,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8422230964014141366, guid: e1a1623758b4c41578c1d5c211af9c71,
+        type: 3}
+      propertyPath: texture
+      value: 
+      objectReference: {fileID: 2800000, guid: df819de5933250a459216ad99e4bae23, type: 3}
     - target: {fileID: 8422230964014141367, guid: e1a1623758b4c41578c1d5c211af9c71,
         type: 3}
       propertyPath: startColor.r
