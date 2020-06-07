@@ -5,8 +5,8 @@ public class AudioManager : MonoBehaviour
 {
     public enum AudioType
     {
-        BGM_Rain, BGM_Stage1,
-        SE_Droplet, SE_PlayerRun, SE_Switch, SE_MoveObstacle
+        BGM_Rain, BGM_Stage1, BGM_Stage2,
+        SE_Droplet, SE_PlayerRun, SE_PlayerJump, SE_PlayerLand, SE_Switch, SE_MoveObstacle
     }
 
     [System.Serializable]

@@ -30,9 +30,12 @@ public class PlayerController : MonoBehaviour
     private bool inDragRange;
     private bool isDragging;                    // is true when drag keybind is pressed
     private bool isColliding;
+    private bool playLandAudio;
     private Vector3 dragStartDiff;
 
     private AudioSource audioRun;
+    private AudioSource audioJump;
+    private AudioSource audioLand;
     private AudioSource audioDrag;
 
 
@@ -67,6 +70,8 @@ public class PlayerController : MonoBehaviour
 
         AudioManager manager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         audioRun = manager.GetAudioSourceByType(AudioManager.AudioType.SE_PlayerRun);
+        audioJump = manager.GetAudioSourceByType(AudioManager.AudioType.SE_PlayerJump);
+        audioLand = manager.GetAudioSourceByType(AudioManager.AudioType.SE_PlayerLand);
         audioDrag = manager.GetAudioSourceByType(AudioManager.AudioType.SE_MoveObstacle);
 
         isDragging = false;
@@ -119,6 +124,14 @@ public class PlayerController : MonoBehaviour
         else if (audioDrag.isPlaying && (moveDirection == Vector3.zero || !dragRigidbody))
             audioDrag.Stop();
 
+        // play land audio once
+        if (!isJumping && playLandAudio)
+        {
+            playLandAudio = false;
+            if (!audioLand.isPlaying)
+                audioLand.Play();
+        }
+
         // rotate to moving direction
         if (!dragRigidbody && moveDirection != Vector3.zero)
         {
@@ -135,6 +148,7 @@ public class PlayerController : MonoBehaviour
 
         if (isJumping)
         {
+            playLandAudio = true;
             dirtParticle.Stop();
 
             curCoyoteTime += Time.deltaTime;
@@ -193,12 +207,11 @@ public class PlayerController : MonoBehaviour
     {
         if(!dragRigidbody && (IsGrounded() || curCoyoteTime <= coyoteTime))
         {
+            audioJump.Play();
+
             curCoyoteTime += coyoteTime;
             gravity.y = jumpHeight;
             isJumping = true;
-
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! kadokawa test Play jump se
-            GetComponent<AudioSource>().Play();
         }
     }
 

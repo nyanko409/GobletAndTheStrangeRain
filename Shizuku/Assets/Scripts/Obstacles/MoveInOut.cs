@@ -41,7 +41,6 @@ public class MoveInOut : MonoBehaviour
         }
 
         transform.position = startPosition + dir * distanceTraveled;
-        print(transform.position);
     }
 
     public void MoveOut()
