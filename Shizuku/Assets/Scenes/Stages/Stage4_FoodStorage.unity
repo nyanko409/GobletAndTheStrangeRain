@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6356,7 +6356,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1296973234
 PrefabInstance:
@@ -6584,7 +6584,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-1828
+  m_Name: pb_Mesh-11090
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7527,7 +7527,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-2084
+  m_Name: pb_Mesh-11346
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10189,12 +10189,12 @@ PrefabInstance:
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 14
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 14
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
