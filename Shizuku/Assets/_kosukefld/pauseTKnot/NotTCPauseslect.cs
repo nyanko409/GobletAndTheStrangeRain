@@ -4,12 +4,12 @@ using UnityEngine.UI;
 public class NotTCPauseslect : MonoBehaviour
 {
 
-    public Posenext Posenext;
+    public NotTK Posenext;
     public Image CLdata;
     public RectTransform data;
     public GameObject pose;
     public GameObject Continue;
-    public GameObject restart;
+   // public GameObject restart;
     public GameObject check;
     public GameObject remap;
     public GameObject back;
@@ -91,7 +91,7 @@ public class NotTCPauseslect : MonoBehaviour
 
         pose.SetActive(x);
         Continue.SetActive(x);
-        restart.SetActive(x);
+       // restart.SetActive(x);
         check.SetActive(x);
         remap.SetActive(x);
         back.SetActive(x);
@@ -202,20 +202,20 @@ public class NotTCPauseslect : MonoBehaviour
             if (downPressed && nextselect == 3 && Bcheck == true)
             {
                 downPressed = false;
-                nextselect = 4;
-
-            }
-            if (downPressed && nextselect == 4 && Bcheck == true)
-            {
-                downPressed = false;
                 nextselect = 1;
 
             }
+            //if (downPressed && nextselect == 4 && Bcheck == true)
+            //{
+            //    downPressed = false;
+            //    nextselect = 1;
+
+            //}
 
             if (upPressed && nextselect == 1 && Bcheck == true)
             {
                 upPressed = false;
-                nextselect = 4;
+                nextselect = 3;
 
             }
             if (upPressed && nextselect == 2 && Bcheck == true)
@@ -230,13 +230,13 @@ public class NotTCPauseslect : MonoBehaviour
                 nextselect = 2;
 
             }
-            if (upPressed && nextselect == 4 && Bcheck == true)
-            {
-                upPressed = false;
-                nextselect = 3;
+            //if (upPressed && nextselect == 4 && Bcheck == true)
+            //{
+            //    upPressed = false;
+            //    nextselect = 3;
 
 
-            }
+            //}
             // Debug.Log(Bcount);
             switch (BSTcount)
             {
@@ -260,7 +260,7 @@ public class NotTCPauseslect : MonoBehaviour
                         BSTcount = 1;
                         BCcheck = true;
                         Bpospast = Bpos;
-                        Bposnext = 64;
+                        Bposnext = 67;
                         Bsizepast = size;
                         Bsizenext = 200;
                     }
@@ -272,7 +272,7 @@ public class NotTCPauseslect : MonoBehaviour
                         BSTcount = 1;
                         BCcheck = true;
                         Bpospast = Bpos;
-                        Bposnext = -21;
+                        Bposnext = -40;
                         Bsizepast = size;
                         Bsizenext = 500;
                     }
@@ -284,23 +284,23 @@ public class NotTCPauseslect : MonoBehaviour
                         BSTcount = 1;
                         BCcheck = true;
                         Bpospast = Bpos;
-                        Bposnext = -108;
+                        Bposnext = -148;
                         Bsizepast = size;
                         Bsizenext = 400;
                     }
                     break;
-                case 4:
-                    if (!BCcheck)
-                    {
-                        Bcount = 0;
-                        BSTcount = 1;
-                        BCcheck = true;
-                        Bpospast = Bpos;
-                        Bposnext = -195;
-                        Bsizepast = size;
-                        Bsizenext = 400;
-                    }
-                    break;
+                //case 4:
+                //    if (!BCcheck)
+                //    {
+                //        Bcount = 0;
+                //        BSTcount = 1;
+                //        BCcheck = true;
+                //        Bpospast = Bpos;
+                //        Bposnext = -195;
+                //        Bsizepast = size;
+                //        Bsizenext = 400;
+                //    }
+                //    break;
             }
             time = 0;
         }

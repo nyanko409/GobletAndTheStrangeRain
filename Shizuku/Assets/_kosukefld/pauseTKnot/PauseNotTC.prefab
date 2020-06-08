@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26aec168127e1174bbd565e7ba7d0b5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  check: {fileID: 0}
+  check: {fileID: 4118095117837012912}
 --- !u!1 &5703582092821114244
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 4436293626885080760}
   - component: {fileID: 93871991787551111}
   - component: {fileID: 1525399903087401154}
+  - component: {fileID: 5675522780682470497}
   m_Layer: 5
   m_Name: continue
   m_TagString: Untagged
@@ -310,6 +311,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5675522780682470497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6819613274209983783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7a840542378167459dd45015510ceb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 4118095117837012912}
+  con: {fileID: 1525399903087401154}
+  res: {fileID: 0}
+  theck: {fileID: 3115203481826575510}
+  map: {fileID: 7084649503341984404}
+  back: {fileID: 2502085726933664502}
+  colorspeed: 0.05
 --- !u!1 &7858586566357579218
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,14 +496,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8d3c1af62e6f274d911f448f096d6eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Posenext: {fileID: 0}
-  CLdata: {fileID: 0}
-  data: {fileID: 0}
-  pose: {fileID: 0}
-  Continue: {fileID: 0}
+  Posenext: {fileID: 5675522780682470497}
+  CLdata: {fileID: 8604982609662275902}
+  data: {fileID: 8604982609662275896}
+  pose: {fileID: 7858586566357579218}
+  Continue: {fileID: 6819613274209983783}
   restart: {fileID: 0}
-  check: {fileID: 0}
-  remap: {fileID: 0}
-  back: {fileID: 0}
+  check: {fileID: 3050246414080180451}
+  remap: {fileID: 5703582092821114244}
+  back: {fileID: 5413367317169814129}
   colorspeed: 0.1
   countSpeed: 0.05
