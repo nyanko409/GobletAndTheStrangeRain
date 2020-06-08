@@ -7,6 +7,7 @@ public class Switch : MonoBehaviour
     public UnityEvent pressEvent;
     public UnityEvent releaseEvent;
 
+    private BoxCollider col;
     private AudioSource switchSource;
     private Vector3 startPos;
     private int overlap;
@@ -20,6 +21,7 @@ public class Switch : MonoBehaviour
 
     private void Start()
     {
+        col = GetComponent<BoxCollider>();
         switchSource = GameObject.FindGameObjectWithTag("AudioManager").
             GetComponent<AudioManager>().GetAudioSourceByType(AudioManager.AudioType.SE_Switch);
 
@@ -39,6 +41,7 @@ public class Switch : MonoBehaviour
             if (overlap == 1)
             {
                 pressEvent.Invoke();
+                col.center = new Vector3(col.center.x, col.center.y + pressHeight, col.center.z);
                 AudioSource.PlayClipAtPoint(switchSource.clip, transform.position, switchSource.volume);
             }
 
@@ -58,6 +61,7 @@ public class Switch : MonoBehaviour
             {
                 transform.position = startPos;
                 releaseEvent.Invoke();
+                col.center = new Vector3(col.center.x, col.center.y - pressHeight, col.center.z);
                 AudioSource.PlayClipAtPoint(switchSource.clip, transform.position, switchSource.volume);
             }
         }
