@@ -30,9 +30,16 @@ public class PlayerController : MonoBehaviour
     private bool inDragRange;
     private bool isDragging;                    // is true when drag keybind is pressed
     private bool isColliding;
+    private bool playLandAudio;
     private Vector3 dragStartDiff;
 
+    private float minHeightForLandAudio = 2;
+    private float curHeightForLandAudio;
+    private float oldYPosition;
+
     private AudioSource audioRun;
+    private AudioSource audioJump;
+    private AudioSource audioLand;
     private AudioSource audioDrag;
 
 
@@ -67,10 +74,15 @@ public class PlayerController : MonoBehaviour
 
         AudioManager manager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
         audioRun = manager.GetAudioSourceByType(AudioManager.AudioType.SE_PlayerRun);
+        audioJump = manager.GetAudioSourceByType(AudioManager.AudioType.SE_PlayerJump);
+        audioLand = manager.GetAudioSourceByType(AudioManager.AudioType.SE_PlayerLand);
         audioDrag = manager.GetAudioSourceByType(AudioManager.AudioType.SE_MoveObstacle);
 
         isDragging = false;
         IgnoreGravity = false;
+
+        oldYPosition = transform.position.y;
+        curHeightForLandAudio = 0;
     }
 
     private void Update()
@@ -135,10 +147,16 @@ public class PlayerController : MonoBehaviour
 
         if (isJumping)
         {
+            playLandAudio = true;
             dirtParticle.Stop();
 
             curCoyoteTime += Time.deltaTime;
 
+            if(gravity.y < 0)
+                curHeightForLandAudio += Mathf.Abs(transform.position.y - oldYPosition);
+            oldYPosition = transform.position.y;
+
+            // gravity
             gravity += Vector3.up * Physics.gravity.y * jumpFalloff * Time.fixedDeltaTime;
             if(gravity.y < 0)
             {
@@ -157,6 +175,15 @@ public class PlayerController : MonoBehaviour
 
             if(!jumpPressed)
                 curCoyoteTime = 0;
+
+            // play land audio once
+            if (playLandAudio && curHeightForLandAudio >= minHeightForLandAudio)
+            {
+                playLandAudio = false;
+                audioLand.Play();
+            }
+
+            curHeightForLandAudio = 0;
         }
 
         // ignore gravity if set by wind area
@@ -193,12 +220,12 @@ public class PlayerController : MonoBehaviour
     {
         if(!dragRigidbody && (IsGrounded() || curCoyoteTime <= coyoteTime))
         {
+            audioJump.Play();
+
             curCoyoteTime += coyoteTime;
+            curHeightForLandAudio = 0;
             gravity.y = jumpHeight;
             isJumping = true;
-
-            // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! kadokawa test Play jump se
-            GetComponent<AudioSource>().Play();
         }
     }
 

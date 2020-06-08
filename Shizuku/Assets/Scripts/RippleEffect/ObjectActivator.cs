@@ -13,7 +13,6 @@ public class ObjectActivator : MonoBehaviour
 
     private RippleEffectReceiver receiver;          // receiver object to check the color from
     private Vector3 startingScale;
-    private bool scalingApplied;
     private Tag tag;
     private bool isOverlapping;
     private MeshRenderer rend;                      // reference to the attached mesh renderer
@@ -58,14 +57,24 @@ public class ObjectActivator : MonoBehaviour
         receiverColor = GetNearestReceiverColor();
 
         // disable or enable the object depending on the nearest receiver color
-        if(mat.GetColor("_BaseColor").IsEqualTo(receiverColor))
+        bool isEnabling = UpdateTransition();
+
+        if(isEnabling && !isOverlapping)
+            transform.localScale = Vector3.Lerp(transform.localScale, startingScale, 0.1F);
+        else
+            transform.localScale = Vector3.Lerp(transform.localScale, startingScale * disabledScaleRatio, 0.1F);
+    }
+
+    private bool UpdateTransition()
+    {
+        if (mat.GetColor("_BaseColor").IsEqualTo(receiverColor))
         {
             if (!col.isTrigger)
             {
                 mat.shader = transparentShader;
                 rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 
-                if(rb)
+                if (rb)
                     rb.isKinematic = true;
 
                 col.isTrigger = true;
@@ -79,23 +88,18 @@ public class ObjectActivator : MonoBehaviour
                 curAlpha = Mathf.Clamp(curAlpha, minAlpha, 1);
                 mat.SetFloat("_Alpha", curAlpha);
             }
-            else if(!scalingApplied)
-            {
-                transform.localScale *= disabledScaleRatio;
-                scalingApplied = true;
-            }
+
+            return false;
         }
         else
         {
             // enable if it is not overlapping
             if (col.isTrigger && !isOverlapping)
             {
-                if(rb)
+                if (rb)
                     rb.isKinematic = false;
 
                 col.isTrigger = false;
-                transform.localScale = startingScale;
-                scalingApplied = false;
                 gameObject.layer = LayerMask.NameToLayer("Obstacle");
             }
 
@@ -111,6 +115,8 @@ public class ObjectActivator : MonoBehaviour
                     rend.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
                 }
             }
+
+            return true;
         }
     }
 
