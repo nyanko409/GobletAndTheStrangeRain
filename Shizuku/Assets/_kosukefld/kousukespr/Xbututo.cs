@@ -8,11 +8,12 @@ public class Xbututo : MonoBehaviour
     public TestTL2 CK;
     public Image image;
     public Image WT;
+    public Image WT2;
 
 
     void Start()
     {
-        WT.color = new Color32(255, 255, 255, 0);
+        //WT.color = new Color32(255, 255, 255, 0);
         image.color = new Color32(255,255,255,0);
     }
     void Update()
@@ -21,14 +22,7 @@ public class Xbututo : MonoBehaviour
 
             if (CK.CK2()==true)
         {
-            if (sabu.HasWater() == false)
-            {
-                WT.color = new Color32(255, 255, 255, 0);
-            }
-            else
-            {
-                WT.color = new Color32(255, 255, 255, 255);
-            }
+            
 
             image.color = new Color32(255, 255, 255, 255);
             if (data.IsInDragRange())
@@ -39,6 +33,16 @@ public class Xbututo : MonoBehaviour
             {
                 image.enabled = false;
             }
+        }
+        if (sabu.CanDrop())
+        {
+            WT.enabled = true;
+            WT2.enabled = true;
+        }
+        else
+        {
+            WT.enabled = false;
+            WT2.enabled = false;
         }
     }
 }
