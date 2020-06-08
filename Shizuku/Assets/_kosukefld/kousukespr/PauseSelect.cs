@@ -289,18 +289,18 @@ public class PauseSelect : MonoBehaviour
                         Bsizenext = 400;
                     }
                     break;
-                //case 4:
-                //    if (!BCcheck)
-                //    {
-                //        Bcount = 0;
-                //        BSTcount = 1;
-                //        BCcheck = true;
-                //        Bpospast = Bpos;
-                //        Bposnext = -195;
-                //        Bsizepast = size;
-                //        Bsizenext = 400;
-                //    }
-                //    break;
+                case 4:
+                    if (!BCcheck)
+                    {
+                        Bcount = 0;
+                        BSTcount = 1;
+                        BCcheck = true;
+                        Bpospast = Bpos;
+                        Bposnext = -195;
+                        Bsizepast = size;
+                        Bsizenext = 400;
+                    }
+                    break;
             }
             time = 0;
         }
