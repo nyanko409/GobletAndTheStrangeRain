@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Pauseback : MonoBehaviour
 {
-    public NotTCPauseslect check;
+    public PauseSelect check;
 
     private RectTransform data;
 
