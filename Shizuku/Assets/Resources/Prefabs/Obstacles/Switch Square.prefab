@@ -173,7 +173,7 @@ MonoBehaviour:
       m_SwapUV: 0
       m_Fill: 1
       m_Scale: {x: 1, y: 1}
-      m_Offset: {x: 0, y: 3.13661}
+      m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
     m_Material: {fileID: 0}
@@ -250,10 +250,10 @@ MonoBehaviour:
   - {x: -0.76203424, y: 0.5}
   - {x: -0.26203424, y: 0.6}
   - {x: -0.76203424, y: 0.6}
-  - {x: 0.29215282, y: 0.7049973}
-  - {x: 0.6783223, y: 0.7049973}
-  - {x: 0.29215282, y: 0.2892258}
-  - {x: 0.6783223, y: 0.2892258}
+  - {x: 0, y: 1}
+  - {x: 1, y: 1}
+  - {x: 0, y: 0}
+  - {x: 1, y: 0}
   - {x: -0.76203424, y: 0}
   - {x: -1.2620342, y: 0}
   - {x: -0.76203424, y: 0.5}
@@ -294,9 +294,17 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_IsSelectable: 1
-  m_SelectedFaces: 
-  m_SelectedEdges: []
-  m_SelectedVertices: 
+  m_SelectedFaces: 04000000
+  m_SelectedEdges:
+  - a: 16
+    b: 17
+  - a: 18
+    b: 16
+  - a: 17
+    b: 19
+  - a: 19
+    b: 18
+  m_SelectedVertices: 10000000110000001200000013000000
 --- !u!65 &6902371382697532194
 BoxCollider:
   m_ObjectHideFlags: 0
