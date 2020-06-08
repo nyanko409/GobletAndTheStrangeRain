@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseSelect : MonoBehaviour
+public class NotTCPauseslect : MonoBehaviour
 {
 
     public Posenext Posenext;
@@ -33,8 +33,8 @@ public class PauseSelect : MonoBehaviour
 
     float size;
     int BSTcount;
-    float Bcount=0;
-    float Bcountspeed=0.2f;
+    float Bcount = 0;
+    float Bcountspeed = 0.2f;
     float Bpos = 0;
     float Bposnext;
     float Bsizenext;
@@ -59,7 +59,7 @@ public class PauseSelect : MonoBehaviour
         actions.UIPauseMenu.NavigateDown.canceled += context => downPressed = false;
     }
 
-    
+
     public float BposCK()
     {
         return Bposnext;
@@ -68,7 +68,7 @@ public class PauseSelect : MonoBehaviour
     {
         return Bsizenext;
     }
-   public float CL()
+    public float CL()
     {
         return count;
     }
@@ -103,18 +103,18 @@ public class PauseSelect : MonoBehaviour
         //main.SetActive(false);
         data = GetComponent<RectTransform>();
         data.sizeDelta = new Vector2(0, 0);
-        data.anchoredPosition = new Vector2(0,0);
+        data.anchoredPosition = new Vector2(0, 0);
     }
 
 
     void Update()
     {
-       // Debug.Log(Time.fixedDeltaTime);
+        // Debug.Log(Time.fixedDeltaTime);
         time += 0.016f;
         if (time >= 0.01f)
         {
 
-            
+
             data.sizeDelta = new Vector2(nowW, nowH);
             nowW = Mathf.Lerp(0, Wmax, SZcount);
             nowH = Mathf.Lerp(0, Hmax, SZcount);
@@ -126,7 +126,7 @@ public class PauseSelect : MonoBehaviour
                 pausePressed = false;
                 Bcheck = !Bcheck;
                 Time.timeScale = Bcheck ? 0 : 1;
-               // Debug.Log(check);
+                // Debug.Log(check);
             }
 
             if (Bcheck == true)
@@ -188,7 +188,7 @@ public class PauseSelect : MonoBehaviour
             {
                 downPressed = false;
                 nextselect = 2;
-               
+
 
             }
 
@@ -196,48 +196,48 @@ public class PauseSelect : MonoBehaviour
             {
                 downPressed = false;
                 nextselect = 3;
-              
+
             }
 
             if (downPressed && nextselect == 3 && Bcheck == true)
             {
                 downPressed = false;
                 nextselect = 4;
-               
+
             }
             if (downPressed && nextselect == 4 && Bcheck == true)
             {
                 downPressed = false;
                 nextselect = 1;
-            
+
             }
 
             if (upPressed && nextselect == 1 && Bcheck == true)
             {
                 upPressed = false;
                 nextselect = 4;
-           
+
             }
             if (upPressed && nextselect == 2 && Bcheck == true)
             {
                 upPressed = false;
                 nextselect = 1;
-             
+
             }
             if (upPressed && nextselect == 3 && Bcheck == true)
             {
                 upPressed = false;
                 nextselect = 2;
-          
+
             }
             if (upPressed && nextselect == 4 && Bcheck == true)
             {
                 upPressed = false;
                 nextselect = 3;
-            
+
 
             }
-           // Debug.Log(Bcount);
+            // Debug.Log(Bcount);
             switch (BSTcount)
             {
                 case 1:
@@ -255,15 +255,15 @@ public class PauseSelect : MonoBehaviour
             {
                 case 1:
                     if (!BCcheck)
-                  {
-                    Bcount = 0;
+                    {
+                        Bcount = 0;
                         BSTcount = 1;
                         BCcheck = true;
                         Bpospast = Bpos;
                         Bposnext = 64;
                         Bsizepast = size;
                         Bsizenext = 200;
-                        }
+                    }
                     break;
                 case 2:
                     if (!BCcheck)
@@ -289,18 +289,18 @@ public class PauseSelect : MonoBehaviour
                         Bsizenext = 400;
                     }
                     break;
-                //case 4:
-                //    if (!BCcheck)
-                //    {
-                //        Bcount = 0;
-                //        BSTcount = 1;
-                //        BCcheck = true;
-                //        Bpospast = Bpos;
-                //        Bposnext = -195;
-                //        Bsizepast = size;
-                //        Bsizenext = 400;
-                //    }
-                //    break;
+                case 4:
+                    if (!BCcheck)
+                    {
+                        Bcount = 0;
+                        BSTcount = 1;
+                        BCcheck = true;
+                        Bpospast = Bpos;
+                        Bposnext = -195;
+                        Bsizepast = size;
+                        Bsizenext = 400;
+                    }
+                    break;
             }
             time = 0;
         }
