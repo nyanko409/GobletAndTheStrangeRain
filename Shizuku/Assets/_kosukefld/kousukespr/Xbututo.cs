@@ -21,14 +21,7 @@ public class Xbututo : MonoBehaviour
 
             if (CK.CK2()==true)
         {
-            if (sabu.HasWater() == false)
-            {
-                WT.color = new Color32(255, 255, 255, 0);
-            }
-            else
-            {
-                WT.color = new Color32(255, 255, 255, 255);
-            }
+            
 
             image.color = new Color32(255, 255, 255, 255);
             if (data.IsInDragRange())
@@ -39,6 +32,14 @@ public class Xbututo : MonoBehaviour
             {
                 image.enabled = false;
             }
+        }
+        if (!sabu.CanDrop())
+        {
+            WT.color = new Color32(255, 255, 255, 0);
+        }
+        else
+        {
+            WT.color = new Color32(255, 255, 255, 255);
         }
     }
 }
