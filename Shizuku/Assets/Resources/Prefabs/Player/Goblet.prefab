@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 2, y: 0.01, z: 2}
   m_Children: []
   m_Father: {fileID: 4247119308154485264}
-  m_RootOrder: 4
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &955616197
 MeshFilter:
@@ -237,10 +237,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9190290261477370900}
+  - {fileID: 955616195}
+  - {fileID: 4575475255224190742}
   - {fileID: 845490665487359895}
   - {fileID: 3436381435082729250}
-  - {fileID: 4575475255224190742}
-  - {fileID: 955616195}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -966,7 +966,7 @@ Transform:
   - {fileID: 7336955754104762360}
   - {fileID: 6431444244499326267}
   m_Father: {fileID: 4247119308154485264}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!137 &3709950034934216365
 SkinnedMeshRenderer:
@@ -1092,7 +1092,7 @@ Transform:
   - {fileID: 6786516780227110393}
   - {fileID: 1212538432041389637}
   m_Father: {fileID: 4247119308154485264}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4599153294667449747
 GameObject:
@@ -1591,7 +1591,7 @@ PrefabInstance:
     - target: {fileID: 4575475256425415452, guid: 16f0231c13ee0994da40027a970c633f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4575475256425415452, guid: 16f0231c13ee0994da40027a970c633f,
         type: 3}
@@ -1620,15 +1620,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16f0231c13ee0994da40027a970c633f, type: 3}
---- !u!4 &4575475255224190742 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4575475256425415452, guid: 16f0231c13ee0994da40027a970c633f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1273611274}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &4575475255224190740 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4575475256425415454, guid: 16f0231c13ee0994da40027a970c633f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1273611274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4575475255224190742 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4575475256425415452, guid: 16f0231c13ee0994da40027a970c633f,
     type: 3}
   m_PrefabInstance: {fileID: 1273611274}
   m_PrefabAsset: {fileID: 0}
