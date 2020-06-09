@@ -52,9 +52,9 @@ public class NextButton : MonoBehaviour
     void Start()
     {
        
-        textQ.color = new Color32(255, 255, 255, 0); 
-        textH.color = new Color32(255, 255, 255, 0);
-        textT.color = new Color32(255, 255, 255, 0);
+        textQ.color = new Color32(0, 0, 0, 0); 
+        textH.color = new Color32(0, 0, 0, 0);
+        textT.color = new Color32(0, 0, 0, 0);
 
         Audio = this.GetComponent<AudioSource>();
         //textH = this.GetComponent<Text>();
@@ -101,9 +101,9 @@ public class NextButton : MonoBehaviour
                     break;
             }
             backimage.color = new Color32(0, 255, 0, (byte)CL_A);
-            textH.color = new Color32(0,0,0,255);
-            textT.color = new Color32(0, 0, 0, 255);
-            textQ.color = new Color32(0, 0, 0, 255);
+            textH.color = new Color32(255,255,255,255);
+            textT.color = new Color32(255, 255, 255, 255);
+            textQ.color = new Color32(255, 255, 255, 255);
             switch (check.nextCK())
             {
                 case 1:

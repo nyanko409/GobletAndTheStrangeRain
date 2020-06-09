@@ -61,7 +61,7 @@ public class BackImage : MonoBehaviour
                         STcount = 1;
                         Ccheck = true;
                         pospast = pos;
-                        posnext = 155;
+                        posnext = 89;
                     }
                   
                 
@@ -75,7 +75,7 @@ public class BackImage : MonoBehaviour
                         STcount = 1;
                         Ccheck = true;
                         pospast = pos;
-                        posnext = -39;
+                        posnext = -117;
                     }
                 
                    
@@ -89,7 +89,7 @@ public class BackImage : MonoBehaviour
                         STcount = 1;
                         Ccheck = true;
                         pospast = pos;
-                        posnext = -249;
+                        posnext = -327;
                     }
                   
                   

@@ -15,6 +15,7 @@ public class TitleUI : MonoBehaviour
     public Image mizu;
     public Image RAIN;
     public Image BacLT;
+    public Image Bback;
     public GameObject starttext;
     public GameObject button;
     public GameObject button2;
@@ -30,8 +31,8 @@ public class TitleUI : MonoBehaviour
     int sizemaxW = 1;
     int sizemaxH = 1;
     int nextselect = 1;
-    public  float posxmin = -573;
-    public float posymin = 289;
+     float posxmin = 487;
+    float posymin = 324;
     float poscount = 0;
     float sizenowW = 1;
     float sizenowH = 1;
@@ -69,6 +70,7 @@ public class TitleUI : MonoBehaviour
     private void TLcolor(float x,float y,float z,float a)//x=bobre y=rain
     {
         bobre.color = new Color32(255, 255, 255, (byte)x);
+        Bback.color = new Color32(255, 255, 255, (byte)x);
         gobreaicn.color = new Color32(255, 255, 255, (byte)x);
         mizu.color = new Color32(255, 255, 255, (byte)a);
         RAIN.color = new Color32(255, 255, 255, (byte)y);
@@ -206,18 +208,20 @@ public class TitleUI : MonoBehaviour
 
             if (nextST == true)
             {
+                TLcolor(0,0,0,0);
+                if (sizecount > 0.4f)
+                {
+                    sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
+                    sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
+                    sizecount -= 0.03F;
+                }
                 if (poscount < 1)
                 {
                     nextsizex = Mathf.Lerp(0, posxmin, poscount);
                     nextsizey = Mathf.Lerp(62, posymin, poscount);
                     poscount += 0.05f;
                 }
-                if (sizecount>0.7f)
-                {
-                    sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
-                    sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
-                    sizecount -= 0.015F;
-                }
+              
             }
 
             if (startPressed && Titletest() && !buttoncheck)
@@ -227,10 +231,12 @@ public class TitleUI : MonoBehaviour
                nextST = true;
             }
             
-            if (sizecount<=0.7f)
+            if (sizecount<=0.4f)
             {
+                TLcolor(255, 255, 0, 255);
                 if (!buttoncheck)
                 {
+                    
                     buttoncheck = true;
                     button.SetActive(true);
                     button2.SetActive(true);
