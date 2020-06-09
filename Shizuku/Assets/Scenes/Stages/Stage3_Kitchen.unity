@@ -1322,7 +1322,7 @@ Transform:
   - {fileID: 596515891}
   - {fileID: 654150360}
   m_Father: {fileID: 519965636}
-  m_RootOrder: 16
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &139406657
 PrefabInstance:
@@ -1631,12 +1631,12 @@ PrefabInstance:
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
       propertyPath: m_SelectedEdges.Array.size
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
       propertyPath: m_SelectedVertices.Array.size
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
@@ -1686,7 +1686,7 @@ PrefabInstance:
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
       propertyPath: m_SelectedFaces.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
@@ -13837,7 +13837,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-54896
+  m_Name: pb_Mesh-850482
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15043,14 +15043,14 @@ Transform:
   - {fileID: 1914151192}
   - {fileID: 645734976}
   - {fileID: 1890356255}
-  - {fileID: 1971425168}
+  - {fileID: 813965638}
   - {fileID: 544342188}
   - {fileID: 988021653}
-  - {fileID: 131716202}
+  - {fileID: 1971425168}
   - {fileID: 2105227840}
   - {fileID: 1347876560}
   - {fileID: 1309282542}
-  - {fileID: 813965638}
+  - {fileID: 131716202}
   - {fileID: 1615614180}
   - {fileID: 915649393}
   - {fileID: 1862959483}
@@ -16520,8 +16520,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 19f9b89d6204c4abb9a36169ef91f6b1, type: 3}
 --- !u!4 &813965638 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8748192512390438958, guid: 19f9b89d6204c4abb9a36169ef91f6b1,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 813965637}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &861555863
@@ -24168,7 +24167,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 519965636}
-  m_RootOrder: 13
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &2016760506
 Mesh:
