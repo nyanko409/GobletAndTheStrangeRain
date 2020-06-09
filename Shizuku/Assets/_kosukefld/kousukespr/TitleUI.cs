@@ -139,7 +139,7 @@ public class TitleUI : MonoBehaviour
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
-           if(STBGM>=3.0)
+           if(STBGM>=2.0)
             {
                 if(!BGMS)
                 {
