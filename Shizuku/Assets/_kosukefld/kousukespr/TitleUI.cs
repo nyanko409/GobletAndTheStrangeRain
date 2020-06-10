@@ -21,6 +21,7 @@ public class TitleUI : MonoBehaviour
     public GameObject button2;
     public GameObject button3;
     public GameObject back;
+    public GameObject minititle;
 
     private RectTransform data;
 
@@ -40,11 +41,13 @@ public class TitleUI : MonoBehaviour
     float CL_now2 = 0;
     float CL_now3 = 255;
     float CL_now4 = 0;
+    float CL_now5 = 255;
     float sizecount = 1;
     float colorcount = 0;
     float colorcount2 = 0;
     float colorcount3 = 0;
     float colorcount4 = 0;
+    float colorcount5 = 0;
     float nextsizex = 0;
     float nextsizey = 62;
     float time = 0;
@@ -165,7 +168,7 @@ public class TitleUI : MonoBehaviour
             { 
                 if (nextST == false)
                 {
-                    if (colorcount3 < 1)
+                    if (colorcount4 < 1)
                     {
                         //sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
                         //sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
@@ -193,11 +196,11 @@ public class TitleUI : MonoBehaviour
                         colorcount2 += 0.01F;
                     }
                     //bacLT
-                    if (time2 >= 5.0f && colorcount3 < 1)
-                    {
-                        CL_now3 = Mathf.Lerp(255, 0, colorcount3);
-                        colorcount3 += 0.05f;
-                    }
+                    //if (time2 >= 5.0f && colorcount3 < 1)
+                    //{
+                    //    CL_now3 = Mathf.Lerp(255, 0, colorcount3);
+                    //    colorcount3 += 0.05f;
+                    //}
                     if (time2>=4.0f&&colorcount4<1)
                     {
                         CL_now4 = Mathf.Lerp(0, 24, colorcount4);
@@ -208,20 +211,50 @@ public class TitleUI : MonoBehaviour
 
             if (nextST == true)
             {
-                TLcolor(0,0,0,0);
-                if (sizecount > 0.4f)
+                TLcolor(CL_now3, CL_now3, CL_now5, CL_now3);
+                if ( colorcount3 < 1)
                 {
-                    sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
-                    sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
-                    sizecount -= 0.03F;
+                    CL_now3 = Mathf.Lerp(255, 0, colorcount3);
+                    colorcount3 += 0.01f;
                 }
-                if (poscount < 1)
+                else if(colorcount3>0)
                 {
-                    nextsizex = Mathf.Lerp(0, posxmin, poscount);
-                    nextsizey = Mathf.Lerp(62, posymin, poscount);
-                    poscount += 0.05f;
+                    CL_now3 = 0;
+                    if(colorcount5<1)
+                    {
+                        CL_now5 = Mathf.Lerp(255,0,colorcount5);
+                        colorcount5 += 0.05f;
+                    }
+                    else if(colorcount5>0)
+                    {
+                        CL_now5 = 0;
+                        if (!buttoncheck)
+                        {
+
+                            buttoncheck = true;
+                            minititle.SetActive(true);
+                            button.SetActive(true);
+                            button2.SetActive(true);
+                            button3.SetActive(true);
+                            back.SetActive(true);
+
+                        }
+                    }
                 }
-              
+                //TLcolor(0,0,0,0);
+                //if (sizecount > 0.4f)
+                //{
+                //    sizenowW = Mathf.Lerp(0, sizemaxW, sizecount);
+                //    sizenowH = Mathf.Lerp(0, sizemaxH, sizecount);
+                //    sizecount -= 0.03F;
+                //}
+                //if (poscount < 1)
+                //{
+                //    nextsizex = Mathf.Lerp(0, posxmin, poscount);
+                //    nextsizey = Mathf.Lerp(62, posymin, poscount);
+                //    poscount += 0.05f;
+                //}
+
             }
 
             if (startPressed && Titletest() && !buttoncheck)
@@ -234,16 +267,16 @@ public class TitleUI : MonoBehaviour
             if (sizecount<=0.4f)
             {
                 TLcolor(255, 255, 0, 255);
-                if (!buttoncheck)
-                {
+                //if (!buttoncheck)
+                //{
                     
-                    buttoncheck = true;
-                    button.SetActive(true);
-                    button2.SetActive(true);
-                    button3.SetActive(true);
-                    back.SetActive(true);
+                //    buttoncheck = true;
+                //    button.SetActive(true);
+                //    button2.SetActive(true);
+                //    button3.SetActive(true);
+                //    back.SetActive(true);
 
-                }
+                //}
             }
 
 
