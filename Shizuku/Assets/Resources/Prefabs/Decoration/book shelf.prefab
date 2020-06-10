@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7048660408918433418}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: book shelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7048660408918433418
 Transform:
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7048660408918433421}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: -0.59}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 674270335749651864}
@@ -146,6 +146,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861021497332913 stripped
@@ -230,6 +235,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 2 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
@@ -321,6 +331,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861021547376278 stripped
@@ -340,6 +355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -430,6 +450,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -586,6 +611,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861021268535271 stripped
@@ -605,6 +635,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -756,6 +791,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861021180004069 stripped
@@ -775,6 +815,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -860,6 +905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -1016,6 +1066,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861021411373456 stripped
@@ -1035,6 +1090,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -1126,6 +1186,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 1 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1216,6 +1281,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 1 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1300,6 +1370,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -1461,6 +1536,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861022023160524 stripped
@@ -1545,6 +1625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 2 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
@@ -1640,6 +1725,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -1791,6 +1881,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861021815288082 stripped
@@ -1810,6 +1905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -1966,6 +2066,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861021833144442 stripped
@@ -2056,6 +2161,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861021832589410 stripped
@@ -2141,6 +2251,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861020381368792 stripped
@@ -2160,6 +2275,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -2316,6 +2436,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861020406735135 stripped
@@ -2401,6 +2526,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861020588036821 stripped
@@ -2485,6 +2615,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 2 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
@@ -2576,6 +2711,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861020122859235 stripped
@@ -2660,6 +2800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 2 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
@@ -2751,6 +2896,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861020282661225 stripped
@@ -2770,6 +2920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -2855,6 +3010,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -3016,6 +3176,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861020706394617 stripped
@@ -3035,6 +3200,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -3125,6 +3295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 1 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6832519045907654388, guid: 609f8524c732240878f6c95e5a46163e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7533011481235576039, guid: 609f8524c732240878f6c95e5a46163e,
         type: 3}
@@ -3286,6 +3461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &7975861020743802141 stripped
@@ -3370,6 +3550,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
@@ -3460,6 +3645,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}

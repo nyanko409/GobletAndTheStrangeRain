@@ -20,7 +20,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5070352258890062136
 Transform:
@@ -367,7 +367,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5783793956133131777
 Transform:
@@ -714,7 +714,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4677236435091281862
 Transform:
@@ -1061,7 +1061,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8488915963286100384
 Transform:
@@ -1408,7 +1408,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4986506186865449430
 Transform:
@@ -2115,7 +2115,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3415938504154121591
 Transform:
@@ -2811,12 +2811,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7484855186221921429}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: No book shelf B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7484855186221921429
 Transform:
@@ -2873,7 +2873,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5068302866522793132
 Transform:
@@ -3580,7 +3580,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &3242848883719127825
 Transform:
@@ -3927,7 +3927,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1062169901555526348
 Transform:
@@ -4274,7 +4274,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &1674345954435005800
 Transform:
@@ -4621,7 +4621,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &832551375532520045
 Transform:
@@ -4968,7 +4968,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9096517430365567566
 Transform:
@@ -5315,7 +5315,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7151877145629483338
 Transform:
@@ -6022,7 +6022,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9082631476068136787
 Transform:
@@ -6369,7 +6369,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &9082631477158847950
 Transform:
@@ -6763,6 +6763,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblet Vessel (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8604551781891367552, guid: a1655634738594b808a05ec6af1039ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1655634738594b808a05ec6af1039ad, type: 3}
 --- !u!4 &4555715025823140515 stripped
@@ -6913,6 +6918,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblet Vessel (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8604551781891367552, guid: a1655634738594b808a05ec6af1039ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1655634738594b808a05ec6af1039ad, type: 3}
 --- !u!4 &4555715024955874601 stripped
@@ -6988,6 +6998,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblet Vessel (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8604551781891367552, guid: a1655634738594b808a05ec6af1039ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1655634738594b808a05ec6af1039ad, type: 3}
 --- !u!4 &4555715025132168333 stripped
@@ -7062,6 +7077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Goblet Vessel (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8604551781891367552, guid: a1655634738594b808a05ec6af1039ad,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1655634738594b808a05ec6af1039ad, type: 3}
