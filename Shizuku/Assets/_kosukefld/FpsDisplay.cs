@@ -24,6 +24,7 @@ public class FpsDisplay : MonoBehaviour
 
     void Update()
     {
+       
         frameCount++;
         float time = Time.realtimeSinceStartup - prevTime;
 

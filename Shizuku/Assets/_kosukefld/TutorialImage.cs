@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class TutorialImage : MonoBehaviour
 {
+    public GameObject Main;
     public GameObject Image1;
     public GameObject Image2;
     public GameObject Image3;
@@ -49,24 +50,27 @@ public class TutorialImage : MonoBehaviour
   
     void Update()
     {
-        Debug.Log(Time.deltaTime);
+        //Debug.Log(count);
        
         if(upPressed)
         {
             
             upPressed = false;
-            count += 1;
-            Debug.Log("check");
+            if (count < 8)
+            {
+                count += 1;
+            }
+            
         }
-        if(count>=8)
-        {
-            Time.timeScale = 1;
-        }
+      
         if(downPressed)
         {
             downPressed = false;
-            count -= 1;
-            Debug.Log("Bcheck");
+            if (count>1)
+            {
+                count -= 1;
+            }
+           
         }
        
         switch(count)
@@ -94,6 +98,9 @@ public class TutorialImage : MonoBehaviour
                 break;
             case 8:
                 ImageCK(false, false, false, false, false, false, false);
+                Time.timeScale = 1;
+                Main.SetActive(false);
+                
                 break;
             default:
                 break;
