@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4586977062309944806}
   - component: {fileID: 4586977060836562994}
   - component: {fileID: 4586977060836562995}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 1 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4586977062803015748}
   - component: {fileID: 4586977060876020397}
   - component: {fileID: 4586977060876020398}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 4586977061020589560}
   - component: {fileID: 4586977060915434920}
   - component: {fileID: 4586977060915434921}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 1 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2419,7 +2419,7 @@ GameObject:
   - component: {fileID: 4586977062064030403}
   - component: {fileID: 4586977061263541490}
   - component: {fileID: 4586977061263541491}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Goblet Vessel (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2498,7 +2498,7 @@ GameObject:
   - component: {fileID: 4586977062079587124}
   - component: {fileID: 4586977061445648026}
   - component: {fileID: 4586977061445648027}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 2 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2577,7 +2577,7 @@ GameObject:
   - component: {fileID: 4586977062066194152}
   - component: {fileID: 4586977061464818581}
   - component: {fileID: 4586977061464818582}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 1 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3003,7 +3003,7 @@ GameObject:
   - component: {fileID: 4586977062414891987}
   - component: {fileID: 4586977061664752249}
   - component: {fileID: 4586977061664752250}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Goblet Vessel (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3082,7 +3082,7 @@ GameObject:
   - component: {fileID: 4586977061413732368}
   - component: {fileID: 4586977061759604509}
   - component: {fileID: 4586977061759604510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 1 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3948,7 +3948,7 @@ GameObject:
   - component: {fileID: 4586977062357777066}
   - component: {fileID: 4586977061994679512}
   - component: {fileID: 4586977061994679513}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Goblet Vessel (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4372,12 +4372,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4586977062192665595}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shelf B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4586977062192665595
 Transform:
@@ -4432,7 +4432,7 @@ GameObject:
   - component: {fileID: 4586977061416859544}
   - component: {fileID: 4586977062217901336}
   - component: {fileID: 4586977062217901337}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Goblet Vessel (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4511,7 +4511,7 @@ GameObject:
   - component: {fileID: 4586977061790313864}
   - component: {fileID: 4586977062288628001}
   - component: {fileID: 4586977062288628002}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4590,7 +4590,7 @@ GameObject:
   - component: {fileID: 4586977061461495271}
   - component: {fileID: 4586977062413087648}
   - component: {fileID: 4586977062413087649}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Goblet Vessel (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4669,7 +4669,7 @@ GameObject:
   - component: {fileID: 4586977061652341241}
   - component: {fileID: 4586977062523944821}
   - component: {fileID: 4586977062523944822}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 2 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5440,7 +5440,7 @@ GameObject:
   - component: {fileID: 4586977060967717474}
   - component: {fileID: 4586977062838346246}
   - component: {fileID: 4586977062838346247}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 1 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5585,6 +5585,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}
 --- !u!4 &3519030160872347074 stripped
@@ -5604,6 +5609,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shorui
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592169294812866396, guid: 0b985730e65f54d23b6e754f2a1a1d7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3592169294812866399, guid: 0b985730e65f54d23b6e754f2a1a1d7d,
         type: 3}
@@ -5764,6 +5774,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Book 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117826919966797713, guid: 11eec74bc24b54d0aa6b5c253087331e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11eec74bc24b54d0aa6b5c253087331e, type: 3}

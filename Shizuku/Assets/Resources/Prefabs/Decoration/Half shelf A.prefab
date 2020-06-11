@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2779415760804674507}
-  m_Layer: 0
-  m_Name: half Shelf
+  m_Layer: 10
+  m_Name: Half shelf A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &2779415760804674507
 Transform:
@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 9062635383387201446}
   - component: {fileID: 9062635383387201440}
   - component: {fileID: 9062635383387201441}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 2 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 9062635383501766479}
   - component: {fileID: 9062635383501766473}
   - component: {fileID: 9062635383501766478}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Goblet Vessel (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -904,7 +904,7 @@ GameObject:
   - component: {fileID: 9062635384491152643}
   - component: {fileID: 9062635384491152669}
   - component: {fileID: 9062635384491152642}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 1 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1675,7 +1675,7 @@ GameObject:
   - component: {fileID: 9062635385009212137}
   - component: {fileID: 9062635385009212139}
   - component: {fileID: 9062635385009212136}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Goblet Vessel (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1754,7 +1754,7 @@ GameObject:
   - component: {fileID: 9062635385036174329}
   - component: {fileID: 9062635385036174331}
   - component: {fileID: 9062635385036174328}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Book 1 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2273,6 +2273,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shorui (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3592169294812866396, guid: 0b985730e65f54d23b6e754f2a1a1d7d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3592169294812866399, guid: 0b985730e65f54d23b6e754f2a1a1d7d,
         type: 3}
