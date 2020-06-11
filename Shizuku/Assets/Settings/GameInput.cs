@@ -824,6 +824,74 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Tutorial Menu"",
+            ""id"": ""6f5526b2-8ed5-43d3-b67c-a3f88358a2d3"",
+            ""actions"": [
+                {
+                    ""name"": ""NextUI"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a15a246-0aaa-412d-8c46-0ee60835d2ce"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""BackUI"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba154d66-0c91-470b-94aa-23eb3d32f0bc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""68babee7-d9e9-4840-8349-0ac58d46e691"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7467776a-61c8-4662-bdd0-653c6bc7cf2d"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94fa863c-b88d-484e-bf98-1f59b22411a8"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BackUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2dae80ca-14ee-4c74-86b7-61af6c684885"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BackUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -916,6 +984,10 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_UIPauseMenu_Confirm = m_UIPauseMenu.FindAction("Confirm", throwIfNotFound: true);
         m_UIPauseMenu_leftstick = m_UIPauseMenu.FindAction("leftstick", throwIfNotFound: true);
         m_UIPauseMenu_rightstick = m_UIPauseMenu.FindAction("rightstick", throwIfNotFound: true);
+        // Tutorial Menu
+        m_TutorialMenu = asset.FindActionMap("Tutorial Menu", throwIfNotFound: true);
+        m_TutorialMenu_NextUI = m_TutorialMenu.FindAction("NextUI", throwIfNotFound: true);
+        m_TutorialMenu_BackUI = m_TutorialMenu.FindAction("BackUI", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1213,6 +1285,47 @@ public class @GameInput : IInputActionCollection, IDisposable
         }
     }
     public UIPauseMenuActions @UIPauseMenu => new UIPauseMenuActions(this);
+
+    // Tutorial Menu
+    private readonly InputActionMap m_TutorialMenu;
+    private ITutorialMenuActions m_TutorialMenuActionsCallbackInterface;
+    private readonly InputAction m_TutorialMenu_NextUI;
+    private readonly InputAction m_TutorialMenu_BackUI;
+    public struct TutorialMenuActions
+    {
+        private @GameInput m_Wrapper;
+        public TutorialMenuActions(@GameInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @NextUI => m_Wrapper.m_TutorialMenu_NextUI;
+        public InputAction @BackUI => m_Wrapper.m_TutorialMenu_BackUI;
+        public InputActionMap Get() { return m_Wrapper.m_TutorialMenu; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(TutorialMenuActions set) { return set.Get(); }
+        public void SetCallbacks(ITutorialMenuActions instance)
+        {
+            if (m_Wrapper.m_TutorialMenuActionsCallbackInterface != null)
+            {
+                @NextUI.started -= m_Wrapper.m_TutorialMenuActionsCallbackInterface.OnNextUI;
+                @NextUI.performed -= m_Wrapper.m_TutorialMenuActionsCallbackInterface.OnNextUI;
+                @NextUI.canceled -= m_Wrapper.m_TutorialMenuActionsCallbackInterface.OnNextUI;
+                @BackUI.started -= m_Wrapper.m_TutorialMenuActionsCallbackInterface.OnBackUI;
+                @BackUI.performed -= m_Wrapper.m_TutorialMenuActionsCallbackInterface.OnBackUI;
+                @BackUI.canceled -= m_Wrapper.m_TutorialMenuActionsCallbackInterface.OnBackUI;
+            }
+            m_Wrapper.m_TutorialMenuActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @NextUI.started += instance.OnNextUI;
+                @NextUI.performed += instance.OnNextUI;
+                @NextUI.canceled += instance.OnNextUI;
+                @BackUI.started += instance.OnBackUI;
+                @BackUI.performed += instance.OnBackUI;
+                @BackUI.canceled += instance.OnBackUI;
+            }
+        }
+    }
+    public TutorialMenuActions @TutorialMenu => new TutorialMenuActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -1288,5 +1401,10 @@ public class @GameInput : IInputActionCollection, IDisposable
         void OnConfirm(InputAction.CallbackContext context);
         void OnLeftstick(InputAction.CallbackContext context);
         void OnRightstick(InputAction.CallbackContext context);
+    }
+    public interface ITutorialMenuActions
+    {
+        void OnNextUI(InputAction.CallbackContext context);
+        void OnBackUI(InputAction.CallbackContext context);
     }
 }
