@@ -278,7 +278,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 359405098}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.1509174, y: 2.7980623, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -292,7 +292,7 @@ Transform:
   - {fileID: 747916351}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &359405101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +308,7 @@ MonoBehaviour:
   stageText: {fileID: 500443306}
   unlockedColor: {r: 0, g: 0, b: 0, a: 0}
   lockedColor: {r: 0, g: 0, b: 0, a: 0.88235295}
+  selectedColor: {r: 0.66981137, g: 1, b: 0.5990566, a: 0.15686275}
   stages:
   - {fileID: 11400000, guid: 9ca6799e1dfd54090bf315b5c2482e70, type: 2}
   - {fileID: 11400000, guid: 7791d0874052c4a5ba7e5bc5a23b3d84, type: 2}
