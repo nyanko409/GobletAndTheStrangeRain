@@ -97,6 +97,7 @@ public class StageSelect : MonoBehaviour
             curStageIndex = oldStageIndex = 0;
 
         camPos = Camera.main.transform;
+        camPos.position = stageObjects[curStageIndex].transform.GetChild(0).position;
 
         DisplayNextStage();
     }
