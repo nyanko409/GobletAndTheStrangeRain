@@ -8,6 +8,7 @@ public class TitleUI : MonoBehaviour
     //public AudioSource SE;
     public PushAUI aui;
     public NextButton Nx;
+    public GameData GameData;
 
     public GameObject Title;
     public Image bobre;
@@ -31,7 +32,7 @@ public class TitleUI : MonoBehaviour
     int CL_MAX = 255;
     int sizemaxW = 1;
     int sizemaxH = 1;
-    int nextselect = 1;
+    int nextselect ;
      float posxmin = 487;
     float posymin = 324;
     float poscount = 0;
@@ -231,7 +232,14 @@ public class TitleUI : MonoBehaviour
                         CL_now5 = 0;
                         if (!buttoncheck)
                         {
-
+                            if(GameData)
+                            {
+                                nextselect = 1;
+                            }
+                            else
+                            {
+                                nextselect = 2;
+                            }
                             buttoncheck = true;
                             minititle.SetActive(true);
                             button.SetActive(true);
