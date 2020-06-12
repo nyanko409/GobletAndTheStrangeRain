@@ -3,11 +3,12 @@ using UnityEngine.UI;
 
 public class StageSelect : MonoBehaviour
 {
-    public Text stageText;
+    public Image infoImage;
     public Color unlockedColor, lockedColor, selectedColor;
     [Space]
     public Stage[] stages;
     public GameObject[] stageObjects;
+    public Sprite[] stageInfoImages;
 
     static int curStageIndex = 0, oldStageIndex = 0;
     GameInput action;
@@ -102,7 +103,7 @@ public class StageSelect : MonoBehaviour
 
     private void DisplayNextStage()
     {
-        stageText.text = stages[curStageIndex].stageName;
+        infoImage.sprite = stageInfoImages[curStageIndex];
 
         rend[oldStageIndex].enabled = false;
         rend[curStageIndex].enabled = true;
