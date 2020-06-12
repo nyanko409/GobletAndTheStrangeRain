@@ -4,13 +4,13 @@ using UnityEngine.UI;
 public class StageSelect : MonoBehaviour
 {
     public Text stageText;
-    public Color unlockedColor, lockedColor;
+    public Color unlockedColor, lockedColor, selectedColor;
     [Space]
     public Stage[] stages;
     public GameObject[] stageObjects;
 
+    static int curStageIndex = 0, oldStageIndex = 0;
     GameInput action;
-    int curStageIndex, oldStageIndex;
     SpriteRenderer[] rend;
     Transform camPos;
 
@@ -92,7 +92,9 @@ public class StageSelect : MonoBehaviour
             }
         }
 
-        curStageIndex = oldStageIndex = 0;
+        if(stages[1].isLocked)
+            curStageIndex = oldStageIndex = 0;
+
         camPos = Camera.main.transform;
 
         DisplayNextStage();
@@ -104,6 +106,7 @@ public class StageSelect : MonoBehaviour
 
         rend[oldStageIndex].enabled = false;
         rend[curStageIndex].enabled = true;
+        rend[curStageIndex].color = selectedColor;
     }
 
     private void Update()
