@@ -12,7 +12,25 @@ public class TutorialImage : MonoBehaviour
     public GameObject Image6;
     public GameObject Image7;
 
+    public RectTransform data1;
+    public RectTransform data2;
+    public RectTransform data3;
+    public RectTransform data4;
+    public RectTransform data5;
+    public RectTransform data6;
+    public RectTransform data7;
+
+    float count1;
+    float count2;
+    float count3;
+    float count4;
+    float count5;
+    float count6;
+    float count7;
+
+    float woldtime;
     int count=1;
+    float pos1=2110;
     bool STCK = false;
 
     bool upPressed;
@@ -43,67 +61,80 @@ public class TutorialImage : MonoBehaviour
         
         void Start()
     {
+       
+
         Time.timeScale = 0;
-        ImageCK(true,false,false,false,false,false,false);
+        ImageCK(true,true, true, true, true, true, true);
     }
 
   
     void Update()
     {
         //Debug.Log(count);
-       
-        if(upPressed)
+        woldtime += 0.0015f;
+        if (woldtime >= 0.01f)
         {
-            
-            upPressed = false;
-            if (count < 8)
+            if (upPressed)
             {
-                count += 1;
+
+                upPressed = false;
+                if (count < 8)
+                {
+                    count += 1;
+                }
+
             }
-            
-        }
-      
-        if(downPressed)
-        {
-            downPressed = false;
-            if (count>1)
+
+            if (downPressed)
             {
-                count -= 1;
+                downPressed = false;
+                if (count > 1)
+                {
+                    count -= 1;
+                }
+
             }
-           
-        }
-       
-        switch(count)
-        {
-            case 1:
-                ImageCK(true, false, false, false, false, false, false);
-                break;
-            case 2:
-                ImageCK(false, true, false, false, false, false, false);
-                break;
-            case 3:
-                ImageCK(false, false, true, false, false, false, false);
-                break;
-            case 4:
-                ImageCK(false, false, false, true, false, false, false);
-                break;
-            case 5:
-                ImageCK(false, false, false, false, true, false, false);
-                break;
-            case 6:
-                ImageCK(false, false, false, false, false, true, false);
-                break;
-            case 7:
-                ImageCK(false, false, false, false, false, false, true);
-                break;
-            case 8:
-                ImageCK(false, false, false, false, false, false, false);
-                Time.timeScale = 1;
-                Main.SetActive(false);
-                
-                break;
-            default:
-                break;
+
+            switch (count)
+            {
+                case 1:
+                    // ImageCK(true, false, false, false, false, false, false);
+                    data1.anchoredPosition = new Vector2(pos1, 0);
+                    pos1 = Mathf.Lerp(2110, 0, count1);
+                    if (count1 <= 1)
+                    {
+                        count1 += 0.01f;
+                    }
+
+                    break;
+                case 2:
+                    //ImageCK(false, true, false, false, false, false, false);
+                    break;
+                case 3:
+                    //ImageCK(false, false, true, false, false, false, false);
+                    break;
+                case 4:
+                    // ImageCK(false, false, false, true, false, false, false);
+                    break;
+                case 5:
+                    // ImageCK(false, false, false, false, true, false, false);
+                    break;
+                case 6:
+                    // ImageCK(false, false, false, false, false, true, false);
+                    break;
+                case 7:
+                    //ImageCK(false, false, false, false, false, false, true);
+                    break;
+                case 8:
+                    // ImageCK(false, false, false, false, false, false, false);
+                    Time.timeScale = 1;
+                    Main.SetActive(false);
+
+                    break;
+                default:
+                    break;
+            }
+            woldtime = 0;
         }
     }
     private void OnEnable()
