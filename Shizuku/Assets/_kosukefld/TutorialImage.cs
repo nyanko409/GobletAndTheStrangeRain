@@ -41,13 +41,19 @@ public class TutorialImage : MonoBehaviour
     float pos5 = 2110;
     float pos6 = 2110;
     float pos7 = 2110;
-   
+
+    bool Notpause=false;
     bool STCK = false;
     bool moveCK=true;
 
     bool upPressed;
     bool downPressed;
     private GameInput actions;
+
+    public bool NotPause()
+    {
+        return Notpause;
+    }
 
     private void ImageCK(bool a, bool b, bool c, bool d, bool e, bool f,bool g)
     {
@@ -73,7 +79,7 @@ public class TutorialImage : MonoBehaviour
         
         void Start()
     {
-       
+        Notpause = true;
 
         Time.timeScale = 0;
         ImageCK(true,true, true, true, true, true, true);
@@ -82,6 +88,7 @@ public class TutorialImage : MonoBehaviour
   
     void Update()
     {
+       
         data1.anchoredPosition = new Vector2(pos1, 0);
         data2.anchoredPosition = new Vector2(pos2, 0);
         data3.anchoredPosition = new Vector2(pos3, 0);
@@ -382,7 +389,7 @@ public class TutorialImage : MonoBehaviour
                     break;
 
                 case 8:
-                  
+                    Notpause = false;
                     Time.timeScale = 1;
                     Main.SetActive(false);
 
