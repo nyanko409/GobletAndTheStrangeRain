@@ -9,8 +9,8 @@ public class StageSelect : MonoBehaviour
     public Stage[] stages;
     public GameObject[] stageObjects;
 
+    static int curStageIndex = 0, oldStageIndex = 0;
     GameInput action;
-    int curStageIndex, oldStageIndex;
     SpriteRenderer[] rend;
     Transform camPos;
 
@@ -92,7 +92,9 @@ public class StageSelect : MonoBehaviour
             }
         }
 
-        curStageIndex = oldStageIndex = 0;
+        if(stages[1].isLocked)
+            curStageIndex = oldStageIndex = 0;
+
         camPos = Camera.main.transform;
 
         DisplayNextStage();
