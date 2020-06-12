@@ -11,4 +11,9 @@ public class GameData : MonoBehaviour
             stageData[i].isLocked = true;
         }
     }
+
+    public bool HasGameData()
+    {
+        return stageData[1].isLocked ? false : true;
+    }
 }
