@@ -5,5 +5,6 @@ public class Stage : ScriptableObject
 {
     public string sceneName;
     public string stageName;
+    public int stage;
     public bool isLocked;
 }

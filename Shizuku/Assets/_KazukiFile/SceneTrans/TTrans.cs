@@ -23,7 +23,7 @@ public class TTrans : MonoBehaviour
             {
                 if (Input.GetKeyDown(code))
                 {
-                    FadeManager.FadeOut(1);
+                    FadeManager.FadeOut("StageSelect");
                    
                 }
             }
