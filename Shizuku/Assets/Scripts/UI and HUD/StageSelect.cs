@@ -4,8 +4,7 @@ using UnityEngine.UI;
 public class StageSelect : MonoBehaviour
 {
     public Text stageText;
-    public Sprite spriteLocked, spriteOutline;
-    public Color colorLocked, colorOutline;
+    public Color unlockedColor, lockedColor;
     [Space]
     public Stage[] stages;
     public GameObject[] stageObjects;
@@ -85,13 +84,11 @@ public class StageSelect : MonoBehaviour
             rend[i].enabled = stages[i].isLocked;
             if (stages[i].isLocked)
             {
-                rend[i].sprite = spriteLocked;
-                rend[i].color = colorLocked;
+                rend[i].color = lockedColor;
             }
             else
             {
-                rend[i].sprite = spriteOutline;
-                rend[i].color = colorOutline;
+                rend[i].color = unlockedColor;
             }
         }
 

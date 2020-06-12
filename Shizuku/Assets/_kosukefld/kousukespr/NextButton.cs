@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class NextButton : MonoBehaviour
@@ -28,6 +26,7 @@ public class NextButton : MonoBehaviour
     bool confirmPressed = false;
     bool Bcheck = false;
     bool ADcheck = false;
+    GameData data;
 
     public bool ADCKc()
     {
@@ -51,6 +50,7 @@ public class NextButton : MonoBehaviour
 
     void Start()
     {
+        data = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameData>();
        
         textQ.color = new Color32(0, 0, 0, 0); 
         textH.color = new Color32(0, 0, 0, 0);
@@ -125,7 +125,9 @@ public class NextButton : MonoBehaviour
 
                     if (time2 >= 2.0f)
                     {
-                        StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
+                        // new game
+                        data.ResetGameData();
+                        StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas"));
                     }
                     break;
 
@@ -149,7 +151,8 @@ public class NextButton : MonoBehaviour
 
                     if (time2 >= 2.0f)
                     {
-                        StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas", 2));
+                        // continue
+                        StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas"));
                     }
                     break;
                 case 3:
