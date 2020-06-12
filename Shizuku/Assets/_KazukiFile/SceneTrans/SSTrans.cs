@@ -17,7 +17,7 @@ public class SSTrans : MonoBehaviour
     {
         if (Input.GetKeyDown("return"))
         {
-            FadeManager.FadeOut(2);
+            FadeManager.FadeOut("LoadingScreen");
         }
     }
 }

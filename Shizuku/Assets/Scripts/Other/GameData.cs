@@ -16,4 +16,19 @@ public class GameData : MonoBehaviour
     {
         return stageData[1].isLocked ? false : true;
     }
+
+    public void UnlockStage(int stage)
+    {
+        if (stage >= stageData.Length)
+            return;
+
+        foreach(Stage st in stageData)
+        {
+            if(st.stage == stage)
+            {
+                st.isLocked = false;
+                return;
+            }
+        }
+    }
 }
