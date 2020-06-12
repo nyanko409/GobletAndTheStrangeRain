@@ -20,6 +20,8 @@ public class TutorialImage : MonoBehaviour
     public RectTransform data6;
     public RectTransform data7;
 
+    public float moveSpeed;
+
     float count1;
     float count2;
     float count3;
@@ -28,10 +30,20 @@ public class TutorialImage : MonoBehaviour
     float count6;
     float count7;
 
+
     float woldtime;
+    int Lcount=1;
     int count=1;
-    float pos1=2110;
+    float pos1 = 0;
+    float pos2 = 2110;
+    float pos3 = 2110;
+    float pos4 = 2110;
+    float pos5 = 2110;
+    float pos6 = 2110;
+    float pos7 = 2110;
+   
     bool STCK = false;
+    bool moveCK=true;
 
     bool upPressed;
     bool downPressed;
@@ -70,11 +82,19 @@ public class TutorialImage : MonoBehaviour
   
     void Update()
     {
-        //Debug.Log(count);
-        woldtime += 0.0015f;
+        data1.anchoredPosition = new Vector2(pos1, 0);
+        data2.anchoredPosition = new Vector2(pos2, 0);
+        data3.anchoredPosition = new Vector2(pos3, 0);
+        data4.anchoredPosition = new Vector2(pos4, 0);
+        data5.anchoredPosition = new Vector2(pos5, 0);
+        data6.anchoredPosition = new Vector2(pos6, 0);
+        data7.anchoredPosition = new Vector2(pos7, 0);
+
+        //Debug.Log(Time.deltaTime);
+        woldtime += 0.016f;
         if (woldtime >= 0.01f)
         {
-            if (upPressed)
+            if (upPressed&&moveCK)
             {
 
                 upPressed = false;
@@ -85,7 +105,7 @@ public class TutorialImage : MonoBehaviour
 
             }
 
-            if (downPressed)
+            if (downPressed&&moveCK)
             {
                 downPressed = false;
                 if (count > 1)
@@ -99,38 +119,275 @@ public class TutorialImage : MonoBehaviour
             {
                 case 1:
                     // ImageCK(true, false, false, false, false, false, false);
-                    data1.anchoredPosition = new Vector2(pos1, 0);
-                    pos1 = Mathf.Lerp(2110, 0, count1);
-                    if (count1 <= 1)
+
+                    //1&2
+                    if (Lcount == 1)
                     {
-                        count1 += 0.01f;
+                        if (pos1 > 0)
+                        {
+
+                            moveCK = false;
+                            pos1 -= moveSpeed;
+                        }
+                        else
+                        {
+                            pos1 = 0;
+                            moveCK = true;
+                            Lcount = 1;
+                        }
+                    }
+
+                    if (Lcount==2)
+                    {
+                        if(pos1<0)
+                        {
+                            moveCK = false;
+                            pos1 += moveSpeed;
+                            pos2 += moveSpeed;
+                        }
+                        else
+                        {
+                            pos1 = 0;
+                            pos2 = 2110;
+                            moveCK = true;
+                            Lcount = 1;
+                        }
                     }
 
                     break;
+
                 case 2:
-                    //ImageCK(false, true, false, false, false, false, false);
+                   //1&2
+                    if(Lcount==1)
+                    {
+                      
+                        if(pos2>0)
+                        {
+                            moveCK = false;
+                            pos1 -= moveSpeed;
+                            pos2 -= moveSpeed;
+                        }
+                        else
+                        {
+                            pos1 = -2110;
+                            pos2 = 0;
+                            moveCK = true;
+                            Lcount = 2;
+                        }
+
+                    }
+                    //2&3
+                    if(Lcount==3)
+                    {
+                        if (pos2 < 0)
+                        {
+                            moveCK = false;
+                            pos2 += moveSpeed;
+                            pos3 += moveSpeed;
+                        }
+                        else
+                        {
+                            pos2 = 0;
+                            pos3 = 2110;
+                            moveCK = true;
+                            Lcount = 2;
+                        }
+                    }
+
+                    
                     break;
+
                 case 3:
-                    //ImageCK(false, false, true, false, false, false, false);
+                    //2&3
+                    if (Lcount == 2)
+                    {
+
+                        if (pos3 > 0)
+                        {
+                            moveCK = false;
+                            pos2 -= moveSpeed;
+                            pos3 -= moveSpeed;
+                        }
+                        else
+                        {
+                            pos2 = -2110;
+                            pos3 = 0;
+                            moveCK = true;
+                            Lcount = 3;
+                        }
+
+                    }
+                    //3&4
+                    if (Lcount == 4)
+                    {
+                        if (pos3 < 0)
+                        {
+                            moveCK = false;
+                            pos3 += moveSpeed;
+                            pos4 += moveSpeed;
+                        }
+                        else
+                        {
+                            pos3 = 0;
+                            pos4 = 2110;
+                            moveCK = true;
+                            Lcount = 3;
+                        }
+                    }
+
+                 
                     break;
+
                 case 4:
-                    // ImageCK(false, false, false, true, false, false, false);
+
+                    //3&4
+                    if (Lcount == 3)
+                    {
+
+                        if (pos4 > 0)
+                        {
+                            moveCK = false;
+                            pos3 -= moveSpeed;
+                            pos4 -= moveSpeed;
+                        }
+                        else
+                        {
+                            pos3 = -2110;
+                            pos4 = 0;
+                            moveCK = true;
+                            Lcount = 4;
+                        }
+
+                    }
+
+                    //4&5
+                    if (Lcount == 5)
+                    {
+                        if (pos4 < 0)
+                        {
+                            moveCK = false;
+                            pos4 += moveSpeed;
+                            pos5 += moveSpeed;
+                        }
+                        else
+                        {
+                            pos4 = 0;
+                            pos5 = 2110;
+                            moveCK = true;
+                            Lcount = 4;
+                        }
+                    }
+
+                   
                     break;
+
                 case 5:
-                    // ImageCK(false, false, false, false, true, false, false);
+                    //4&5
+                    if (Lcount == 4)
+                    {
+
+                        if (pos5 > 0)
+                        {
+                            moveCK = false;
+                            pos4 -= moveSpeed;
+                            pos5 -= moveSpeed;
+                        }
+                        else
+                        {
+                            pos4 = -2110;
+                            pos5 = 0;
+                            moveCK = true;
+                            Lcount = 5;
+                        }
+
+                    }
+                    //5&6
+                    if (Lcount == 6)
+                    {
+                        if (pos5 < 0)
+                        {
+                            moveCK = false;
+                            pos5 += moveSpeed;
+                            pos6 += moveSpeed;
+                        }
+                        else
+                        {
+                            pos5 = 0;
+                            pos6 = 2110;
+                            moveCK = true;
+                            Lcount = 5;
+                        }
+                    }
                     break;
+
                 case 6:
-                    // ImageCK(false, false, false, false, false, true, false);
+                    //5&6
+                    if (Lcount == 5)
+                    {
+
+                        if (pos6 > 0)
+                        {
+                            moveCK = false;
+                            pos5 -= moveSpeed;
+                            pos6 -= moveSpeed;
+                        }
+                        else
+                        {
+                            pos5 = -2110;
+                            pos6 = 0;
+                            moveCK = true;
+                            Lcount = 6;
+                        }
+
+                    }
+                    //6&7
+                    if (Lcount == 7)
+                    {
+                        if (pos6 < 0)
+                        {
+                            moveCK = false;
+                            pos6 += moveSpeed;
+                            pos7 += moveSpeed;
+                        }
+                        else
+                        {
+                            pos6 = 0;
+                            pos7 = 2110;
+                            moveCK = true;
+                            Lcount = 6;
+                        }
+                    }
                     break;
+
                 case 7:
-                    //ImageCK(false, false, false, false, false, false, true);
+                    //6&7
+                    if (Lcount == 6)
+                    {
+
+                        if (pos7 > 0)
+                        {
+                            moveCK = false;
+                            pos6 -= moveSpeed;
+                            pos7 -= moveSpeed;
+                        }
+                        else
+                        {
+                            pos6 = -2110;
+                            pos7 = 0;
+                            moveCK = true;
+                            Lcount = 7;
+                        }
+
+                    }
                     break;
+
                 case 8:
-                    // ImageCK(false, false, false, false, false, false, false);
+                  
                     Time.timeScale = 1;
                     Main.SetActive(false);
 
                     break;
+
                 default:
                     break;
             }
