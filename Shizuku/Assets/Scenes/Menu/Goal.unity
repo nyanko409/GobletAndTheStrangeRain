@@ -4661,7 +4661,7 @@ PrefabInstance:
     - target: {fileID: 6492866156851221583, guid: 99ae4b93abe7246b7a225b46643bf65c,
         type: 3}
       propertyPath: m_SceneBindings.Array.size
-      value: 15
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 6492866156851221583, guid: 99ae4b93abe7246b7a225b46643bf65c,
         type: 3}
@@ -4826,12 +4826,24 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SceneBindings.Array.data[15].key
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: -8077999861886738571, guid: 9a8a588fbb5ffb94898434a79e78daef,
+        type: 2}
     - target: {fileID: 6492866156851221583, guid: 99ae4b93abe7246b7a225b46643bf65c,
         type: 3}
       propertyPath: m_SceneBindings.Array.data[15].value
       value: 
-      objectReference: {fileID: 1719338962}
+      objectReference: {fileID: 2132510988}
+    - target: {fileID: 6492866156851221583, guid: 99ae4b93abe7246b7a225b46643bf65c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[16].key
+      value: 
+      objectReference: {fileID: -5798447377947715815, guid: 9a8a588fbb5ffb94898434a79e78daef,
+        type: 2}
+    - target: {fileID: 6492866156851221583, guid: 99ae4b93abe7246b7a225b46643bf65c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[16].value
+      value: 
+      objectReference: {fileID: 799437511}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ae4b93abe7246b7a225b46643bf65c, type: 3}
 --- !u!1001 &1404662809
@@ -18758,12 +18770,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4300216525673668806, guid: 552137c595f504d48afaf28ecdb50c04,
     type: 3}
   m_PrefabInstance: {fileID: 1638276653}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1719338962 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4960902948854106055, guid: 39a0ca240a6c34edcb76e33c34c8076b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1833601912}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1802443758
 PrefabInstance:
