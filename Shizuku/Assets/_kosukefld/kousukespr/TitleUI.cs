@@ -120,6 +120,10 @@ public class TitleUI : MonoBehaviour
         return nextselect;
     }
 
+    public float Count()
+    {
+        return CL_now3;
+    }
     void Start()
     {
         
@@ -179,6 +183,7 @@ public class TitleUI : MonoBehaviour
                     {
                         action = true;
                         textcheck = true;
+
                         starttext.SetActive(true);
                     }
 
