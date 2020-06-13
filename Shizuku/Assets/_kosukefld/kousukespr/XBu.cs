@@ -14,12 +14,12 @@ public class XBu : MonoBehaviour
     {
         if (sabu.CanDrop())
         {
-            WT.enabled = true;
+          //  WT.enabled = true;
             WT2.enabled = true;
         }
         else
         {
-            WT.enabled = false;
+           // WT.enabled = false;
             WT2.enabled = false;
         }
         if (data.IsInDragRange())
