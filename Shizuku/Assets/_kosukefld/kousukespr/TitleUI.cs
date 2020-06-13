@@ -162,7 +162,7 @@ public class TitleUI : MonoBehaviour
 
             
             data.localScale = new Vector2(sizenowW, sizenowH);
-            TLcolor(CL_now,CL_now2,CL_now3,CL_now4);
+            TLcolor(CL_now,CL_now2,CL_now3,CL_now2);
             //Title.color = new Color32(255, 255, 255, (byte)CL_now);
             data.anchoredPosition = new Vector2(nextsizex, nextsizey);
             if (time2 >= 1)
