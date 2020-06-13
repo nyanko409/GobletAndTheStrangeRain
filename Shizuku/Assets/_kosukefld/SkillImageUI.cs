@@ -55,7 +55,7 @@ public class SkillImageUI : MonoBehaviour
                     count += 1;
                     time = 0;
                 }
-                if (count == 9)
+                if (count == 5)
                 {
                     
                     count = 1;
