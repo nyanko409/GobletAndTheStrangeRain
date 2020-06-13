@@ -12,14 +12,14 @@ public class FadeManager : MonoBehaviour
     private static Image fadeImage;
 
     //フェード用Imageの透明度
-    private static float alpha = 0.0f;
+    private static float alpha = 1.0f;
 
     //フェードインアウトのフラグ
     public static bool isFadeIn = false;
     public static bool isFadeOut = false;
 
     //フェードしたい時間（単位は秒）
-    private static float fadeTime = 1.0f;
+    private static float fadeTime = 3.0f;
 
     //遷移先のシーン番号
     private static string nextScene = "";
