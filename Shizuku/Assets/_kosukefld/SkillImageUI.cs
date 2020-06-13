@@ -38,7 +38,7 @@ public class SkillImageUI : MonoBehaviour
    
     void Update()
     {
-        Debug.Log(count); 
+      //  Debug.Log(count); 
         woldtime += Time.deltaTime;
         time += Time.deltaTime;
         if(woldtime>=0.01f)
