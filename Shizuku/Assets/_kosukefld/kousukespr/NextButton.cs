@@ -43,7 +43,7 @@ public class NextButton : MonoBehaviour
         actions = new GameInput();
 
         //data = GetComponent<RectTransform>();
-        backimage.color = new Color32(0, 255, 0, 0);
+        backimage.color = new Color32(0, 0, 0, 0);
         actions.UITitle.Confirm.started += context => { confirmPressed = true; };
         actions.UITitle.Confirm.canceled += context => { confirmPressed = false; };
     }
@@ -100,7 +100,7 @@ public class NextButton : MonoBehaviour
                     }
                     break;
             }
-            backimage.color = new Color32(0, 255, 0, (byte)CL_A);
+            backimage.color = new Color32(255, 60, 0, (byte)CL_A);
             textH.color = new Color32(255,255,255,255);
             textT.color = new Color32(255, 255, 255, 255);
             textQ.color = new Color32(255, 255, 255, 255);
