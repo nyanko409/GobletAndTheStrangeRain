@@ -123,7 +123,7 @@ public class NextButton : MonoBehaviour
                         time2 += Time.deltaTime;
                     }
 
-                    if (time2 >= 2.0f)
+                    if (time2 >= 2.8f)
                     {
                         // new game
                         data.ResetGameData();
@@ -149,7 +149,7 @@ public class NextButton : MonoBehaviour
                         time2 += Time.deltaTime;
                     }
 
-                    if (time2 >= 2.0f)
+                    if (time2 >= 2.8f)
                     {
                         // continue
                         StartCoroutine(SceneLoader.LoadSceneAsync("StageSelect", "Prefabs/UI and HUD/Loading Canvas"));
@@ -173,7 +173,7 @@ public class NextButton : MonoBehaviour
                         time2 += Time.deltaTime;
                     }
 
-                    if (time2 >= 2.0f)
+                    if (time2 >= 2.8f)
                     {
 
 #if UNITY_EDITOR
