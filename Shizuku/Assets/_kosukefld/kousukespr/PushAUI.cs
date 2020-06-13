@@ -38,7 +38,7 @@ public class PushAUI : MonoBehaviour
 
     void Update()
     {
-        
+        Debug.Log(titleui.Count());
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
@@ -69,7 +69,7 @@ public class PushAUI : MonoBehaviour
 
             if (titleui.stratCK() == false)
             {
-               
+                image.color = new Color32(255, 255, 255, (byte)titleui.Count());
                 time2 += Time.deltaTime;
                 if (STcheck)
                 {
@@ -77,7 +77,7 @@ public class PushAUI : MonoBehaviour
                     STcheck = false;
                     
                 }
-                if (time2 >= 0.2f)
+                if (titleui.Count() <= 0)
                 {
                     count = 0;
                  
