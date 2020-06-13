@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -281,17 +281,17 @@ PrefabInstance:
     - target: {fileID: 4962535745572082611, guid: f6c1e8342a53248c789e0bbf6776ea96,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49.86001
+      value: -34.8
       objectReference: {fileID: 0}
     - target: {fileID: 4962535745572082611, guid: f6c1e8342a53248c789e0bbf6776ea96,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 45.62
+      value: 45.6
       objectReference: {fileID: 0}
     - target: {fileID: 4962535745572082611, guid: f6c1e8342a53248c789e0bbf6776ea96,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.59999084
+      value: -0.6
       objectReference: {fileID: 0}
     - target: {fileID: 4962535745572082611, guid: f6c1e8342a53248c789e0bbf6776ea96,
         type: 3}
@@ -472,6 +472,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
+        type: 3}
+      propertyPath: se.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
+        type: 3}
+      propertyPath: se.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8af2e8d3be7b54e5e83f01a0156a8a29, type: 3}
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
+        type: 3}
+      propertyPath: se.Array.data[6].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4b3392effd0d34da3b0d9ff177c47181, type: 3}
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
+        type: 3}
+      propertyPath: se.Array.data[6].type
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
+        type: 3}
+      propertyPath: se.Array.data[6].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
+        type: 3}
+      propertyPath: se.Array.data[7].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: eeccf836002f8463a99282c3e155f1b7, type: 3}
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
+        type: 3}
+      propertyPath: se.Array.data[7].type
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6485922020263213660, guid: 244defdb888cb4d1d86ad890d48743f7,
+        type: 3}
+      propertyPath: se.Array.data[7].volume
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 244defdb888cb4d1d86ad890d48743f7, type: 3}
@@ -2380,7 +2420,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-156224
+  m_Name: pb_Mesh-52944
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4782,6 +4822,16 @@ PrefabInstance:
       propertyPath: m_SceneBindings.Array.data[14].value
       value: 
       objectReference: {fileID: 115367720}
+    - target: {fileID: 6492866156851221583, guid: 99ae4b93abe7246b7a225b46643bf65c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[15].key
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492866156851221583, guid: 99ae4b93abe7246b7a225b46643bf65c,
+        type: 3}
+      propertyPath: m_SceneBindings.Array.data[15].value
+      value: 
+      objectReference: {fileID: 1719338962}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ae4b93abe7246b7a225b46643bf65c, type: 3}
 --- !u!1001 &1404662809
@@ -5256,6 +5306,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 4d5a34ffabc374c1c9fff3bbbcb9e871, type: 2}
+    - target: {fileID: 4368709223053136458, guid: 7265c3407a97f4e0eb117720cef15c84,
+        type: 3}
+      propertyPath: startColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368709223053136458, guid: 7265c3407a97f4e0eb117720cef15c84,
+        type: 3}
+      propertyPath: startColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368709223053136458, guid: 7265c3407a97f4e0eb117720cef15c84,
+        type: 3}
+      propertyPath: startColor.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4368709223053136459, guid: 7265c3407a97f4e0eb117720cef15c84,
         type: 3}
       propertyPath: m_SelectedEdges.Array.size
@@ -18694,6 +18759,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1638276653}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1719338962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4960902948854106055, guid: 39a0ca240a6c34edcb76e33c34c8076b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1833601912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1802443758
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19653,7 +19724,7 @@ PrefabInstance:
     - target: {fileID: 4960902948854106055, guid: 39a0ca240a6c34edcb76e33c34c8076b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4960902948854106056, guid: 39a0ca240a6c34edcb76e33c34c8076b,
         type: 3}
@@ -19709,6 +19780,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960902948854106057, guid: 39a0ca240a6c34edcb76e33c34c8076b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960902948854106057, guid: 39a0ca240a6c34edcb76e33c34c8076b,
+        type: 3}
+      propertyPath: bgm
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a0ca240a6c34edcb76e33c34c8076b, type: 3}
