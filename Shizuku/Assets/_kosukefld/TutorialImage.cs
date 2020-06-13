@@ -33,8 +33,8 @@ public class TutorialImage : MonoBehaviour
 
     float woldtime;
     int Lcount=1;
-    int count=1;
-    float pos1 = 0;
+    int count=0;
+    float pos1 = 2110;
     float pos2 = 2110;
     float pos3 = 2110;
     float pos4 = 2110;
@@ -124,6 +124,20 @@ public class TutorialImage : MonoBehaviour
 
             switch (count)
             {
+                case 0:
+                    if(pos1>0)
+                    {
+                        moveCK = false;
+                        pos1 -= moveSpeed;
+                    }
+                    else
+                    {
+                        pos1 = 0;
+                        moveCK = true;
+                        Lcount = 1;
+                        count = 1;
+                    }
+                    break;
                 case 1:
                     // ImageCK(true, false, false, false, false, false, false);
 
