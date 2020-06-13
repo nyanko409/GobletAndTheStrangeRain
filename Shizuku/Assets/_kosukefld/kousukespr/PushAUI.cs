@@ -38,7 +38,7 @@ public class PushAUI : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(titleui.Count());
+      
         time += Time.deltaTime;
         if (time >= 0.01f)
         {
