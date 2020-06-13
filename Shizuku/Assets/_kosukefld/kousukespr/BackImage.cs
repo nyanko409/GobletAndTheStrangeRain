@@ -25,7 +25,7 @@ public class BackImage : MonoBehaviour
     void Start()
     {
         data = GetComponent<RectTransform>();
-        image.color = new Color32(0,255,0,0);
+        image.color = new Color32(0,0,0,0);
     }
 
     // Update is called once per frame
