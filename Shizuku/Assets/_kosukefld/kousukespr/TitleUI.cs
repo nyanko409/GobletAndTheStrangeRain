@@ -217,7 +217,7 @@ public class TitleUI : MonoBehaviour
 
             if (nextST == true)
             {
-                TLcolor(CL_now3, CL_now3, CL_now5, CL_now4);
+                TLcolor(CL_now3, CL_now3, CL_now5, CL_now3);
                 if ( colorcount3 < 1)
                 {
                     CL_now3 = Mathf.Lerp(255, 0, colorcount3);
