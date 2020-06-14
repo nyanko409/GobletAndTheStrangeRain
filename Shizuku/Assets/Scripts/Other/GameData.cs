@@ -19,7 +19,7 @@ public class GameData : MonoBehaviour
 
     public void UnlockStage(int stage)
     {
-        if (stage >= stageData.Length)
+        if (stage > stageData.Length)
             return;
 
         foreach(Stage st in stageData)
