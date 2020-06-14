@@ -14,6 +14,7 @@ public class StageSelect : MonoBehaviour
     GameInput action;
     SpriteRenderer[] rend;
     Transform camPos;
+    bool stickSelect = false;
 
 
     private void Awake()
@@ -33,6 +34,28 @@ public class StageSelect : MonoBehaviour
         action.UIStageSelect.StageSelectRight.performed += context =>
         {
             SelectRight();
+        };
+
+        action.UIStageSelect.StageSelectStick.performed += context =>
+        {
+            var value = context.ReadValue<float>();
+
+            if (stickSelect && Mathf.Abs(value) < 0.5F)
+                stickSelect = false;
+
+            if (stickSelect)
+                return;
+
+            if (value > 0.5F)
+            {
+                SelectRight();
+                stickSelect = true;
+            }
+            else if (value < -0.5F)
+            {
+                SelectLeft();
+                stickSelect = true;
+            }
         };
     }
 
