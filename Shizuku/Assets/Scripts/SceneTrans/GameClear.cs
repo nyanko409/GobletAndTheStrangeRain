@@ -3,19 +3,32 @@ using UnityEngine.SceneManagement;
 
 public class GameClear : MonoBehaviour
 {
+    static bool cleared = false;
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.tag == "Player")
         {
-            FadeManager.FadeOut("StageSelect");
+            GameData data = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameData>();
+
+            if (cleared)
+            {
+                FadeManager.FadeOut("Title");
+            }
+            else
+                FadeManager.FadeOut("StageSelect");
 
             // unlock the next stage
-            GameData data = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameData>();
             foreach(Stage stage in data.stageData)
             {
                 if (stage.sceneName == SceneManager.GetActiveScene().name)
                 {
                     data.UnlockStage(stage.stage + 1);
+                    if (stage.stage == 8)
+                        cleared = true;
+
+                    print(stage.stage + 1 + "unlocked");
+                    print(SceneManager.GetActiveScene().name);
                 }
             }
         }
