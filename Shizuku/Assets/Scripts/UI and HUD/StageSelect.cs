@@ -162,7 +162,7 @@ public class StageSelect : MonoBehaviour
         // load the selected stage
         if (stages[curStageIndex].sceneName.Length > 0)
         {
-           StartCoroutine(SceneLoader.LoadSceneAsync(stages[curStageIndex].sceneName, "Prefabs/UI and HUD/Loading Canvas", 3));
+            StartCoroutine(SceneLoader.LoadSceneAsync(stages[curStageIndex].sceneName, "Prefabs/UI and HUD/Loading Canvas", 3));
         }
     }
 

@@ -5,7 +5,7 @@ public class ClearCS : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Player")
+        if (collider.CompareTag("Player"))
         {
             FadeManager.FadeOut("Goal");
         }
