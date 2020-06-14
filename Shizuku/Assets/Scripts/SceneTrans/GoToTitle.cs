@@ -1,16 +1,10 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-
-
 
 public class GoToTitle : MonoBehaviour
 {
     void Update()
     {
-
-
-        if (Input.GetKeyDown("joystick button 0"))
+        if (Input.GetKeyDown("joystick button 0") || Input.GetKeyDown(KeyCode.Space))
         {
             FadeManager.FadeOut("Title");
         }
