@@ -218,7 +218,10 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if(!dragRigidbody && (IsGrounded() || curCoyoteTime <= coyoteTime))
+        if (Time.timeScale == 0)
+            return;
+
+        if (!dragRigidbody && (IsGrounded() || curCoyoteTime <= coyoteTime))
         {
             audioJump.Play();
 
