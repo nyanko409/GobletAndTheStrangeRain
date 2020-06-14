@@ -3,6 +3,8 @@
 public class BGMPlayer : MonoBehaviour
 {
     public AudioManager.AudioType bgm;
+    public AudioManager.AudioType ambient;
+    public bool playBGM, playAmbient;
 
     private AudioManager manager;
     private AudioSource bgmSource;
@@ -22,11 +24,17 @@ public class BGMPlayer : MonoBehaviour
     {
         manager = GameObject.FindWithTag("AudioManager").GetComponent<AudioManager>();
 
-        bgmSource = manager.GetAudioSourceByType(bgm);
-        bgmSource.Play();
+        if (playBGM)
+        {
+            bgmSource = manager.GetAudioSourceByType(bgm);
+            bgmSource.Play();
+        }
 
-        ambientSource = manager.GetAudioSourceByType(AudioManager.AudioType.BGM_Rain);
-        ambientSource.Play();
+        if(playAmbient)
+        {
+            ambientSource = manager.GetAudioSourceByType(ambient);
+            ambientSource.Play();
+        }
     }
 
     private void OnDestroy()

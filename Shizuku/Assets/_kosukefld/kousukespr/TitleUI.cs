@@ -135,8 +135,8 @@ public class TitleUI : MonoBehaviour
 
         Audio2.volume = AD2;
         Audio.volume = AD;
-        AD = Mathf.Lerp(0, 0.05f, ADC);
-        AD2 = Mathf.Lerp(0, 0.1f, ADC);
+        AD = Mathf.Lerp(0, 0.01f, ADC);
+        AD2 = Mathf.Lerp(0, 0.02f, ADC);
         //color.a = 0;
         //RectTransform rectTransform = GetComponent<RectTransform>();
         TLcolor(0,0,255,0);
@@ -343,7 +343,7 @@ public class TitleUI : MonoBehaviour
             Audio.volume = AD;
             Audio2.volume = AD2;
             AD = Mathf.Lerp(0,0.25f,ADC);
-            AD2 = Mathf.Lerp(0, 0.1f, ADC);
+            AD2 = Mathf.Lerp(0, 0.02f, ADC);
 
             if (Nx.ADCKc())
             {
