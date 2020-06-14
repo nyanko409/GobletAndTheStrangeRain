@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 580809531}
-  m_IndirectSpecularColor: {r: 0.17276807, g: 0.21589197, b: 0.29782572, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -56,7 +56,7 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
-    m_BakeResolution: 1
+    m_BakeResolution: 30
     m_AtlasSize: 1024
     m_AO: 1
     m_AOMaxDistance: 5
@@ -27250,7 +27250,7 @@ PrefabInstance:
     - target: {fileID: 8778416128521090780, guid: 703be5a869c924e90b975ba1638fd198,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8778416128521090780, guid: 703be5a869c924e90b975ba1638fd198,
         type: 3}
