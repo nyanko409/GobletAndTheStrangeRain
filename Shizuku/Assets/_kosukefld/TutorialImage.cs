@@ -11,6 +11,8 @@ public class TutorialImage : MonoBehaviour
     public GameObject Image5;
     public GameObject Image6;
     public GameObject Image7;
+    public GameObject R;
+    public GameObject L;
 
     public RectTransform data1;
     public RectTransform data2;
@@ -140,7 +142,7 @@ public class TutorialImage : MonoBehaviour
                     break;
                 case 1:
                     // ImageCK(true, false, false, false, false, false, false);
-
+                    L.SetActive(false);
                     //1&2
                     if (Lcount == 1)
                     {
@@ -178,6 +180,7 @@ public class TutorialImage : MonoBehaviour
                     break;
 
                 case 2:
+                    L.SetActive(true);
                    //1&2
                     if(Lcount==1)
                     {
@@ -342,6 +345,7 @@ public class TutorialImage : MonoBehaviour
                     break;
 
                 case 6:
+                    R.SetActive(true);
                     //5&6
                     if (Lcount == 5)
                     {
@@ -381,6 +385,7 @@ public class TutorialImage : MonoBehaviour
                     break;
 
                 case 7:
+                    R.SetActive(false);
                     //6&7
                     if (Lcount == 6)
                     {
