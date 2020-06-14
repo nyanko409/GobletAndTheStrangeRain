@@ -7,13 +7,13 @@ public class GameClear : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        if (collider.tag == "Player")
+        if (collider.CompareTag("Player"))
         {
             GameData data = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameData>();
 
             if (cleared)
             {
-                FadeManager.FadeOut("Title");
+                FadeManager.FadeOut("ThanksForPlaying");
             }
             else
                 FadeManager.FadeOut("StageSelect");
