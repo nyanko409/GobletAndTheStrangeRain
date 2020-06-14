@@ -486,7 +486,7 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Confirm Stage"",
+                    ""name"": ""Stage Select Stick"",
                     ""type"": ""Button"",
                     ""id"": ""657a9170-ecd5-4565-938c-ce32f1ea3fa3"",
                     ""expectedControlType"": """",
@@ -494,9 +494,17 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Return To Title"",
+                    ""name"": ""Confirm Stage"",
                     ""type"": ""Button"",
                     ""id"": ""165a3f44-9d53-457a-baff-2ab6c7070b35"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Return To Title"",
+                    ""type"": ""Button"",
+                    ""id"": ""ead5da81-bdb5-4497-b123-a96f1f4b9dc4"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
@@ -532,17 +540,6 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Stage Select Left"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""aa2eff1e-467d-4d10-9a8e-93b8220facf7"",
-                    ""path"": ""<Gamepad>/leftStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
                     ""action"": ""Stage Select Left"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -587,17 +584,6 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Stage Select Right"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4d7cfabb-9e0b-46d0-b266-86df7a78c4a0"",
-                    ""path"": ""<Gamepad>/leftStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
                     ""action"": ""Stage Select Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -656,6 +642,39 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""action"": ""Return To Title"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""71938437-c348-4723-b8ca-93e9fe8f5f27"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Stage Select Stick"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""58f6c57b-cddd-4a55-954b-ef75affa5d5b"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Stage Select Stick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""cc2e5088-eee7-4bd4-a518-b2e026d968e6"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Stage Select Stick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -1062,6 +1081,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         m_UIStageSelect = asset.FindActionMap("UI Stage Select", throwIfNotFound: true);
         m_UIStageSelect_StageSelectLeft = m_UIStageSelect.FindAction("Stage Select Left", throwIfNotFound: true);
         m_UIStageSelect_StageSelectRight = m_UIStageSelect.FindAction("Stage Select Right", throwIfNotFound: true);
+        m_UIStageSelect_StageSelectStick = m_UIStageSelect.FindAction("Stage Select Stick", throwIfNotFound: true);
         m_UIStageSelect_ConfirmStage = m_UIStageSelect.FindAction("Confirm Stage", throwIfNotFound: true);
         m_UIStageSelect_ReturnToTitle = m_UIStageSelect.FindAction("Return To Title", throwIfNotFound: true);
         // UI Pause Menu
@@ -1249,6 +1269,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     private IUIStageSelectActions m_UIStageSelectActionsCallbackInterface;
     private readonly InputAction m_UIStageSelect_StageSelectLeft;
     private readonly InputAction m_UIStageSelect_StageSelectRight;
+    private readonly InputAction m_UIStageSelect_StageSelectStick;
     private readonly InputAction m_UIStageSelect_ConfirmStage;
     private readonly InputAction m_UIStageSelect_ReturnToTitle;
     public struct UIStageSelectActions
@@ -1257,6 +1278,7 @@ public class @GameInput : IInputActionCollection, IDisposable
         public UIStageSelectActions(@GameInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @StageSelectLeft => m_Wrapper.m_UIStageSelect_StageSelectLeft;
         public InputAction @StageSelectRight => m_Wrapper.m_UIStageSelect_StageSelectRight;
+        public InputAction @StageSelectStick => m_Wrapper.m_UIStageSelect_StageSelectStick;
         public InputAction @ConfirmStage => m_Wrapper.m_UIStageSelect_ConfirmStage;
         public InputAction @ReturnToTitle => m_Wrapper.m_UIStageSelect_ReturnToTitle;
         public InputActionMap Get() { return m_Wrapper.m_UIStageSelect; }
@@ -1274,6 +1296,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @StageSelectRight.started -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectRight;
                 @StageSelectRight.performed -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectRight;
                 @StageSelectRight.canceled -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectRight;
+                @StageSelectStick.started -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectStick;
+                @StageSelectStick.performed -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectStick;
+                @StageSelectStick.canceled -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnStageSelectStick;
                 @ConfirmStage.started -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnConfirmStage;
                 @ConfirmStage.performed -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnConfirmStage;
                 @ConfirmStage.canceled -= m_Wrapper.m_UIStageSelectActionsCallbackInterface.OnConfirmStage;
@@ -1290,6 +1315,9 @@ public class @GameInput : IInputActionCollection, IDisposable
                 @StageSelectRight.started += instance.OnStageSelectRight;
                 @StageSelectRight.performed += instance.OnStageSelectRight;
                 @StageSelectRight.canceled += instance.OnStageSelectRight;
+                @StageSelectStick.started += instance.OnStageSelectStick;
+                @StageSelectStick.performed += instance.OnStageSelectStick;
+                @StageSelectStick.canceled += instance.OnStageSelectStick;
                 @ConfirmStage.started += instance.OnConfirmStage;
                 @ConfirmStage.performed += instance.OnConfirmStage;
                 @ConfirmStage.canceled += instance.OnConfirmStage;
@@ -1478,6 +1506,7 @@ public class @GameInput : IInputActionCollection, IDisposable
     {
         void OnStageSelectLeft(InputAction.CallbackContext context);
         void OnStageSelectRight(InputAction.CallbackContext context);
+        void OnStageSelectStick(InputAction.CallbackContext context);
         void OnConfirmStage(InputAction.CallbackContext context);
         void OnReturnToTitle(InputAction.CallbackContext context);
     }

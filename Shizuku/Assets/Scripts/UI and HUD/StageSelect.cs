@@ -14,6 +14,8 @@ public class StageSelect : MonoBehaviour
     GameInput action;
     SpriteRenderer[] rend;
     Transform camPos;
+    bool stickSelect = false;
+    AudioSource selectSource;
 
 
     private void Awake()
@@ -34,10 +36,34 @@ public class StageSelect : MonoBehaviour
         {
             SelectRight();
         };
+
+        action.UIStageSelect.StageSelectStick.performed += context =>
+        {
+            var value = context.ReadValue<float>();
+
+            if (stickSelect && Mathf.Abs(value) < 0.5F)
+                stickSelect = false;
+
+            if (stickSelect)
+                return;
+
+            if (value > 0.5F)
+            {
+                SelectRight();
+                stickSelect = true;
+            }
+            else if (value < -0.5F)
+            {
+                SelectLeft();
+                stickSelect = true;
+            }
+        };
     }
 
     private void SelectLeft()
     {
+        selectSource.Play();
+
         // check if stage is locked
         if (curStageIndex - 1 < 0 && stages[stages.Length - 1].isLocked)
         {
@@ -66,6 +92,8 @@ public class StageSelect : MonoBehaviour
 
     private void SelectRight()
     {
+        selectSource.Play();
+
         // check if stage is locked
         if (curStageIndex < stages.Length - 1 && stages[curStageIndex + 1].isLocked)
         {
@@ -86,6 +114,8 @@ public class StageSelect : MonoBehaviour
 
     private void Start()
     {
+        selectSource = GetComponent<AudioSource>();
+
         // init sprite renderers
         rend = new SpriteRenderer[stageObjects.Length];
         for(int i = 0; i < stageObjects.Length; ++i)
