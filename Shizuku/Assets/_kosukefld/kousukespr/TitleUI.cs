@@ -5,6 +5,7 @@ public class TitleUI : MonoBehaviour
 {
 
     public AudioSource Audio;
+    public AudioSource Audio2;
     //public AudioSource SE;
     public PushAUI aui;
     public NextButton Nx;
@@ -54,6 +55,7 @@ public class TitleUI : MonoBehaviour
     float time = 0;
     float time2 = 0;
     float AD;
+    float AD2;
     float ADC=1;
     float STBGM = 0;
 
@@ -131,8 +133,10 @@ public class TitleUI : MonoBehaviour
         //text.SetActive(false);
         data = GetComponent<RectTransform>();
 
+        Audio2.volume = AD2;
         Audio.volume = AD;
         AD = Mathf.Lerp(0, 0.05f, ADC);
+        AD2 = Mathf.Lerp(0, 0.1f, ADC);
         //color.a = 0;
         //RectTransform rectTransform = GetComponent<RectTransform>();
         TLcolor(0,0,255,0);
@@ -156,6 +160,7 @@ public class TitleUI : MonoBehaviour
 
                     BGMS = true;
                     Audio.Play();
+                    Audio2.Play();
                 }
               
             }
@@ -336,13 +341,16 @@ public class TitleUI : MonoBehaviour
 
             //Aodio================================================
             Audio.volume = AD;
+            Audio2.volume = AD2;
             AD = Mathf.Lerp(0,0.25f,ADC);
+            AD2 = Mathf.Lerp(0, 0.1f, ADC);
 
             if (Nx.ADCKc())
             {
                 ADC -= 0.01f;
                 if(ADC<=0)
                 {
+                    Audio2.Stop();
                     Audio.Stop();
                 }
             }
