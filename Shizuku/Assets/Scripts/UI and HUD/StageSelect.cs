@@ -27,51 +27,61 @@ public class StageSelect : MonoBehaviour
 
         action.UIStageSelect.StageSelectLeft.performed += context =>
         {
-            // check if stage is locked
-            if (curStageIndex - 1 < 0 && stages[stages.Length - 1].isLocked)
-            {
-                oldStageIndex = curStageIndex;
-
-                for(int i = stages.Length - 1; i >= 0; --i)
-                {
-                    if(!stages[i].isLocked)
-                    {
-                        curStageIndex = i;
-                        break;
-                    }
-                }
-
-                DisplayNextStage();
-                return;
-            }
-
-            // update index
-            oldStageIndex = curStageIndex;
-            curStageIndex--;
-            curStageIndex = curStageIndex < 0 ? stages.Length - 1 : curStageIndex;
-
-            DisplayNextStage();
+            SelectLeft();
         };
 
         action.UIStageSelect.StageSelectRight.performed += context =>
         {
-            // check if stage is locked
-            if (curStageIndex < stages.Length - 1 && stages[curStageIndex + 1].isLocked)
+            SelectRight();
+        };
+    }
+
+    private void SelectLeft()
+    {
+        // check if stage is locked
+        if (curStageIndex - 1 < 0 && stages[stages.Length - 1].isLocked)
+        {
+            oldStageIndex = curStageIndex;
+
+            for (int i = stages.Length - 1; i >= 0; --i)
             {
-                // select the first stage if locked
-                oldStageIndex = curStageIndex;
-                curStageIndex = 0;
-                DisplayNextStage();
-                return;
+                if (!stages[i].isLocked)
+                {
+                    curStageIndex = i;
+                    break;
+                }
             }
 
-            // update index
-            oldStageIndex = curStageIndex;
-            curStageIndex++;
-            curStageIndex = curStageIndex >= stages.Length ? 0 : curStageIndex;
-
             DisplayNextStage();
-        };
+            return;
+        }
+
+        // update index
+        oldStageIndex = curStageIndex;
+        curStageIndex--;
+        curStageIndex = curStageIndex < 0 ? stages.Length - 1 : curStageIndex;
+
+        DisplayNextStage();
+    }
+
+    private void SelectRight()
+    {
+        // check if stage is locked
+        if (curStageIndex < stages.Length - 1 && stages[curStageIndex + 1].isLocked)
+        {
+            // select the first stage if locked
+            oldStageIndex = curStageIndex;
+            curStageIndex = 0;
+            DisplayNextStage();
+            return;
+        }
+
+        // update index
+        oldStageIndex = curStageIndex;
+        curStageIndex++;
+        curStageIndex = curStageIndex >= stages.Length ? 0 : curStageIndex;
+
+        DisplayNextStage();
     }
 
     private void Start()

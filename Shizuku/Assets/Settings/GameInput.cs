@@ -549,6 +549,17 @@ public class @GameInput : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""624bf42f-4eed-450c-ad55-d3d2ff833322"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Stage Select Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""2c71cddb-0687-4ecd-9d43-938e5d80300a"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
@@ -587,6 +598,17 @@ public class @GameInput : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
+                    ""action"": ""Stage Select Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5c07a9b9-0a40-4947-b849-dabe09079443"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
                     ""action"": ""Stage Select Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false

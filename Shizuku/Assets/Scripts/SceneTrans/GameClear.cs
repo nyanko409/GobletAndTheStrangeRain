@@ -26,6 +26,8 @@ public class GameClear : MonoBehaviour
                     data.UnlockStage(stage.stage + 1);
                     if (stage.stage == 8)
                         cleared = true;
+                    else
+                        cleared = false;
 
                     print(stage.stage + 1 + "unlocked");
                     print(SceneManager.GetActiveScene().name);
