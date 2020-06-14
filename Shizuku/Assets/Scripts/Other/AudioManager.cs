@@ -1,0 +1,85 @@
+﻿using System.Collections.Generic;
+using UnityEngine;
+
+public class AudioManager : MonoBehaviour
+{
+    public enum AudioType
+    {
+        BGM_Rain, BGM_Stage1, BGM_Stage2, BGM_Stage3,
+        SE_Droplet, SE_PlayerRun, SE_PlayerJump, SE_PlayerLand, SE_Switch, SE_MoveObstacle,SE_StageStart,SE_StageClear
+    }
+
+    [System.Serializable]
+    public struct AudioData
+    {
+        public AudioClip clip;
+        public AudioType type;
+        [Range(0, 1)]
+        public float volume;
+
+        internal AudioSource source;
+
+        public AudioData(AudioClip clip, AudioType type, float volume, AudioSource source) : this()
+        {
+            this.clip = clip;
+            this.type = type;
+            this.volume = volume;
+            this.source = source;
+        }
+    }
+
+
+    public List<AudioData> bgm, se;
+
+    private GameSettings settings;
+
+
+    public AudioSource GetAudioSourceByType(AudioType type)
+    {
+        // search for audio type
+        var source = bgm.Find(data => data.type == type).source;
+        if (source) return source;
+
+        source = se.Find(data => data.type == type).source;
+        if (source) return source;
+
+        // type not found
+        return null;
+    }
+
+    public void UpdateVolumeFromSettings()
+    {
+        foreach (var audio in bgm)
+            audio.source.volume = settings.masterVolume * settings.bgmVolume * audio.volume;
+
+        foreach (var audio in se)
+            audio.source.volume = settings.masterVolume * settings.seVolume * audio.volume;
+    }
+
+
+    private void Awake()
+    {
+        // get game settings for volume
+        settings = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Settings>().settings;
+
+        // initialize audio sources for bgm and soundeffects
+        for(int i = 0; i < bgm.Count; ++i)
+        {
+            AudioSource source = gameObject.AddComponent<AudioSource>();
+            source.clip = bgm[i].clip;
+            source.loop = true;
+
+            bgm[i] = new AudioData(bgm[i].clip, bgm[i].type, bgm[i].volume, source);
+        }
+
+        for (int i = 0; i < se.Count; ++i)
+        {
+            AudioSource source = gameObject.AddComponent<AudioSource>();
+            source.clip = se[i].clip;
+
+            se[i] = new AudioData(se[i].clip, se[i].type, se[i].volume, source);
+        }
+
+        UpdateVolumeFromSettings();
+    }
+}

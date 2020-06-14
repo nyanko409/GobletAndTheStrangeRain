@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - RippleReceiver
-  - RippleProvider
-  - Block
+  - GameManager
+  - AudioManager
+  - CheckPointManager
   layers:
   - Default
   - TransparentFX
@@ -16,16 +16,16 @@ TagManager:
   - UI
   - 
   - 
-  - goal
-  - player
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Room
+  - Ripple
+  - Obstacle
+  - Player
+  - Only Ripple
+  - Ignore Ripple
+  - Save Point
+  - Obstacle Disabled
+  - Switch
+  - Wind Area
   - 
   - 
   - 
@@ -43,4 +43,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: nami
+    uniqueID: 2169767081
     locked: 0
